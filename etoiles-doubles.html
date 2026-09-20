@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les étoiles doubles prouvent que rien ne dépasse la lumière — Ricochets</title>
+<meta name="description" content="Si la lumière emportait la vitesse de sa source, les étoiles doubles nous apparaîtraient à plusieurs endroits à la fois. Démonstration interactive de l'argument de De Sitter.">
+<meta name="theme-color" content="#070f19">
+<meta property="og:title" content="Les étoiles doubles et la vitesse de la lumière">
+<meta property="og:description" content="La plus vieille preuve du ciel que la lumière va toujours à la même vitesse.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23070f19'/><path d='M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23' stroke='%23ffc98a' fill='none' stroke-width='2.2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23" stroke="#ffc98a" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg>
+      Ricochets
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Articles</a>
+      <a href="index.html#a-propos">À propos</a>
+    </nav>
+  </div>
+</header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker">Démonstration interactive</p>
+      <h1>Les étoiles doubles interdisent d'aller plus vite que la lumière</h1>
+      <p class="dek">Si la lumière emportait la vitesse de sa source, le ciel serait un chaos. Il ne l'est pas, et cette observation à elle seule fonde toute la relativité.</p>
+      <div class="scene"><svg id="raceSvg" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button id="raceH" class="go">Hypothèse : la lumière emporte la vitesse de l'étoile</button>
+        <span class="hint" id="raceT">Les éclairs partent dans l'ordre. Regardez dans quel ordre ils arrivent.</span>
+      </div>
+      <div class="meta"><span>20 septembre 2026</span><span>10 min</span><span>6 étapes</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>La question tient en une phrase</h2>
+      <p>Vous lancez une balle à 20 km/h depuis un train qui roule à 100 km/h. Pour quelqu'un au bord de la voie, la balle va à 120 km/h. Les vitesses s'additionnent, c'est l'évidence même.</p>
+      <p>Allumez maintenant une lampe torche à l'avant du train. Sa lumière va-t-elle à 300 000 km/s, ou à 300 000 km/s plus la vitesse du train ?</p>
+      <p>Au début du vingtième siècle, la question était sérieuse. Walther Ritz défendait la deuxième réponse, qui a l'avantage du bon sens. Einstein défendait la première, qui n'en a aucun. Pour trancher, il fallait une source de lumière qui file très vite. Aucun laboratoire ne savait en fabriquer une.</p>
+      <p><strong>Le ciel, lui, en est rempli.</strong> Une étoile double est un couple d'étoiles qui tournent l'une autour de l'autre. Elles bouclent parfois leur tour en quelques jours, ce qui veut dire qu'elles se déplacent à des centaines de kilomètres par seconde. Pendant la moitié de son tour, l'étoile vient vers nous. Pendant l'autre moitié, elle s'éloigne.</p>
+      <p>En 1913, l'astronome néerlandais Willem de Sitter a compris qu'il suffisait de regarder.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>La course des photons</h2>
+      <p>Supposons un instant que Ritz ait raison. La lumière émise pendant que l'étoile s'approche de nous part avec un petit supplément de vitesse. Celle émise pendant qu'elle s'éloigne part avec un petit déficit.</p>
+      <p>Sur trois mètres, ça ne change rien. Mais la lumière d'une étoile voyage pendant des années. Un écart minuscule de vitesse, multiplié par une durée énorme, devient un écart énorme à l'arrivée. La lumière rapide rattrape la lumière lente partie plus tôt, puis la double.</p>
+      <p>C'est l'animation tout en haut de cette page. Les éclairs quittent l'étoile dans l'ordre 1, 2, 3, 4. Regardez le numéro de ceux qui arrivent.</p>
+      <p>Autrement dit : nous verrions l'étoile faire son orbite dans le désordre. Et si l'écart devient assez grand, nous la verrions à plusieurs endroits en même temps.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Ce que nous verrions</h2>
+      <p>Voici une étoile double vue de côté. À gauche, sa vraie position. À droite, l'image qui nous parvient. Le curseur règle la distance qui nous sépare du couple : c'est le temps de trajet qui amplifie l'écart, donc plus c'est loin, plus c'est grave.</p>
+
+      <div class="scene"><svg id="orbSvg" aria-hidden="true"></svg></div>
+
+      <div class="rd">
+        <div><b id="roImg">1</b><span>images vues en même temps</span></div>
+        <div><b id="roSp">0 j</b><span>écart entre la lumière la plus rapide et la plus lente</span></div>
+        <div><b id="roD">0 al</b><span>distance de l'étoile</span></div>
+      </div>
+
+      <div class="ctl">
+        <span class="grp"><label for="dist">Distance</label>
+          <input type="range" id="dist" min="0" max="60" step="0.5" value="0"></span>
+        <button id="hypoB" class="go">Passer à la vitesse constante</button>
+        <button id="playB">Pause</button>
+      </div>
+      <p class="cap" id="orbCap">Distance nulle : aucun temps de trajet, donc aucun écart. Les deux images sont identiques. Faites glisser le curseur.</p>
+
+      <p>Les astronomes ne mesurent pas vraiment la position de ces étoiles, qui sont bien trop rapprochées pour être séparées dans un télescope. Ils mesurent leur <strong>vitesse</strong>, grâce au décalage des raies de leur spectre. Une étoile qui tourne régulièrement doit donner une belle sinusoïde.</p>
+
+      <div class="scene"><svg id="curveSvg" aria-hidden="true"></svg></div>
+      <p class="hint" style="font-family:'Space Grotesk',sans-serif;font-size:.84rem;color:#7a8b9f;margin:-.4rem 0 1.4rem">La courbe pointillée est ce que donnerait une vitesse de la lumière constante. La courbe dorée est ce que donnerait l'hypothèse de Ritz, à la distance choisie ci-dessus.</p>
+
+      <p>Dès que la courbe se replie sur elle-même, la mesure devient absurde : au même instant, le spectre contiendrait trois vitesses différentes pour la même étoile. Et une orbite circulaire nous apparaîtrait comme une orbite très allongée, parcourue n'importe comment.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Ce que nous voyons vraiment</h2>
+      <p>Rien de tout cela. Les étoiles doubles donnent des courbes de vitesse propres, et des orbites qui obéissent aux lois de Kepler au point qu'on s'en sert pour peser les étoiles.</p>
+      <p>La conclusion de De Sitter est donc sans échappatoire : <strong>la vitesse de la lumière ne dépend pas de la vitesse de sa source.</strong> Une étoile qui fonce vers nous à 300 km/s nous envoie sa lumière exactement à la même vitesse qu'une étoile immobile.</p>
+      <p>L'argument a connu une contre-attaque intéressante. Dans les années 1960, on a fait remarquer que la lumière traverse du gaz interstellaire, qui l'absorbe et la réémet. Or la lumière réémise repart à la vitesse du gaz, pas à celle de l'étoile, ce qui effacerait l'effet en route. L'objection était sérieuse.</p>
+      <p>Elle a été réglée en 1977 par Kenneth Brecher, qui a refait le test avec des binaires X. Les rayons X traversent le gaz sans être réémis. Verdict : si la vitesse de la lumière dépendait de sa source, ce serait par moins d'un milliardième. Autant dire zéro.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Pourquoi cela interdit de dépasser la lumière</h2>
+      <p>Une fois admis que la lumière va toujours à la même vitesse, quelle que soit celle de sa source, quelque chose de bizarre suit immédiatement.</p>
+      <p>Montez dans un vaisseau et accélérez à la poursuite d'un rayon lumineux. Vous devriez le voir s'éloigner de moins en moins vite. Mais la mesure donne toujours la même chose : il vous fuit à 300 000 km/s. Vous avez beau accélérer, l'écart ne se réduit jamais. La lumière n'est pas un véhicule rapide que l'on pourrait rattraper avec un meilleur moteur, c'est la vitesse à laquelle tout le monde la voit passer.</p>
+      <p>Les vitesses ne s'additionnent donc pas comme des nombres ordinaires. Voici la vraie règle, à manipuler ci-dessous : lancez une sonde à toute vitesse depuis un vaisseau déjà lancé à toute vitesse, et le total refuse obstinément d'atteindre <em>c</em>.</p>
+
+      <div class="scene"><svg id="addSvg" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="u">Vaisseau</label><input type="range" id="u" min="0" max="99" value="60"></span>
+        <span class="grp"><label for="v">Sonde lancée depuis le vaisseau</label><input type="range" id="v" min="0" max="99" value="60"></span>
+      </div>
+      <p class="cap" id="addCap"></p>
+      <p>La formule est celle d'Einstein : on additionne les deux vitesses, puis on divise par 1 plus leur produit (en fractions de <em>c</em>). Tant que les vitesses sont petites, le diviseur vaut pratiquement 1 et on retrouve l'addition de tout le monde. Quand elles approchent de <em>c</em>, le diviseur gonfle juste ce qu'il faut pour que le résultat reste en dessous.</p>
+      <p>Prenez deux fois 99 % de la vitesse de la lumière : le résultat n'est pas 198 %, c'est 99,995 %. On peut s'approcher aussi près qu'on veut de la limite, on ne la franchit jamais.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>Trois questions</h2>
+      <div id="quiz"></div>
+      <p id="score" style="color:#7a8b9f;font-size:.95rem;font-family:'Space Grotesk',sans-serif"></p>
+      <p style="margin-top:2rem">À retenir : des couples d'étoiles situés à des milliers d'années-lumière nous montrent des orbites parfaitement régulières. Cela ne serait pas possible si la lumière emportait la vitesse de sa source. Et une vitesse identique pour tous les observateurs, c'est exactement ce qui rend la limite infranchissable.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav">
+      <a href="index.html">Tous les articles</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <span>Ricochets, 2026</span>
+    <span>Site écrit à la main, sans template.</span>
+  </div>
+</footer>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* barre de progression */
+(function(){const b=$("prog");function u(){const h=document.documentElement,m=h.scrollHeight-h.clientHeight;
+b.style.width=(m>0?h.scrollTop/m*100:0)+"%";}addEventListener("scroll",u,{passive:true});addEventListener("resize",u);u();})();
+
+/* ===================================================================
+   1. La course des photons
+   =================================================================== */
+const RACE={vw:960,vh:230,x0:130,x1:880,y:150,beta:0.30,base:255,period:3.2};
+let raceEmit=true, photons=[], nextId=1, lastEmit=-9, arrivals=[], raceT=0;
+
+function raceFrame(dt){
+  raceT+=dt;
+  if(raceT-lastEmit>0.40){
+    lastEmit=raceT;
+    const th=2*Math.PI*raceT/RACE.period;
+    const vr=Math.cos(th);                      // +1 : l'étoile vient vers nous
+    const sp=RACE.base*(raceEmit?1+RACE.beta*vr:1);
+    photons.push({id:nextId++,x:RACE.x0,sp:sp});
+    if(nextId>99) nextId=1;
+  }
+  for(const p of photons) p.x+=p.sp*dt;
+  const done=photons.filter(p=>p.x>=RACE.x1);
+  if(done.length){ done.forEach(p=>arrivals.push(p.id)); if(arrivals.length>9) arrivals=arrivals.slice(-9); }
+  photons=photons.filter(p=>p.x<RACE.x1);
+  drawRace();
+}
+function drawRace(){
+  const {vw,vh,x0,x1,y,period}=RACE;
+  const th=2*Math.PI*raceT/period;
+  const sx=x0-46+18*Math.cos(th+Math.PI/2), sy=y+30*Math.sin(th+Math.PI/2);
+  let s=`<ellipse class="orbitline" cx="${x0-46}" cy="${y}" rx="18" ry="30"/>`;
+  s+=`<circle class="comp" cx="${x0-46-(sx-(x0-46))}" cy="${y-(sy-y)}" r="5"/>`;
+  s+=`<circle class="star" cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="11"/>`;
+  s+=`<text class="axlbl" x="${x0-46}" y="${y+58}" text-anchor="middle">étoile double</text>`;
+  s+=`<path class="axis" d="M${x0} ${y}H${x1}" stroke-dasharray="2 7"/>`;
+  s+=`<circle class="earth" cx="${x1+26}" cy="${y}" r="13"/>`;
+  s+=`<text class="axlbl" x="${x1+26}" y="${y+40}" text-anchor="middle">nous</text>`;
+  for(const p of photons){
+    s+=`<circle class="photon" cx="${p.x.toFixed(1)}" cy="${y}" r="4.5"/>`;
+    s+=`<text class="num" x="${p.x.toFixed(1)}" y="${y-13}" text-anchor="middle">${p.id}</text>`;
+  }
+  s+=`<text class="axlbl" x="${x0}" y="${y-58}">ordre de départ</text>`;
+  s+=`<text class="axlbl" x="${x1+40}" y="${y-58}" text-anchor="end">ordre d'arrivée</text>`;
+  arrivals.forEach((id,i)=>{
+    s+=`<text class="num" x="${x1+40-(arrivals.length-1-i)*30}" y="${y-36}" text-anchor="end" opacity="${0.35+0.65*(i+1)/arrivals.length}">${id}</text>`;
+  });
+  const svg=$("raceSvg");
+  svg.setAttribute("viewBox",`0 0 ${vw} ${vh}`);
+  svg.innerHTML=s;
+}
+$("raceH").onclick=()=>{
+  raceEmit=!raceEmit; photons=[]; arrivals=[]; nextId=1; lastEmit=raceT-1;
+  $("raceH").textContent=raceEmit
+    ? "Hypothèse : la lumière emporte la vitesse de l'étoile"
+    : "Hypothèse : la lumière va toujours à la même vitesse";
+  $("raceT").textContent=raceEmit
+    ? "Les éclairs partent dans l'ordre. Regardez dans quel ordre ils arrivent."
+    : "Vitesse unique pour tous les éclairs : ils arrivent dans l'ordre, régulièrement espacés.";
+};
+
+/* ===================================================================
+   2 et 3. Orbite vue et courbe de vitesse
+   =================================================================== */
+const C=299792458, LY=9.4607e15, DAY=86400;
+const P=5*DAY, V=1e5;                 // période 5 jours, vitesse 100 km/s
+let Dly=0, emission=true, playing=true, T=0;
+let SAMP=null;
+
+function buildSamples(){
+  const N=1400, a=-2*P, b=3*P, out=new Array(N);
+  const Dm=Dly*LY;
+  for(let i=0;i<N;i++){
+    const te=a+(b-a)*i/(N-1);
+    const vr=V*Math.cos(2*Math.PI*te/P);            // positif : vient vers nous
+    const ta=emission ? te - Dm*vr/(C*(C+vr)) : te; // retard constant D/c retiré
+    out[i]={te,ta,vr};
+  }
+  SAMP=out;
+}
+function imagesAt(t){
+  const res=[];
+  for(let i=0;i<SAMP.length-1;i++){
+    const a=SAMP[i].ta-t, b=SAMP[i+1].ta-t;
+    if(a===0||(a<0)!==(b<0)){
+      const f=a/(a-b);
+      const te=SAMP[i].te+(SAMP[i+1].te-SAMP[i].te)*f;
+      let th=2*Math.PI*te/P; th=((th%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
+      if(!res.some(r=>Math.abs(r-th)<0.06||Math.abs(r-th)>2*Math.PI-0.06)) res.push(th);
+    }
+  }
+  return res;
+}
+const ORB={vw:960,vh:300,cy:140,rx:112,ry:44,cA:245,cB:700};
+function starXY(cx,th){ return [cx+ORB.rx*Math.cos(th), ORB.cy+ORB.ry*Math.sin(th)]; }
+function panel(cx,title){
+  let s=`<ellipse class="orbitline" cx="${cx}" cy="${ORB.cy}" rx="${ORB.rx}" ry="${ORB.ry}"/>`;
+  s+=`<path class="axis" d="M${cx-7} ${ORB.cy}h14M${cx} ${ORB.cy-7}v14"/>`;
+  s+=`<text class="ptitle" x="${cx}" y="34" text-anchor="middle">${title}</text>`;
+  s+=`<path class="axis" d="M${cx} ${ORB.cy+70}v34" stroke="rgba(255,201,138,.5)"/>`;
+  s+=`<path d="M${cx-5} ${ORB.cy+96}L${cx} ${ORB.cy+106}L${cx+5} ${ORB.cy+96}Z" fill="rgba(255,201,138,.6)"/>`;
+  s+=`<text class="axlbl" x="${cx}" y="${ORB.cy+124}" text-anchor="middle">vers la Terre</text>`;
+  return s;
+}
+function drawOrb(){
+  const th=2*Math.PI*T/P;
+  let s=panel(ORB.cA,"Vraie orbite")+panel(ORB.cB,"Ce que nous recevons");
+  const [ax,ay]=starXY(ORB.cA,th), [bx,by]=starXY(ORB.cA,th+Math.PI);
+  s+=`<circle class="comp" cx="${bx.toFixed(1)}" cy="${by.toFixed(1)}" r="6"/>`;
+  s+=`<circle class="star" cx="${ax.toFixed(1)}" cy="${ay.toFixed(1)}" r="12"/>`;
+  const imgs=imagesAt(T);
+  for(const a of imgs){
+    const [x,y]=starXY(ORB.cB,a);
+    s+=`<circle class="${imgs.length>1?'ghost':'star'}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="12"/>`;
+  }
+  if(imgs.length>1)
+    s+=`<text class="axlbl" x="${ORB.cB}" y="${ORB.cy-72}" text-anchor="middle" style="fill:#ef4a36">${imgs.length} images simultanées</text>`;
+  const svg=$("orbSvg"); svg.setAttribute("viewBox",`0 0 ${ORB.vw} ${ORB.vh}`); svg.innerHTML=s;
+  $("roImg").textContent=imgs.length;
+  return imgs.length;
+}
+const CU={vw:960,vh:260,x0:70,x1:930,cy:130,amp:78};
+function curveX(ta){ return CU.x0+(ta+0.5*P)/(2*P)*(CU.x1-CU.x0); }
+function curveY(vr){ return CU.cy-vr/V*CU.amp; }
+function drawCurve(){
+  let s=`<defs><clipPath id="cc"><rect x="${CU.x0}" y="20" width="${CU.x1-CU.x0}" height="${CU.vh-50}"/></clipPath></defs>`;
+  s+=`<path class="axis" d="M${CU.x0} ${CU.cy}H${CU.x1}"/>`;
+  s+=`<path class="axis" d="M${CU.x0} ${CU.cy-CU.amp-14}V${CU.cy+CU.amp+14}"/>`;
+  s+=`<text class="axlbl" x="${CU.x0-8}" y="${CU.cy-CU.amp}" text-anchor="end">+100</text>`;
+  s+=`<text class="axlbl" x="${CU.x0-8}" y="${CU.cy+CU.amp+4}" text-anchor="end">−100</text>`;
+  s+=`<text class="axlbl" x="${CU.x0-8}" y="${CU.cy+4}" text-anchor="end">0</text>`;
+  s+=`<text class="axlbl" x="${CU.x1}" y="${CU.vh-14}" text-anchor="end">temps observé</text>`;
+  s+=`<text class="ptitle" x="${CU.x0}" y="26">Vitesse de l'étoile mesurée dans son spectre (km/s)</text>`;
+  // référence : vitesse constante
+  let d="";
+  for(let i=0;i<=240;i++){
+    const te=(-0.5+2*i/240)*P, vr=V*Math.cos(2*Math.PI*te/P);
+    d+=(i?"L":"M")+curveX(te).toFixed(1)+" "+curveY(vr).toFixed(1);
+  }
+  s+=`<path class="curve-ghost" d="${d}" clip-path="url(#cc)"/>`;
+  // courbe selon l'hypothèse choisie
+  let e="",pen=false;
+  for(const p of SAMP){
+    const x=curveX(p.ta);
+    if(x<CU.x0-40||x>CU.x1+40){ pen=false; continue; }
+    e+=(pen?"L":"M")+x.toFixed(1)+" "+curveY(p.vr).toFixed(1); pen=true;
+  }
+  s+=`<path class="curve" d="${e}" clip-path="url(#cc)"/>`;
+  const xT=curveX(T);
+  if(xT>CU.x0&&xT<CU.x1){
+    s+=`<path class="axis" d="M${xT.toFixed(1)} ${CU.cy-CU.amp-10}V${CU.cy+CU.amp+10}" stroke="rgba(255,255,255,.35)"/>`;
+    for(const a of imagesAt(T)){
+      const vr=V*Math.cos(a);
+      s+=`<circle class="star" cx="${xT.toFixed(1)}" cy="${curveY(vr).toFixed(1)}" r="5"/>`;
+    }
+  }
+  const svg=$("curveSvg"); svg.setAttribute("viewBox",`0 0 ${CU.vw} ${CU.vh}`); svg.innerHTML=s;
+}
+function updateReadout(n){
+  const spread=2*Dly*LY*V/(C*C)/DAY;
+  $("roSp").textContent=spread<0.1?"0 j":spread.toFixed(1).replace(".",",")+" j";
+  $("roD").textContent=Dly.toFixed(0)+" al";
+  const cap=$("orbCap");
+  if(!emission) cap.textContent="Vitesse de la lumière constante : toute la lumière met exactement le même temps à nous parvenir. Nous voyons l'orbite telle qu'elle est, avec un simple retard. La distance ne change rien.";
+  else if(Dly<1) cap.textContent="Distance nulle : aucun temps de trajet, donc aucun écart. Les deux images sont identiques. Faites glisser le curseur.";
+  else if(n<2) cap.textContent="L'image prend du retard par moments et de l'avance à d'autres. L'étoile semble ralentir puis accélérer, alors qu'elle tourne parfaitement régulièrement.";
+  else cap.textContent="La lumière émise en s'approchant a doublé la lumière émise plus tôt. Résultat : la même étoile nous apparaît à "+n+" endroits à la fois. Aucun télescope n'a jamais vu ça.";
+}
+$("dist").oninput=e=>{ Dly=+e.target.value; buildSamples(); refresh(); };
+$("hypoB").onclick=()=>{
+  emission=!emission; buildSamples(); refresh();
+  $("hypoB").textContent=emission?"Passer à la vitesse constante":"Revenir à l'hypothèse de Ritz";
+};
+$("playB").onclick=()=>{ playing=!playing; $("playB").textContent=playing?"Pause":"Reprendre"; };
+function refresh(){ const n=drawOrb(); drawCurve(); updateReadout(n); }
+
+/* ===================================================================
+   4. Addition des vitesses
+   =================================================================== */
+const AD={vw:960,vh:210,x0:120,x1:890};
+function drawAdd(){
+  const u=+$("u").value/100, v=+$("v").value/100;
+  const naive=u+v, real=(u+v)/(1+u*v);
+  const W=AD.x1-AD.x0;
+  const bar=(y,frac,color,label,val)=>{
+    const w=Math.min(frac,1.25)*W/1.25;
+    let t=`<text class="axlbl" x="${AD.x0}" y="${y-13}">${label}</text>`;
+    t+=`<rect x="${AD.x0}" y="${y}" width="${W}" height="18" rx="9" fill="rgba(179,194,211,.08)"/>`;
+    t+=`<rect x="${AD.x0}" y="${y}" width="${w.toFixed(1)}" height="18" rx="9" fill="${color}"/>`;
+    t+=`<text class="num" x="${(AD.x0+w+10).toFixed(1)}" y="${y+14}">${val}</text>`;
+    return t;
+  };
+  const cx=AD.x0+W/1.25;
+  let s=`<path class="axis" d="M${cx} 34V${AD.vh-34}" stroke="#ef4a36" stroke-dasharray="4 4"/>`;
+  s+=`<text class="axlbl" x="${cx+8}" y="30" style="fill:#ef4a36">vitesse de la lumière</text>`;
+  s+=bar(70,naive,"rgba(239,74,54,.65)","Addition ordinaire : "+u.toFixed(2).replace(".",",")+" c + "+v.toFixed(2).replace(".",",")+" c",
+        naive.toFixed(3).replace(".",",")+" c");
+  s+=bar(140,real,"#ffc98a","Addition réelle (Einstein)",real.toFixed(4).replace(".",",")+" c");
+  const svg=$("addSvg"); svg.setAttribute("viewBox",`0 0 ${AD.vw} ${AD.vh}`); svg.innerHTML=s;
+  $("addCap").textContent = naive>1
+    ? "L'addition ordinaire dépasse la vitesse de la lumière, ce qui n'arrive jamais. La formule d'Einstein, elle, reste en dessous : "+real.toFixed(4).replace(".",",")+" fois la vitesse de la lumière."
+    : "Tant qu'on reste loin de la limite, les deux additions donnent presque le même résultat. C'est pourquoi personne ne s'en était aperçu avant 1905.";
+}
+$("u").oninput=drawAdd; $("v").oninput=drawAdd;
+
+/* ===================================================================
+   Quiz
+   =================================================================== */
+const Q=[
+ {q:"Pourquoi utiliser une étoile double plutôt qu'une lampe dans un laboratoire ?",
+  o:["Parce que les étoiles sont plus lumineuses",
+     "Parce qu'il faut une source de lumière qui se déplace très vite, et un très long trajet pour amplifier l'écart",
+     "Parce que le vide de l'espace est plus pur",
+     "Parce qu'une lampe ne produit pas de vraie lumière"],a:1,
+  f:"Les deux à la fois : une vitesse de source élevée, et des années de trajet pendant lesquelles le moindre écart de vitesse se transforme en écart de plusieurs jours."},
+ {q:"Que verrait-on si la lumière emportait la vitesse de sa source ?",
+  o:["Les étoiles doubles seraient invisibles",
+     "Elles changeraient de couleur",
+     "La même étoile apparaîtrait à plusieurs endroits à la fois, avec des orbites impossibles",
+     "Elles tourneraient plus vite"],a:2,
+  f:"C'est exactement l'argument de De Sitter en 1913. On observe des orbites parfaitement régulières, donc l'hypothèse est fausse."},
+ {q:"Un vaisseau file à 0,9 c et lance une sonde à 0,9 c. Quelle est la vitesse de la sonde pour nous ?",
+  o:["1,8 c","0,9 c","Environ 0,994 c","Exactement c"],a:2,
+  f:"On additionne puis on divise par 1 plus le produit : 1,8 / 1,81 = 0,994. On approche la limite sans jamais l'atteindre."}
+];
+let done=0,good=0;
+(function(){
+  const root=$("quiz");
+  Q.forEach(it=>{
+    const d=document.createElement("div"); d.className="q";
+    d.innerHTML=`<p class="ask">${it.q}</p><div class="opts"></div><p class="fb"></p>`;
+    const box=d.querySelector(".opts");
+    it.o.forEach((txt,oi)=>{
+      const b=document.createElement("button"); b.className="opt"; b.textContent=txt;
+      b.onclick=()=>{
+        if(d.dataset.d) return; d.dataset.d="1"; done++;
+        box.querySelectorAll("button").forEach((bb,ii)=>{
+          if(ii===it.a) bb.classList.add("ok"); else if(ii===oi) bb.classList.add("no");
+          bb.disabled=true;
+        });
+        if(oi===it.a) good++;
+        const f=d.querySelector(".fb"); f.textContent=it.f; f.classList.add("on");
+        if(done===Q.length) $("score").textContent=good+" bonne"+(good>1?"s":"")+" réponse"+(good>1?"s":"")+" sur 3.";
+      };
+      box.appendChild(b);
+    });
+    root.appendChild(d);
+  });
+})();
+
+/* ===================================================================
+   Boucle
+   =================================================================== */
+buildSamples(); refresh(); drawAdd(); drawRace();
+let prev=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-prev)/1000); prev=now;
+  raceFrame(dt);
+  if(playing){ T+=dt*P/7; if(T>P) T-=P; refresh(); }
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+else { playing=false; $("playB").textContent="Reprendre"; }
+</script>
+</body>
+</html>
