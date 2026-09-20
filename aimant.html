@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Couper un aimant en deux pour séparer le nord du sud — Ricochets</title>
+<meta name="description" content="Pourquoi couper un aimant ne sépare jamais le pôle nord du pôle sud. Démonstration interactive : on coupe, on regarde à l'intérieur, on compte les pôles.">
+<meta name="theme-color" content="#070f19">
+<meta property="og:title" content="Couper un aimant en deux pour séparer le nord du sud">
+<meta property="og:description" content="Ça ne marche pas, et voici ce qui se passe vraiment à l'intérieur.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23070f19'/><path d='M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23' stroke='%23ffc98a' fill='none' stroke-width='2.2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23" stroke="#ffc98a" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg>
+      Ricochets
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Articles</a>
+      <a href="index.html#a-propos">À propos</a>
+    </nav>
+  </div>
+</header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker">Démonstration interactive</p>
+      <h1>Couper un aimant en deux pour séparer le pôle nord du pôle sud</h1>
+      <p class="dek">Ça ne marche pas. À chaque coupe on obtient deux aimants complets. Voyons ce qui se passe à l'intérieur pendant la coupe.</p>
+      <div class="scene"><svg id="heroSvg" aria-hidden="true"></svg></div>
+      <p class="hint" style="font-family:'Space Grotesk',sans-serif;font-size:.84rem;color:#7a8b9f;margin:.4rem 0 0">Un aimant droit et son champ magnétique, le dessin que forme la limaille de fer autour de lui.</p>
+      <div class="meta"><span>20 septembre 2026</span><span>7 min</span><span>8 étapes</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Ce qu'on voit de l'extérieur</h2>
+      <p>Un aimant a un bout qui attire le nord de la boussole et un bout qui la repousse. On les appelle pôle nord (rouge) et pôle sud (bleu). Les deux vont toujours ensemble.</p>
+      <div class="scene"><svg id="outSvg" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button id="flipB" class="go">Retourner l'aimant de droite</button>
+        <span class="hint" id="flipT">Un nord en face d'un sud : ils s'attirent.</span>
+      </div>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Ce qu'il y a à l'intérieur</h2>
+      <p>Un aimant est fait d'atomes. Chaque atome de fer est déjà un minuscule aimant, avec son propre nord et son propre sud. Dans un aimant, ils pointent tous dans le même sens et se suivent bout à bout.</p>
+      <p>Un vrai aimant contient des milliards de ces chaînes empilées. Ici on n'en dessine qu'une.</p>
+      <div class="scene"><svg id="inSvg" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button id="peekB" class="go">Voir l'intérieur</button>
+        <span class="hint" id="peekT">Vu de l'extérieur, c'est juste une barre avec deux pôles.</span>
+      </div>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Pourquoi seuls les bouts sont colorés</h2>
+      <p>À l'intérieur de la chaîne, le nord d'un mini-aimant touche le sud du suivant. Les deux se compensent, cet endroit n'attire plus rien.</p>
+      <p>Il ne reste que deux endroits où un pôle n'a personne en face : le sud tout à gauche et le nord tout à droite. Ce sont les pôles de l'aimant entier.</p>
+      <div class="scene"><svg id="cancSvg" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button id="cancB" class="go">Montrer les contacts</button>
+        <button id="cancR">Effacer</button>
+      </div>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Maintenant on coupe</h2>
+      <p>Chaque coup de ciseaux passe entre deux mini-aimants, jamais à travers. Les mini-aimants ne sont pas touchés, ils sont seulement séparés en deux groupes.</p>
+      <p>Résultat : de chaque côté de la coupure, un pôle se retrouve sans partenaire. Un nouveau nord apparaît à droite du morceau de gauche, un nouveau sud à gauche du morceau de droite.</p>
+      <div class="scene"><svg id="labSvg" aria-hidden="true"></svg></div>
+      <div class="rd">
+        <div><b id="rN">1</b><span>aimants</span></div>
+        <div><b id="rP">2</b><span>pôles</span></div>
+        <div><b id="rL">30 cm</b><span>taille d'un morceau</span></div>
+      </div>
+      <p class="cap" id="labCap">Un aimant entier, avec ses mini-aimants alignés. Cliquez sur « Couper ».</p>
+      <div class="ctl">
+        <button id="cutB" class="go">Couper</button>
+        <button id="resB">Recommencer</button>
+        <label class="chk"><input type="checkbox" id="fB"> voir le champ</label>
+        <label class="chk"><input type="checkbox" id="sB"> vue de l'extérieur</label>
+      </div>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Et si on coupe le dernier mini-aimant ?</h2>
+      <p>C'est la vraie question. Un mini-aimant n'est pas une petite barre pleine. Son magnétisme vient d'électrons qui tournent en rond, comme un courant dans une boucle.</p>
+      <p>Une boucle a toujours deux faces. Le champ sort par le dessus et rentre par le dessous. Le dessus est le nord, le dessous est le sud. Coupez la boucle : vous obtenez deux boucles plus petites, chacune avec un dessus et un dessous.</p>
+      <div class="scene"><svg id="loopSvg" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button id="loopB" class="go">Couper la boucle</button>
+        <span class="hint" id="loopT">Une boucle de courant. Le champ la traverse de bas en haut.</span>
+      </div>
+      <p>Un pôle n'est donc pas un ingrédient qu'on pourrait mettre de côté. C'est une face, un bout. Chercher un pôle nord seul revient à chercher un bâton qui n'aurait qu'une extrémité.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>La même chose vue par les lignes de champ</h2>
+      <p>Les lignes sortent par le nord, font le tour, rentrent par le sud, puis traversent l'aimant pour revenir à leur point de départ. Chaque ligne se referme sur elle-même. Aucune ne commence nulle part et aucune ne s'arrête nulle part.</p>
+      <div class="scene"><svg id="closeSvg" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button id="dotB" class="go">Suivre une ligne</button>
+        <span class="hint">La partie orange est le trajet à l'intérieur de l'aimant.</span>
+      </div>
+      <p>Un pôle isolé serait un point d'où les lignes partent sans jamais revenir, comme l'eau qui sort d'un robinet. On n'a jamais observé ça. Les physiciens écrivent ce constat ainsi :</p>
+      <p class="eq">&#8711; &#183; B = 0</p>
+      <p class="eqs">Autour de n'importe quel volume, il sort autant de lignes qu'il n'en rentre.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">7</span>
+      <h2>Le monopôle magnétique</h2>
+      <p>Un objet qui n'aurait qu'un seul pôle porte un nom : monopôle magnétique. Rien dans la théorie ne l'interdit formellement. En 1931, Paul Dirac a même montré qu'un seul monopôle quelque part dans l'univers expliquerait pourquoi toutes les charges électriques sont des multiples exacts de celle de l'électron.</p>
+      <ul>
+        <li>1982 : un détecteur de Blas Cabrera à Stanford enregistre un signal compatible avec le passage d'un monopôle. Jamais reproduit depuis.</li>
+        <li>Au LHC, l'expérience MoEDAL est construite pour en attraper un. Rien à ce jour.</li>
+        <li>Dans des cristaux appelés glaces de spin, on observe des perturbations qui se comportent comme des monopôles. Elles n'existent qu'à l'intérieur du matériau et ne peuvent pas en sortir.</li>
+      </ul>
+      <p>En attendant, tout ce qui produit du magnétisme autour de nous est une boucle. Et une boucle a deux faces.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">8</span>
+      <h2>Trois questions</h2>
+      <div id="quiz"></div>
+      <p id="score" style="color:#7a8b9f;font-size:.95rem;font-family:'Space Grotesk',sans-serif"></p>
+      <p style="margin-top:2rem">À retenir : les pôles d'un aimant sont les deux bouts d'une chaîne de mini-aimants. Couper la chaîne crée deux chaînes, donc deux nouveaux bouts, donc deux aimants.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav">
+      <a href="index.html">Tous les articles</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <span>Ricochets, 2026</span>
+    <span>Site écrit à la main, sans template.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const bar=document.getElementById("prog");
+  function up(){
+    const h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?h.scrollTop/max*100:0)+"%";
+  }
+  addEventListener("scroll",up,{passive:true}); addEventListener("resize",up); up();
+})();
+</script>
+<script>
+
+"use strict";
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $=id=>document.getElementById(id);
+
+/* ---------- briques de dessin ---------- */
+const DEFS=`<defs>
+<linearGradient id="mg" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#4ea3f5"/><stop offset="44%" stop-color="#7fbdf3"/>
+<stop offset="56%" stop-color="#f4806d"/><stop offset="1" stop-color="#ef4a36"/></linearGradient>
+<linearGradient id="skinG" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#3f8cd8"/><stop offset="49.9%" stop-color="#2f7fd0"/>
+<stop offset="50%" stop-color="#d94636"/><stop offset="1" stop-color="#c93a2b"/></linearGradient>
+</defs>`;
+
+function mini(x0,x1,cy,t){
+  const len=x1-x0, hl=Math.min(len*0.34,t*2.0), xh=x1-hl;
+  return `<path d="M${x0} ${cy-t}H${xh}L${xh} ${cy-t*1.9}L${x1} ${cy}L${xh} ${cy+t*1.9}L${xh} ${cy+t}H${x0}Z" fill="url(#mg)"/>`;
+}
+function loops(cx,cy,a,hmin,hmax,n){
+  let s="";
+  for(let k=1;k<=n;k++){
+    const t=k/n, h=hmin+(hmax-hmin)*Math.pow(t,1.6), w=a*(0.05+0.55*t*t);
+    for(const g of[-1,1]){
+      s+=`<path class="fl" d="M${cx+a} ${cy} C${cx+a+w} ${cy+g*h*0.3} ${cx+a+w*0.55} ${cy+g*h} ${cx} ${cy+g*h} C${cx-a-w*0.55} ${cy+g*h} ${cx-a-w} ${cy+g*h*0.3} ${cx-a} ${cy}"/>`;
+      s+=`<path class="fa" d="M${cx+5} ${cy+g*h-4.5}L${cx-6} ${cy+g*h}L${cx+5} ${cy+g*h+4.5}Z"/>`;
+    }
+  }
+  return s;
+}
+/* barre : corps + capuchons + flèches internes */
+function bar(x,y,w,h,opt){
+  opt=opt||{};
+  const rev=!!opt.rev, cy=y+h/2, cw=Math.max(5,Math.min(15,w*0.13));
+  let s=`<rect class="mgbody" x="${x}" y="${y}" width="${w}" height="${h}" rx="5"/>`;
+  if(opt.arrows){
+    const n=opt.arrows, cell=w/n, t=Math.min(h*0.2,cell*0.22);
+    for(let i=0;i<n;i++){
+      const a=x+i*cell+cell*0.04, b=x+(i+1)*cell-cell*0.04;
+      s+=mini(rev?b:a, rev?a:b, cy, t);
+    }
+  }
+  if(opt.caps!==false){
+    const L=`<rect class="${rev?'capN':'capS'}" x="${x}" y="${y}" width="${cw}" height="${h}" rx="4"/>`;
+    const R=`<rect class="${rev?'capS':'capN'}" x="${x+w-cw}" y="${y}" width="${cw}" height="${h}" rx="4"/>`;
+    s+=`<g class="capL">${L}</g><g class="capR">${R}</g>`;
+  }
+  if(w>=110 && opt.letters!==false){
+    const ly=y-11;
+    s+=`<text class="lbl" x="${x+cw/2}" y="${ly}" font-size="16" style="fill:${rev?'#ef4a36':'#4ea3f5'}">${rev?'N':'S'}</text>`;
+    s+=`<text class="lbl" x="${x+w-cw/2}" y="${ly}" font-size="16" style="fill:${rev?'#4ea3f5':'#ef4a36'}">${rev?'S':'N'}</text>`;
+  }
+  return s;
+}
+function skin(x,y,w,h){
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="5" fill="url(#skinG)"/>`;
+}
+function svgSet(el,vw,vh,inner){
+  el.setAttribute("viewBox",`0 0 ${vw} ${vh}`);
+  el.setAttribute("preserveAspectRatio","xMidYMid meet");
+  el.innerHTML=DEFS+inner;
+}
+
+/* ---------- héros ---------- */
+function drawHero(){
+  const vw=920,vh=340,cy=170,w=340,h=92,x=(vw-w)/2;
+  svgSet($("heroSvg"),vw,vh,
+    loops(vw/2,cy,w/2,h*0.62,152,6)+
+    bar(x,cy-h/2,w,h,{arrows:6}));
+}
+
+/* ---------- étape 1 : deux aimants ---------- */
+let flipped=false;
+function drawOut(){
+  const vw=920,vh=300,cy=150,w=250,h=88,gap=150;
+  const x1=(vw-2*w-gap)/2, x2=x1+w+gap;
+  svgSet($("outSvg"),vw,vh,
+    loops(x1+w/2,cy,w/2,h*0.62,104,4)+loops(x2+w/2,cy,w/2,h*0.62,104,4)+
+    bar(x1,cy-h/2,w,h,{arrows:5})+bar(x2,cy-h/2,w,h,{arrows:5,rev:flipped}));
+}
+$("flipB").onclick=()=>{
+  flipped=!flipped; drawOut();
+  $("flipT").textContent=flipped
+    ? "Deux nords face à face : ils se repoussent. Chaque aimant a toujours ses deux pôles."
+    : "Un nord en face d'un sud : ils s'attirent.";
+};
+
+/* ---------- étape 2 : intérieur ---------- */
+let peek=false;
+function drawIn(){
+  const vw=920,vh=250,cy=125,w=620,h=110,x=(vw-w)/2;
+  svgSet($("inSvg"),vw,vh,
+    bar(x,cy-h/2,w,h,{arrows:12})+
+    `<g class="skin" id="skinG1" style="opacity:${peek?0:1}">${skin(x,cy-h/2,w,h)}
+     <text class="lbl" x="${x+42}" y="${cy+8}" font-size="22">S</text>
+     <text class="lbl" x="${x+w-42}" y="${cy+8}" font-size="22">N</text></g>`);
+}
+$("peekB").onclick=()=>{
+  peek=!peek;
+  const g=$("skinG1"); if(g) g.style.opacity=peek?0:1;
+  $("peekB").textContent=peek?"Revenir à l'extérieur":"Voir l'intérieur";
+  $("peekT").textContent=peek
+    ? "Des milliards de mini-aimants alignés, tous dans le même sens."
+    : "Vu de l'extérieur, c'est juste une barre avec deux pôles.";
+};
+
+/* ---------- étape 3 : compensation ---------- */
+function drawCanc(show){
+  const vw=920,vh=240,cy=128,w=700,h=88,x=(vw-w)/2,n=6,cell=w/n;
+  let s=bar(x,cy-h/2,w,h,{arrows:n,letters:false});
+  if(show){
+    for(let i=1;i<n;i++){
+      const jx=x+i*cell;
+      s+=`<g class="fade" style="opacity:0;transition-delay:${i*0.16}s" data-j="1">
+        <circle cx="${jx}" cy="${cy}" r="21" fill="#0d1a28" stroke="#5f7186"/>
+        <text class="lbl" x="${jx}" y="${cy+6}" font-size="15" style="fill:#9fb0c4">0</text></g>`;
+    }
+    const d=n*0.16+0.25;
+    s+=`<g class="fade" style="opacity:0;transition-delay:${d}s" data-j="1">
+      <text class="lbl" x="${x+38}" y="${cy-h/2-16}" font-size="15" style="fill:#4ea3f5">sud libre</text>
+      <text class="lbl" x="${x+w-38}" y="${cy-h/2-16}" font-size="15" style="fill:#ef4a36">nord libre</text></g>`;
+  }
+  svgSet($("cancSvg"),vw,vh,s);
+  if(show) requestAnimationFrame(()=>{
+    $("cancSvg").querySelectorAll("[data-j]").forEach(g=>g.style.opacity=1);
+  });
+}
+$("cancB").onclick=()=>drawCanc(true);
+$("cancR").onclick=()=>drawCanc(false);
+
+/* ---------- étape 4 : le labo ---------- */
+function conf(){
+  return innerWidth<760
+   ? {vw:520,vh:280,cy:140,barW:410,barH:84,gap:6,gapMax:30,arrows:8,max:3}
+   : {vw:920,vh:330,cy:165,barW:700,barH:98,gap:8,gapMax:48,arrows:16,max:4};
+}
+let cuts=0, C=conf();
+function layout(n,c){
+  const g=Math.max(c.gap, c.gapMax/Math.sqrt(n));
+  const tot=c.barW+(n-1)*g;
+  return {x0:(c.vw-tot)/2, pw:c.barW/n, step:c.barW/n+g};
+}
+function drawLab(anim){
+  C=conf();
+  const n=Math.pow(2,cuts), L=layout(n,C), per=C.arrows/n;
+  const bh=per===1?C.barH*0.58:(per===2?C.barH*0.78:C.barH), y=C.cy-bh/2;
+  const showF=$("fB").checked, showS=$("sB").checked;
+  let f="",b="";
+  for(let i=0;i<n;i++){
+    const x=L.x0+i*L.step, cx=x+L.pw/2;
+    if(showF && n<=4) f+=loops(cx,C.cy,L.pw*0.44,bh*0.62,n<=2?150:96,n<=2?5:4);
+    let g=bar(x,y,L.pw,bh,{arrows:Math.max(1,per),caps:per>1});
+    if(showS) g+=skin(x,y,L.pw,bh);
+    b+=`<g class="pc" data-i="${i}">${g}</g>`;
+  }
+  svgSet($("labSvg"),C.vw,C.vh,f+b);
+  if(anim && !RM && cuts>0){
+    const prev=layout(n/2,C);
+    $("labSvg").querySelectorAll(".pc").forEach(g=>{
+      const i=+g.dataset.i, j=Math.floor(i/2);
+      const oldX=prev.x0+j*prev.step+(i%2)*L.pw;
+      const dx=oldX-(L.x0+i*L.step);
+      g.style.transition="none";
+      g.style.transform=`translateX(${dx}px)`;
+      const fresh=g.querySelector(i%2?".capL":".capR");
+      if(fresh){ fresh.style.transition="none"; fresh.style.opacity=0; }
+      void g.getBoundingClientRect();
+      g.style.transition="";
+      g.style.transform="translateX(0px)";
+      if(fresh){ fresh.style.transition="opacity .4s .3s"; fresh.style.opacity=1; }
+    });
+  }
+  $("rN").textContent=n;
+  $("rP").textContent=2*n;
+  const m=0.30/n;
+  $("rL").textContent=m>=0.01?(m*100).toFixed(m*100<10?1:0).replace(".",",")+" cm"
+                             :(m*1000).toFixed(0)+" mm";
+}
+function setCap(){
+  const n=Math.pow(2,cuts);
+  if(cuts===0) $("labCap").textContent="Un aimant entier, avec ses mini-aimants alignés. Cliquez sur « Couper ».";
+  else if(cuts<C.max) $("labCap").textContent=
+    "Les ciseaux sont passés entre deux mini-aimants. Sur chaque face neuve, un pôle se retrouve seul et la couleur apparaît aussitôt. "+n+" aimants, "+(2*n)+" pôles, autant de nords que de suds.";
+  else $("labCap").textContent=
+    "Il ne reste qu'un seul mini-aimant par morceau. Chacun a encore un sud à gauche et un nord à droite. Sur un vrai aimant, il faudrait une trentaine de coupes pour en arriver là.";
+}
+$("cutB").onclick=()=>{
+  if(cuts>=C.max) return;
+  cuts++; drawLab(true); setCap();
+  $("cutB").disabled=cuts>=C.max;
+};
+$("resB").onclick=()=>{ cuts=0; drawLab(false); setCap(); $("cutB").disabled=false; };
+$("fB").onchange=()=>drawLab(false);
+$("sB").onchange=()=>drawLab(false);
+
+/* ---------- étape 5 : la boucle ---------- */
+let split=false;
+function ring(cx,cy,rx,ry){
+  let s=`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="none" stroke="${'#ffc98a'}" stroke-width="4"/>`;
+  s+=`<path class="fa" style="opacity:.9" fill="#ffc98a" d="M${cx-6} ${cy-ry-7}L${cx+7} ${cy-ry}L${cx-6} ${cy+7-ry}Z"/>`;
+  s+=`<path class="fa" style="opacity:.9" fill="#ffc98a" d="M${cx+6} ${cy+ry+7}L${cx-7} ${cy+ry}L${cx+6} ${cy-7+ry}Z"/>`;
+  s+=`<path class="fl" style="stroke:#8fa6bf;opacity:.75" d="M${cx} ${cy+ry+58}V${cy-ry-58}"/>`;
+  s+=`<path fill="#8fa6bf" opacity=".75" d="M${cx-6} ${cy-ry-50}L${cx} ${cy-ry-64}L${cx+6} ${cy-ry-50}Z"/>`;
+  s+=`<text class="lbl" x="${cx}" y="${cy-ry-74}" font-size="17" style="fill:#ef4a36">N</text>`;
+  s+=`<text class="lbl" x="${cx}" y="${cy+ry+80}" font-size="17" style="fill:#4ea3f5">S</text>`;
+  return s;
+}
+function drawLoop(){
+  const vw=920,vh=300,cy=150;
+  svgSet($("loopSvg"),vw,vh, split
+    ? ring(320,cy,90,30)+ring(600,cy,90,30)
+    : ring(460,cy,150,46));
+}
+$("loopB").onclick=()=>{
+  split=!split; drawLoop();
+  $("loopB").textContent=split?"Recoller la boucle":"Couper la boucle";
+  $("loopT").textContent=split
+    ? "Deux boucles. Chacune a son dessus et son dessous, donc son nord et son sud."
+    : "Une boucle de courant. Le champ la traverse de bas en haut.";
+};
+
+/* ---------- étape 6 : ligne fermée ---------- */
+let dotTimer=null;
+function drawClose(){
+  const vw=920,vh=340,cy=170,w=300,h=92,x=(vw-w)/2,a=w/2;
+  const hh=118, ww=a*0.55;
+  const path=`M${vw/2+a} ${cy} C${vw/2+a+ww} ${cy-hh*0.3} ${vw/2+a+ww*0.55} ${cy-hh} ${vw/2} ${cy-hh} `
+            +`C${vw/2-a-ww*0.55} ${cy-hh} ${vw/2-a-ww} ${cy-hh*0.3} ${vw/2-a} ${cy} `
+            +`L${vw/2+a} ${cy}`;
+  svgSet($("closeSvg"),vw,vh,
+    loops(vw/2,cy,a,h*0.62,152,6)+
+    bar(x,cy-h/2,w,h,{})+
+    `<path class="inb" d="M${x+24} ${cy}H${x+w-24}"/>`+
+    `<path id="ring1" d="${path}" fill="none" stroke="#ffc98a" stroke-width="2.4" opacity=".95"/>`+
+    `<circle id="dot" r="7" fill="#fff" opacity="0"/>`);
+}
+$("dotB").onclick=()=>{
+  const p=$("ring1"), d=$("dot");
+  if(!p||!d||dotTimer) return;
+  const len=p.getTotalLength(); let t=0; d.setAttribute("opacity","1");
+  const t0=performance.now();
+  dotTimer=setInterval(()=>{
+    t=((performance.now()-t0)/4200)%1;
+    const pt=p.getPointAtLength(t*len);
+    d.setAttribute("cx",pt.x); d.setAttribute("cy",pt.y);
+    if(performance.now()-t0>12600){ clearInterval(dotTimer); dotTimer=null; d.setAttribute("opacity","0"); }
+  },16);
+};
+
+/* ---------- quiz ---------- */
+const Q=[
+ {q:"Vous coupez un aimant en deux. Combien de pôles en tout ?",
+  o:["2","3","4","0"],a:2,
+  f:"Quatre. Deux morceaux, deux pôles chacun. Il y a toujours autant de nords que de suds."},
+ {q:"Pourquoi la face fraîchement coupée devient-elle colorée ?",
+  o:["Le métal s'oxyde à la coupe",
+     "Un mini-aimant se retrouve avec un pôle sans partenaire en face",
+     "Les ciseaux aimantent le métal",
+     "Le pôle sud se déplace vers la coupure"],a:1,
+  f:"Oui. À l'intérieur, chaque pôle est compensé par son voisin. La coupure supprime un voisin, le pôle devient visible."},
+ {q:"Que dit ∇ · B = 0 en langage courant ?",
+  o:["Le champ magnétique est toujours nul",
+     "Les aimants perdent leur force avec le temps",
+     "Les lignes de champ se referment toujours, aucune ne part d'un point",
+     "Le nord est plus fort que le sud"],a:2,
+  f:"C'est la façon mathématique de dire qu'un pôle seul n'existe pas."}
+];
+let done=0,good=0;
+(function(){
+  const root=$("quiz");
+  Q.forEach(it=>{
+    const d=document.createElement("div"); d.className="q";
+    d.innerHTML=`<p class="ask">${it.q}</p><div class="opts"></div><p class="fb"></p>`;
+    const box=d.querySelector(".opts");
+    it.o.forEach((txt,oi)=>{
+      const b=document.createElement("button");
+      b.className="opt"; b.textContent=txt;
+      b.onclick=()=>{
+        if(d.dataset.d) return; d.dataset.d="1"; done++;
+        box.querySelectorAll("button").forEach((bb,ii)=>{
+          if(ii===it.a) bb.classList.add("ok"); else if(ii===oi) bb.classList.add("no");
+          bb.disabled=true;
+        });
+        if(oi===it.a) good++;
+        const f=d.querySelector(".fb"); f.textContent=it.f; f.classList.add("on");
+        if(done===Q.length) $("score").textContent=good+" bonne"+(good>1?"s":"")+" réponse"+(good>1?"s":"")+" sur 3.";
+      };
+      box.appendChild(b);
+    });
+    root.appendChild(d);
+  });
+})();
+
+
+/* animation d'ouverture sur le héros */
+function heroIntro(){
+  if(RM) return;
+  const ps=$("heroSvg").querySelectorAll(".fl");
+  ps.forEach((p,i)=>{
+    const L=p.getTotalLength();
+    p.style.strokeDasharray=L; p.style.strokeDashoffset=L;
+    p.animate([{strokeDashoffset:L},{strokeDashoffset:0}],
+      {duration:1000,delay:150+i*55,fill:"forwards",easing:"ease-out"});
+  });
+}
+/* ---------- init ---------- */
+function all(){ drawHero(); drawOut(); drawIn(); drawCanc(false); drawLab(false); drawLoop(); drawClose(); }
+all(); setCap(); heroIntro();
+let rz; addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{
+  C=conf();
+  if(cuts>C.max) cuts=C.max;
+  all(); setCap(); $("cutB").disabled=cuts>=C.max;
+},200);});
+</script>
+</body>
+</html>
