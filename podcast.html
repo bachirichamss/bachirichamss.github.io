@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Podcast · Chamss Bachiri</title>
+<meta name="description" content="La chronique de physique : des épisodes courts sur l'actualité de la physique et sur des travaux de recherche.">
+<link rel="alternate" type="application/rss+xml" title="La chronique de physique" href="podcast/feed.xml">
+<style>
+.pod-top{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start;margin-bottom:2.4rem}
+.pod-top img{width:150px;height:150px;border-radius:3px;display:block}
+.pod-top p{margin:0 0 .8em;max-width:60ch}
+.abo{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.86rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.abo code{background:#fff;border:1px solid #e2e0da;border-radius:3px;padding:.3em .55em;font-size:.82rem;word-break:break-all}
+.ep{border-top:1px solid #e2e0da;padding:1.8rem 0}
+.ep h2{font-size:1.45rem;margin:.2rem 0 .4rem}
+.ep > p{margin:0 0 1rem;max-width:62ch}
+.ep audio{width:100%;max-width:640px;display:block;margin:0 0 .9rem}
+.ep details{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem;margin:.3rem 0}
+.ep summary{cursor:pointer;color:#1f4f8f}
+.transcript{font-family:"Newsreader",Georgia,serif;font-size:1rem;max-width:62ch;padding:.6rem 0 0}
+.transcript p{margin:0 0 .9em}
+.src{list-style:none;padding:0;margin:.5rem 0 0}
+.src li{margin:.25rem 0}
+@media (max-width:640px){.pod-top{grid-template-columns:1fr}.pod-top img{width:110px;height:110px}}
+</style>
+</head>
+<body data-rubrique="podcast">
+
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="shell page">
+  <div class="page-head" style="max-width:none">
+    <h1>Podcast</h1>
+  </div>
+
+  <div class="pod-top">
+    <img src="podcast/cover.jpg" alt="Pochette de La chronique de physique">
+    <div>
+      <p><strong>La chronique de physique.</strong> Des épisodes courts sur l'actualité de la physique et sur des travaux de recherche : une publication, une thèse, un sujet.</p>
+      <p class="figcap" style="margin-bottom:1rem">Les textes sont écrits avec l'aide de l'intelligence artificielle à partir des sources citées sous chaque épisode, puis lus par une voix de synthèse.</p>
+      <div class="abo" id="abo"></div>
+    </div>
+  </div>
+
+  <div id="eps"><div class="empty"><p>Chargement…</p></div></div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+(function(){
+  const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const date=iso=>{const [y,m,d]=iso.split("-").map(Number);return new Date(y,m-1,d).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});};
+  const duree=s=>{const m=Math.max(1,Math.round(s/60));return m+" min";};
+  const box=document.getElementById("eps");
+  fetch("podcast/episodes.json?"+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]).then(list=>{
+    if(!list.length){ box.innerHTML='<div class="empty"><p>Le premier épisode est en préparation.</p></div>'; return; }
+    const flux=new URL("podcast/feed.xml",location.href).href;
+    document.getElementById("abo").innerHTML='<span>S\'abonner dans une application de podcast :</span><code>'+esc(flux)+'</code><button id="cp">Copier l\'adresse</button>';
+    document.getElementById("cp").onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(flux).then(()=>{this.textContent="Copiée";});};
+    box.innerHTML=list.map(e=>{
+      const paras=String(e.texte||"").split(/\n\s*\n/).map(p=>"<p>"+esc(p.trim())+"</p>").join("");
+      const src=(e.sources||[]).length?'<ul class="src">'+e.sources.map(s=>'<li><a href="'+esc(s.url)+'" rel="noopener">'+esc(s.titre)+'</a></li>').join("")+'</ul>':"";
+      return '<article class="ep" id="'+esc(e.slug)+'">'+
+        '<div class="meta"><span>'+date(e.date)+'</span><span>'+duree(e.duree)+'</span></div>'+
+        '<h2>'+esc(e.titre)+'</h2><p>'+esc(e.resume)+'</p>'+
+        '<audio controls preload="none" src="'+esc(e.audio)+'"></audio>'+
+        (src?'<details open><summary>Sources</summary>'+src+'</details>':'')+
+        '<details><summary>Lire la transcription</summary><div class="transcript">'+paras+'</div></details>'+
+        '</article>';
+    }).join("");
+    if(location.hash){const t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView();}
+  });
+})();
+</script>
+</body>
+</html>

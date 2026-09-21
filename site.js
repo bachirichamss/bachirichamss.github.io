@@ -26,8 +26,8 @@ const RUBRIQUES = [
   { id: "recreations", nom: "Récréations",
     desc: "De la physique pour le plaisir : histoires, paradoxes, énigmes. Rigoureux sur le fond, pas forcément sérieux sur la forme.",
     vide: "Rien pour l'instant." },
-  { id: "podcast", nom: "Podcast",
-    desc: "Des épisodes courts sur l'actualité de la physique qui m'intéresse, produits avec l'aide de l'intelligence artificielle.",
+  { id: "podcast", nom: "Podcast", page: "podcast.html",
+    desc: "La chronique de physique : des épisodes courts sur l'actualité de la physique et sur des travaux de recherche, produits avec l'aide de l'intelligence artificielle.",
     vide: "Le premier épisode est en préparation." }
 ];
 
@@ -102,6 +102,11 @@ const ARTICLES = [
 
   const $ = id => document.getElementById(id);
   const rub = id => RUBRIQUES.find(r => r.id === id);
+  const lien = r => r.page || `rubrique.html?c=${r.id}`;
+  const V_PODCAST = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>` +
+    [18,34,52,30,64,44,80,56,38,70,48,26,58,36,20,42,30,16].map((h, i) =>
+      `<rect x="${22 + i * 9}" y="${70 - h / 2}" width="5" height="${h}" rx="2.5" fill="#1f4f8f" opacity="${0.45 + (i % 3) * 0.2}"/>`).join("") + `</svg>`;
+  const episodes = () => fetch("podcast/episodes.json?" + Date.now()).then(r => r.ok ? r.json() : []).catch(() => []);
   const fmt = iso => {
     const [y, m, d] = iso.split("-").map(Number);
     return new Date(y, m - 1, d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
@@ -114,7 +119,7 @@ const ARTICLES = [
   const h = $("site-header");
   if (h) {
     let nav = RUBRIQUES.map(r =>
-      `<a href="rubrique.html?c=${r.id}"${current === r.id ? ' class="on"' : ""}>${r.court || r.nom}</a>`
+      `<a href="${lien(r)}"${current === r.id ? ' class="on"' : ""}>${r.court || r.nom}</a>`
     ).join("");
     nav += `<a href="a-propos.html"${here === "a-propos.html" ? ' class="on"' : ""}>À propos</a>`;
     h.innerHTML = `<div class="shell">
@@ -157,20 +162,34 @@ const ARTICLES = [
   window.Site = {
     latest(id, n) {
       const el = $(id); if (!el) return;
-      el.innerHTML = ARTICLES.slice(0, n || 6).map(item).join("");
+      const montrer = liste => { el.innerHTML = liste.slice(0, n || 6).map(item).join(""); };
+      montrer(ARTICLES);
+      episodes().then(eps => {
+        if (!eps.length) return;
+        const e2 = eps.map(e => ({ titre: e.titre, url: "podcast.html#" + e.slug, rubrique: "podcast", date: e.date,
+          duree: Math.max(1, Math.round(e.duree / 60)) + " min d'écoute", resume: e.resume, vignette: V_PODCAST }));
+        const tout = ARTICLES.map((a, i) => ({ a, i })).concat(e2.map((a, i) => ({ a, i: i + 0.5 })))
+          .sort((x, y) => (y.a.date > x.a.date) - (y.a.date < x.a.date) || x.i - y.i).map(x => x.a);
+        montrer(tout);
+      });
     },
     toc(id) {
       const el = $(id); if (!el) return;
       el.innerHTML = RUBRIQUES.map(r => {
         const n = ARTICLES.filter(a => a.rubrique === r.id).length;
-        return `<a class="toc-row" href="rubrique.html?c=${r.id}">
+        return `<a class="toc-row" href="${lien(r)}">
           <h3>${r.nom}</h3><p>${r.desc}</p>
-          <span class="count">${n ? n + " article" + (n > 1 ? "s" : "") : "bientôt"}</span></a>`;
+          <span class="count" id="count-${r.id}">${n ? n + " article" + (n > 1 ? "s" : "") : "bientôt"}</span></a>`;
       }).join("");
+      episodes().then(eps => {
+        const c = $("count-podcast");
+        if (c && eps.length) c.textContent = eps.length + " épisode" + (eps.length > 1 ? "s" : "");
+      });
     },
     rubrique(titleId, descId, listId) {
       const r = rub(param);
       if (!r) { location.replace("index.html"); return; }
+      if (r.page) { location.replace(r.page); return; }
       document.title = r.nom + " · " + SITE.nom;
       $(titleId).textContent = r.nom;
       $(descId).textContent = r.desc;
