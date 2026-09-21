@@ -1,0 +1,35 @@
+{
+  "site_url": "https://bachirichamss.github.io",
+  "titre_podcast": "La chronique de physique",
+  "auteur": "Chamss Bachiri",
+  "description": "Une chronique courte sur l'actualité de la physique et sur des travaux de recherche, écrite et lue avec l'aide de l'intelligence artificielle, relue par Chamss Bachiri.",
+
+  "ouverture": "Bonjour, et bienvenue dans la chronique de physique.",
+  "cloture": "C'était la chronique de physique. Les sources de cet épisode sont sur le site de Chamss Bachiri. À bientôt.",
+
+  "voix": "fr-FR-RemyMultilingualNeural",
+  "vitesse": "+0%",
+  "duree_par_defaut": 8,
+
+  "modeles": ["gemini-flash-latest", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.1-flash-lite"],
+
+  "centres_interet": ["physique fondamentale", "matière quantique", "topologie", "nanotechnologies", "astrophysique"],
+
+  "fenetre_jours": 7,
+  "max_par_source": 25,
+  "actus_par_defaut": ["prl-selection", "nature-physics", "physorg", "quant-ph", "cond-mat.mes-hall"],
+
+  "sources": {
+    "prl":               {"nom": "Physical Review Letters", "type": "rss", "url": "http://feeds.aps.org/rss/recent/prl.xml"},
+    "prl-selection":     {"nom": "Physical Review Letters, sélection des éditeurs", "type": "rss", "url": "http://feeds.aps.org/rss/recent/prlsuggestions.xml"},
+    "nature-physics":    {"nom": "Nature Physics", "type": "rss", "url": "https://www.nature.com/nphys.rss"},
+    "physorg":           {"nom": "Phys.org", "type": "rss", "url": "https://phys.org/rss-feed/physics-news/"},
+    "quant-ph":          {"nom": "arXiv, physique quantique", "type": "arxiv", "categorie": "quant-ph"},
+    "cond-mat.mes-hall": {"nom": "arXiv, physique mésoscopique et nanométrique", "type": "arxiv", "categorie": "cond-mat.mes-hall"},
+    "cond-mat.str-el":   {"nom": "arXiv, électrons fortement corrélés", "type": "arxiv", "categorie": "cond-mat.str-el"},
+    "hep-th":            {"nom": "arXiv, physique théorique des hautes énergies", "type": "arxiv", "categorie": "hep-th"},
+    "gr-qc":             {"nom": "arXiv, relativité générale et cosmologie quantique", "type": "arxiv", "categorie": "gr-qc"},
+    "astro-ph.CO":       {"nom": "arXiv, cosmologie", "type": "arxiv", "categorie": "astro-ph.CO"},
+    "astro-ph.HE":       {"nom": "arXiv, astrophysique des hautes énergies", "type": "arxiv", "categorie": "astro-ph.HE"}
+  }
+}
