@@ -1,0 +1,92 @@
+# Écrit un épisode de la chronique de physique.
+# Lancement à la main : onglet Actions > « Podcast : préparer un épisode » > Run workflow.
+# Lancement automatique : chaque lundi matin, un épisode d'actualités est proposé à la relecture.
+name: "Podcast : préparer un épisode"
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Type d'épisode"
+        type: choice
+        options: [actus, arxiv, pdf, sujet]
+        default: actus
+      precision:
+        description: "actus : sources (ex. quant-ph,prl), vide = par défaut · arxiv : identifiant (2409.01234) · pdf : lien du PDF · sujet : le sujet"
+        required: false
+        default: ""
+      duree:
+        description: "Durée visée, en minutes"
+        type: choice
+        options: ["3", "5", "8", "12", "15"]
+        default: "8"
+      consigne:
+        description: "Consigne supplémentaire (facultatif)"
+        required: false
+        default: ""
+      publier_direct:
+        description: "Publier tout de suite, sans relecture"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: podcast
+  cancel-in-progress: false
+
+jobs:
+  preparer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer
+        run: pip install -r podcast/requirements.txt
+
+      - name: Écrire la chronique
+        id: ecrire
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MODE: ${{ inputs.mode || 'actus' }}
+          PRECISION: ${{ inputs.precision }}
+          DUREE: ${{ inputs.duree || '8' }}
+          CONSIGNE: ${{ inputs.consigne }}
+        run: python podcast/generate.py ecrire
+
+      - name: Publier sans relecture
+        if: ${{ inputs.publier_direct == true }}
+        env:
+          TITRE: ${{ steps.ecrire.outputs.titre }}
+        run: |
+          python podcast/generate.py enregistrer
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add podcast
+          git commit -m "Podcast : $TITRE"
+          git push
+
+      - name: Proposer à la relecture
+        if: ${{ inputs.publier_direct != true }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITRE: ${{ steps.ecrire.outputs.titre }}
+          SLUG: ${{ steps.ecrire.outputs.slug }}
+          CORPS: ${{ steps.ecrire.outputs.pr }}
+        run: |
+          BASE=$(gh repo view "$GITHUB_REPOSITORY" --json defaultBranchRef -q .defaultBranchRef.name)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "podcast/$SLUG"
+          git add podcast/scripts
+          git commit -m "Brouillon : $TITRE"
+          git push origin "podcast/$SLUG"
+          gh pr create --base "$BASE" --head "podcast/$SLUG" --title "Podcast : $TITRE" --body-file "$CORPS"
