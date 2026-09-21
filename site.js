@@ -58,7 +58,24 @@ const V_RICOCHETS = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="
 <ellipse cx="154" cy="100" rx="5.5" ry="1.8" fill="none" stroke="#1f4f8f" opacity=".45"/>
 <circle cx="12" cy="100" r="3.4" fill="#1b1f24"/></svg>`;
 
+const V_PESER = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<path d="M22 110A82 82 0 0 1 186 110Z" fill="#f3f0fa"/>
+<path d="M22 110A22 22 0 0 1 66 110" fill="none" stroke="#9b8ad0" stroke-dasharray="3 3"/>
+<path d="M22 110A44 44 0 0 1 110 110" fill="none" stroke="#9b8ad0" stroke-dasharray="3 3"/>
+<path d="M22 110A70 70 0 0 1 162 110" fill="none" stroke="#9b8ad0" stroke-dasharray="3 3"/>
+<rect x="40" y="110" width="152" height="5" fill="#3a414b"/>
+<ellipse cx="66" cy="106" rx="5" ry="3.5" fill="#d9730d"/>
+<ellipse cx="110" cy="106" rx="5" ry="3.5" fill="#d9730d"/>
+<ellipse cx="162" cy="106" rx="5" ry="3.5" fill="#d9730d" opacity=".6"/>
+<circle cx="111" cy="50" r="4.5" fill="#d9730d" stroke="#8a4a08"/>
+<rect x="12" y="116" width="20" height="14" rx="2" fill="#5d6672"/></svg>`;
+
 const ARTICLES = [
+  { titre: "Manuel pour peser un atome (balance non fournie)",
+    url: "peser-un-atome.html", rubrique: "simulations",
+    date: "2026-09-21", duree: "8 min",
+    resume: "Aucune balance ne sent un électron. On l'a pesé quand même, comme les atomes et le neutron : quatre expériences à refaire ici, du tube à électrons au billard de Chadwick.",
+    vignette: V_PESER },
   { titre: "Les étoiles doubles interdisent d'aller plus vite que la lumière",
     url: "etoiles-doubles.html", rubrique: "simulations",
     date: "2026-09-20", duree: "5 min",

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Manuel pour peser un atome (balance non fournie) · Chamss Bachiri</title>
+<meta name="description" content="Aucune balance ne sent un électron. Voici comment on a quand même pesé l'électron, les atomes et le neutron, en quatre expériences qu'on peut refaire ici.">
+<meta property="og:title" content="Manuel pour peser un atome (balance non fournie)">
+<meta property="og:type" content="article">
+<style>
+/* figures de cette page */
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.result sup,table sup{font-size:.7em}
+.result{background:#fff;border:1px solid #e2e0da;border-radius:3px;padding:1.3rem 1.2rem;margin:1.4rem 0;
+  font-family:"IBM Plex Sans",Arial,sans-serif}
+.eqrow{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;justify-content:center}
+.pill{border:1px solid #d5dae1;border-radius:3px;padding:.55rem .8rem;text-align:center;font-size:.8rem;color:#5d6672;line-height:1.4}
+.pill b{display:block;font-size:1.05rem;color:#1b1f24;font-weight:600;margin-top:.15rem}
+.pill.hi{border-color:#1f4f8f;background:#eaf0f8}
+.op{font-size:1.5rem;color:#5d6672}
+.zeros{text-align:center;font-size:.95rem;color:#1f4f8f;margin:1.1rem 0 0;word-break:break-word;letter-spacing:.02em}
+.zeros small{display:block;color:#5d6672;font-size:.8rem;letter-spacing:0;margin-top:.3rem}
+.recap{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.9rem;margin:1.2rem 0 1.6rem}
+.recap th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .6rem .5rem 0}
+.recap td{border-bottom:1px solid #e2e0da;padding:.65rem .6rem .65rem 0;vertical-align:top;color:#2b3139}
+.recap td:first-child{font-weight:600;color:#1b1f24;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Manuel pour peser un atome (balance non fournie)</h1>
+      <p class="dek">Un électron pèse environ un milliard de milliards de milliards de fois moins qu'un gramme. Aucune balance ne le sent. On le pèse quand même : voici comment, en expériences à refaire soi-même.</p>
+      <div class="meta"><span>21 septembre 2026</span><span>8 min</span></div>
+    </div>
+
+    <!-- 1 -->
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>L'astuce : pousser, et regarder</h2>
+      <p>On ne peut pas poser un atome sur un plateau. Mais on peut le pousser de côté pendant qu'il passe, et regarder de combien il dévie. Un objet léger dévie beaucoup, un objet lourd presque pas.</p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl"><button class="go" id="f1B">Lancer les trois balles</button></div>
+      <div class="live" id="f1L"></div>
+      <p>Pour une particule, le vent sera remplacé par un champ électrique ou magnétique. Il ne pousse que les objets <strong>chargés</strong>, et plus la charge est grande, plus il pousse fort. Retenez ce détail, il va compter.</p>
+    </section>
+
+    <!-- 2 -->
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>L'électron tourne en rond</h2>
+      <p>Dans ce tube de verre, un canon envoie des électrons. Un aimant les pousse sur le côté en permanence, si bien qu'ils décrivent un cercle. Le gaz du tube brille sur leur passage : on voit le cercle, et on mesure son rayon à la règle.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="bS">Force de l'aimant</label><input type="range" id="bS" min="65" max="200" value="100"></span>
+        <button id="hB">Remplacer par des atomes d'hydrogène</button>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p>Le rayon du cercle ne donne pas la masse seule. Il donne le <strong>rapport entre la charge et la masse</strong> : une particule deux fois plus lourde avec deux fois plus de charge ferait exactement le même cercle. J. J. Thomson a mesuré ce rapport en 1897, avec un montage un peu différent. Celui-ci est la version qu'on utilise aujourd'hui en travaux pratiques.</p>
+      <p>Il manque donc une information : la charge de l'électron, toute seule.</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Faire flotter une goutte d'huile</h2>
+      <p>En 1909, Robert Millikan pulvérise de minuscules gouttes d'huile entre deux plaques métalliques. Certaines gouttes ont capturé quelques électrons en trop. Si on met une tension entre les plaques, la force électrique tire la goutte vers le haut, pendant que son poids la tire vers le bas.</p>
+      <p>À la bonne tension, les deux forces s'équilibrent et la goutte flotte. On connaît son poids, on connaît la tension : on en déduit sa charge. <strong>À vous : réglez la tension jusqu'à ce que la goutte s'immobilise, puis mesurez.</strong></p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="uS">Tension</label><input type="range" id="uS" min="0" max="1000" value="0" style="width:240px"></span>
+        <button class="go" id="mB">Mesurer la charge</button>
+        <button id="aB">Équilibrer pour moi</button>
+        <button id="tB">Mesurer 10 gouttes d'un coup</button>
+      </div>
+      <div class="live" id="f3L"></div>
+    </section>
+
+    <!-- 4 -->
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>On divise, et l'électron est pesé</h2>
+      <p>Le cercle a donné le rapport charge sur masse. Les gouttes ont donné la charge. Une division suffit.</p>
+      <div class="result">
+        <div class="eqrow">
+          <span class="pill">charge de l'électron<b>1,602 × 10<sup>−19</sup> C</b></span>
+          <span class="op">÷</span>
+          <span class="pill">rapport charge / masse<b>1,759 × 10<sup>11</sup> C/kg</b></span>
+          <span class="op">=</span>
+          <span class="pill hi">masse de l'électron<b>9,11 × 10<sup>−31</sup> kg</b></span>
+        </div>
+        <p class="zeros">0,000 000 000 000 000 000 000 000 000 000 911 kg<small>trente zéros après la virgule</small></p>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Trier les atomes par poids</h2>
+      <p>Pour un atome, on commence par lui arracher un électron : il devient chargé, donc un champ peut le pousser. On l'envoie dans un aimant, où il décrit un demi-cercle avant de frapper une plaque. Plus l'atome est lourd, plus son demi-cercle est large. La position de la tache sur la plaque donne directement sa masse.</p>
+      <p>C'est un <strong>spectromètre de masse</strong>. Choisissez un gaz et envoyez-le.</p>
+      <div class="ctl"><div class="seg" id="elSeg"></div></div>
+      <div class="scene wide"><svg id="f5" aria-hidden="true"></svg></div>
+      <div class="ctl"><button id="clrB">Effacer la plaque</button></div>
+      <div class="live" id="f5L"></div>
+      <p>L'unité de masse atomique, notée u, vaut un douzième de la masse d'un atome de carbone 12, soit 1,66 × 10<sup>−27</sup> kg. Le carbone sert d'étalon, comme le mètre étalon servait pour les longueurs.</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>Et le neutron, qu'aucun champ ne pousse ?</h2>
+      <p>Le neutron n'a pas de charge. Les champs électriques et magnétiques le laissent passer tout droit : toutes les méthodes précédentes échouent. En 1932, James Chadwick utilise alors la méthode du billard.</p>
+      <p>On envoie des neutrons sur deux cibles de masse connue : de l'hydrogène (1 u) et de l'azote (14 u), et on mesure à quelle vitesse chaque cible est projetée. Chadwick trouve que l'hydrogène part environ <strong>7 fois plus vite</strong> que l'azote. <strong>À vous : cherchez la masse du neutron qui donne ce rapport.</strong></p>
+      <div class="scene wide"><svg id="f6" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="nS">Masse du neutron essayée</label><input type="range" id="nS" min="20" max="500" value="300" style="width:240px"></span>
+        <button class="go" id="nB">Lancer les neutrons</button>
+      </div>
+      <div class="live" id="f6L"></div>
+      <p>Chadwick obtient 1,15 u. Les mesures modernes donnent 1,0087 u : le neutron pèse un tout petit peu plus lourd que le proton.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="step">
+      <span class="no-num">7</span>
+      <h2>Le récapitulatif</h2>
+      <div class="tablewrap">
+      <table class="recap">
+        <tr><th>Particule</th><th>Masse</th><th>Comment on la connaît</th></tr>
+        <tr><td>Électron</td><td>9,109 × 10<sup>−31</sup> kg</td><td>Rayon du cercle dans un aimant, puis charge mesurée avec les gouttes d'huile</td></tr>
+        <tr><td>Proton</td><td>1,673 × 10<sup>−27</sup> kg<br>soit 1836 électrons</td><td>Spectromètre de masse : l'hydrogène privé de son électron est un proton seul</td></tr>
+        <tr><td>Neutron</td><td>1,675 × 10<sup>−27</sup> kg</td><td>Collisions, comme au billard, puis mesures de précision</td></tr>
+        <tr><td>Atome de carbone 12</td><td>1,993 × 10<sup>−26</sup> kg</td><td>Spectromètre de masse. Il sert d'étalon pour tous les autres atomes</td></tr>
+      </table>
+      </div>
+      <p>Les <strong>quarks</strong>, qui composent les protons et les neutrons, ne sortent jamais seuls. On ne peut ni les dévier ni les faire rebondir un par un. Leur masse se déduit de la façon dont les particules qu'ils forment se comportent dans les collisions, avec beaucoup moins de précision.</p>
+      <p>Aujourd'hui, les mesures les plus précises piègent un seul ion dans un champ magnétique et comptent le nombre de tours qu'il fait par seconde. Plus il est lourd, plus il tourne lentement. C'est l'astuce de l'étape 1, poussée jusqu'à une dizaine de chiffres exacts.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> on ne pèse pas une particule, on la pousse et on regarde comment elle réagit. Si elle est chargée, un champ suffit. Sinon, on la fait rebondir sur des cibles connues.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", RED="#c8372d", OR="#d9730d", GR="#2f8a5f";
+
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}">${s}</text>`;}
+function parts(x,d){const e=Math.floor(Math.log10(Math.abs(x)));return {m:(x/Math.pow(10,e)).toFixed(d).replace(".",","),e:String(e).replace("-","−")};}
+function hSci(x,d){const p=parts(x,d);return `${p.m} × 10<sup>${p.e}</sup>`;}
+const SUP={"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹","−":"⁻"};
+function sSci(x,d){const p=parts(x,d);return `${p.m} × 10${[...p.e].map(c=>SUP[c]||c).join("")} `;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function arrowLine(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-9 -6L3 0L-9 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+
+/* =========================================================
+   Figure 1 : trois balles dans le vent
+   ========================================================= */
+const BALLS=[{m:20,r:14,nom:"boule de pétanque",c:"#6b7480"},{m:3,r:10,nom:"balle de tennis",c:"#9bb52f"},{m:1,r:7,nom:"balle de ping-pong",c:OR}];
+let f1={t:0,run:false,done:false};
+const W1={x0:80,x1:860,vx:180,za:300,zb:620,y0:95,A:40};
+function ballY(m,t){
+  const ti=(W1.za-W1.x0)/W1.vx, to=(W1.zb-W1.x0)/W1.vx, a=W1.A/m;
+  if(t<ti) return W1.y0;
+  if(t<to) return W1.y0+0.5*a*(t-ti)*(t-ti);
+  const D=to-ti; return W1.y0+0.5*a*D*D+a*D*(t-to);
+}
+function drawF1(){
+  const W=960,H=300, tEnd=(W1.x1-W1.x0)/W1.vx, t=Math.min(f1.t,tEnd);
+  let s=`<rect x="${W1.za}" y="30" width="${W1.zb-W1.za}" height="250" fill="#eef4fb"/>`;
+  for(let i=0;i<5;i++) for(let j=0;j<3;j++){
+    const x=W1.za+40+i*60, y=62+j*80+((f1.t*30)%20);
+    s+=arrowLine(x,y,x,y+30,"#9bbde6",2);
+  }
+  s+=tx((W1.za+W1.zb)/2,24,"vent vers le bas, le même pour tous",{size:17,fill:BL,anchor:"middle",w:500});
+  s+=`<rect x="30" y="${W1.y0-18}" width="46" height="36" rx="4" fill="#5d6672"/>`;
+  s+=tx(53,W1.y0+44,"lanceur",{size:15,fill:MUT,anchor:"middle"});
+  s+=`<rect x="${W1.x1+10}" y="30" width="10" height="250" fill="#d5dae1"/>`;
+  for(const b of BALLS){
+    const x=W1.x0+W1.vx*t, y=ballY(b.m,t);
+    if(t>0.02){
+      let d=""; for(let k=0;k<=40;k++){const tt=t*k/40; d+=(k?"L":"M")+(W1.x0+W1.vx*tt).toFixed(1)+" "+ballY(b.m,tt).toFixed(1);}
+      s+=`<path d="${d}" fill="none" stroke="${b.c}" stroke-width="2" stroke-dasharray="4 5" opacity=".7"/>`;
+    }
+    s+=`<circle cx="${x}" cy="${y}" r="${b.r}" fill="${b.c}" stroke="#3a414b" stroke-width="1"/>`;
+    if(f1.done) s+=tx(W1.x1-26,y+(b.m===20?-20:6),b.nom,{size:16,fill:INK,anchor:"end",w:500});
+  }
+  put("f1",W,H,s);
+  $("f1L").innerHTML = !f1.t ? "Trois balles lancées à la même vitesse vont traverser une zone où souffle un vent vers le bas. Appuyez sur <b>Lancer</b>."
+    : !f1.done ? "Les balles entrent dans le vent. Il pousse les trois avec la même force."
+    : "<b>Même vent pour les trois.</b> La balle de ping-pong, la plus légère, dévie le plus. La boule de pétanque passe presque tout droit. Si on connaît la force du vent, la déviation donne la masse.";
+}
+$("f1B").onclick=()=>{f1={t:0,run:true,done:false};$("f1B").textContent="Relancer";if(RM){f1.t=99;f1.run=false;f1.done=true;drawF1();}};
+
+/* =========================================================
+   Figure 2 : le tube à électrons
+   ========================================================= */
+const EM=1.75882e11, V2=200, MPME=1836.15;
+let f2={B:1.0e-3,hyd:false,ph:0};
+const T2={cx:300,cy:190,R:165,gx:300,gy:328}; const PXCM=T2.R/8.5;
+function drawF2(){
+  const W=960,H=380, B=f2.B;
+  const rTrue=Math.sqrt(2*V2/EM)/B*(f2.hyd?Math.sqrt(MPME):1);  // en mètres
+  const rcm=rTrue*100, rpx=rcm*PXCM;
+  let s=`<defs><clipPath id="glass"><circle cx="${T2.cx}" cy="${T2.cy}" r="${T2.R-3}"/></clipPath></defs>`;
+  s+=`<circle cx="${T2.cx}" cy="${T2.cy}" r="${T2.R}" fill="#f4f8fb" stroke="#9aa6b3" stroke-width="2"/>`;
+  for(let i=-3;i<=3;i++) for(let j=-3;j<=3;j++){
+    const x=T2.cx+i*44, y=T2.cy+j*44;
+    if(Math.hypot(x-T2.cx,y-T2.cy)<T2.R-20) s+=`<circle cx="${x}" cy="${y}" r="5" fill="none" stroke="#c9d3de"/><circle cx="${x}" cy="${y}" r="1.6" fill="#c9d3de"/>`;
+  }
+  s+=`<rect x="${T2.gx-70}" y="${T2.gy-9}" width="70" height="18" rx="3" fill="#5d6672"/>`;
+  s+=tx(T2.gx-35,T2.gy+36,"canon",{size:15,fill:MUT,anchor:"middle"});
+  // faisceau
+  let beam="";
+  if(!f2.hyd){
+    const c={x:T2.gx,y:T2.gy-rpx};
+    beam+=`<circle cx="${c.x}" cy="${c.y}" r="${rpx.toFixed(1)}" fill="none" stroke="#7fd6b4" stroke-width="10" opacity=".35"/>`;
+    beam+=`<circle cx="${c.x}" cy="${c.y}" r="${rpx.toFixed(1)}" fill="none" stroke="#2f9e76" stroke-width="3"/>`;
+    for(let k=0;k<6;k++){ const a=Math.PI/2-(f2.ph+k/6)*2*Math.PI; beam+=`<circle cx="${(c.x+rpx*Math.cos(a)).toFixed(1)}" cy="${(c.y+rpx*Math.sin(a)).toFixed(1)}" r="3.5" fill="#fff" stroke="#2f9e76"/>`; }
+    s+=`<g clip-path="url(#glass)">${beam}</g>`;
+    s+=arrowLine(c.x-rpx+14,c.y,c.x+rpx-14,c.y,INK,1.5)+arrowLine(c.x+rpx-14,c.y,c.x-rpx+14,c.y,INK,1.5);
+    s+=`<rect x="${c.x-54}" y="${c.y-30}" width="108" height="24" rx="3" fill="#fff" opacity=".85"/>`;
+    s+=tx(c.x,c.y-12,"2r = "+fr(2*rcm,1)+" cm",{size:17,anchor:"middle",w:600});
+  } else {
+    const c={x:T2.gx,y:T2.gy-rpx};
+    const a2=Math.PI/2-0.14, x2=c.x+rpx*Math.cos(a2), y2=c.y+rpx*Math.sin(a2);
+    const d=`M${T2.gx} ${T2.gy}A${rpx.toFixed(1)} ${rpx.toFixed(1)} 0 0 0 ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+    beam+=`<path d="${d}" fill="none" stroke="#e8a3a0" stroke-width="10" opacity=".4"/>`;
+    beam+=`<path d="${d}" fill="none" stroke="${RED}" stroke-width="3"/>`;
+    s+=`<g clip-path="url(#glass)">${beam}</g>`;
+  }
+  // panneau de lecture
+  const px=540;
+  s+=tx(px,70,"Force de l'aimant",{size:16,fill:MUT});
+  s+=tx(px,98,fr(B*1000,2)+" millitesla",{size:22,w:600});
+  if(!f2.hyd){
+    const rMeas=Math.round(rcm*10)/10/100;               // lu à la règle, au millimètre
+    const ratio=2*V2/(B*B*rMeas*rMeas);
+    s+=tx(px,150,"Rayon lu sur la règle",{size:16,fill:MUT});
+    s+=tx(px,178,fr(rcm,1)+" cm",{size:22,w:600});
+    s+=tx(px,230,"Rapport charge / masse calculé",{size:16,fill:MUT});
+    s+=tx(px,262,sSci(ratio,2)+"C/kg",{size:24,w:600,fill:"#1f4f8f"});
+    s+=tx(px,300,"Il ne change pas quand on règle l'aimant :",{size:15,fill:MUT});
+    s+=tx(px,320,"c'est une propriété de l'électron.",{size:15,fill:MUT});
+  } else {
+    s+=tx(px,150,"Rayon du cercle",{size:16,fill:MUT});
+    s+=tx(px,178,fr(rTrue,2)+" m",{size:22,w:600,fill:RED});
+    s+=tx(px,230,"Le cercle est "+Math.round(Math.sqrt(MPME))+" fois plus grand.",{size:16,fill:INK});
+    s+=tx(px,254,"Le faisceau sort presque tout droit du tube.",{size:16,fill:INK});
+  }
+  put("f2",W,H,s);
+  $("f2L").innerHTML = f2.hyd
+    ? "Même tube, même aimant, mais avec des atomes d'hydrogène privés de leur électron, c'est-à-dire des protons. Même charge que l'électron, mais <b>1836 fois plus lourds</b> : l'aimant ne parvient presque pas à les faire tourner."
+    : "Déplacez le curseur. <b>Aimant plus fort, cercle plus petit.</b> Le rayon change, mais le rapport charge sur masse calculé à partir du rayon reste toujours le même, autour de 1,76 × 10<sup>11</sup> coulombs par kilogramme.";
+}
+$("bS").oninput=e=>{f2.B=+e.target.value/100000;drawF2();};
+$("hB").onclick=()=>{f2.hyd=!f2.hyd;$("hB").textContent=f2.hyd?"Revenir aux électrons":"Remplacer par des atomes d'hydrogène";drawF2();};
+
+/* =========================================================
+   Figure 3 : Millikan
+   ========================================================= */
+const E=1.602176634e-19, G=9.81, D3=0.006;
+const T3={x0:60,x1:470,top:66,bot:300,dx:265};
+let drop=null, U=0, meas=[], f3msg="";
+function newDrop(){
+  const ns=[1,1,2,2,2,3,3,4,5], n=ns[Math.floor(Math.random()*ns.length)];
+  const Ueq=180+Math.random()*700;
+  drop={n,Ueq,m:n*E*Ueq/(G*D3),y:T3.top+40,stuck:false};
+}
+function balanced(){return !drop.stuck && Math.abs(U/drop.Ueq-1)<0.03;}
+function drawF3(){
+  const W=960,H=380;
+  let s=`<rect x="${T3.x0}" y="${T3.top-12}" width="${T3.x1-T3.x0}" height="12" fill="#c8372d" opacity=".85"/>`;
+  s+=`<rect x="${T3.x0}" y="${T3.bot}" width="${T3.x1-T3.x0}" height="12" fill="#2c72c7" opacity=".85"/>`;
+  s+=tx(T3.x0-12,T3.top-1,"+",{size:22,fill:RED,anchor:"end",w:600});
+  s+=tx(T3.x0-12,T3.bot+12,"−",{size:22,fill:BL,anchor:"end",w:600});
+  s+=tx((T3.x0+T3.x1)/2,T3.bot+44,"tension entre les plaques : "+Math.round(U)+" V",{size:18,anchor:"middle",w:600});
+  const y=drop.y, x=T3.dx;
+  const up=Math.min(110,48*U/drop.Ueq);
+  s+=arrowLine(x,y+14,x,y+62,MUT,3)+tx(x+14,y+56,"poids",{size:16,fill:MUT});
+  if(up>6) s+=arrowLine(x,y-14,x,y-14-up,BL,3)+tx(x+14,y-14-up+12,"force électrique",{size:16,fill:BL});
+  s+=`<circle cx="${x}" cy="${y}" r="10" fill="#e3b341" stroke="#9a7515" stroke-width="1.5"/>`;
+  let st, sc;
+  if(drop.stuck){st="collée à la plaque";sc=RED;}
+  else if(balanced()){st="elle flotte : équilibre";sc=GR;}
+  else if(U<drop.Ueq){st="elle tombe";sc=MUT;}
+  else {st="elle monte";sc=BL;}
+  s+=tx(x-24,T3.top+22,st,{size:16,fill:sc,anchor:"end",w:600});
+  // histogramme
+  const hx0=530,hx1=925,hy=300, qmax=9e-19, X=q=>hx0+(q/qmax)*(hx1-hx0);
+  s+=tx(hx0,60,"Charges mesurées",{size:18,w:600});
+  s+=tx(hx0,84,meas.length+" goutte"+(meas.length>1?"s":""),{size:15,fill:MUT});
+  s+=`<path d="M${hx0} ${hy}H${hx1}" stroke="${INK}" stroke-width="1.5"/>`;
+  for(let k=0;k<=8;k+=2){ s+=`<path d="M${X(k*1e-19)} ${hy}v6" stroke="${INK}"/>`+tx(X(k*1e-19),hy+24,k,{size:14,fill:MUT,anchor:"middle"}); }
+  s+=tx(hx1,hy+48,"unité : 10⁻¹⁹ coulomb",{size:14,fill:MUT,anchor:"end"});
+  if(meas.length>=5){
+    for(let k=1;k<=5;k++){ const gx=X(k*E);
+      s+=`<path d="M${gx} 100V${hy}" stroke="#1f4f8f" stroke-dasharray="4 5" opacity=".55"/>`;
+      s+=tx(gx,120,k===1?"e":k+"e",{size:15,fill:"#1f4f8f",anchor:"middle",w:600}); }
+  }
+  const bins={};
+  for(const q of meas){ const b=Math.round(X(q)/9); bins[b]=(bins[b]||0)+1; const c=bins[b];
+    s+=`<circle cx="${X(q).toFixed(1)}" cy="${hy-8-(c-1)*13}" r="6" fill="#e3b341" stroke="#9a7515"/>`; }
+  put("f3",W,H,s);
+  const L=$("f3L");
+  if(f3msg){L.innerHTML=f3msg;return;}
+  if(meas.length>=5) L.innerHTML="Regardez les pointillés : les charges ne prennent pas n'importe quelle valeur. Elles tombent toutes sur <b>1,6, puis 3,2, puis 4,8</b>… des multiples d'une même quantité, 1,6 × 10<sup>−19</sup> coulomb. Une goutte porte 1, 2 ou 3 électrons, jamais un électron et demi. <b>Cette quantité, c'est la charge d'un électron.</b>";
+  else if(drop.stuck) L.innerHTML="La goutte a touché une plaque. Réglez la tension et essayez avec une nouvelle goutte : elle apparaît dans un instant.";
+  else if(balanced()) L.innerHTML="La goutte flotte : la force électrique compense exactement son poids. Appuyez sur <b>Mesurer la charge</b>.";
+  else L.innerHTML="Déplacez le curseur de tension. Trop faible, la goutte tombe. Trop forte, elle monte. Cherchez le point où elle s'arrête. Chaque goutte demande une tension différente.";
+}
+$("uS").oninput=e=>{U=+e.target.value;f3msg="";drawF3();};
+$("mB").onclick=()=>{
+  if(!balanced()){f3msg="La goutte bouge encore. Réglez d'abord la tension pour qu'elle s'immobilise, ou utilisez <b>Équilibrer pour moi</b>.";drawF3();setTimeout(()=>{f3msg="";drawF3();},2600);return;}
+  const q=drop.m*G*D3/U; meas.push(q);
+  f3msg="Mesuré : cette goutte porte "+hSci(q,2)+" coulomb. Une nouvelle goutte arrive.";
+  drawF3();
+  setTimeout(()=>{f3msg="";newDrop();drawF3();},1800);
+};
+let autoT=null;
+$("aB").onclick=()=>{ if(drop.stuck){newDrop();}
+  const start=U, target=drop.Ueq, t0=performance.now(); clearInterval(autoT);
+  autoT=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/1000);U=start+(target-start)*(1-Math.pow(1-k,3));$("uS").value=U;drawF3();if(k>=1)clearInterval(autoT);},30);
+};
+$("tB").onclick=()=>{ const ns=[1,1,2,2,2,3,3,4,5];
+  for(let i=0;i<10;i++){const n=ns[Math.floor(Math.random()*ns.length)];meas.push(n*E*(1+(Math.random()-.5)*0.04));}
+  f3msg="";drawF3();};
+
+/* =========================================================
+   Figure 5 : spectromètre de masse
+   ========================================================= */
+const ELS=[
+  {id:"H", nom:"Hydrogène", iso:[[1.008,1]]},
+  {id:"He",nom:"Hélium",    iso:[[4.003,1]]},
+  {id:"C", nom:"Carbone",   iso:[[12.000,1]]},
+  {id:"N", nom:"Azote",     iso:[[14.003,1]]},
+  {id:"O", nom:"Oxygène",   iso:[[15.995,1]]},
+  {id:"Ne",nom:"Néon",      iso:[[19.992,0.9],[21.991,0.1]]}
+];
+const S5={ex:70,by:390,c:78.9}; const U_KG=1.66054e-27;
+let ions=[], spots={}, lastEl=null, queue=0, qTimer=0;
+function rOf(m){return S5.c*Math.sqrt(m);}
+function buildSeg(){
+  $("elSeg").innerHTML=ELS.map(e=>`<button data-el="${e.id}">${e.nom}</button>`).join("");
+  $("elSeg").querySelectorAll("button").forEach(b=>b.onclick=()=>fire(b.dataset.el));
+}
+function fire(id){
+  lastEl=ELS.find(e=>e.id===id); queue=14; qTimer=0;
+  $("elSeg").querySelectorAll("button").forEach(b=>b.className=b.dataset.el===id?"go":"");
+  if(id==="Ne"){ ions.push({m:21.991,phi:Math.PI}); queue--; }
+  if(RM){ for(const [m] of lastEl.iso){ spots[m]=(spots[m]||0)+6; } queue=0; drawF5(); }
+}
+function pickIso(el){ let r=Math.random(); for(const [m,a] of el.iso){ if(r<a) return m; r-=a; } return el.iso[0][0]; }
+function drawF5(){
+  const W=960,H=450, by=S5.by, ex=S5.ex;
+  let s=`<path d="M${ex} ${by}A370 370 0 0 1 ${ex+740} ${by}Z" fill="#f3f0fa"/>`;
+  for(let i=0;i<9;i++) for(let j=0;j<4;j++){
+    const x=ex+60+i*80, y=by-40-j*80;
+    if(Math.hypot(x-(ex+370),y-by)<355) s+=`<circle cx="${x}" cy="${y}" r="5" fill="none" stroke="#cfc6e6"/><circle cx="${x}" cy="${y}" r="1.6" fill="#cfc6e6"/>`;
+  }
+  s+=tx(ex+370,by-300,"aimant",{size:16,fill:"#7a68b0",anchor:"middle"});
+  // source
+  s+=`<rect x="${ex-22}" y="${by+4}" width="44" height="40" rx="3" fill="#5d6672"/>`;
+  s+=tx(ex+32,by+30,"source",{size:15,fill:MUT});
+  // plaque et règle
+  const pl=ex+2*rOf(0.8), pr=ex+2*rOf(24.5);
+  s+=`<rect x="${pl}" y="${by-3}" width="${pr-pl}" height="8" fill="#3a414b"/>`;
+  for(const m of [1,2,4,8,12,16,20,24]){ const x=ex+2*rOf(m);
+    s+=`<path d="M${x} ${by+5}v10" stroke="${INK}"/>`+tx(x,by+34,m,{size:15,fill:MUT,anchor:"middle"}); }
+  s+=tx(pr,by+56,"masse (u)",{size:15,fill:MUT,anchor:"end"});
+  // trajectoires des isotopes déjà vus
+  for(const k of Object.keys(spots)){ const r=rOf(+k);
+    s+=`<path d="M${ex} ${by}A${r} ${r} 0 0 1 ${ex+2*r} ${by}" fill="none" stroke="#9b8ad0" stroke-width="1.5" stroke-dasharray="4 5"/>`; }
+  // taches
+  for(const [k,n] of Object.entries(spots)){ const x=ex+2*rOf(+k), o=Math.min(1,.25+n*.08);
+    s+=`<ellipse cx="${x}" cy="${by-8}" rx="${6+Math.min(n,12)*.6}" ry="5" fill="${OR}" opacity="${o}"/>`; }
+  // ions en vol
+  for(const io of ions){ const r=rOf(io.m); const x=ex+r+r*Math.cos(io.phi), y=by-r*Math.sin(io.phi);
+    s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="6" fill="${OR}" stroke="#8a4a08"/>`; }
+  put("f5",W,H,s);
+  const L=$("f5L");
+  if(!lastEl){L.innerHTML="Choisissez un gaz ci-dessus. Ses atomes, chargés, vont partir de la source vers le haut et tourner dans l'aimant.";return;}
+  const seen=lastEl.iso.filter(([m])=>spots[m]);
+  if(!seen.length){L.innerHTML="Les atomes de "+lastEl.nom.toLowerCase()+" sont en route…";return;}
+  const lines=seen.map(([m])=>"<b>"+fr(m,1)+" u</b>, soit "+hSci(m*U_KG,2)+" kg").join(" et ");
+  let extra="";
+  if(lastEl.id==="H") extra=" Un atome d'hydrogène privé de son électron est un <b>proton seul</b> : c'est la masse du proton, 1836 fois celle de l'électron.";
+  if(lastEl.id==="C") extra=" C'est l'étalon : par définition, cet atome pèse exactement 12 u.";
+  if(lastEl.id==="Ne" && seen.length>1) extra=" <b>Deux taches pour un seul gaz !</b> Le néon existe en deux versions de masses différentes : ce sont des <b>isotopes</b>. J. J. Thomson a vu ces deux traces en 1913, et son assistant Francis Aston l'a confirmé en construisant le premier spectrographe de masse.";
+  L.innerHTML="Tache lue sur la règle : "+lines+"."+extra;
+}
+$("clrB").onclick=()=>{spots={};ions=[];lastEl=null;queue=0;$("elSeg").querySelectorAll("button").forEach(b=>b.className="");drawF5();};
+
+/* =========================================================
+   Figure 6 : le billard de Chadwick
+   ========================================================= */
+let f6={t:-1};
+const LANES=[{y:80,M:1,nom:"hydrogène",r:12,c:RED},{y:190,M:14,nom:"azote",r:26,c:"#7a5fc0"}];
+const V6=150, TX=560;
+function mN(){return +$("nS").value/100;}
+function laneState(l,t,m){
+  const rn=12, tc=(TX-l.r-rn-90)/V6;
+  if(t<tc) return {xn:90+V6*t, xt:TX, hit:false};
+  const vn=(m-l.M)/(m+l.M)*V6, vt=2*m/(m+l.M)*V6, d=t-tc;
+  return {xn:TX-l.r-rn+vn*d, xt:TX+vt*d, hit:true, vt};
+}
+function drawF6(){
+  const W=960,H=450, m=mN(), t=Math.max(0,f6.t);
+  let s="";
+  for(const l of LANES){
+    s+=`<path d="M40 ${l.y+30}H930" stroke="#e6e3dc"/>`;
+    s+=tx(40,l.y-36,"Neutron contre "+l.nom+" ("+l.M+" u)",{size:17,fill:MUT});
+    const st=f6.t<0?{xn:90,xt:TX,hit:false}:laneState(l,t,m);
+    const xt=Math.min(st.xt,940), xn=Math.max(20,Math.min(st.xn,940));
+    s+=`<circle cx="${xt}" cy="${l.y}" r="${l.r}" fill="${l.c}" opacity=".9"/>`;
+    s+=tx(xt,l.y+l.r+22,l.nom,{size:15,fill:l.c,anchor:"middle",w:500});
+    s+=`<circle cx="${xn}" cy="${l.y}" r="12" fill="#8a929c" stroke="#3a414b"/>`;
+    s+=tx(xn,l.y-20,"neutron",{size:14,fill:MUT,anchor:"middle"});
+    if(st.hit && st.vt) s+=tx(930,l.y-36,"projeté à "+Math.round(st.vt/V6*100)+" % de la vitesse du neutron",{size:15,fill:INK,anchor:"end"});
+  }
+  // comparaison du rapport
+  const pred=(m+14)/(m+1), meas=7.0, lx0=60, lx1=900, R=v=>lx0+(v-1)/(15-1)*(lx1-lx0), ly=385;
+  s+=`<path d="M30 268H930" stroke="#eceae4"/>`;
+  s+=tx(lx0,296,"Vitesse de l'hydrogène ÷ vitesse de l'azote",{size:17,w:600});
+  s+=`<path d="M${lx0} ${ly}H${lx1}" stroke="${INK}" stroke-width="1.5"/>`;
+  for(let k=1;k<=15;k+=2) s+=`<path d="M${R(k)} ${ly}v6" stroke="${INK}"/>`+tx(R(k),ly+24,k,{size:14,fill:MUT,anchor:"middle"});
+  s+=`<path d="M${R(meas)} ${ly-30}V${ly}" stroke="${INK}" stroke-width="2" stroke-dasharray="4 4"/>`;
+  s+=tx(R(meas),ly-38,"mesuré par Chadwick : 7",{size:15,anchor:"middle",w:500});
+  const ok=Math.abs(pred/meas-1)<0.04;
+  s+=`<circle cx="${R(Math.min(pred,15))}" cy="${ly}" r="9" fill="${ok?GR:BL}"/>`;
+  s+=tx(R(Math.min(pred,15)),ly+48,"prévu : "+fr(pred,1),{size:15,fill:ok?GR:BL,anchor:"middle",w:600});
+  put("f6",W,H,s);
+  let msg="Masse essayée : <b>"+fr(m,2)+" u</b>. ";
+  if(ok) msg+="<b>Ça colle.</b> Avec une masse proche de celle du proton, le rapport prévu tombe sur la mesure. Remarquez sur la ligne du haut : quand les masses sont égales, le neutron s'arrête net et l'hydrogène repart à sa place, comme une boule de billard.";
+  else if(pred>meas) msg+="Rapport prévu trop grand : le neutron essayé est trop léger. Un neutron très léger rebondit sur l'azote sans presque le déplacer. Augmentez la masse.";
+  else msg+="Rapport prévu trop petit : le neutron essayé est trop lourd. Un neutron lourd projette l'azote presque aussi facilement que l'hydrogène. Diminuez la masse.";
+  $("f6L").innerHTML=msg;
+}
+$("nS").oninput=()=>{drawF6();};
+$("nB").onclick=()=>{f6.t=0;if(RM)f6.t=6;drawF6();};
+
+/* =========================================================
+   Boucle d'animation
+   ========================================================= */
+newDrop(); buildSeg();
+drawF1(); drawF2(); drawF3(); drawF5(); drawF6();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  if(f1.run){ f1.t+=dt*0.7; const e=(W1.x1-W1.x0)/W1.vx; if(f1.t>=e){f1.t=e;f1.run=false;f1.done=true;} drawF1(); }
+  f2.ph=(f2.ph+dt*0.25)%1; drawF2();
+  if(drop && !drop.stuck){
+    const v=Math.max(-60,Math.min(60,30*(U/drop.Ueq-1)*3));
+    drop.y-=v*dt;
+    if(drop.y>T3.bot-10){drop.y=T3.bot-10;drop.stuck=true;setTimeout(()=>{newDrop();drawF3();},2200);}
+    if(drop.y<T3.top+10){drop.y=T3.top+10;drop.stuck=true;setTimeout(()=>{newDrop();drawF3();},2200);}
+    drawF3();
+  }
+  if(lastEl && queue>0){ qTimer-=dt; if(qTimer<=0){ ions.push({m:pickIso(lastEl),phi:Math.PI}); queue--; qTimer=0.22; } }
+  if(ions.length){
+    for(const io of ions){ io.phi-=Math.PI/(1.2+0.12*io.m)*dt; }
+    for(const io of ions.filter(i=>i.phi<=0)) spots[io.m]=(spots[io.m]||0)+1;
+    ions=ions.filter(i=>i.phi>0);
+    drawF5();
+  }
+  if(f6.t>=0 && f6.t<6.5){ f6.t+=dt; drawF6(); }
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+</script>
+</body>
+</html>
