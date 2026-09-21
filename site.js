@@ -61,8 +61,8 @@ const V_RICOCHETS = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="
 const ARTICLES = [
   { titre: "Les étoiles doubles interdisent d'aller plus vite que la lumière",
     url: "etoiles-doubles.html", rubrique: "simulations",
-    date: "2026-09-20", duree: "10 min",
-    resume: "Si la lumière emportait la vitesse de sa source, une étoile double nous apparaîtrait à plusieurs endroits à la fois. L'argument de De Sitter, en simulation.",
+    date: "2026-09-20", duree: "5 min",
+    resume: "Si la lumière allait plus vite quand l'étoile avance vers nous, on verrait les étoiles doubles à plusieurs endroits à la fois. On ne les voit pas, et c'est une preuve.",
     vignette: V_ETOILES },
   { titre: "Couper un aimant en deux pour séparer le pôle nord du pôle sud",
     url: "aimant.html", rubrique: "simulations",
