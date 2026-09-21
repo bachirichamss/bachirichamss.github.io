@@ -3,173 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ricochets — physique, bricolages et idées qui rebondissent</title>
-<meta name="description" content="Un carnet en ligne : de la physique expliquée pour de vrai, des démonstrations interactives et des histoires.">
-<meta name="theme-color" content="#070f19">
-<meta property="og:title" content="Ricochets">
-<meta property="og:description" content="Physique, bricolages et idées qui rebondissent.">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23070f19'/><path d='M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23' stroke='%23ffc98a' fill='none' stroke-width='2.2' stroke-linecap='round'/></svg>">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Chamss Bachiri · Physique</title>
+<meta name="description" content="Chamss Bachiri, en reprise d'études de physique. Simulations, démonstrations, réflexions et projets en physique fondamentale, matière quantique, topologie, nanotechnologies et astrophysique.">
+<meta property="og:title" content="Chamss Bachiri · Physique">
+<meta property="og:type" content="website">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="index.html">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23" stroke="#ffc98a" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg>
-      Ricochets
-    </a>
-    <nav class="site-nav">
-      <a href="index.html" aria-current="page">Articles</a>
-      <a href="#a-propos">À propos</a>
-    </nav>
-  </div>
-</header>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
 
-<main>
+<main class="shell">
 
-<section class="home-hero">
-  <div class="shell">
-    <h1>Physique, bricolages et idées qui rebondissent.</h1>
-    <p class="dek">Un carnet en ligne. J'y mets les choses que je finis par comprendre, celles que je fabrique, et celles qui me font rire.</p>
-    <svg class="ricochet" id="hero" viewBox="0 0 1000 230" aria-hidden="true"></svg>
-  </div>
-</section>
+  <section class="intro">
+    <div>
+      <h1>Chamss Bachiri</h1>
+      <p class="role">En reprise d'études de physique, après plusieurs années dans le web et le numérique.</p>
+      <p class="interests"><span>Physique fondamentale</span><span>Matière quantique</span><span>Topologie</span><span>Nanotechnologies</span><span>Astrophysique</span></p>
+      <p class="lede">Ce site rassemble ce que j'apprends et ce que je construis : des simulations pour rendre visibles des idées de physique, des notes sur les sujets qui m'occupent, et mes projets personnels.</p>
+    </div>
+    <figure class="intro-fig" style="margin:0">
+      <svg viewBox="0 0 340 240" aria-hidden="true">
+        <rect width="340" height="240" fill="#fff"/>
+        <g fill="none" stroke="#7d8da0" stroke-width="1.1" opacity=".85"><path d="M224.0 120 C227.9 109.2 226.1 84.1 170 84.1 C113.9 84.1 112.1 109.2 116.0 120"/><path d="M224.0 120 C227.9 130.8 226.1 155.9 170 155.9 C113.9 155.9 112.1 130.8 116.0 120"/><path d="M224.0 120 C231.5 105.6 228.1 72.0 170 72.0 C111.9 72.0 108.5 105.6 116.0 120"/><path d="M224.0 120 C231.5 134.4 228.1 168.0 170 168.0 C111.9 168.0 108.5 134.4 116.0 120"/><path d="M224.0 120 C237.4 100.7 231.4 55.6 170 55.6 C108.6 55.6 102.6 100.7 116.0 120"/><path d="M224.0 120 C237.4 139.3 231.4 184.4 170 184.4 C108.6 184.4 102.6 139.3 116.0 120"/><path d="M224.0 120 C245.7 94.6 235.9 35.4 170 35.4 C104.1 35.4 94.3 94.6 116.0 120"/><path d="M224.0 120 C245.7 145.4 235.9 204.6 170 204.6 C104.1 204.6 94.3 145.4 116.0 120"/><path d="M224.0 120 C256.4 87.6 241.8 12.0 170 12.0 C98.2 12.0 83.6 87.6 116.0 120"/><path d="M224.0 120 C256.4 152.4 241.8 228.0 170 228.0 C98.2 228.0 83.6 152.4 116.0 120"/></g>
+        <rect x="116" y="104" width="108" height="32" rx="3" fill="#eef2f6" stroke="#a9b6c5"/>
+        <rect x="116" y="104" width="9" height="32" rx="2" fill="#2c72c7"/>
+        <rect x="215" y="104" width="9" height="32" rx="2" fill="#c8372d"/>
+        <text x="330" y="230" text-anchor="end" font-family="IBM Plex Sans, Arial, sans-serif" font-size="10" fill="#8a929c">champ d'un dipôle magnétique</text>
+      </svg>
+    </figure>
+  </section>
 
-<section class="feed">
-  <div class="shell">
-    <h2>Articles</h2>
+  <section class="block">
+    <h2 class="sec">Derniers ajouts</h2>
+    <div id="latest"></div>
+  </section>
 
-    <article class="feed-item">
-      <div class="thumb">
-        <svg viewBox="0 0 200 140" aria-hidden="true">
-          <ellipse cx="100" cy="70" rx="62" ry="26" fill="none" stroke="rgba(179,194,211,.28)" stroke-width="1" stroke-dasharray="4 5"/>
-          <path d="M100 104v16" stroke="rgba(255,201,138,.5)" fill="none"/>
-          <path d="M95 116l5 9 5-9z" fill="rgba(255,201,138,.6)"/>
-          <circle class="comp" cx="45.6" cy="57.5" r="4"/>
-          <circle class="ghost" cx="58.7" cy="89.4" r="8"/>
-          <circle class="ghost" cx="69.6" cy="47.4" r="8"/>
-          <circle class="star" cx="154.4" cy="82.5" r="9"/>
-        </svg>
-      </div>
-      <div>
-        <h3><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a></h3>
-        <p>Si la lumière emportait la vitesse de sa source, une étoile double nous apparaîtrait à trois endroits à la fois. Le ciel dit le contraire depuis toujours, et c'est de là que vient la limite.</p>
-        <div class="meta"><span class="tag">Interactif</span><span>20 septembre 2026</span><span>10 min</span></div>
-      </div>
-    </article>
-
-    <article class="feed-item">
-      <div class="thumb">
-        <svg viewBox="0 0 200 140" aria-hidden="true">
-          <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#4ea3f5"/><stop offset="44%" stop-color="#7fbdf3"/>
-            <stop offset="56%" stop-color="#f4806d"/><stop offset="1" stop-color="#ef4a36"/>
-          </linearGradient></defs>
-          <path class="fl" d="M152.0 70 C161.8 59.2 157.4 34.1 100 34.1 C42.6 34.1 38.3 59.2 48.0 70"/>
-          <path class="fl" d="M152.0 70 C161.8 80.8 157.4 105.9 100 105.9 C42.6 105.9 38.3 80.8 48.0 70"/>
-          <path class="fl" d="M152.0 70 C183.2 53.2 169.2 14.0 100 14.0 C30.8 14.0 16.8 53.2 48.0 70"/>
-          <path class="fl" d="M152.0 70 C183.2 86.8 169.2 126.0 100 126.0 C30.8 126.0 16.8 86.8 48.0 70"/>
-          <rect class="mgbody" x="48" y="52" width="104" height="36" rx="3"/>
-          <path d="M57 65H70L70 60L79 70L70 80L70 75H57Z" fill="url(#tg)"/>
-          <path d="M90 65H103L103 60L112 70L103 80L103 75H90Z" fill="url(#tg)"/>
-          <path d="M123 65H136L136 60L145 70L136 80L136 75H123Z" fill="url(#tg)"/>
-          <rect class="capS" x="48" y="52" width="7" height="36" rx="2"/>
-          <rect class="capN" x="145" y="52" width="7" height="36" rx="2"/>
-        </svg>
-      </div>
-      <div>
-        <h3><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a></h3>
-        <p>Ça ne marche pas, et la raison est visible à l'œil nu si on regarde à l'intérieur. Une démonstration interactive : on coupe, on recoupe, et on compte les pôles.</p>
-        <div class="meta"><span class="tag">Interactif</span><span>20 septembre 2026</span><span>7 min</span></div>
-      </div>
-    </article>
-
-    <article class="feed-item">
-      <div class="thumb">
-        <svg viewBox="0 0 200 140" aria-hidden="true">
-          <path class="water" d="M6 104H194"/>
-          <path class="traj" d="M12 104 Q43.0 52.0 74.0 104 Q96.9 65.5 119.9 104 Q136.9 75.5 153.8 104 Q166.4 82.9 179.0 104 Q188.3 88.4 197.5 104"/>
-          <ellipse class="ripple" cx="74" cy="104" rx="9" ry="2.6"/>
-          <ellipse class="ripple" cx="120" cy="104" rx="7" ry="2.2"/>
-          <ellipse class="ripple" cx="154" cy="104" rx="5.5" ry="1.8"/>
-          <circle class="stone" cx="12" cy="104" r="3.4"/>
-        </svg>
-      </div>
-      <div>
-        <h3><a href="ricochets.html">L'homme qui ricochait</a></h3>
-        <p>Une nouvelle en sept chapitres. Un avion tombe en panne, un passager décide de rentrer en ricochet, et tout ce qui suit repose sur de la physique parfaitement réelle. Sauf ce qui ne l'est pas, et c'est indiqué.</p>
-        <div class="meta"><span class="tag">Nouvelle</span><span>20 septembre 2026</span><span>9 min</span></div>
-      </div>
-    </article>
-
-    <p class="meta" style="margin-top:1.6rem">D'autres arrivent.</p>
-  </div>
-</section>
-
-<section class="about" id="a-propos">
-  <div class="shell">
-    <h2>À propos</h2>
-    <p>J'aime comprendre comment marchent les choses, et j'aime encore plus le moment où une explication devient simple. Ce site sert à garder une trace de ces moments là : des démonstrations qu'on peut manipuler, des projets, des histoires, et des trucs qui n'intéressent peut-être que moi.</p>
-    <p>Écrivez-moi si quelque chose est faux. C'est le genre de courrier que je préfère.</p>
-  </div>
-</section>
+  <section class="block">
+    <h2 class="sec">Rubriques</h2>
+    <div class="toc" id="toc"></div>
+  </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="shell">
-    <span>Ricochets, 2026</span>
-    <span>Site écrit à la main, sans template.</span>
-  </div>
-</footer>
+<footer class="site-footer" id="site-footer"></footer>
 
-<script>
-(function(){
-  const svg=document.getElementById("hero");
-  if(!svg) return;
-  const W=1000,base=185;
-  // trajectoire : des bonds de plus en plus courts
-  let x=40,d=`M${x} ${base}`,pts=[];
-  const L0=260,H0=78,r=0.735,n=7;
-  for(let i=0;i<n;i++){
-    const L=L0*Math.pow(r,i),h=H0*Math.pow(r,i);
-    d+=` Q${(x+L/2).toFixed(1)} ${(base-2*h).toFixed(1)} ${(x+L).toFixed(1)} ${base}`;
-    x+=L; pts.push(x);
-  }
-  let s=`<path class="water" d="M20 ${base}H${W-20}"/>`;
-  s+=`<path class="traj" id="tr" d="${d}"/>`;
-  pts.forEach((p,i)=>{ if(i<5) s+=`<ellipse class="ripple" cx="${p.toFixed(1)}" cy="${base}" rx="${(15-i*2.2).toFixed(1)}" ry="${(4-i*0.5).toFixed(1)}" opacity="0"/>`; });
-  s+=`<circle class="stone" id="st" cx="40" cy="${base}" r="4.5" opacity="0"/>`;
-  svg.innerHTML=s;
-
-  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const tr=document.getElementById("tr"), st=document.getElementById("st");
-  const ripples=svg.querySelectorAll(".ripple");
-  if(reduce){ ripples.forEach(c=>c.setAttribute("opacity",".5")); st.setAttribute("opacity","1"); return; }
-
-  const len=tr.getTotalLength();
-  tr.style.strokeDasharray=len; tr.style.strokeDashoffset=len;
-  st.setAttribute("opacity","1");
-  const dur=2600, t0=performance.now()+250;
-  function frame(now){
-    const k=Math.max(0,Math.min(1,(now-t0)/dur));
-    const e=1-Math.pow(1-k,2.2);
-    tr.style.strokeDashoffset=len*(1-e);
-    const p=tr.getPointAtLength(len*e);
-    st.setAttribute("cx",p.x); st.setAttribute("cy",p.y);
-    ripples.forEach((c,i)=>{
-      const at=(i+1)/(ripples.length+1.6);
-      if(e>at) c.setAttribute("opacity",Math.max(0,0.75-(e-at)*1.6).toFixed(2));
-    });
-    if(k<1) requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-})();
-</script>
+<script src="site.js?v=3"></script>
+<script>Site.latest("latest",6);Site.toc("toc");</script>
 </body>
 </html>

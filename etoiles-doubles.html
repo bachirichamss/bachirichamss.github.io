@@ -3,43 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Les étoiles doubles prouvent que rien ne dépasse la lumière — Ricochets</title>
-<meta name="description" content="Si la lumière emportait la vitesse de sa source, les étoiles doubles nous apparaîtraient à plusieurs endroits à la fois. Démonstration interactive de l'argument de De Sitter.">
-<meta name="theme-color" content="#070f19">
-<meta property="og:title" content="Les étoiles doubles et la vitesse de la lumière">
-<meta property="og:description" content="La plus vieille preuve du ciel que la lumière va toujours à la même vitesse.">
-<meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23070f19'/><path d='M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23' stroke='%23ffc98a' fill='none' stroke-width='2.2' stroke-linecap='round'/></svg>">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Les étoiles doubles interdisent d'aller plus vite que la lumière · Chamss Bachiri</title>
+<meta name="description" content="Si la lumière emportait la vitesse de sa source, les étoiles doubles nous apparaîtraient à plusieurs endroits à la fois. L'argument de De Sitter en simulation.">
+<meta property="og:title" content="Les étoiles doubles interdisent d'aller plus vite que la lumière">
+<meta property="og:type" content="article">
+<style>
+/* couleurs des figures de cette page */
+.ptitle{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:13px;font-weight:500;fill:#1b1f24}
+.axlbl{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:12px;fill:#5d6672}
+.num{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:13px;fill:#1b1f24}
+.axis{stroke:#c3c9d1;stroke-width:1;fill:none}
+.orbitline{fill:none;stroke:#b0bac5;stroke-width:1;stroke-dasharray:4 5}
+.curve{fill:none;stroke:#c47a0c;stroke-width:2}
+.curve-ghost{fill:none;stroke:#8a96a4;stroke-width:1.4;stroke-dasharray:3 4}
+.star{fill:#e09a2e}
+.ghost{fill:#e09a2e;opacity:.42}
+.comp{fill:#4a86cf}
+.photon{fill:#d4870f}
+.earth{fill:#2c72c7}
+</style>
 </head>
-<body>
+<body data-rubrique="simulations">
 
 <div class="progress" id="prog"></div>
 
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="index.html">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23" stroke="#ffc98a" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg>
-      Ricochets
-    </a>
-    <nav class="site-nav">
-      <a href="index.html">Articles</a>
-      <a href="index.html#a-propos">À propos</a>
-    </nav>
-  </div>
-</header>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
 
 <main class="post">
   <div class="shell">
 
     <div class="post-head">
-      <p class="kicker">Démonstration interactive</p>
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
       <h1>Les étoiles doubles interdisent d'aller plus vite que la lumière</h1>
       <p class="dek">Si la lumière emportait la vitesse de sa source, le ciel serait un chaos. Il ne l'est pas, et cette observation à elle seule fonde toute la relativité.</p>
       <div class="scene"><svg id="raceSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 1.</b> La course des photons. Écarts de vitesse très exagérés pour être visibles.</p>
       <div class="ctl">
         <button id="raceH" class="go">Hypothèse : la lumière emporte la vitesse de l'étoile</button>
         <span class="hint" id="raceT">Les éclairs partent dans l'ordre. Regardez dans quel ordre ils arrivent.</span>
@@ -72,6 +76,7 @@
       <p>Voici une étoile double vue de côté. À gauche, sa vraie position. À droite, l'image qui nous parvient. Le curseur règle la distance qui nous sépare du couple : c'est le temps de trajet qui amplifie l'écart, donc plus c'est loin, plus c'est grave.</p>
 
       <div class="scene"><svg id="orbSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 2.</b> Une étoile double vue de biais. À gauche sa position réelle, à droite l'image qui nous parvient. Seule l'étoile brillante est dédoublée sur le dessin.</p>
 
       <div class="rd">
         <div><b id="roImg">1</b><span>images vues en même temps</span></div>
@@ -90,7 +95,8 @@
       <p>Les astronomes ne mesurent pas vraiment la position de ces étoiles, qui sont bien trop rapprochées pour être séparées dans un télescope. Ils mesurent leur <strong>vitesse</strong>, grâce au décalage des raies de leur spectre. Une étoile qui tourne régulièrement doit donner une belle sinusoïde.</p>
 
       <div class="scene"><svg id="curveSvg" aria-hidden="true"></svg></div>
-      <p class="hint" style="font-family:'Space Grotesk',sans-serif;font-size:.84rem;color:#7a8b9f;margin:-.4rem 0 1.4rem">La courbe pointillée est ce que donnerait une vitesse de la lumière constante. La courbe dorée est ce que donnerait l'hypothèse de Ritz, à la distance choisie ci-dessus.</p>
+      <p class="figcap"><b>Figure 3.</b> Vitesse mesurée dans le spectre. En pointillés, la courbe attendue avec une vitesse de la lumière constante. En ambre, celle que donnerait l'hypothèse de Ritz à la distance choisie.</p>
+      
 
       <p>Dès que la courbe se replie sur elle-même, la mesure devient absurde : au même instant, le spectre contiendrait trois vitesses différentes pour la même étoile. Et une orbite circulaire nous apparaîtrait comme une orbite très allongée, parcourue n'importe comment.</p>
     </section>
@@ -112,6 +118,7 @@
       <p>Les vitesses ne s'additionnent donc pas comme des nombres ordinaires. Voici la vraie règle, à manipuler ci-dessous : lancez une sonde à toute vitesse depuis un vaisseau déjà lancé à toute vitesse, et le total refuse obstinément d'atteindre <em>c</em>.</p>
 
       <div class="scene"><svg id="addSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 4.</b> Addition ordinaire des vitesses et addition relativiste.</p>
       <div class="ctl">
         <span class="grp"><label for="u">Vaisseau</label><input type="range" id="u" min="0" max="99" value="60"></span>
         <span class="grp"><label for="v">Sonde lancée depuis le vaisseau</label><input type="range" id="v" min="0" max="99" value="60"></span>
@@ -125,33 +132,24 @@
       <span class="no-num">6</span>
       <h2>Trois questions</h2>
       <div id="quiz"></div>
-      <p id="score" style="color:#7a8b9f;font-size:.95rem;font-family:'Space Grotesk',sans-serif"></p>
+      <p id="score" class="figcap" style="font-size:.9rem"></p>
       <p style="margin-top:2rem">À retenir : des couples d'étoiles situés à des milliers d'années-lumière nous montrent des orbites parfaitement régulières. Cela ne serait pas possible si la lumière emportait la vitesse de sa source. Et une vitesse identique pour tous les observateurs, c'est exactement ce qui rend la limite infranchissable.</p>
     </section>
 
     <hr class="end-rule">
-    <nav class="post-nav">
-      <a href="index.html">Tous les articles</a>
-    </nav>
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
 
   </div>
 </main>
 
-<footer class="site-footer">
-  <div class="shell">
-    <span>Ricochets, 2026</span>
-    <span>Site écrit à la main, sans template.</span>
-  </div>
-</footer>
+<footer class="site-footer" id="site-footer"></footer>
 
+<script src="site.js?v=3"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
 const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* barre de progression */
-(function(){const b=$("prog");function u(){const h=document.documentElement,m=h.scrollHeight-h.clientHeight;
-b.style.width=(m>0?h.scrollTop/m*100:0)+"%";}addEventListener("scroll",u,{passive:true});addEventListener("resize",u);u();})();
 
 /* ===================================================================
    1. La course des photons
@@ -247,8 +245,8 @@ function panel(cx,title){
   let s=`<ellipse class="orbitline" cx="${cx}" cy="${ORB.cy}" rx="${ORB.rx}" ry="${ORB.ry}"/>`;
   s+=`<path class="axis" d="M${cx-7} ${ORB.cy}h14M${cx} ${ORB.cy-7}v14"/>`;
   s+=`<text class="ptitle" x="${cx}" y="34" text-anchor="middle">${title}</text>`;
-  s+=`<path class="axis" d="M${cx} ${ORB.cy+70}v34" stroke="rgba(255,201,138,.5)"/>`;
-  s+=`<path d="M${cx-5} ${ORB.cy+96}L${cx} ${ORB.cy+106}L${cx+5} ${ORB.cy+96}Z" fill="rgba(255,201,138,.6)"/>`;
+  s+=`<path class="axis" d="M${cx} ${ORB.cy+70}v34" stroke="#a7b0bb"/>`;
+  s+=`<path d="M${cx-5} ${ORB.cy+96}L${cx} ${ORB.cy+106}L${cx+5} ${ORB.cy+96}Z" fill="#a7b0bb"/>`;
   s+=`<text class="axlbl" x="${cx}" y="${ORB.cy+124}" text-anchor="middle">vers la Terre</text>`;
   return s;
 }
@@ -264,7 +262,7 @@ function drawOrb(){
     s+=`<circle class="${imgs.length>1?'ghost':'star'}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="12"/>`;
   }
   if(imgs.length>1)
-    s+=`<text class="axlbl" x="${ORB.cB}" y="${ORB.cy-72}" text-anchor="middle" style="fill:#ef4a36">${imgs.length} images simultanées</text>`;
+    s+=`<text class="axlbl" x="${ORB.cB}" y="${ORB.cy-72}" text-anchor="middle" style="fill:#c8372d">${imgs.length} images simultanées</text>`;
   const svg=$("orbSvg"); svg.setAttribute("viewBox",`0 0 ${ORB.vw} ${ORB.vh}`); svg.innerHTML=s;
   $("roImg").textContent=imgs.length;
   return imgs.length;
@@ -298,7 +296,7 @@ function drawCurve(){
   s+=`<path class="curve" d="${e}" clip-path="url(#cc)"/>`;
   const xT=curveX(T);
   if(xT>CU.x0&&xT<CU.x1){
-    s+=`<path class="axis" d="M${xT.toFixed(1)} ${CU.cy-CU.amp-10}V${CU.cy+CU.amp+10}" stroke="rgba(255,255,255,.35)"/>`;
+    s+=`<path class="axis" d="M${xT.toFixed(1)} ${CU.cy-CU.amp-10}V${CU.cy+CU.amp+10}" stroke="rgba(27,31,36,.35)"/>`;
     for(const a of imagesAt(T)){
       const vr=V*Math.cos(a);
       s+=`<circle class="star" cx="${xT.toFixed(1)}" cy="${curveY(vr).toFixed(1)}" r="5"/>`;
@@ -335,17 +333,17 @@ function drawAdd(){
   const bar=(y,frac,color,label,val)=>{
     const w=Math.min(frac,1.25)*W/1.25;
     let t=`<text class="axlbl" x="${AD.x0}" y="${y-13}">${label}</text>`;
-    t+=`<rect x="${AD.x0}" y="${y}" width="${W}" height="18" rx="9" fill="rgba(179,194,211,.08)"/>`;
+    t+=`<rect x="${AD.x0}" y="${y}" width="${W}" height="18" rx="9" fill="#eef0f3"/>`;
     t+=`<rect x="${AD.x0}" y="${y}" width="${w.toFixed(1)}" height="18" rx="9" fill="${color}"/>`;
     t+=`<text class="num" x="${(AD.x0+w+10).toFixed(1)}" y="${y+14}">${val}</text>`;
     return t;
   };
   const cx=AD.x0+W/1.25;
-  let s=`<path class="axis" d="M${cx} 34V${AD.vh-34}" stroke="#ef4a36" stroke-dasharray="4 4"/>`;
-  s+=`<text class="axlbl" x="${cx+8}" y="30" style="fill:#ef4a36">vitesse de la lumière</text>`;
-  s+=bar(70,naive,"rgba(239,74,54,.65)","Addition ordinaire : "+u.toFixed(2).replace(".",",")+" c + "+v.toFixed(2).replace(".",",")+" c",
+  let s=`<path class="axis" d="M${cx} 34V${AD.vh-34}" stroke="#c8372d" stroke-dasharray="4 4"/>`;
+  s+=`<text class="axlbl" x="${cx+8}" y="30" style="fill:#c8372d">vitesse de la lumière</text>`;
+  s+=bar(70,naive,"rgba(200,55,45,.8)","Addition ordinaire : "+u.toFixed(2).replace(".",",")+" c + "+v.toFixed(2).replace(".",",")+" c",
         naive.toFixed(3).replace(".",",")+" c");
-  s+=bar(140,real,"#ffc98a","Addition réelle (Einstein)",real.toFixed(4).replace(".",",")+" c");
+  s+=bar(140,real,"#1f4f8f","Addition réelle (Einstein)",real.toFixed(4).replace(".",",")+" c");
   const svg=$("addSvg"); svg.setAttribute("viewBox",`0 0 ${AD.vw} ${AD.vh}`); svg.innerHTML=s;
   $("addCap").textContent = naive>1
     ? "L'addition ordinaire dépasse la vitesse de la lumière, ce qui n'arrive jamais. La formule d'Einstein, elle, reste en dessous : "+real.toFixed(4).replace(".",",")+" fois la vitesse de la lumière."

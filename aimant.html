@@ -3,44 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Couper un aimant en deux pour séparer le nord du sud — Ricochets</title>
-<meta name="description" content="Pourquoi couper un aimant ne sépare jamais le pôle nord du pôle sud. Démonstration interactive : on coupe, on regarde à l'intérieur, on compte les pôles.">
-<meta name="theme-color" content="#070f19">
-<meta property="og:title" content="Couper un aimant en deux pour séparer le nord du sud">
-<meta property="og:description" content="Ça ne marche pas, et voici ce qui se passe vraiment à l'intérieur.">
-<meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23070f19'/><path d='M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23' stroke='%23ffc98a' fill='none' stroke-width='2.2' stroke-linecap='round'/></svg>">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Couper un aimant en deux pour séparer le nord du sud · Chamss Bachiri</title>
+<meta name="description" content="Pourquoi couper un aimant ne sépare jamais le pôle nord du pôle sud. Démonstration interactive.">
+<meta property="og:title" content="Couper un aimant en deux pour séparer le nord du sud">
+<meta property="og:type" content="article">
+<style>
+/* couleurs des figures de cette page */
+.fl{fill:none;stroke:#6f8298;stroke-width:1.3;opacity:.75}
+.fa{fill:#6f8298;opacity:.75}
+.inb{stroke:#b8740c;stroke-width:2.2;fill:none}
+.mgbody{fill:#eef2f6;stroke:#a9b6c5;stroke-width:1}
+.capN{fill:#c8372d}.capS{fill:#2c72c7}
+.lbl{font-family:"IBM Plex Sans",Arial,sans-serif;font-weight:600;fill:#fff;text-anchor:middle}
+.skin{transition:opacity .6s}.fade{transition:opacity .5s}
+g.pc{transition:transform .62s cubic-bezier(.62,.03,.24,1)}
+</style>
 </head>
-<body>
+<body data-rubrique="simulations">
 
 <div class="progress" id="prog"></div>
 
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="index.html">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23" stroke="#ffc98a" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg>
-      Ricochets
-    </a>
-    <nav class="site-nav">
-      <a href="index.html">Articles</a>
-      <a href="index.html#a-propos">À propos</a>
-    </nav>
-  </div>
-</header>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
 
 <main class="post">
   <div class="shell">
 
     <div class="post-head">
-      <p class="kicker">Démonstration interactive</p>
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
       <h1>Couper un aimant en deux pour séparer le pôle nord du pôle sud</h1>
       <p class="dek">Ça ne marche pas. À chaque coupe on obtient deux aimants complets. Voyons ce qui se passe à l'intérieur pendant la coupe.</p>
       <div class="scene"><svg id="heroSvg" aria-hidden="true"></svg></div>
-      <p class="hint" style="font-family:'Space Grotesk',sans-serif;font-size:.84rem;color:#7a8b9f;margin:.4rem 0 0">Un aimant droit et son champ magnétique, le dessin que forme la limaille de fer autour de lui.</p>
+      <p class="figcap"><b>Figure 1.</b> Un aimant droit, la chaîne de mini-aimants qui le compose, et son champ magnétique.</p>
+      
       <div class="meta"><span>20 septembre 2026</span><span>7 min</span><span>8 étapes</span></div>
     </div>
 
@@ -49,6 +49,7 @@
       <h2>Ce qu'on voit de l'extérieur</h2>
       <p>Un aimant a un bout qui attire le nord de la boussole et un bout qui la repousse. On les appelle pôle nord (rouge) et pôle sud (bleu). Les deux vont toujours ensemble.</p>
       <div class="scene"><svg id="outSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 2.</b> Deux aimants face à face et leurs champs.</p>
       <div class="ctl">
         <button id="flipB" class="go">Retourner l'aimant de droite</button>
         <span class="hint" id="flipT">Un nord en face d'un sud : ils s'attirent.</span>
@@ -61,6 +62,7 @@
       <p>Un aimant est fait d'atomes. Chaque atome de fer est déjà un minuscule aimant, avec son propre nord et son propre sud. Dans un aimant, ils pointent tous dans le même sens et se suivent bout à bout.</p>
       <p>Un vrai aimant contient des milliards de ces chaînes empilées. Ici on n'en dessine qu'une.</p>
       <div class="scene"><svg id="inSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 3.</b> L'intérieur d'un aimant, réduit à une seule chaîne de mini-aimants.</p>
       <div class="ctl">
         <button id="peekB" class="go">Voir l'intérieur</button>
         <span class="hint" id="peekT">Vu de l'extérieur, c'est juste une barre avec deux pôles.</span>
@@ -73,6 +75,7 @@
       <p>À l'intérieur de la chaîne, le nord d'un mini-aimant touche le sud du suivant. Les deux se compensent, cet endroit n'attire plus rien.</p>
       <p>Il ne reste que deux endroits où un pôle n'a personne en face : le sud tout à gauche et le nord tout à droite. Ce sont les pôles de l'aimant entier.</p>
       <div class="scene"><svg id="cancSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 4.</b> Aux contacts, un nord touche un sud : ils se compensent.</p>
       <div class="ctl">
         <button id="cancB" class="go">Montrer les contacts</button>
         <button id="cancR">Effacer</button>
@@ -85,6 +88,7 @@
       <p>Chaque coup de ciseaux passe entre deux mini-aimants, jamais à travers. Les mini-aimants ne sont pas touchés, ils sont seulement séparés en deux groupes.</p>
       <p>Résultat : de chaque côté de la coupure, un pôle se retrouve sans partenaire. Un nouveau nord apparaît à droite du morceau de gauche, un nouveau sud à gauche du morceau de droite.</p>
       <div class="scene"><svg id="labSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 5.</b> Coupes successives. Chaque morceau reste un aimant complet.</p>
       <div class="rd">
         <div><b id="rN">1</b><span>aimants</span></div>
         <div><b id="rP">2</b><span>pôles</span></div>
@@ -105,6 +109,7 @@
       <p>C'est la vraie question. Un mini-aimant n'est pas une petite barre pleine. Son magnétisme vient d'électrons qui tournent en rond, comme un courant dans une boucle.</p>
       <p>Une boucle a toujours deux faces. Le champ sort par le dessus et rentre par le dessous. Le dessus est le nord, le dessous est le sud. Coupez la boucle : vous obtenez deux boucles plus petites, chacune avec un dessus et un dessous.</p>
       <div class="scene"><svg id="loopSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 6.</b> Une boucle de courant vue de biais, et son champ.</p>
       <div class="ctl">
         <button id="loopB" class="go">Couper la boucle</button>
         <span class="hint" id="loopT">Une boucle de courant. Le champ la traverse de bas en haut.</span>
@@ -117,9 +122,10 @@
       <h2>La même chose vue par les lignes de champ</h2>
       <p>Les lignes sortent par le nord, font le tour, rentrent par le sud, puis traversent l'aimant pour revenir à leur point de départ. Chaque ligne se referme sur elle-même. Aucune ne commence nulle part et aucune ne s'arrête nulle part.</p>
       <div class="scene"><svg id="closeSvg" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 7.</b> Une ligne de champ fermée, suivie sur un tour complet.</p>
       <div class="ctl">
         <button id="dotB" class="go">Suivre une ligne</button>
-        <span class="hint">La partie orange est le trajet à l'intérieur de l'aimant.</span>
+        <span class="hint">La partie ambrée est le trajet à l'intérieur de l'aimant.</span>
       </div>
       <p>Un pôle isolé serait un point d'où les lignes partent sans jamais revenir, comme l'eau qui sort d'un robinet. On n'a jamais observé ça. Les physiciens écrivent ce constat ainsi :</p>
       <p class="eq">&#8711; &#183; B = 0</p>
@@ -142,35 +148,19 @@
       <span class="no-num">8</span>
       <h2>Trois questions</h2>
       <div id="quiz"></div>
-      <p id="score" style="color:#7a8b9f;font-size:.95rem;font-family:'Space Grotesk',sans-serif"></p>
+      <p id="score" class="figcap" style="font-size:.9rem"></p>
       <p style="margin-top:2rem">À retenir : les pôles d'un aimant sont les deux bouts d'une chaîne de mini-aimants. Couper la chaîne crée deux chaînes, donc deux nouveaux bouts, donc deux aimants.</p>
     </section>
 
     <hr class="end-rule">
-    <nav class="post-nav">
-      <a href="index.html">Tous les articles</a>
-    </nav>
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
 
   </div>
 </main>
 
-<footer class="site-footer">
-  <div class="shell">
-    <span>Ricochets, 2026</span>
-    <span>Site écrit à la main, sans template.</span>
-  </div>
-</footer>
+<footer class="site-footer" id="site-footer"></footer>
 
-<script>
-(function(){
-  const bar=document.getElementById("prog");
-  function up(){
-    const h=document.documentElement, max=h.scrollHeight-h.clientHeight;
-    bar.style.width=(max>0?h.scrollTop/max*100:0)+"%";
-  }
-  addEventListener("scroll",up,{passive:true}); addEventListener("resize",up); up();
-})();
-</script>
+<script src="site.js?v=3"></script>
 <script>
 
 "use strict";
@@ -180,8 +170,8 @@ const $=id=>document.getElementById(id);
 /* ---------- briques de dessin ---------- */
 const DEFS=`<defs>
 <linearGradient id="mg" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="#4ea3f5"/><stop offset="44%" stop-color="#7fbdf3"/>
-<stop offset="56%" stop-color="#f4806d"/><stop offset="1" stop-color="#ef4a36"/></linearGradient>
+<stop offset="0" stop-color="#2c72c7"/><stop offset="44%" stop-color="#7fbdf3"/>
+<stop offset="56%" stop-color="#f4806d"/><stop offset="1" stop-color="#c8372d"/></linearGradient>
 <linearGradient id="skinG" x1="0" y1="0" x2="1" y2="0">
 <stop offset="0" stop-color="#3f8cd8"/><stop offset="49.9%" stop-color="#2f7fd0"/>
 <stop offset="50%" stop-color="#d94636"/><stop offset="1" stop-color="#c93a2b"/></linearGradient>
@@ -221,8 +211,8 @@ function bar(x,y,w,h,opt){
   }
   if(w>=110 && opt.letters!==false){
     const ly=y-11;
-    s+=`<text class="lbl" x="${x+cw/2}" y="${ly}" font-size="16" style="fill:${rev?'#ef4a36':'#4ea3f5'}">${rev?'N':'S'}</text>`;
-    s+=`<text class="lbl" x="${x+w-cw/2}" y="${ly}" font-size="16" style="fill:${rev?'#4ea3f5':'#ef4a36'}">${rev?'S':'N'}</text>`;
+    s+=`<text class="lbl" x="${x+cw/2}" y="${ly}" font-size="16" style="fill:${rev?'#c8372d':'#2c72c7'}">${rev?'N':'S'}</text>`;
+    s+=`<text class="lbl" x="${x+w-cw/2}" y="${ly}" font-size="16" style="fill:${rev?'#2c72c7':'#c8372d'}">${rev?'S':'N'}</text>`;
   }
   return s;
 }
@@ -286,13 +276,13 @@ function drawCanc(show){
     for(let i=1;i<n;i++){
       const jx=x+i*cell;
       s+=`<g class="fade" style="opacity:0;transition-delay:${i*0.16}s" data-j="1">
-        <circle cx="${jx}" cy="${cy}" r="21" fill="#0d1a28" stroke="#5f7186"/>
-        <text class="lbl" x="${jx}" y="${cy+6}" font-size="15" style="fill:#9fb0c4">0</text></g>`;
+        <circle cx="${jx}" cy="${cy}" r="21" fill="#ffffff" stroke="#9aa4b0"/>
+        <text class="lbl" x="${jx}" y="${cy+6}" font-size="15" style="fill:#5d6672">0</text></g>`;
     }
     const d=n*0.16+0.25;
     s+=`<g class="fade" style="opacity:0;transition-delay:${d}s" data-j="1">
-      <text class="lbl" x="${x+38}" y="${cy-h/2-16}" font-size="15" style="fill:#4ea3f5">sud libre</text>
-      <text class="lbl" x="${x+w-38}" y="${cy-h/2-16}" font-size="15" style="fill:#ef4a36">nord libre</text></g>`;
+      <text class="lbl" x="${x+38}" y="${cy-h/2-16}" font-size="15" style="fill:#2c72c7">sud libre</text>
+      <text class="lbl" x="${x+w-38}" y="${cy-h/2-16}" font-size="15" style="fill:#c8372d">nord libre</text></g>`;
   }
   svgSet($("cancSvg"),vw,vh,s);
   if(show) requestAnimationFrame(()=>{
@@ -370,13 +360,13 @@ $("sB").onchange=()=>drawLab(false);
 /* ---------- étape 5 : la boucle ---------- */
 let split=false;
 function ring(cx,cy,rx,ry){
-  let s=`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="none" stroke="${'#ffc98a'}" stroke-width="4"/>`;
-  s+=`<path class="fa" style="opacity:.9" fill="#ffc98a" d="M${cx-6} ${cy-ry-7}L${cx+7} ${cy-ry}L${cx-6} ${cy+7-ry}Z"/>`;
-  s+=`<path class="fa" style="opacity:.9" fill="#ffc98a" d="M${cx+6} ${cy+ry+7}L${cx-7} ${cy+ry}L${cx+6} ${cy-7+ry}Z"/>`;
-  s+=`<path class="fl" style="stroke:#8fa6bf;opacity:.75" d="M${cx} ${cy+ry+58}V${cy-ry-58}"/>`;
-  s+=`<path fill="#8fa6bf" opacity=".75" d="M${cx-6} ${cy-ry-50}L${cx} ${cy-ry-64}L${cx+6} ${cy-ry-50}Z"/>`;
-  s+=`<text class="lbl" x="${cx}" y="${cy-ry-74}" font-size="17" style="fill:#ef4a36">N</text>`;
-  s+=`<text class="lbl" x="${cx}" y="${cy+ry+80}" font-size="17" style="fill:#4ea3f5">S</text>`;
+  let s=`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="none" stroke="#b8740c" stroke-width="4"/>`;
+  s+=`<path style="fill:#b8740c" d="M${cx-6} ${cy-ry-7}L${cx+7} ${cy-ry}L${cx-6} ${cy+7-ry}Z"/>`;
+  s+=`<path style="fill:#b8740c" d="M${cx+6} ${cy+ry+7}L${cx-7} ${cy+ry}L${cx+6} ${cy-7+ry}Z"/>`;
+  s+=`<path class="fl" style="stroke:#6f8298;opacity:.95" d="M${cx} ${cy+ry+58}V${cy-ry-58}"/>`;
+  s+=`<path fill="#6f8298" d="M${cx-6} ${cy-ry-50}L${cx} ${cy-ry-64}L${cx+6} ${cy-ry-50}Z"/>`;
+  s+=`<text class="lbl" x="${cx}" y="${cy-ry-74}" font-size="17" style="fill:#c8372d">N</text>`;
+  s+=`<text class="lbl" x="${cx}" y="${cy+ry+80}" font-size="17" style="fill:#2c72c7">S</text>`;
   return s;
 }
 function drawLoop(){
@@ -405,8 +395,8 @@ function drawClose(){
     loops(vw/2,cy,a,h*0.62,152,6)+
     bar(x,cy-h/2,w,h,{})+
     `<path class="inb" d="M${x+24} ${cy}H${x+w-24}"/>`+
-    `<path id="ring1" d="${path}" fill="none" stroke="#ffc98a" stroke-width="2.4" opacity=".95"/>`+
-    `<circle id="dot" r="7" fill="#fff" opacity="0"/>`);
+    `<path id="ring1" d="${path}" fill="none" stroke="#b8740c" stroke-width="2.4"/>`+
+    `<circle id="dot" r="7" fill="#1b1f24" opacity="0"/>`);
 }
 $("dotB").onclick=()=>{
   const p=$("ring1"), d=$("dot");

@@ -3,40 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>L'homme qui ricochait — Ricochets</title>
-<meta name="description" content="Une nouvelle en sept chapitres. Survie absurde, physique exacte.">
-<meta name="theme-color" content="#070f19">
-<meta property="og:title" content="L'homme qui ricochait">
-<meta property="og:description" content="Survie absurde, physique exacte.">
-<meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23070f19'/><path d='M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23' stroke='%23ffc98a' fill='none' stroke-width='2.2' stroke-linecap='round'/></svg>">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>L'homme qui ricochait · Chamss Bachiri</title>
+<meta name="description" content="Une nouvelle en sept chapitres. Survie absurde, physique exacte.">
+<meta property="og:title" content="L'homme qui ricochait">
+<meta property="og:type" content="article">
+<style>
+/* couleurs des figures de cette page */
+.ricochet{width:100%;height:auto;display:block}
+.ricochet .traj{fill:none;stroke:#1f4f8f;stroke-width:2}
+.ricochet .water{stroke:#9aa4b0;stroke-width:1;stroke-dasharray:3 6}
+.ricochet .ripple{fill:none;stroke:#1f4f8f;stroke-width:1.2;opacity:.45}
+.ricochet .stone{fill:#1b1f24}
+</style>
 </head>
-<body>
+<body data-rubrique="recreations">
 
 <div class="progress" id="prog"></div>
 
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="index.html">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 23 Q9 9 15 23 Q19.5 13 24 23 Q27 17 30 23" stroke="#ffc98a" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg>
-      Ricochets
-    </a>
-    <nav class="site-nav">
-      <a href="index.html">Articles</a>
-      <a href="index.html#a-propos">À propos</a>
-    </nav>
-  </div>
-</header>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
 
 <main class="post">
   <div class="shell">
 
     <div class="post-head">
-      <p class="kicker">Nouvelle</p>
+      <p class="kicker"><a href="rubrique.html?c=recreations">Récréations</a></p>
       <h1>L'homme qui ricochait</h1>
       <p class="dek">Survie absurde, physique exacte.</p>
       <svg viewBox="0 0 1000 200" aria-hidden="true" style="margin:1.6rem 0 0" class="ricochet">
@@ -178,30 +174,13 @@
     </div>
 
     <hr class="end-rule">
-    <nav class="post-nav">
-      <a href="index.html">Tous les articles</a>
-    </nav>
+    <nav class="post-nav"><a href="rubrique.html?c=recreations">Retour aux récréations</a></nav>
 
   </div>
 </main>
 
-<footer class="site-footer">
-  <div class="shell">
-    <span>Ricochets, 2026</span>
-    <span>Site écrit à la main, sans template.</span>
-  </div>
-</footer>
+<footer class="site-footer" id="site-footer"></footer>
 
-<script>
-(function(){
-  const bar=document.getElementById("prog");
-  function up(){
-    const h=document.documentElement;
-    const max=h.scrollHeight-h.clientHeight;
-    bar.style.width=(max>0?(h.scrollTop||document.body.scrollTop)/max*100:0)+"%";
-  }
-  addEventListener("scroll",up,{passive:true}); addEventListener("resize",up); up();
-})();
-</script>
+<script src="site.js?v=3"></script>
 </body>
 </html>
