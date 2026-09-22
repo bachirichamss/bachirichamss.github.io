@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Comment on a mesuré les réglages de l'Univers · Chamss Bachiri</title>
+<meta name="description" content="Vitesse de la lumière, gravitation, constante de Planck : aucune théorie ne donne leur valeur. Les expériences qui les ont mesurées, de la roue dentée de Fizeau à la balance de Kibble.">
+<meta property="og:title" content="Comment on a mesuré les réglages de l'Univers">
+<meta property="og:type" content="article">
+<style>
+/* figures de cette page */
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.cst sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.cst{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.cst th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0;white-space:nowrap}
+.cst td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.cst td.sym{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.15rem;color:#1b1f24;white-space:nowrap}
+.cst td.val{white-space:nowrap;font-variant-numeric:tabular-nums}
+.badge{display:inline-block;font-size:.74rem;padding:.12rem .5rem;border-radius:3px;white-space:nowrap}
+.badge.fix{background:#eaf0f8;color:#1f4f8f}
+.badge.mes{background:#fbeee2;color:#9a4f08}
+.others li{margin-bottom:.9em}
+</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Comment on a mesuré les réglages de l'Univers</h1>
+      <p class="dek">La vitesse de la lumière, la force de la gravitation, la constante de Planck : aucune théorie ne donne leur valeur. Il a fallu les mesurer, avec une roue dentée, un fil de torsion ou une balance électrique. Voici comment.</p>
+      <div class="meta"><span>22 septembre 2026</span><span>10 min</span></div>
+    </div>
+
+    <!-- 1 -->
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Des nombres que personne ne sait calculer</h2>
+      <p>Les lois de la physique disent comment les choses sont reliées. Elles ne disent pas combien vaut la vitesse de la lumière ni quelle est la force de la gravité. Ces nombres, les <strong>constantes fondamentales</strong>, ne se calculent pas : ils se mesurent.</p>
+      <p>Depuis 2019, une partie d'entre eux n'est même plus mesurée : leur valeur est fixée par définition, et c'est elle qui sert à définir le mètre ou le kilogramme. On verra pourquoi à la fin. Mais pour pouvoir les fixer, il a d'abord fallu les connaître.</p>
+      <div class="tablewrap">
+      <table class="cst">
+        <tr><th></th><th>Constante</th><th>Valeur</th><th>Aujourd'hui</th></tr>
+        <tr><td class="sym">c</td><td>vitesse de la lumière</td><td class="val">299 792 458 m/s</td><td><span class="badge fix">fixée en 1983</span></td></tr>
+        <tr><td class="sym">h</td><td>constante de Planck</td><td class="val">6,626 070 15 × 10<sup>−34</sup> J·s</td><td><span class="badge fix">fixée en 2019</span></td></tr>
+        <tr><td class="sym">e</td><td>charge de l'électron</td><td class="val">1,602 176 634 × 10<sup>−19</sup> C</td><td><span class="badge fix">fixée en 2019</span></td></tr>
+        <tr><td class="sym">k</td><td>constante de Boltzmann</td><td class="val">1,380 649 × 10<sup>−23</sup> J/K</td><td><span class="badge fix">fixée en 2019</span></td></tr>
+        <tr><td class="sym">N<sub>A</sub></td><td>nombre d'Avogadro</td><td class="val">6,022 140 76 × 10<sup>23</sup> par mole</td><td><span class="badge fix">fixée en 2019</span></td></tr>
+        <tr><td class="sym">G</td><td>constante de la gravitation</td><td class="val">6,674 30 × 10<sup>−11</sup> m³/(kg·s²)</td><td><span class="badge mes">mesurée, à 2 cent-millièmes près</span></td></tr>
+        <tr><td class="sym">α</td><td>constante de structure fine</td><td class="val">environ 1/137,036</td><td><span class="badge mes">mesurée, à un dix-milliardième près</span></td></tr>
+        <tr><td class="sym">m<sub>e</sub></td><td>masse de l'électron</td><td class="val">9,109 383 7 × 10<sup>−31</sup> kg</td><td><span class="badge mes">mesurée, à 3 dix-milliardièmes près</span></td></tr>
+      </table>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>La vitesse de la lumière, avec une roue dentée</h2>
+      <p>En 1849, Hippolyte Fizeau envoie un faisceau de lumière entre les dents d'une roue, vers un miroir placé à 8,6 kilomètres, entre Suresnes et Montmartre. La lumière revient et doit repasser entre les dents pour atteindre l'œil de l'observateur.</p>
+      <p>Si la roue tourne assez vite, elle avance d'une demi-dent pendant l'aller-retour : la lumière revient pile sur une dent et l'observateur ne voit plus rien. La vitesse de la roue à ce moment donne la durée de l'aller-retour, donc la vitesse de la lumière. <strong>À vous : faites tourner la roue jusqu'à ce que la lumière disparaisse.</strong></p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="fS">Vitesse de la roue</label><input type="range" id="fS" min="0" max="300" value="0" style="width:280px"></span>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 1.</b> Vue rapprochée du bord de la roue, au ralenti : en réalité, l'aller-retour de 17 kilomètres dure 58 millionièmes de seconde. L'aller et le retour sont dessinés sur deux lignes pour qu'on les distingue ; en vrai, la lumière repasse au même endroit. Quand la roue tourne, la lumière part par salves, chaque fois qu'un creux passe devant la lampe.</p>
+      <p>Fizeau situe l'extinction vers 12,6 tours par seconde et obtient 315 000 km/s, 5 % de trop : juger à l'œil l'instant exact où la lumière s'éteint était la principale difficulté. En 1862, Léon Foucault remplace la roue par un miroir tournant et descend à 0,6 % d'écart. Viendront ensuite Michelson, les cavités à micro-ondes, puis les lasers en 1972 : on mesure séparément la fréquence et la longueur d'onde d'un même laser, et leur produit donne c à un mètre par seconde près.</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>La gravitation, avec un fil de torsion</h2>
+      <p>Entre deux objets ordinaires, la gravité est ridiculement faible. Deux grosses boules de plomb attirent deux petites avec une force des dizaines de milliers de fois plus faible que le poids d'un trombone. En 1798, Henry Cavendish la mesure quand même.</p>
+      <p>Il suspend à un fil très fin une tige portant deux petites boules, puis approche deux grosses boules de plomb. L'attraction fait tourner la tige d'un angle minuscule, jusqu'à ce que le fil, en se tordant, la retienne. Un rayon lumineux réfléchi sur la tige amplifie le mouvement sur une règle. <strong>Approchez les boules et regardez la trace.</strong></p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl"><button class="go" id="f3B">Approcher les grosses boules</button></div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 2.</b> Balance de torsion vue de dessus, avec des dimensions proches de celle de Cavendish. L'angle de la tige est exagéré 100 fois sur le dessin, et le temps accéléré 60 fois : une seconde d'animation vaut une minute réelle. G s'obtient par G = 2π² L r² θ / (M T²), où L est la longueur de la tige, r la distance entre les boules, θ l'angle, M la grosse masse et T la période.</p>
+      <p>Cavendish enferme l'appareil dans une pièce close et l'observe de l'extérieur à la lunette : la chaleur d'un corps humain suffit à créer des courants d'air qui faussent tout.</p>
+      <p>Plus de deux siècles plus tard, G reste la constante la moins bien connue. Les meilleures expériences atteignent le cent-millième, mais elles ne sont pas d'accord entre elles :</p>
+      <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 3.</b> Mesures récentes de G retenues par le CODATA, avec leur marge d'erreur. La bande bleue est la valeur recommandée en 2022. Si tout allait bien, les barres se chevaucheraient.</p>
+      <p>Les barres devraient se recouvrir. Elles ne le font pas : quelque chose échappe encore aux expérimentateurs. L'équipe de Florence a même remplacé la balance par des atomes refroidis par laser, pour éviter les pièges des appareils mécaniques. Le désaccord persiste, et la valeur recommandée porte une marge élargie en conséquence.</p>
+    </section>
+
+    <!-- 4 -->
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>La constante de Planck, avec une balance électrique</h2>
+      <p>La constante de Planck règle la taille des grains d'énergie de la lumière. Max Planck l'estime en 1900 à partir de la couleur des objets chauds, Robert Millikan la mesure en 1916 grâce à l'effet photoélectrique. Aujourd'hui, l'instrument de référence est la <strong>balance de Kibble</strong>, qui compare une force mécanique à une force électrique en deux étapes.</p>
+      <div class="ctl">
+        <div class="seg"><button id="k1" class="go">Étape 1 : peser</button><button id="k2">Étape 2 : déplacer</button></div>
+      </div>
+      <div class="scene wide"><svg id="f5" aria-hidden="true"></svg></div>
+      <div class="live" id="f5L"></div>
+      <p class="figcap"><b>Figure 4.</b> Principe de la balance de Kibble, avec des ordres de grandeur proches de ceux de l'instrument américain NIST-4.</p>
+      <p>Le point décisif : la tension et le courant se mesurent grâce à deux effets quantiques, l'effet Josephson et l'effet Hall quantique, dont les valeurs s'expriment directement avec h et la charge de l'électron. La balance relie ainsi une masse posée sur un plateau à la constante de Planck, à un cent-millionième près.</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Les autres, en quelques lignes</h2>
+      <ul class="others">
+        <li><strong>La charge de l'électron</strong> se mesure d'abord avec les gouttes d'huile de Millikan, en 1909, que vous pouvez refaire dans <a href="peser-un-atome.html">le manuel pour peser un atome</a>. Des méthodes électriques bien plus précises ont pris le relais.</li>
+        <li><strong>La constante de Boltzmann</strong> relie la température à l'agitation des atomes. On l'obtient en mesurant la vitesse du son dans un gaz enfermé dans une sphère presque parfaite, à température connue : plus les atomes s'agitent, plus le son va vite. Le Laboratoire national de métrologie et d'essais, à Paris, en a tiré une des meilleures mesures, à moins d'un millionième près.</li>
+        <li><strong>Le nombre d'Avogadro</strong> a été obtenu en comptant, littéralement, les atomes d'une sphère de silicium d'un kilogramme, parmi les objets les plus ronds jamais fabriqués. Les rayons X donnent la distance entre deux atomes, les lasers le volume exact de la sphère : on en déduit combien d'atomes elle contient.</li>
+        <li><strong>La constante de structure fine</strong>, α, règle l'intensité de la force électromagnétique. C'est la constante la mieux mesurée, à un dix-milliardième près. Deux méthodes rivalisent : un électron seul, piégé pendant des mois, dont on mesure le comportement magnétique ; et des atomes qu'on fait reculer en leur envoyant des photons, une expérience menée notamment au laboratoire Kastler Brossel, à Paris.</li>
+      </ul>
+    </section>
+
+    <!-- 6 -->
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>Pourquoi on ne mesure plus certaines constantes</h2>
+      <p>Jusqu'en 2019, le kilogramme était un petit cylindre de platine iridié conservé à Sèvres, près de Paris. Ses copies officielles, comparées à lui au fil du vingtième siècle, s'en écartaient d'environ 50 microgrammes, sans que personne puisse dire lequel avait changé.</p>
+      <p>En 2019, on a renversé la logique. Les valeurs de h, e, k et N<sub>A</sub>, obtenues avec les expériences ci-dessus, ont été gelées une fois pour toutes. Le kilogramme se définit désormais à partir de h, et se réalise avec la balance de Kibble. La vitesse de la lumière avait suivi le même chemin dès 1983 pour définir le mètre. Ces constantes ne peuvent donc plus changer : ce sont nos unités qui se règlent sur elles.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="step">
+      <span class="no-num">7</span>
+      <h2>Le bilan en une image</h2>
+      <div class="scene wide"><svg id="f6" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 5.</b> Précision relative de quelques mesures marquantes, en ordres de grandeur. Chaque graduation vers le bas correspond à une précision dix fois meilleure. Pour les plus anciennes, c'est l'écart à la valeur actuelle qui est indiqué.</p>
+      <p>La lumière a été mesurée si bien qu'on a fini par fixer sa vitesse. La gravité, elle, résiste : sa précision stagne depuis vingt-cinq ans.</p>
+      <p>Tous les quatre ans, un groupe international, le CODATA, rassemble toutes les mesures et ajuste l'ensemble des constantes d'un seul coup, car elles sont liées : mesurer l'une améliore souvent les autres.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> une constante n'est connue que parce que quelqu'un a construit un appareil assez fin pour la voir. Et les vrais réglages de l'Univers sont les nombres sans unité, comme α, proche de 1/137, ou le rapport de 1836 entre les masses du proton et de l'électron. Changer d'unités ne les change pas, et personne ne sait encore pourquoi ils valent ce qu'ils valent.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+
+/* =========================================================
+   Figure 1 : la roue de Fizeau
+   ========================================================= */
+const FZ={W:960,H:340,comb:250,up:120,dn:210,mir:880,src:70,pitch:30,tau:3.2,D:8633,N:720};
+FZ.fExt=299792458/(4*FZ.D*FZ.N);           // 12,06 tours par seconde
+FZ.len=(FZ.mir-FZ.comb)*2+(FZ.dn-FZ.up);  // longueur du trajet dessiné
+FZ.v=FZ.len/FZ.tau;
+let fz={f:0,y0:22.5,pul:[],emit:0,flash:[]};  // lampe face au milieu d'un creux
+function gapAt(y){const p=((y-fz.y0)%FZ.pitch+FZ.pitch)%FZ.pitch;return p<FZ.pitch/2;}
+function transm(f){const u=(f/(2*FZ.fExt))%1;return Math.abs(1-2*u);}
+function drawFZ(){
+  const {W,H,comb,up,dn,mir,src}=FZ, T=transm(fz.f);
+  let s=`<defs><clipPath id="cb"><rect x="${comb-14}" y="40" width="28" height="250"/></clipPath></defs>`;
+  // trajets
+  s+=`<path d="M${src} ${up}H${mir}" stroke="#f1d58a" stroke-width="2" stroke-dasharray="3 6"/>`;
+  s+=`<path d="M${mir} ${dn}H${src+24}" stroke="#f1d58a" stroke-width="2" stroke-dasharray="3 6"/>`;
+  for(const y of [up,dn]) s+=`<path d="M${(comb+mir)/2-8} ${y-10}l6 20M${(comb+mir)/2+2} ${y-10}l6 20" stroke="${MUT}" stroke-width="2"/>`;
+  s+=tx((comb+mir)/2,up-22,"8,6 km",{size:16,fill:MUT,anchor:"middle"});
+  // miroir
+  s+=`<rect x="${mir}" y="${up-30}" width="10" height="${dn-up+60}" fill="#9fb0c3"/>`;
+  s+=tx(mir+5,dn+58,"miroir",{size:15,fill:MUT,anchor:"middle"});
+  // lampe et œil
+  s+=`<circle cx="${src}" cy="${up}" r="14" fill="${AMB}"/>`+tx(src,up-24,"lampe",{size:15,fill:MUT,anchor:"middle"});
+  s+=`<circle cx="${src}" cy="${dn}" r="30" fill="${AMB}" opacity="${(0.55*T).toFixed(2)}"/>`;
+  s+=`<path d="M${src-20} ${dn}Q${src} ${dn-16} ${src+20} ${dn}Q${src} ${dn+16} ${src-20} ${dn}Z" fill="#fff" stroke="${INK}" stroke-width="2"/><circle cx="${src+2}" cy="${dn}" r="6" fill="${INK}"/>`;
+  s+=tx(src,dn+42,"observateur",{size:15,fill:MUT,anchor:"middle"});
+  // roue (bord vu de près)
+  let teeth="";
+  const off=((fz.y0%FZ.pitch)+FZ.pitch)%FZ.pitch;
+  for(let k=0;k<12;k++){const yt=off+k*FZ.pitch+FZ.pitch/2; teeth+=`<rect x="${comb-14}" y="${yt}" width="28" height="${FZ.pitch/2}" fill="#5d6672"/>`;}
+  s+=`<g clip-path="url(#cb)">${teeth}</g><rect x="${comb-14}" y="40" width="28" height="250" fill="none" stroke="#9aa4b0"/>`;
+  s+=tx(comb,32,"bord de la roue",{size:15,fill:MUT,anchor:"middle"});
+  s+=arrow(comb+34,70,comb+34,110,MUT,2);
+  // éclairs
+  for(const p of fz.pul){
+    const d=p.s; let x,y;
+    if(d<mir-comb){x=comb+d;y=up;}
+    else if(d<mir-comb+(dn-up)){x=mir;y=up+(d-(mir-comb));}
+    else {x=mir-(d-(mir-comb)-(dn-up));y=dn;}
+    s+=`<circle cx="${x.toFixed(1)}" cy="${y}" r="6" fill="${AMB}" stroke="#a8790a"/>`;
+  }
+  for(const b of fz.flash) s+=`<path d="M${comb+18} ${b.y-6}l12 12M${comb+30} ${b.y-6}l-12 12" stroke="${RED}" stroke-width="3" opacity="${b.a.toFixed(2)}"/>`;
+  // lecture
+  s+=tx(480,300,"Roue : "+fr(fz.f,1)+" tours par seconde",{size:18,anchor:"middle",w:600});
+  s+=tx(480,326,"Lumière revue par l'observateur : "+Math.round(T*100)+" %",{size:17,anchor:"middle",fill:T<0.08?RED:INK});
+  put("f2",W,H,s);
+  let m;
+  const f=fz.f, c=4*FZ.D*FZ.N*f/1000;
+  if(f<0.5) m="Roue presque immobile : la lumière sort par un creux et revient par le même creux. L'observateur la voit. Faites tourner la roue.";
+  else if(T<0.08 && f<1.5*FZ.fExt) m="<b>Extinction.</b> Pendant l'aller-retour, la roue a tourné d'une demi-dent : toute la lumière revient sur une dent. L'aller-retour dure donc le temps de ce demi-pas. Calcul : c = 4 × distance × nombre de dents × vitesse de la roue = 4 × 8 633 m × 720 × "+fr(f,2)+" = <b>"+milliers(c)+" km/s</b>.";
+  else if(f<FZ.fExt) m="La roue avance un peu pendant l'aller-retour : une partie de la lumière revenue tombe sur une dent. Continuez : cherchez la vitesse où elle disparaît complètement.";
+  else if(f<1.5*FZ.fExt) m="Trop vite : la lumière revient maintenant en partie dans le creux suivant. Revenez un peu en arrière pour trouver l'extinction.";
+  else m="Encore plus vite, la lumière repasse par le creux suivant et réapparaît. Fizeau a vérifié ces extinctions et réapparitions successives.";
+  $("f2L").innerHTML=m;
+}
+function stepFZ(dt){
+  const vRim=(fz.f/FZ.fExt)*(FZ.pitch/2)/FZ.tau;  // la roue avance d'une demi-dent pendant l'aller-retour à l'extinction
+  fz.y0+=vRim*dt;
+  fz.emit-=dt;
+  if(fz.emit<=0){ fz.emit=0.1; if(gapAt(FZ.up)) fz.pul.push({s:0}); }
+  const L1=FZ.mir-FZ.comb, L2=FZ.dn-FZ.up;
+  for(const p of fz.pul){ p.s+=FZ.v*dt; }
+  const back=2*L1+L2;
+  fz.pul=fz.pul.filter(p=>{
+    if(p.s>=back && !p.checked){ p.checked=true; if(!gapAt(FZ.dn)){ fz.flash.push({y:FZ.dn,a:1}); return false; } }
+    return p.s<back+(FZ.comb-FZ.src-30);
+  });
+  for(const b of fz.flash) b.a-=dt*1.5;
+  fz.flash=fz.flash.filter(b=>b.a>0);
+}
+$("fS").oninput=e=>{fz.f=+e.target.value/10;drawFZ();};
+
+/* =========================================================
+   Figure 2 : la balance de Cavendish
+   ========================================================= */
+const CV={M:158,L:1.8,r:0.225,Treal:420,G:6.674e-11,acc:60,ex:100,dist:3000,pxmm:11};
+CV.theq=CV.G*CV.M*CV.Treal*CV.Treal/(2*Math.PI*Math.PI*CV.L*CV.r*CV.r);  // environ 1,1e-3 rad
+let cv={near:false,th:0,om:0,t:0,since:-1,hist:[],pos:0};
+function stepCV(dt){
+  const w=2*Math.PI/(CV.Treal/CV.acc), g=0.09;
+  const eq=cv.near?CV.theq:0;
+  const a=-w*w*(cv.th-eq)-g*cv.om;
+  cv.om+=a*dt; cv.th+=cv.om*dt; cv.t+=dt;
+  if(cv.since>=0) cv.since+=dt;
+  // les grosses boules glissent vers leur place
+  cv.pos+=((cv.near?1:0)-cv.pos)*Math.min(1,dt*3);
+  cv.hist.push({t:cv.t,y:2*cv.th*CV.dist});
+  cv.hist=cv.hist.filter(h=>cv.t-h.t<32);
+}
+function drawCV(){
+  const W=960,H=390,cx=210,cy=195,R=150,Lr=118;
+  const ph=cv.th*CV.ex, c=Math.cos(ph), sn=Math.sin(ph);
+  let s=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="#f6f8fa" stroke="#c3c9d1" stroke-width="2"/>`;
+  s+=tx(cx,cy-R-14,"vue de dessus",{size:15,fill:MUT,anchor:"middle"});
+  // grosses boules
+  const bx=(cv.pos*118+(1-cv.pos)*185), by=(cv.pos*62+(1-cv.pos)*150);
+  s+=`<circle cx="${cx+bx}" cy="${cy+by}" r="28" fill="#6b7480"/><circle cx="${cx-bx}" cy="${cy-by}" r="28" fill="#6b7480"/>`;
+  s+=tx(cx+bx,cy+by+48,"plomb, 158 kg",{size:14,fill:MUT,anchor:"middle"});
+  // tige et petites boules
+  s+=`<path d="M${cx-Lr*c} ${cy-Lr*sn}L${cx+Lr*c} ${cy+Lr*sn}" stroke="${INK}" stroke-width="3"/>`;
+  s+=`<circle cx="${cx+Lr*c}" cy="${cy+Lr*sn}" r="10" fill="${AMB}" stroke="#a8790a"/><circle cx="${cx-Lr*c}" cy="${cy-Lr*sn}" r="10" fill="${AMB}" stroke="#a8790a"/>`;
+  s+=`<circle cx="${cx}" cy="${cy}" r="5" fill="${INK}"/>`;
+  // rayon lumineux vers la règle
+  const rx=440, sy=cy+2*cv.th*CV.dist*CV.pxmm;
+  s+=`<path d="M${cx} ${cy}L${rx} ${sy.toFixed(1)}" stroke="#f1c24a" stroke-width="2" opacity=".8"/>`;
+  s+=`<rect x="${rx}" y="40" width="14" height="310" fill="#fff" stroke="#9aa4b0"/>`;
+  for(let mm=-12;mm<=12;mm+=2){const y=cy+mm*CV.pxmm; s+=`<path d="M${rx} ${y}h${mm%4===0?14:8}" stroke="${INK}"/>`;}
+  s+=`<circle cx="${rx+7}" cy="${sy.toFixed(1)}" r="7" fill="${AMB}" stroke="#a8790a"/>`;
+  s+=tx(rx+7,370,"règle",{size:14,fill:MUT,anchor:"middle"});
+  // trace
+  const px0=520,px1=930,py0=cy;
+  s+=tx(px0,40,"Position du spot lumineux",{size:17,w:600});
+  s+=`<path d="M${px0} ${py0}H${px1}" stroke="${LINE}"/><path d="M${px0} 60V340" stroke="${LINE}"/>`;
+  s+=tx(px1,py0-8,"zéro",{size:13,fill:MUT,anchor:"end"});
+  s+=tx(px1,360,"temps : 30 minutes réelles",{size:13,fill:MUT,anchor:"end"});
+  if(cv.near){ const ye=py0+2*CV.theq*CV.dist*CV.pxmm; s+=`<path d="M${px0} ${ye}H${px1}" stroke="${ACC}" stroke-dasharray="5 5"/>`+tx(px1,ye+18,"nouvel équilibre",{size:13,fill:ACC,anchor:"end"}); }
+  if(cv.hist.length>1){
+    const t1=cv.t; let d="";
+    cv.hist.forEach((h,i)=>{const x=px1-(t1-h.t)/30*(px1-px0); d+=(i?"L":"M")+x.toFixed(1)+" "+(py0+h.y*CV.pxmm).toFixed(1);});
+    s+=`<path d="${d}" fill="none" stroke="#c27f0a" stroke-width="2.5"/>`;
+  }
+  put("f3",W,H,s);
+  const L=$("f3L"), Tmin=CV.Treal/60, dev=2*CV.theq*CV.dist, deg=CV.theq*180/Math.PI;
+  const Gc=2*Math.PI*Math.PI*CV.L*CV.r*CV.r*CV.theq/(CV.M*CV.Treal*CV.Treal);
+  if(!cv.near && cv.since<0) L.innerHTML="Les grosses boules sont loin : la tige est au repos, le spot est au zéro. Appuyez sur le bouton.";
+  else if(!cv.near) L.innerHTML="Les grosses boules s'éloignent : la tige revient vers le zéro en oscillant.";
+  else if(cv.since<2.2*Tmin) L.innerHTML="Les grosses boules attirent les petites. La tige tourne, dépasse sa position d'équilibre, revient : elle oscille lentement autour d'une nouvelle position.";
+  else L.innerHTML="On lit deux choses sur la trace. <b>L'écart au repos</b> : "+fr(dev,1)+" mm sur la règle, soit un angle de "+fr(deg,3)+" degré. <b>La période</b> : "+fr(Tmin,0)+" minutes, qui donne la raideur du fil. La force se déduit de l'angle et de la raideur, et G de la force : <b>G = "+fr(Gc*1e11,2)+" × 10<sup>−11</sup></b> m³/(kg·s²).";
+}
+$("f3B").onclick=()=>{cv.near=!cv.near;cv.since=0;$("f3B").textContent=cv.near?"Éloigner les grosses boules":"Approcher les grosses boules";if(RM){cv.th=cv.near?CV.theq:0;cv.om=0;cv.since=99;cv.pos=cv.near?1:0;drawCV();}};
+
+/* =========================================================
+   Figure 3 : les mesures de G ne s'accordent pas
+   ========================================================= */
+function drawG(){
+  const D=[
+    ["Nouvelle-Zélande 2003, balance de torsion",6.67387,0.00027],
+    ["Zurich 2006, balance à fléau",6.67425,0.00012],
+    ["Wuhan 2010, pendule de torsion",6.67349,0.00018],
+    ["BIPM 2014, balance de torsion",6.67554,0.00016],
+    ["Florence 2014, atomes froids",6.67191,0.00099],
+    ["Irvine 2014, balance refroidie",6.67435,0.00013],
+    ["Wuhan 2018, méthode 1",6.674184,0.000078],
+    ["Wuhan 2018, méthode 2",6.674484,0.000077],
+    ["Boulder 2019, pendules",6.67260,0.00025]
+  ];
+  const W=960,H=60+D.length*34+50, x0=380,x1=930, lo=6.6705,hi=6.6765, X=v=>x0+(v-lo)/(hi-lo)*(x1-x0);
+  const cod=6.67430, cu=0.00015;
+  let s=`<rect x="${X(cod-cu)}" y="30" width="${X(cod+cu)-X(cod-cu)}" height="${H-70}" fill="#eaf0f8"/>`;
+  s+=`<path d="M${X(cod)} 30V${H-40}" stroke="${ACC}" stroke-width="1.5"/>`;
+  s+=tx(X(cod),22,"valeur recommandée",{size:14,fill:ACC,anchor:"middle",w:600});
+  D.forEach((d,i)=>{
+    const y=60+i*34, a=X(d[1]-d[2]), b=X(d[1]+d[2]);
+    s+=tx(x0-16,y+5,d[0],{size:15,fill:INK,anchor:"end"});
+    s+=`<path d="M${Math.max(x0,a)} ${y}H${Math.min(x1,b)}M${a} ${y-7}v14M${b} ${y-7}v14" stroke="${INK}" stroke-width="2"/>`;
+    s+=`<circle cx="${X(d[1])}" cy="${y}" r="5.5" fill="${OR}"/>`;
+  });
+  const ya=H-30;
+  s+=`<path d="M${x0} ${ya}H${x1}" stroke="${INK}"/>`;
+  for(let v=6.671;v<=6.6761;v+=0.001){const x=X(v); s+=`<path d="M${x} ${ya}v6" stroke="${INK}"/>`+tx(x,ya+22,fr(v,3),{size:13,fill:MUT,anchor:"middle"});}
+  s+=tx(x0-16,ya+22,"G, en 10⁻¹¹ m³/(kg·s²)",{size:13,fill:MUT,anchor:"end"});
+  put("f4",W,H+6,s);
+}
+
+/* =========================================================
+   Figure 4 : la balance de Kibble
+   ========================================================= */
+let kb={mode:1,t:0};
+function drawKB(){
+  const W=960,H=380, cx=250, coilY=250;
+  const m1=kb.mode===1;
+  const off=m1?0:22*Math.sin(kb.t*1.1);          // déplacement de la bobine à l'étape 2
+  let s="";
+  // aimant
+  s+=`<rect x="${cx-120}" y="200" width="60" height="110" rx="4" fill="#9aa4b0"/><rect x="${cx+60}" y="200" width="60" height="110" rx="4" fill="#9aa4b0"/>`;
+  s+=tx(cx-90,190,"aimant",{size:15,fill:MUT,anchor:"middle"});
+  // tige, plateau, masse
+  const pY=100+off;
+  s+=`<path d="M${cx} ${pY}V${coilY+off}" stroke="${INK}" stroke-width="3"/>`;
+  s+=`<path d="M${cx-70} ${pY}H${cx+70}" stroke="${INK}" stroke-width="4"/>`;
+  s+=`<path d="M${cx} 30V${pY-40}" stroke="${MUT}" stroke-width="2" stroke-dasharray="4 4"/>`;
+  s+=tx(cx+10,44,"suspendu",{size:14,fill:MUT});
+  if(m1){
+    s+=`<rect x="${cx-26}" y="${pY-46}" width="52" height="46" rx="3" fill="#6b7480"/>`+tx(cx,pY-17,"1 kg",{size:15,fill:"#fff",anchor:"middle",w:600});
+    s+=arrow(cx-95,pY-40,cx-95,pY+10,RED,3)+tx(cx-104,pY-16,"poids",{size:15,fill:RED,anchor:"end"});
+  }
+  // bobine
+  for(let k=0;k<4;k++) s+=`<ellipse cx="${cx}" cy="${coilY+off-18+k*12}" rx="52" ry="9" fill="none" stroke="${OR}" stroke-width="3"/>`;
+  if(m1){
+    for(let k=0;k<6;k++){const a=(kb.t*2+k/6)*2*Math.PI; s+=`<circle cx="${(cx+52*Math.cos(a)).toFixed(1)}" cy="${(coilY+9*Math.sin(a)).toFixed(1)}" r="3.5" fill="${ACC}"/>`;}
+    s+=arrow(cx+145,coilY+20,cx+145,coilY-30,ACC,3)+tx(cx+156,coilY-6,"force",{size:15,fill:ACC})+tx(cx+156,coilY+12,"magnétique",{size:15,fill:ACC});
+    s+=tx(cx,coilY+88,"courant I dans la bobine",{size:15,fill:ACC,anchor:"middle"});
+  } else {
+    const up=Math.cos(kb.t*1.1)>0;
+    s+=arrow(cx+145,coilY+(up?20:-30),cx+145,coilY+(up?-30:20),MUT,3)+tx(cx+156,coilY,"vitesse v",{size:15,fill:MUT});
+    s+=`<rect x="${cx-60}" y="${coilY+70}" width="120" height="34" rx="4" fill="#fff" stroke="${INK}"/>`+tx(cx,coilY+93,"U = 1,40 V",{size:16,anchor:"middle",w:600});
+  }
+  // panneau d'équations
+  const px=500;
+  if(m1){
+    s+=tx(px,70,"Étape 1 : peser",{size:20,w:600});
+    s+=tx(px,110,"On fait passer un courant dans la bobine,",{size:16,fill:MUT});
+    s+=tx(px,132,"réglé pour que la force magnétique",{size:16,fill:MUT});
+    s+=tx(px,154,"équilibre exactement le poids.",{size:16,fill:MUT});
+    s+=tx(px,204,"force magnétique = poids",{size:18});
+    s+=tx(px,236,"B L × I = m × g",{size:22,w:600,fill:ACC});
+    s+=tx(px,276,"mesuré : I = 14,0 mA",{size:17});
+    s+=tx(px,318,"Problème : B L, le produit du champ magnétique",{size:15,fill:MUT});
+    s+=tx(px,338,"par la longueur du fil, est très mal connu.",{size:15,fill:MUT});
+  } else {
+    s+=tx(px,70,"Étape 2 : déplacer",{size:20,w:600});
+    s+=tx(px,110,"Sans masse, on déplace la bobine à vitesse",{size:16,fill:MUT});
+    s+=tx(px,132,"constante dans l'aimant : une tension",{size:16,fill:MUT});
+    s+=tx(px,154,"apparaît à ses bornes, comme dans une dynamo.",{size:16,fill:MUT});
+    s+=tx(px,204,"B L × v = U",{size:22,w:600,fill:ACC});
+    s+=tx(px,244,"mesuré : v = 2 mm/s et U = 1,40 V",{size:17});
+    s+=tx(px,294,"En combinant les deux étapes, B L disparaît :",{size:17,w:600});
+    s+=tx(px,326,"m × g × v = U × I",{size:24,w:600,fill:RED});
+  }
+  put("f5",W,H,s);
+  $("f5L").innerHTML = m1
+    ? "Première étape : la masse d'un kilogramme est équilibrée par une force électrique. On lit le courant nécessaire. Passez ensuite à l'étape 2."
+    : "Deuxième étape : on mesure la tension produite en déplaçant la même bobine. En combinant les deux, le terme mal connu disparaît et il reste une égalité très simple : <b>la puissance mécanique m g v égale la puissance électrique U I</b>. Avec les nombres : 1 kg × 9,81 × 0,002 m/s = 1,40 V × 0,014 A = 0,0196 watt.";
+}
+$("k1").onclick=()=>{kb.mode=1;$("k1").className="go";$("k2").className="";drawKB();};
+$("k2").onclick=()=>{kb.mode=2;$("k2").className="go";$("k1").className="";drawKB();};
+
+/* =========================================================
+   Figure 5 : deux siècles de précision
+   ========================================================= */
+function drawP(){
+  const W=960,H=470, x0=110,x1=930, y0=40,y1=410, Y=v=>y0+(-Math.log10(v))/10*(y1-y0), X=a=>x0+(a-1660)/(2030-1660)*(x1-x0);
+  const C=[[1676,0.27,"Rømer"],[1849,0.05,"Fizeau"],[1862,1.7e-3,"Foucault"],[1879,1.7e-4,"Michelson"],[1926,1.3e-5,"Michelson"],[1950,3.3e-6,"Essen","end",-9],[1972,3.7e-9,"lasers"]];
+  const G=[[1798,1e-2,"Cavendish"],[1942,4.5e-4,"Heyl"],[1982,7.5e-5,"Luther"],[2022,2.2e-5,"","end",26,"aujourd'hui"]];
+  let s="";
+  for(let k=0;k<=10;k++){ const y=y0+k/10*(y1-y0);
+    s+=`<path d="M${x0} ${y}H${x1}" stroke="#eceae4"/>`;
+    s+=tx(x0-10,y+5,k===0?"100 %":(k===1?"10 %":(k===2?"1 %":"10⁻"+["","","","³","⁴","⁵","⁶","⁷","⁸","⁹","¹⁰"][k])),{size:13,fill:MUT,anchor:"end"}); }
+  for(let a=1700;a<=2000;a+=50){ const x=X(a); s+=`<path d="M${x} ${y1}v6" stroke="${INK}"/>`+tx(x,y1+24,a,{size:13,fill:MUT,anchor:"middle"}); }
+  s+=`<path d="M${x0} ${y1}H${x1}" stroke="${INK}"/>`;
+  s+=tx(x0,24,"plus précis vers le bas",{size:13,fill:MUT});
+  const serie=(pts,col,name)=>{
+    let d="", t="";
+    pts.forEach((p,i)=>{ const x=X(p[0]), y=Y(p[1]); d+=(i?"L":"M")+x.toFixed(1)+" "+y.toFixed(1);
+      const e=p[3]==="end"; t+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="6" fill="${col}"/>`+tx(e?x-10:x+9,y+(p[4]!=null?p[4]:-9),p[5]||(p[2]+" "+p[0]),{size:13,fill:col,anchor:e?"end":"start"}); });
+    return `<path d="${d}" fill="none" stroke="${col}" stroke-width="2.2"/>`+t;
+  };
+  s+=serie(C,ACC); s+=serie(G,OR);
+  const xe=X(1983), ye=Y(3.7e-9);
+  s+=`<path d="M${X(1972)} ${ye}L${xe} ${ye}" stroke="${ACC}" stroke-width="2.2"/>`;
+  s+=arrow(xe,ye,xe,y1-6,ACC,2.2)+tx(xe-10,y1-14,"1983 : fixée par définition",{size:13,fill:ACC,w:600,anchor:"end"});
+  s+=`<circle cx="${x1-340}" cy="20" r="6" fill="${ACC}"/>`+tx(x1-328,25,"vitesse de la lumière",{size:15,fill:ACC,w:600});
+  s+=`<circle cx="${x1-100}" cy="20" r="6" fill="${OR}"/>`+tx(x1-88,25,"gravitation",{size:15,fill:OR,w:600});
+  put("f6",W,H,s);
+}
+
+/* =========================================================
+   Boucle
+   ========================================================= */
+drawFZ(); drawCV(); drawG(); drawKB(); drawP();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  stepFZ(dt); drawFZ();
+  stepCV(dt); drawCV();
+  kb.t+=dt; drawKB();
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+</script>
+</body>
+</html>
