@@ -12,9 +12,8 @@ const SITE = {
   contact: "",      // ex. "mailto:prenom@exemple.fr" ; laissé vide, la ligne n'apparaît pas
   github: "",       // ex. "https://github.com/pseudo"
 
-  // Statistiques de visite (goatcounter.com). Mettez le code choisi à l'inscription :
-  // si votre tableau de bord est https://chamss.goatcounter.com, écrivez "chamss".
-  goatcounter: "",
+  // Statistiques de visite (goatcounter.com)
+  goatcounter: "chamss",
 
   // Commentaires (giscus.app). Recopiez les quatre valeurs données par giscus.app.
   // Tant que repoId est vide, aucun cadre de commentaires n'apparaît.
