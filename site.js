@@ -10,7 +10,20 @@ const SITE = {
   nom: "Chamss Bachiri",
   sousTitre: "Physique",
   contact: "",      // ex. "mailto:prenom@exemple.fr" ; laissé vide, la ligne n'apparaît pas
-  github: ""        // ex. "https://github.com/pseudo"
+  github: "",       // ex. "https://github.com/pseudo"
+
+  // Statistiques de visite (goatcounter.com). Mettez le code choisi à l'inscription :
+  // si votre tableau de bord est https://chamss.goatcounter.com, écrivez "chamss".
+  goatcounter: "",
+
+  // Commentaires (giscus.app). Recopiez les quatre valeurs données par giscus.app.
+  // Tant que repoId est vide, aucun cadre de commentaires n'apparaît.
+  giscus: {
+    repo: "",         // ex. "pseudo/pseudo.github.io"
+    repoId: "",       // ex. "R_kgDO…"
+    category: "",     // ex. "Announcements"
+    categoryId: ""    // ex. "DIC_kwDO…"
+  }
 };
 
 const RUBRIQUES = [
@@ -70,7 +83,18 @@ const V_PESER = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200"
 <circle cx="111" cy="50" r="4.5" fill="#d9730d" stroke="#8a4a08"/>
 <rect x="12" y="116" width="20" height="14" rx="2" fill="#5d6672"/></svg>`;
 
+const V_CONST = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<path d="M96.0 70.0L105.8 74.3L105.2 78.6L94.5 79.9L93.4 83.0L100.8 90.7L98.6 94.4L88.3 91.6L86.0 94.0L89.9 104.0L86.4 106.6L78.0 100.0L75.0 101.4L74.8 112.1L70.6 113.2L65.3 103.8L62.0 104.0L57.7 113.8L53.4 113.2L52.1 102.5L49.0 101.4L41.3 108.8L37.6 106.6L40.4 96.3L38.0 94.0L28.0 97.9L25.4 94.4L32.0 86.0L30.6 83.0L19.9 82.8L18.8 78.6L28.2 73.3L28.0 70.0L18.2 65.7L18.8 61.4L29.5 60.1L30.6 57.0L23.2 49.3L25.4 45.6L35.7 48.4L38.0 46.0L34.1 36.0L37.6 33.4L46.0 40.0L49.0 38.6L49.2 27.9L53.4 26.8L58.7 36.2L62.0 36.0L66.3 26.2L70.6 26.8L71.9 37.5L75.0 38.6L82.7 31.2L86.4 33.4L83.6 43.7L86.0 46.0L96.0 42.1L98.6 45.6L92.0 54.0L93.4 57.0L104.1 57.2L105.2 61.4L95.8 66.7Z" fill="#5d6672"/><circle cx="62" cy="70" r="9" fill="#fff"/>
+<path d="M18 36H186" stroke="#e3a21a" stroke-width="2.4" stroke-dasharray="5 4"/>
+<rect x="186" y="22" width="6" height="28" fill="#9fb0c3"/>
+<circle cx="14" cy="36" r="6" fill="#e3a21a"/></svg>`;
+
 const ARTICLES = [
+  { titre: "Comment on a mesuré les réglages de l'Univers",
+    url: "constantes.html", rubrique: "simulations",
+    date: "2026-09-22", duree: "10 min",
+    resume: "Vitesse de la lumière, gravitation, constante de Planck : aucune théorie ne donne leur valeur. La roue de Fizeau, la balance de Cavendish et la balance de Kibble, à manipuler.",
+    vignette: V_CONST },
   { titre: "Manuel pour peser un atome (balance non fournie)",
     url: "peser-un-atome.html", rubrique: "simulations",
     date: "2026-09-21", duree: "8 min",
@@ -136,6 +160,53 @@ const ARTICLES = [
     f.innerHTML = `<div class="shell"><span>© ${new Date().getFullYear()} ${SITE.nom}</span><nav>${links}</nav></div>`;
   }
 
+  /* statistiques de visite */
+  if (SITE.goatcounter) {
+    const g = document.createElement("script");
+    g.async = true;
+    g.src = "https://gc.zgo.at/count.js";
+    g.setAttribute("data-goatcounter", `https://${SITE.goatcounter}.goatcounter.com/count`);
+    document.head.appendChild(g);
+  }
+  const evenement = (chemin, titre) => {
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: chemin, title: titre, event: true }); } catch (e) {}
+  };
+
+  /* commentaires */
+  const gc = SITE.giscus || {};
+  const commentairesActifs = () => !!(gc.repo && gc.repoId && gc.categoryId);
+  function commentaires(conteneur, terme) {
+    if (!commentairesActifs() || !conteneur) return false;
+    document.querySelectorAll(".giscus, .giscus-frame, script[src*='giscus.app/client.js']").forEach(n => n.remove());
+    const boite = document.createElement("div");
+    boite.className = "giscus";
+    conteneur.appendChild(boite);
+    const sc = document.createElement("script");
+    sc.src = "https://giscus.app/client.js";
+    sc.async = true;
+    sc.crossOrigin = "anonymous";
+    const attr = { repo: gc.repo, "repo-id": gc.repoId, category: gc.category, "category-id": gc.categoryId,
+      mapping: terme ? "specific" : "pathname", strict: "1", "reactions-enabled": "1", "emit-metadata": "0",
+      "input-position": "top", theme: "light", lang: "fr", loading: "lazy" };
+    if (terme) attr.term = terme;
+    Object.entries(attr).forEach(([k, v]) => sc.setAttribute("data-" + k, v));
+    conteneur.appendChild(sc);
+    return true;
+  }
+  if (commentairesActifs()) {
+    const st = document.createElement("style");
+    st.textContent = ".comments{max-width:680px;margin:3rem auto 0}.comments .note{font-family:var(--sans);font-size:.84rem;color:var(--muted);margin:0 0 1rem}";
+    document.head.appendChild(st);
+    const nav = document.querySelector(".post-nav");
+    if (nav) {
+      const sec = document.createElement("section");
+      sec.className = "comments";
+      sec.innerHTML = '<h2 class="sec">Commentaires</h2><p class="note">Pour commenter, il faut un compte GitHub, gratuit. Les messages sont publics.</p>';
+      nav.parentNode.insertBefore(sec, nav);
+      commentaires(sec);
+    }
+  }
+
   /* barre de lecture */
   const p = $("prog");
   if (p) {
@@ -197,6 +268,9 @@ const ARTICLES = [
       $(listId).innerHTML = list.length ? list.map(item).join("")
         : `<div class="empty"><p>${r.vide}</p></div>`;
     },
+    commentairesActifs,
+    commentaires,
+    evenement,
     contact(id) {
       const el = $(id); if (!el || !SITE.contact) return;
       el.innerHTML = `Pour me contacter : <a href="${SITE.contact}">${SITE.contact.replace("mailto:", "")}</a>.`;

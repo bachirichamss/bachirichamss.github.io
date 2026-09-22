@@ -28,6 +28,8 @@
 .transcript p{margin:0 0 .9em}
 .src{list-style:none;padding:0;margin:.5rem 0 0}
 .src li{margin:.25rem 0}
+.cbtn{margin-top:.8rem}
+.cbox{margin-top:.6rem}
 @media (max-width:640px){.pod-top{grid-template-columns:1fr}.pod-top img{width:110px;height:110px}}
 </style>
 </head>
@@ -75,8 +77,21 @@
         '<audio controls preload="none" src="'+esc(e.audio)+'"></audio>'+
         (src?'<details open><summary>Sources</summary>'+src+'</details>':'')+
         '<details><summary>Lire la transcription</summary><div class="transcript">'+paras+'</div></details>'+
+        (Site.commentairesActifs()?'<button class="cbtn" data-slug="'+esc(e.slug)+'">Commentaires</button><div class="cbox"></div>':'')+
         '</article>';
     }).join("");
+    // commentaires : un fil par épisode, ouvert à la demande
+    box.querySelectorAll(".cbtn").forEach(b=>b.onclick=()=>{
+      box.querySelectorAll(".cbox").forEach(c=>c.innerHTML="");
+      box.querySelectorAll(".cbtn").forEach(x=>x.style.display="");
+      b.style.display="none";
+      Site.commentaires(b.nextElementSibling,"podcast/"+b.dataset.slug);
+    });
+    // statistiques : une écoute comptée par épisode et par visite
+    box.querySelectorAll(".ep").forEach(a=>{
+      const au=a.querySelector("audio"), t=a.querySelector("h2");
+      if(au) au.addEventListener("play",()=>Site.evenement("ecoute/"+a.id,"Écoute : "+(t?t.textContent:a.id)),{once:true});
+    });
     if(location.hash){const t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView();}
   });
 })();
