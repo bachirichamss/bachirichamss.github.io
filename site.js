@@ -18,12 +18,14 @@ const SITE = {
   // Commentaires (giscus.app). Recopiez les quatre valeurs données par giscus.app.
   // Tant que repoId est vide, aucun cadre de commentaires n'apparaît.
   giscus: {
-    repo: "",         // ex. "pseudo/pseudo.github.io"
-    repoId: "",       // ex. "R_kgDO…"
-    category: "",     // ex. "Announcements"
-    categoryId: ""    // ex. "DIC_kwDO…"
+    repo: "bachirichamss/bachirichamss.github.io",         // ex. "pseudo/pseudo.github.io"
+    repoId: "R_kgDOUigDiQ",       // ex. "R_kgDO…"
+    category: "Announcements",     // ex. "Announcements"
+    categoryId: "DIC_kwDOUigDic4DGKjT"    // ex. "DIC_kwDO…"
   }
 };
+
+
 
 const RUBRIQUES = [
   { id: "simulations", nom: "Simulations et démonstrations", court: "Simulations",
