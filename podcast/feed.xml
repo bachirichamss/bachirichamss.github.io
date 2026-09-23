@@ -5,11 +5,24 @@
   <link>https://bachirichamss.github.io/podcast.html</link>
   <description>Une chronique courte sur l'actualité de la physique et sur des travaux de recherche, écrite et lue avec l'aide de l'intelligence artificielle, relue par Chamss Bachiri.</description>
   <language>fr</language>
-  <lastBuildDate>Mon, 21 Sep 2026 20:54:48 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 23 Sep 2026 13:48:24 +0000</lastBuildDate>
   <itunes:author>Chamss Bachiri</itunes:author>
   <itunes:image href="https://bachirichamss.github.io/podcast/cover.jpg"/>
   <itunes:category text="Science"><itunes:category text="Physics"/></itunes:category>
   <itunes:explicit>false</itunes:explicit>
+  <item>
+   <title>La réalité comme un réseau de relations</title>
+   <description>Le physicien Carlo Rovelli propose une vision de la physique où les objets n'existent que par leurs interactions mutuelles, transformant notre compréhension de la matière.
+
+Sources :
+- Relational Quantum Mechanics (1996) : https://arxiv.org/abs/quant-ph/9609002</description>
+   <link>https://bachirichamss.github.io/podcast.html#2026-09-23-la-realite-comme-un-reseau-de-relations</link>
+   <guid isPermaLink="false">2026-09-23-la-realite-comme-un-reseau-de-relations</guid>
+   <pubDate>Wed, 23 Sep 2026 08:00:00 +0000</pubDate>
+   <enclosure url="https://bachirichamss.github.io/podcast/episodes/2026-09-23-la-realite-comme-un-reseau-de-relations.mp3" length="796320" type="audio/mpeg"/>
+   <itunes:duration>133</itunes:duration>
+   <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
    <title>Antimatière en camion, glaces planétaires et sauts du son</title>
    <description>Des antiprotons voyagent sur la route tandis que des enclumes de diamant recréent le cœur des planètes géantes et qu'un diapason quantique enregistre les sauts discrets du son.
