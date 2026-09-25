@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Les cigares de Gamow : quand le désaccord devient visible · Chamss Bachiri</title>
+<meta name="description" content="Deux cigares allumés en même temps dans un train ne le sont pas pour le quai. De combien exactement, et à partir de quelle vitesse et de quelle distance cela devient mesurable.">
+<meta property="og:title" content="Les cigares de Gamow : quand le désaccord devient visible">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+<style>
+.result{background:#fff;border:1px solid #e2e0da;border-radius:3px;padding:1.3rem 1.2rem;margin:1.4rem 0;font-family:"IBM Plex Sans",Arial,sans-serif}
+.eqrow{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;justify-content:center}
+.pill{border:1px solid #d5dae1;border-radius:3px;padding:.55rem .8rem;text-align:center;font-size:.8rem;color:#5d6672;line-height:1.4}
+.pill b{display:block;font-size:1.05rem;color:#1b1f24;font-weight:600;margin-top:.15rem}
+.pill.hi{border-color:#1f4f8f;background:#eaf0f8}
+.op{font-size:1.5rem;color:#5d6672}
+.zeros{text-align:center;font-size:.95rem;color:#1f4f8f;margin:1.1rem 0 0}
+.zeros small{display:block;color:#5d6672;font-size:.8rem;margin-top:.3rem}
+</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Les cigares de Gamow : à partir de quand le désaccord devient visible ?</h1>
+      <p class="dek">Deux voyageurs allument leur cigare en même temps dans un train. Pour le chef de gare, ce n'est pas en même temps. Reste à savoir de combien, et à partir de quelles vitesses et de quelles distances ça devient mesurable.</p>
+      <div class="meta"><span>23 septembre 2026</span><span>9 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Pourquoi les deux ne peuvent pas être d'accord</h2>
+      <p>Dans <em>Matière, Terre et Ciel</em>, Gamow prend cet exemple : deux voyageurs assis aux deux bouts d'un wagon allument leur cigare au même instant. Pour tous les gens du train, c'est simultané. Pour l'observateur resté sur le quai, non : l'un des deux a allumé avant l'autre.</p>
+      <p>La raison tient à la façon dont on décide que deux choses lointaines sont simultanées. On ne peut pas le voir directement : il faut comparer des signaux, et le signal le plus rapide qui existe est la lumière. Or la lumière va à la même vitesse pour tout le monde, quel que soit le mouvement de sa source, comme le montrent <a href="etoiles-doubles.html">les étoiles doubles</a>. Le voyageur assis au milieu du wagon reçoit les deux lueurs en même temps et conclut, à juste titre, que les deux cigares ont été allumés ensemble. Mais vu du quai, ce voyageur s'est déplacé pendant le trajet de la lumière : il est allé au-devant de la lueur venue de l'avant et s'est éloigné de celle venue de l'arrière. Pour que les deux lui parviennent quand même ensemble, il faut que celle de l'arrière soit partie plus tôt.</p>
+      <p>Aucun des deux n'a tort. Simultané n'est pas une propriété des événements : c'est une propriété des événements <strong>et</strong> de celui qui regarde.</p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button class="go" id="playB">Lancer</button>
+        <div class="timeline" style="display:flex;align-items:center;gap:.7rem;flex:1;min-width:220px"><input type="range" id="tR" min="0" max="100" value="0" aria-label="Temps" style="flex:1"></div>
+      </div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> Le train va ici à 60 % de la vitesse de la lumière, sinon on ne verrait rien. En bas, le train paraît aussi plus court : c'est la contraction des longueurs, qui accompagne toujours ce décalage.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>De combien exactement</h2>
+      <p>L'écart se calcule en une ligne. Si les deux événements sont simultanés dans le train et séparés d'une distance <em>d</em> le long du mouvement, alors pour le quai le décalage vaut :</p>
+      <p class="eq">Δt = γ × <em>v</em> × <em>d</em> / c²</p>
+      <p class="eqs">γ vaut 1 aux vitesses ordinaires et ne grossit qu'en approchant de la vitesse de la lumière.</p>
+      <p>Trois choses sautent aux yeux. La taille seule ne suffit pas, la vitesse seule non plus : <strong>c'est leur produit qui compte</strong>. Et ce produit est divisé par c², un nombre gigantesque, 9 suivi de seize zéros. C'est pour cette raison qu'on ne remarque jamais rien dans la vie courante.</p>
+      <p><strong>À vous : cherchez la combinaison qui rend le décalage détectable.</strong></p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="dS">Distance entre les deux cigares</label><input type="range" id="dS" min="0" max="100" value="23" style="width:220px"></span>
+        <span class="grp"><label for="vS">Vitesse du train</label><input type="range" id="vS" min="0" max="100" value="22" style="width:220px"></span>
+      </div>
+      <div class="ctl">
+        <div class="seg" id="presets"></div>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> L'échelle de droite indique ce que différents instruments savent distinguer. Le trait noir est le décalage calculé pour les réglages choisis.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>La réponse à la question</h2>
+      <p>Pour que le décalage soit <strong>visible à l'œil nu</strong>, il faut environ quatre centièmes de seconde, donc un produit vitesse × distance de l'ordre de 3,6 millions de milliards en unités du système international. Avec un train lancé à 60 % de la vitesse de la lumière, il faudrait qu'il mesure <strong>seize mille kilomètres</strong>. Avec un train de 200 mètres, il faudrait une vitesse mille milliards de fois supérieure à celle de la lumière, ce qui n'existe pas. <strong>À échelle humaine, le décalage ne sera jamais visible, quoi qu'on fasse.</strong></p>
+      <p>Pour qu'il soit simplement <strong>mesurable</strong>, c'est une tout autre histoire, parce que nos instruments descendent jusqu'à la femtoseconde. Le TGV et ses 200 mètres donnent deux dixièmes de picoseconde : c'est mille fois plus que ce qu'on sait mesurer en laboratoire. Rien n'est physiquement impossible là-dedans, seulement très difficile à isoler des autres effets.</p>
+      <p>Et il existe un cas où le décalage n'est pas une curiosité mais une obligation : le GPS.</p>
+      <div class="result">
+        <div class="eqrow">
+          <span class="pill">vitesse de la surface terrestre<b>465 m/s</b></span>
+          <span class="op">×</span>
+          <span class="pill">distance entre deux points<b>20 000 km</b></span>
+          <span class="op">=</span>
+          <span class="pill hi">décalage de simultanéité<b>103 nanosecondes</b></span>
+        </div>
+        <p class="zeros">soit 31 mètres d'erreur de position si on l'oublie<small>la lumière parcourt 30 centimètres par nanoseconde</small></p>
+      </div>
+      <p>Les satellites et les récepteurs GPS ne peuvent pas se contenter d'une horloge commune : la Terre tourne, et deux horloges éloignées ne sont pas synchronisées de la même façon selon qu'on se place dans le référentiel du sol ou dans un référentiel qui ne tourne pas. La correction est calculée en permanence dans chaque récepteur. Sans elle, votre position dériverait de plusieurs dizaines de mètres.</p>
+      <p>Une précision, pour éviter une confusion courante : le décalage dont on parle ici n'est pas le ralentissement du temps. Ce sont deux effets distincts, qui apparaissent ensemble. Le ralentissement du temps, lui, est aujourd'hui mesuré au laboratoire pour des différences d'altitude de quelques dizaines de centimètres, et pour des vitesses de l'ordre de celle d'un piéton.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> le désaccord sur la simultanéité est réel et se calcule exactement, mais il se mesure en vitesse multipliée par distance, puis divisée par le carré de la vitesse de la lumière. À notre échelle, il reste des milliards de fois trop petit pour l'œil. À l'échelle d'une planète qui tourne, il vaut déjà trente mètres d'erreur de navigation.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+/* =========================================================
+   Figure 1 : le même wagon, vu de deux endroits
+   ========================================================= */
+const G1={W:960,H:480,beta:0.6,L:520,t0:-0.8,t1:2.6};
+G1.gam=1/Math.sqrt(1-G1.beta*G1.beta);
+G1.dt=G1.gam*G1.beta*1.0;              // décalage vu du quai, en unités où c = 1 et le train mesure 1
+let g1={t:G1.t0,run:false};
+function eclair(x,y,age){
+  if(age<0||age>0.7) return "";
+  const r=10+age*70, o=Math.max(0,1-age/0.7);
+  return `<circle cx="${x.toFixed(1)}" cy="${y}" r="${r.toFixed(1)}" fill="none" stroke="${AMB}" stroke-width="3" opacity="${(o*0.8).toFixed(2)}"/>`+
+         `<circle cx="${x.toFixed(1)}" cy="${y}" r="9" fill="${AMB}" opacity="${o.toFixed(2)}"/>`;
+}
+function wagon(x,y,w,h,col){
+  let s=`<rect x="${x.toFixed(1)}" y="${y}" width="${w.toFixed(1)}" height="${h}" rx="6" fill="#eef2f6" stroke="${col}" stroke-width="2"/>`;
+  for(let i=1;i<5;i++) s+=`<rect x="${(x+w*i/5-16).toFixed(1)}" y="${y+10}" width="32" height="20" rx="3" fill="#cfd8e3"/>`;
+  return s;
+}
+function quai(y,dec){
+  let s=`<path d="M20 ${y}H940" stroke="#c8ccd2" stroke-width="6"/>`;
+  for(let i=-1;i<20;i++){const x=40+((i*60+dec)%1140+1140)%1140-100; if(x>10&&x<945) s+=`<path d="M${x.toFixed(1)} ${y+4}v10" stroke="#9aa4b0" stroke-width="2"/>`;}
+  return s;
+}
+function drawG1(){
+  const {W,H,beta,L,gam}=G1, t=g1.t;
+  const yA=120, yB=310, hh=54;
+  // panneau du haut : référentiel du train
+  let s=tx(40,52,"Dans le train",{size:20,w:600});
+  s+=tx(40,74,"les deux cigares s'allument en même temps",{size:15,fill:MUT});
+  s+=quai(yA+hh+34,-beta*t*180);
+  const xA=(W-L)/2;
+  s+=wagon(xA,yA,L,hh,ACC);
+  s+=`<circle cx="${xA+30}" cy="${yA+hh/2}" r="9" fill="${INK}"/><circle cx="${xA+L-30}" cy="${yA+hh/2}" r="9" fill="${INK}"/>`;
+  s+=eclair(xA+30,yA+hh/2,t)+eclair(xA+L-30,yA+hh/2,t);
+  s+=tx(W/2,yA-12,"horloge du train : "+fr(Math.max(0,t),2),{size:16,anchor:"middle",fill:MUT});
+  // panneau du bas : référentiel du quai
+  s+=tx(40,242,"Depuis le quai",{size:20,w:600});
+  s+=tx(40,264,"l'arrière s'allume le premier, l'avant "+fr(G1.dt,2)+" plus tard",{size:15,fill:MUT});
+  s+=quai(yB+hh+34,0);
+  const Lc=L/gam, xB=(W-Lc)/2+beta*t*180;
+  s+=wagon(xB,yB,Lc,hh,RED);
+  s+=`<circle cx="${(xB+24).toFixed(1)}" cy="${yB+hh/2}" r="9" fill="${INK}"/><circle cx="${(xB+Lc-24).toFixed(1)}" cy="${yB+hh/2}" r="9" fill="${INK}"/>`;
+  s+=eclair(xB+24,yB+hh/2,t)+eclair(xB+Lc-24,yB+hh/2,t-G1.dt);
+  s+=arrow(xB+Lc/2-30,yB-16,xB+Lc/2+40,yB-16,MUT,2);
+  s+=tx(40,yB+hh+80,"horloge du quai : "+fr(Math.max(0,t),2),{size:16,fill:MUT});
+  s+=tx(xB+24,yB+hh+18,"arrière",{size:14,fill:MUT,anchor:"middle"})+tx(xB+Lc-24,yB+hh+18,"avant",{size:14,fill:MUT,anchor:"middle"});
+  if(t>=0){
+    const fini=t>=G1.dt;
+    s+=`<rect x="640" y="${yB+hh+58}" width="290" height="34" rx="4" fill="#fff" stroke="${fini?RED:LINE}"/>`;
+    s+=tx(654,yB+hh+81,fini?("écart mesuré : "+fr(G1.dt,2)):("chronomètre : "+fr(t,2)),{size:16,w:600,fill:fini?RED:INK});
+  }
+  put("f1",W,H,s);
+  const L1=$("f1L");
+  if(t<0) L1.innerHTML="Les deux voyageurs sont assis aux deux bouts du wagon, cigare à la main. Appuyez sur Lancer.";
+  else if(t<G1.dt) L1.innerHTML="<b>Dans le train</b> : les deux cigares viennent de s'allumer ensemble. <b>Depuis le quai</b> : seul celui de l'arrière est allumé. Le second n'a pas encore pris feu.";
+  else L1.innerHTML="<b>Depuis le quai</b>, le cigare avant s'est allumé "+fr(G1.dt,2)+" unité de temps après celui de l'arrière. Les deux descriptions sont exactes : chacun mesure correctement dans son propre référentiel. Il n'y a pas de bonne réponse à la question « lequel a allumé en premier ».";
+}
+$("playB").onclick=()=>{ if(g1.t>=G1.t1) g1.t=G1.t0; g1.run=!g1.run; $("playB").textContent=g1.run?"Pause":"Reprendre"; if(RM){g1.t=G1.t1;g1.run=false;drawG1();} };
+$("tR").oninput=e=>{ g1.t=G1.t0+(+e.target.value/100)*(G1.t1-G1.t0); g1.run=false; $("playB").textContent="Reprendre"; drawG1(); };
+
+/* =========================================================
+   Figure 2 : le calculateur
+   ========================================================= */
+const C=299792458;
+const SEUILS=[[0.04,"l'œil humain","distingue deux éclairs"],[0.002,"l'oreille","distingue deux clics"],
+  [1e-6,"une caméra rapide",""],[1e-9,"l'électronique courante",""],[1e-15,"les meilleurs instruments","laser femtoseconde"]];
+const PRESETS=[
+  ["TGV",88.9,200],["Avion de ligne",250,70],["Station spatiale",7660,100],
+  ["Terre qui tourne (GPS)",465,2e7],["Vaisseau à 0,6 c",0.6*C,100],["Train de 16 000 km à 0,6 c",0.6*C,1.6e7]];
+let g2={d:1e3,v:100};
+function dureeTxt(x){
+  const u=[[1,"s"],[1e-3,"ms"],[1e-6,"µs"],[1e-9,"ns"],[1e-12,"ps"],[1e-15,"fs"],[1e-18,"as"]];
+  for(const [m,n] of u) if(x>=m) return fr(x/m,x/m<10?2:(x/m<100?1:0))+" "+n;
+  return x.toExponential(2).replace(".",",")+" s";
+}
+function distTxt(d){ return d>=1e6?milliers(d/1000)+" km":(d>=1000?fr(d/1000,d/1000<10?1:0)+" km":milliers(d)+" m"); }
+function vitTxt(v){ return v>0.01*C?fr(v/C*100,1)+" % de la vitesse de la lumière":(v>=100?milliers(v*3.6)+" km/h":fr(v*3.6,0)+" km/h"); }
+function drawG2(){
+  const W=960,H=430, v=Math.min(g2.v,0.999*C), gam=1/Math.sqrt(1-(v/C)*(v/C));
+  const dt=gam*v*g2.d/(C*C);
+  const ax=700, y0=70, y1=370, Y=t=>y0+(Math.log10(1)-Math.log10(t))/19*(y1-y0);
+  let s=tx(40,44,"Réglages",{size:19,w:600});
+  s+=tx(40,90,"Distance entre les deux cigares",{size:16,fill:MUT});
+  s+=tx(40,124,distTxt(g2.d),{size:26,w:600});
+  s+=tx(40,176,"Vitesse du train",{size:16,fill:MUT});
+  s+=tx(40,210,vitTxt(v),{size:26,w:600});
+  if(gam>1.01) s+=tx(40,240,"γ = "+fr(gam,2),{size:16,fill:MUT});
+  s+=tx(40,300,"Décalage vu du quai",{size:16,fill:MUT});
+  s+=tx(40,342,dureeTxt(dt),{size:34,w:600,fill:ACC});
+  const dl=dt*C, dltxt=dl>=1000?milliers(dl/1000)+" kilomètres":(dl>=1?fr(dl,dl<10?2:0)+" mètres":(dl>=0.001?fr(dl*1000,1)+" millimètres":"moins d'un millimètre"));
+  s+=tx(40,376,"soit "+dltxt+" parcourus par la lumière",{size:15,fill:MUT});
+  // échelle
+  s+=`<path d="M${ax} ${y0}V${y1}" stroke="${INK}" stroke-width="1.5"/>`;
+  s+=tx(ax-14,y0-14,"1 s",{size:13,fill:MUT,anchor:"end"});
+  s+=tx(ax-14,y1+18,"10⁻¹⁹ s",{size:13,fill:MUT,anchor:"end"});
+  for(const [t,nom,det] of SEUILS){ const y=Y(t);
+    s+=`<path d="M${ax-8} ${y}H${ax+8}" stroke="${MUT}" stroke-width="2"/>`;
+    s+=tx(ax+16,y-3,nom,{size:15,fill:INK});
+    s+=tx(ax+16,y+15,(det?det+", ":"")+dureeTxt(t),{size:13,fill:MUT});
+  }
+  const yd=Math.max(y0-10,Math.min(y1+10,Y(Math.max(1e-19,dt))));
+  s+=`<path d="M${ax-130} ${yd.toFixed(1)}H${ax}" stroke="${ACC}" stroke-width="2" stroke-dasharray="6 4"/>`;
+  s+=`<circle cx="${ax}" cy="${yd.toFixed(1)}" r="7" fill="${ACC}"/>`;
+  s+=tx(ax-136,yd-6,"décalage",{size:15,fill:ACC,anchor:"end",w:600});
+  put("f2",W,H,s);
+  let verdict, detect=SEUILS.filter(x=>dt>=x[0]);
+  if(dt>=0.04) verdict="<b>Visible à l'œil nu.</b> Un spectateur sur le quai verrait nettement le premier cigare s'allumer avant le second.";
+  else if(dt>=0.002) verdict="Trop rapide pour l'œil, mais l'oreille ferait la différence entre deux clics, et n'importe quelle caméra le verrait.";
+  else if(detect.length) verdict="Invisible à l'œil, mais <b>mesurable</b> : il faut au minimum "+detect[0][1]+".";
+  else verdict="<b>Hors de portée de tout instrument existant</b>, même des meilleures mesures de temps en laboratoire.";
+  $("f2L").innerHTML="Décalage : <b>"+dureeTxt(dt)+"</b>. "+verdict+" Doublez la vitesse ou la distance et le décalage double : c'est leur produit qui commande.";
+}
+function maj(){ $("dS").value=Math.round(Math.log10(g2.d)/9*100); $("vS").value=Math.round(Math.log10(Math.max(1,g2.v))/8.4765*100); drawG2(); }
+$("dS").oninput=e=>{ g2.d=Math.pow(10,+e.target.value/100*9); drawG2(); };
+$("vS").oninput=e=>{ g2.v=Math.pow(10,+e.target.value/100*8.4765); drawG2(); };
+$("presets").innerHTML=PRESETS.map((p,i)=>`<button data-i="${i}">${p[0]}</button>`).join("");
+$("presets").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  const p=PRESETS[+b.dataset.i]; g2.v=p[1]; g2.d=p[2];
+  $("presets").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; maj();
+});
+
+/* ---------------- boucle ---------------- */
+g2.d=200; g2.v=88.9; maj();
+drawG1();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  if(g1.run){ g1.t+=dt*0.55; if(g1.t>=G1.t1){g1.t=G1.t1;g1.run=false;$("playB").textContent="Rejouer";}
+    $("tR").value=Math.round((g1.t-G1.t0)/(G1.t1-G1.t0)*100); drawG1(); }
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+</script>
+</body>
+</html>

@@ -12,20 +12,19 @@ const SITE = {
   contact: "",      // ex. "mailto:prenom@exemple.fr" ; laissé vide, la ligne n'apparaît pas
   github: "",       // ex. "https://github.com/pseudo"
 
-  // Statistiques de visite (goatcounter.com)
-  goatcounter: "chamss",
+  // Statistiques de visite (goatcounter.com). Mettez le code choisi à l'inscription :
+  // si votre tableau de bord est https://chamss.goatcounter.com, écrivez "chamss".
+  goatcounter: "",
 
   // Commentaires (giscus.app). Recopiez les quatre valeurs données par giscus.app.
   // Tant que repoId est vide, aucun cadre de commentaires n'apparaît.
   giscus: {
-    repo: "bachirichamss/bachirichamss.github.io",         // ex. "pseudo/pseudo.github.io"
-    repoId: "R_kgDOUigDiQ",       // ex. "R_kgDO…"
-    category: "Announcements",     // ex. "Announcements"
-    categoryId: "DIC_kwDOUigDic4DGKjT"    // ex. "DIC_kwDO…"
+    repo: "",         // ex. "pseudo/pseudo.github.io"
+    repoId: "",       // ex. "R_kgDO…"
+    category: "",     // ex. "Announcements"
+    categoryId: ""    // ex. "DIC_kwDO…"
   }
 };
-
-
 
 const RUBRIQUES = [
   { id: "simulations", nom: "Simulations et démonstrations", court: "Simulations",
@@ -90,7 +89,43 @@ const V_CONST = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200"
 <rect x="186" y="22" width="6" height="28" fill="#9fb0c3"/>
 <circle cx="14" cy="36" r="6" fill="#e3a21a"/></svg>`;
 
+const V_DOPPLER = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<g fill="none" stroke="#7d8da0" stroke-width="1.4">
+<circle cx="58" cy="70" r="52"/><circle cx="72" cy="70" r="39"/><circle cx="86" cy="70" r="27"/><circle cx="100" cy="70" r="15"/></g>
+<circle cx="114" cy="70" r="7" fill="#e3a21a" stroke="#a8790a"/>
+<path d="M126 70h24" stroke="#5d6672" stroke-width="2"/><path d="M146 66l8 4l-8 4z" fill="#5d6672"/></svg>`;
+
+const V_LASER = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<rect x="34" y="50" width="96" height="40" fill="#f0f3f7" stroke="#c3c9d1"/>
+<rect x="28" y="42" width="8" height="56" fill="#5d6672"/><rect x="128" y="42" width="8" height="56" fill="#9aa4b0"/>
+<g fill="#e3a21a"><rect x="52" y="68" width="14" height="4" rx="2"/><rect x="76" y="68" width="14" height="4" rx="2"/><rect x="100" y="68" width="14" height="4" rx="2"/></g>
+<g fill="#7a5fc0"><circle cx="52" cy="58" r="4"/><circle cx="78" cy="58" r="4"/><circle cx="104" cy="58" r="4"/><circle cx="66" cy="82" r="4"/><circle cx="92" cy="82" r="4"/></g>
+<path d="M136 70h50" stroke="#c8372d" stroke-width="7" opacity=".85"/></svg>`;
+
+const V_SIMULT = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<rect x="24" y="34" width="152" height="30" rx="5" fill="#eef2f6" stroke="#1f4f8f" stroke-width="2"/>
+<circle cx="40" cy="49" r="6" fill="#e3a21a"/><circle cx="160" cy="49" r="6" fill="#e3a21a"/>
+<rect x="36" y="86" width="128" height="30" rx="5" fill="#eef2f6" stroke="#c8372d" stroke-width="2"/>
+<circle cx="50" cy="101" r="6" fill="#e3a21a"/><circle cx="50" cy="101" r="13" fill="none" stroke="#e3a21a" stroke-width="2"/>
+<circle cx="150" cy="101" r="6" fill="#1b1f24"/>
+<path d="M14 72h172" stroke="#e2e0da"/></svg>`;
+
 const ARTICLES = [
+  { titre: "Les cigares de Gamow : quand le désaccord devient visible",
+    url: "simultaneite.html", rubrique: "simulations",
+    date: "2026-09-23", duree: "9 min",
+    resume: "Deux cigares allumés ensemble dans un train ne le sont pas pour le quai. De combien exactement, et à partir de quelle vitesse et de quelle taille cela devient mesurable.",
+    vignette: V_SIMULT },
+  { titre: "Le laser, ou comment obliger la lumière à marcher au pas",
+    url: "laser.html", rubrique: "simulations",
+    date: "2026-09-23", duree: "9 min",
+    resume: "Émission stimulée, inversion de population, seuil laser : une cavité à faire démarrer soi-même, et pourquoi cet instrument est devenu le cœur de la physique de précision.",
+    vignette: V_LASER },
+  { titre: "L'effet Doppler, de la sirène des pompiers aux galaxies",
+    url: "doppler.html", rubrique: "simulations",
+    date: "2026-09-23", duree: "8 min",
+    resume: "Une source qui avance tasse ses ondes devant elle. Ça change la note d'une sirène, la couleur d'une étoile, et ça se manipule ici du mur du son au décalage vers le rouge.",
+    vignette: V_DOPPLER },
   { titre: "Comment on a mesuré les réglages de l'Univers",
     url: "constantes.html", rubrique: "simulations",
     date: "2026-09-22", duree: "10 min",

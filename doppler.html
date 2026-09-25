@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>L'effet Doppler, de la sirène des pompiers aux galaxies · Chamss Bachiri</title>
+<meta name="description" content="Pourquoi une sirène change de note en passant, et pourquoi la lumière des galaxies lointaines rougit. Le mécanisme de l'effet Doppler, à manipuler.">
+<meta property="og:title" content="L'effet Doppler, de la sirène des pompiers aux galaxies">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>L'effet Doppler, de la sirène des pompiers aux galaxies</h1>
+      <p class="dek">Une source qui s'approche tasse ses ondes devant elle et les étire derrière. Ça change la note d'une sirène, et la couleur d'une étoile. Voici le mécanisme, à manipuler.</p>
+      <div class="meta"><span>23 septembre 2026</span><span>8 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Une source qui avance tasse ses ondes</h2>
+      <p>Une source émet une onde à intervalles réguliers, toujours au même rythme. Chaque bosse part dans toutes les directions à la vitesse de l'onde, sans se soucier du mouvement de la source.</p>
+      <p>Mais entre deux émissions, la source a avancé. La bosse suivante part donc d'un point plus proche de ce qui est devant, et plus loin de ce qui est derrière. <strong>Faites accélérer la source et regardez les cercles.</strong></p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="vS">Vitesse de la source</label><input type="range" id="vS" min="0" max="160" value="0" style="width:280px"></span>
+      </div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> Les cercles sont les crêtes successives de l'onde. Leur espacement le long de l'axe est la longueur d'onde reçue.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Ce qu'on entend quand l'ambulance passe</h2>
+      <p>La sirène émet toujours la même note. Vous l'entendez plus aiguë tant qu'elle approche, plus grave dès qu'elle s'éloigne. Le basculement se produit au moment du passage, et il est d'autant plus brutal que le véhicule passe près de vous.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button class="go" id="f2B">Lancer le passage</button>
+        <span class="grp"><label for="uS">Vitesse</label><input type="range" id="uS" min="30" max="200" value="130"></span>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> Fréquence perçue par le piéton au cours du passage, pour une sirène de 700 hertz. La vitesse du son est prise à 340 mètres par seconde.</p>
+      <p>La formule tient en une ligne. Pour une source qui s'approche en ligne droite, la fréquence reçue vaut la fréquence émise multipliée par <em>c</em> / (<em>c</em> − <em>v</em>), où <em>c</em> est la vitesse du son. Pour une source qui s'éloigne, on remplace le moins par un plus.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Le son sait qui bouge, la lumière non</h2>
+      <p>Pour le son, il existe un arbitre : l'air. Une source qui fonce dans l'air immobile et un auditeur qui court dans l'air immobile ne donnent pas exactement le même résultat, même si leur vitesse relative est identique.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th></th><th>La source s'approche</th><th>L'auditeur s'approche</th></tr>
+        <tr><td>Son, à 34 m/s (un dixième de la vitesse du son)</td><td class="n">fréquence × 1,111</td><td class="n">fréquence × 1,100</td></tr>
+        <tr><td>Lumière, à un dixième de la vitesse de la lumière</td><td class="n">fréquence × 1,106</td><td class="n">fréquence × 1,106</td></tr>
+      </table>
+      </div>
+      <p>Pour la lumière, les deux colonnes sont identiques, à tous les chiffres qu'on voudra. C'est une conséquence directe du fait qu'il n'existe aucun milieu porteur, et que la lumière va à la même vitesse pour tout le monde, comme le montrent <a href="etoiles-doubles.html">les étoiles doubles</a>. Seule la vitesse relative compte, et la formule fait intervenir en plus le ralentissement du temps de la source.</p>
+      <p>Autre différence : une source lumineuse qui passe juste à côté de vous, sans s'approcher ni s'éloigner à cet instant précis, paraît quand même un peu plus rouge. C'est l'effet Doppler transverse, qui n'existe pas pour le son. Il vient uniquement du ralentissement du temps.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>La couleur des étoiles</h2>
+      <p>Les atomes d'une étoile absorbent des couleurs très précises, qui apparaissent comme des raies sombres dans son spectre. Ces raies sont des repères : on sait exactement où elles devraient tomber. Si l'étoile s'approche ou s'éloigne, elles se déplacent toutes ensemble.</p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="bS">Vitesse de l'étoile</label><input type="range" id="bS" min="-1500" max="1500" value="0" style="width:300px"></span>
+        <button id="bR">Remettre à zéro</button>
+      </div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> Les traits gris au-dessus marquent la position au repos de quatre raies connues. Les traits noirs sont les raies observées.</p>
+      <p>Une étoile de notre galaxie se déplace à quelques dizaines de kilomètres par seconde, soit un dix-millième de la vitesse de la lumière : le décalage est invisible à l'œil, mais un spectromètre le mesure sans difficulté. C'est ainsi qu'on pèse les étoiles doubles, qu'on détecte des planètes autour d'autres étoiles par le minuscule va-et-vient qu'elles imposent à leur étoile, et qu'on a découvert que les galaxies lointaines s'éloignent toutes de nous.</p>
+      <p>Le même principe sert au radar de la police, au sonar, et à l'échographie Doppler qui mesure la vitesse du sang dans les artères.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> l'effet Doppler ne change rien à ce que la source émet. Il change l'intervalle entre deux crêtes qui vous parviennent, parce que la source s'est déplacée entre les deux. Pour le son, il faut savoir qui bouge par rapport à l'air. Pour la lumière, seule la vitesse relative compte.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+/* =========================================================
+   Figure 1 : les cercles d'une source en mouvement
+   ========================================================= */
+const D1={W:960,H:430,cy:215,x0:120,x1:770,cw:105,T:0.8};
+let d1={v:0,sx:D1.x0,w:[],t:0,e:0};
+function drawD1(){
+  const {W,H,cy,cw,T}=D1, v=d1.v;
+  let s="";
+  for(const w of d1.w){ const r=cw*(d1.t-w.t); if(r<6) continue;
+    s+=`<circle cx="${w.x.toFixed(1)}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="#7f8c9b" stroke-width="1.6" opacity="${Math.max(0.15,0.75-r/900).toFixed(2)}"/>`; }
+  s+=`<path d="M40 ${cy}H920" stroke="${LINE}" stroke-dasharray="3 7"/>`;
+  s+=`<circle cx="${d1.sx.toFixed(1)}" cy="${cy}" r="11" fill="${AMB}" stroke="#a8790a" stroke-width="1.5"/>`;
+  s+=tx(d1.sx,cy-24,"source",{size:15,fill:MUT,anchor:"middle"});
+  if(v>2) s+=arrow(d1.sx+18,cy,d1.sx+18+Math.min(60,v*0.5),cy,MUT,2);
+  const av=v<cw?cw/(cw-v):null, ar=cw/(cw+v);
+  const obs=(x,lab,val,mot,col)=>{
+    let t=`<circle cx="${x}" cy="${cy}" r="9" fill="${col}"/>`;
+    t+=tx(x,cy+30,lab,{size:16,fill:col,anchor:"middle",w:600});
+    t+=tx(x,cy+52,val,{size:15,fill:INK,anchor:"middle"});
+    t+=tx(x,cy+72,mot,{size:15,fill:col,anchor:"middle"});
+    return t;};
+  s+=obs(100,"derrière","fréquence × "+fr(ar,2),"plus grave",BL);
+  s+=obs(862,"devant",av?"fréquence × "+fr(av,2):"toutes en même temps",av?"plus aigu":"mur du son",RED);
+  // longueurs d'onde mesurées sur l'axe
+  const yl=cy+150, lf=(cw-v)*D1.T, lb=(cw+v)*D1.T, sx=d1.sx;
+  const regle=(a,b,y,col,lab,cote)=>`<path d="M${a} ${y}H${b}M${a} ${y-6}v12M${b} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx(cote==="d"?b:a,y+(cote==="d"?-12:24),lab,{size:15,fill:col,anchor:cote==="d"?"end":"start",w:500});
+  if(v<cw){const a=Math.min(sx+16,930-lf); s+=regle(a,a+lf,yl,RED,"longueur d'onde devant","d");}
+  {const b=Math.max(30+lb,sx-16); s+=regle(b-lb,b,yl,BL,"longueur d'onde derrière","g");}
+  s+=tx(480,40,"vitesse de la source : "+fr(v/cw,2)+" fois la vitesse de l'onde",{size:18,anchor:"middle",w:600});
+  put("f1",W,H,s);
+  const L=$("f1L");
+  if(v<2) L.innerHTML="Source immobile : les cercles sont concentriques. Devant comme derrière, on reçoit exactement la fréquence émise. Poussez le curseur.";
+  else if(v<cw*0.95) L.innerHTML="La source avance entre deux émissions. Devant, les cercles se resserrent : les crêtes arrivent plus souvent, le son est plus <b>aigu</b>. Derrière, ils s'écartent : plus <b>grave</b>. La source, elle, n'a rien changé à son émission.";
+  else if(v<cw*1.05) L.innerHTML="La source va aussi vite que son onde : toutes les crêtes s'accumulent juste devant elle. C'est le <b>mur du son</b>.";
+  else L.innerHTML="Plus vite que l'onde : la source double ses propres crêtes, qui s'empilent sur un cône. Un observateur devant n'entend rien venir, puis reçoit tout d'un coup, en un bang.";
+}
+function stepD1(dt){
+  d1.t+=dt; d1.e-=dt;
+  if(d1.e<=0){ d1.e=D1.T; d1.w.push({x:d1.sx,t:d1.t}); }
+  d1.sx+=d1.v*dt;
+  if(d1.sx>D1.x1){ d1.sx=D1.x0; d1.w=[]; }
+  d1.w=d1.w.filter(w=>D1.cw*(d1.t-w.t)<1000);
+}
+$("vS").oninput=e=>{d1.v=+e.target.value/100*D1.cw;d1.w=[];d1.sx=D1.x0;drawD1();};
+
+/* =========================================================
+   Figure 2 : le passage de l'ambulance
+   ========================================================= */
+const D2={W:960,H:440,road:110,px0:60,px1:900,xm:160,c:340,f0:700,d:15};
+let d2={anim:0,run:false,v:36.1};
+function freq(tp){
+  const x=d2.v*tp, dist=Math.hypot(x,D2.d), dr=d2.v*d2.v*tp/dist;   // vitesse d'éloignement
+  return D2.f0*D2.c/(D2.c+dr);
+}
+function drawD2(){
+  const {W,H,road,px0,px1,xm}=D2, Tp=2*xm/d2.v;
+  const k=d2.anim/8, tp=(k-0.5)*Tp, x=d2.v*tp;
+  const X=m=>px0+(m+xm)/(2*xm)*(px1-px0);
+  let s=`<path d="M40 ${road+26}H920" stroke="#c8ccd2" stroke-width="10"/>`;
+  s+=`<path d="M40 ${road+26}H920" stroke="#fff" stroke-width="2" stroke-dasharray="14 14"/>`;
+  const ax=X(x);
+  s+=`<rect x="${ax-28}" y="${road-8}" width="56" height="26" rx="4" fill="#e8eef5" stroke="${INK}"/>`;
+  s+=`<rect x="${ax-6}" y="${road-20}" width="14" height="10" rx="3" fill="${RED}"/>`;
+  s+=`<circle cx="${ax-16}" cy="${road+20}" r="6" fill="${INK}"/><circle cx="${ax+16}" cy="${road+20}" r="6" fill="${INK}"/>`;
+  s+=`<circle cx="${X(0)}" cy="${road+62}" r="10" fill="${ACC}"/>`+tx(X(0),road+92,"vous",{size:15,fill:ACC,anchor:"middle",w:600});
+  s+=`<path d="M${X(0)} ${road+50}V${road+38}" stroke="${LINE}" stroke-dasharray="3 4"/>`+tx(X(0)+14,road+58,"15 m",{size:14,fill:MUT});
+  // courbe
+  const gx0=110,gx1=900,gy0=248,gy1=392, fmax=D2.f0*D2.c/(D2.c-d2.v), fmin=D2.f0*D2.c/(D2.c+d2.v);
+  const lo=fmin-25, hi=fmax+25, Y=f=>gy1-(f-lo)/(hi-lo)*(gy1-gy0);
+  s+=`<path d="M${gx0} ${gy0}V${gy1}H${gx1}" fill="none" stroke="${INK}"/>`;
+  s+=`<path d="M${gx0} ${Y(D2.f0)}H${gx1}" stroke="${LINE}" stroke-dasharray="4 5"/>`;
+  s+=tx(gx0-8,Y(D2.f0)+5,"700 Hz",{size:14,fill:MUT,anchor:"end"});
+  s+=tx(gx0-8,Y(fmax)+5,Math.round(fmax)+" Hz",{size:14,fill:RED,anchor:"end"});
+  s+=tx(gx0-8,Y(fmin)+5,Math.round(fmin)+" Hz",{size:14,fill:BL,anchor:"end"});
+  s+=tx(gx0,gy0-12,"Fréquence entendue par le piéton",{size:17,w:600});
+  let d="";
+  for(let i=0;i<=200;i++){ const kk=i/200, t2=(kk-0.5)*Tp;
+    d+=(i?"L":"M")+(gx0+kk*(gx1-gx0)).toFixed(1)+" "+Y(freq(t2)).toFixed(1); }
+  s+=`<path d="${d}" fill="none" stroke="${OR}" stroke-width="2.5"/>`;
+  const f=freq(tp), mx=gx0+k*(gx1-gx0);
+  s+=`<circle cx="${mx.toFixed(1)}" cy="${Y(f).toFixed(1)}" r="7" fill="${INK}"/>`;
+  s+=tx(mx+(k>0.8?-12:12),Y(f)-14,Math.round(f)+" Hz",{size:16,w:600,anchor:k>0.8?"end":"start"});
+  s+=tx(gx1,gy1+26,"temps",{size:14,fill:MUT,anchor:"end"});
+  put("f2",W,H,s);
+  const vk=Math.round(d2.v*3.6);
+  $("f2L").innerHTML = !d2.run && d2.anim===0
+    ? "L'ambulance roule à "+vk+" km/h et passe à quinze mètres de vous. Sa sirène émet un la grave, 700 hertz, sans jamais varier. Appuyez sur Lancer."
+    : (tp<-0.4 ? "Elle approche : vous entendez <b>"+Math.round(f)+" hertz</b> au lieu de 700. Tant qu'elle se rapproche, la note reste haute et presque constante."
+      : tp<0.4 ? "Elle passe devant vous : en une seconde, la note <b>bascule</b> du haut vers le bas. C'est ce glissement qu'on reconnaît."
+      : "Elle s'éloigne : <b>"+Math.round(f)+" hertz</b>. L'écart entre le haut et le bas fait ici "+fr(Math.log2((D2.c/(D2.c-d2.v))/(D2.c/(D2.c+d2.v)))*12,1)+" demi-tons, soit à peu près une tierce.");
+}
+$("f2B").onclick=()=>{d2.anim=0;d2.run=true;$("f2B").textContent="Relancer";if(RM){d2.anim=8;d2.run=false;drawD2();}};
+$("uS").oninput=e=>{d2.v=+e.target.value/3.6;drawD2();};
+
+/* =========================================================
+   Figure 3 : les raies d'une étoile
+   ========================================================= */
+const RAIES=[[486.1,"Hβ"],[517.3,"magnésium"],[589.0,"sodium"],[656.3,"Hα"]];
+const D3={W:960,H:300,x0:80,x1:880,y0:120,y1:210,lo:390,hi:710};
+let bkm=0;
+function drawD3(){
+  const {W,H,x0,x1,y0,y1,lo,hi}=D3, X=l=>x0+(l-lo)/(hi-lo)*(x1-x0);
+  const b=bkm*1000/299792458, fact=Math.sqrt((1+b)/(1-b));
+  let s=`<defs><linearGradient id="sp" x1="0" y1="0" x2="1" y2="0"><stop offset="0.0%" stop-color="#79008d"/><stop offset="6.2%" stop-color="#7e00db"/><stop offset="12.5%" stop-color="#3d00ff"/><stop offset="18.8%" stop-color="#0046ff"/><stop offset="25.0%" stop-color="#00a9ff"/><stop offset="31.2%" stop-color="#00ffff"/><stop offset="37.5%" stop-color="#00ff00"/><stop offset="43.8%" stop-color="#5eff00"/><stop offset="50.0%" stop-color="#a3ff00"/><stop offset="56.2%" stop-color="#e1ff00"/><stop offset="62.5%" stop-color="#ffdf00"/><stop offset="68.8%" stop-color="#ff9b00"/><stop offset="75.0%" stop-color="#ff4f00"/><stop offset="81.2%" stop-color="#ff0000"/><stop offset="87.5%" stop-color="#ff0000"/><stop offset="93.8%" stop-color="#ff0000"/><stop offset="100.0%" stop-color="#ed0000"/></linearGradient></defs>`;
+  s+=`<rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" fill="url(#sp)"/>`;
+  for(const [l,n] of RAIES){
+    const xr=X(l), xo=X(l*fact);
+    s+=`<path d="M${xr} ${y0-28}v22" stroke="${MUT}" stroke-width="2"/>`+tx(xr,y0-34,n,{size:14,fill:MUT,anchor:"middle"});
+    if(xo>x0&&xo<x1){
+      s+=`<rect x="${(xo-3).toFixed(1)}" y="${y0}" width="6" height="${y1-y0}" fill="#101418"/>`;
+      s+=`<path d="M${xr} ${y0-6}L${xo.toFixed(1)} ${y0}" stroke="${MUT}" stroke-dasharray="2 3"/>`;
+    }
+  }
+  for(let l=400;l<=700;l+=50) s+=tx(X(l),y1+24,l+" nm",{size:13,fill:MUT,anchor:"middle"});
+  const z=fact-1;
+  s+=tx(x0,40,(bkm===0?"Étoile immobile":(bkm>0?"Étoile qui s'éloigne":"Étoile qui s'approche")),{size:20,w:600,fill:bkm>0?RED:(bkm<0?BL:INK)});
+  s+=tx(x0,66,(bkm>0?"+":"")+milliers(bkm)+" km/s, soit "+fr(Math.abs(bkm/2997.92458),2)+" % de la vitesse de la lumière",{size:16,fill:MUT});
+  s+=tx(x1,40,"décalage z = "+(z>=0?"+":"")+fr(z,4),{size:18,anchor:"end",w:600});
+  s+=tx(x1,66,"Hα : 656,3 nm vers "+fr(656.3*fact,1)+" nm",{size:16,fill:MUT,anchor:"end"});
+  put("f3",W,H,s);
+  const L=$("f3L"), dnm=656.3*(fact-1);
+  if(bkm===0) L.innerHTML="Étoile immobile : chaque raie sombre tombe pile sur son repère gris. Déplacez le curseur.";
+  else L.innerHTML="Toutes les raies se déplacent du même facteur, vers le "+(bkm>0?"<b>rouge</b>":"<b>bleu</b>")+". La raie Hα se décale de "+fr(Math.abs(dnm),1)+" nanomètres. Ce n'est pas la couleur de l'étoile qui change vraiment : ce sont ses repères qui glissent, et c'est ce glissement qu'on mesure. Une étoile ordinaire de notre galaxie va mille fois moins vite que ça : le décalage existe, mais il faut un spectromètre pour le voir.";
+}
+$("bS").oninput=e=>{bkm=+e.target.value*20;drawD3();};
+$("bR").onclick=()=>{bkm=0;$("bS").value=0;drawD3();};
+
+/* ---------------- boucle ---------------- */
+drawD1(); drawD2(); drawD3();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  stepD1(dt); drawD1();
+  if(d2.run){ d2.anim+=dt; if(d2.anim>=8){d2.anim=8;d2.run=false;} drawD2(); }
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+</script>
+</body>
+</html>

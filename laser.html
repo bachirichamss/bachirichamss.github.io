@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Le laser, ou comment obliger la lumière à marcher au pas · Chamss Bachiri</title>
+<meta name="description" content="Émission stimulée, inversion de population, seuil laser : le fonctionnement du laser en simulations, et pourquoi il est devenu l'outil central de la physique de précision.">
+<meta property="og:title" content="Le laser, ou comment obliger la lumière à marcher au pas">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+<style>.others li{margin-bottom:.9em}</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Le laser, ou comment obliger la lumière à marcher au pas</h1>
+      <p class="dek">Une ampoule envoie des photons dans tous les sens, de toutes les couleurs, au hasard. Un laser les envoie tous dans la même direction, à la même couleur, en phase. Ce petit changement a transformé la physique.</p>
+      <div class="meta"><span>23 septembre 2026</span><span>9 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Trois façons pour un atome de croiser un photon</h2>
+      <p>Un atome possède des niveaux d'énergie. Il peut être au repos, en bas, ou excité, en haut. Trois choses peuvent lui arriver, et la troisième est la clé du laser.</p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> Les trois processus, au ralenti. Einstein a prédit le troisième en 1917, plus de quarante ans avant le premier laser.</p>
+      <p>L'émission stimulée fabrique un <strong>clone</strong> : même couleur, même direction, même phase, c'est-à-dire crêtes alignées sur crêtes. Un photon en donne deux, deux en donnent quatre. C'est une avalanche de copies identiques, et c'est ce que veut dire le sigle laser : amplification de lumière par émission stimulée de rayonnement.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Deux conditions, et un seuil</h2>
+      <p>Pour que l'avalanche démarre, il faut deux choses. D'abord que la majorité des atomes soient excités, sans quoi les photons sont absorbés plus souvent qu'ils ne sont clonés : on appelle ça l'inversion de population, et on l'obtient en <strong>pompant</strong> de l'énergie dans le matériau. Ensuite il faut garder les photons assez longtemps pour qu'ils rencontrent beaucoup d'atomes : on les enferme entre deux miroirs, dont l'un laisse passer quelques pour cent de la lumière. Ce qui sort par là, c'est le faisceau.</p>
+      <p><strong>Montez la puissance de pompage et regardez la courbe de sortie se construire.</strong></p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="pS">Puissance de pompage</label><input type="range" id="pS" min="0" max="100" value="0" style="width:300px"></span>
+        <button id="pR">Effacer la courbe</button>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> Simulation d'une cavité laser. Chaque point orange est un photon, chaque point du haut un atome : gris s'il est au repos, coloré s'il est excité.</p>
+      <p>En dessous du seuil, la machine est une lampe médiocre : les atomes se désexcitent chacun dans leur coin, dans n'importe quelle direction. Au-dessus, une seule et même onde prend toute la puissance pour elle. Le passage entre les deux est brutal, et c'est pour cette raison qu'un laser ne ressemble à rien d'autre.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Ce que ça change par rapport à une lampe</h2>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 3.</b> À gauche, la lumière d'une lampe. À droite, celle d'un laser.</p>
+      <p>Une lampe de 100 watts envoie plus d'énergie qu'un pointeur laser d'un milliwatt, mais elle l'éparpille dans toutes les directions, sur toutes les couleurs et sans aucun ordre. Le laser concentre tout : une seule direction, une seule couleur, une seule onde bien rangée. C'est ce rangement, et non la puissance, qui rend l'instrument si utile.</p>
+      <ul class="others">
+        <li><strong>Une couleur unique et très stable</strong> devient une règle pour mesurer le temps et les longueurs. C'est avec des lasers qu'on a mesuré la vitesse de la lumière assez bien pour <a href="constantes.html">la fixer par définition en 1983</a>, et les horloges optiques d'aujourd'hui se trompent de moins d'une seconde sur l'âge de l'Univers.</li>
+        <li><strong>Une onde en phase avec elle-même</strong> permet les interférences sur de longues distances. Le détecteur LIGO compare deux bras de quatre kilomètres et repère une variation de longueur quelques centaines de fois plus petite qu'un proton : c'est ainsi qu'on a vu passer les ondes gravitationnelles en 2015.</li>
+        <li><strong>Un faisceau qui pousse et qui refroidit.</strong> Des lasers bien réglés freinent des atomes jusqu'à quelques millionièmes de degré au-dessus du zéro absolu. Les atomes froids servent aujourd'hui de capteurs de gravité, et ils ont donné une des mesures de <a href="constantes.html">la constante G</a>. Claude Cohen-Tannoudji a partagé le prix Nobel 1997 pour ces méthodes.</li>
+        <li><strong>Des impulsions extrêmement brèves et intenses.</strong> La technique d'amplification à dérive de fréquence, inventée par Gérard Mourou et Donna Strickland, prix Nobel 2018, produit des impulsions si courtes qu'elles permettent de filmer le mouvement des électrons, et assez intenses pour opérer un œil sans le chauffer.</li>
+        <li><strong>Et le quotidien</strong> : la fibre optique qui transporte cette page, les lecteurs de codes-barres, la découpe industrielle, la chirurgie, les télémètres.</li>
+      </ul>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> le laser n'invente pas de lumière nouvelle. Il oblige des milliards de photons à être rigoureusement identiques. Toute la physique de précision moderne repose sur cette discipline imposée.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+/* ---------- un photon dessiné comme une petite onde ---------- */
+function photon(x,y,len,ph,col,ang,amp){
+  let d="",A=amp||6;
+  for(let i=0;i<=28;i++){const u=i/28*len; d+=(i?"L":"M")+u.toFixed(1)+" "+(A*Math.sin(u/9+ph)).toFixed(1);}
+  return `<g transform="translate(${x} ${y}) rotate(${ang||0})"><path d="${d}" fill="none" stroke="${col}" stroke-width="2.4"/>`+
+    `<path d="M${len-9} -6L${len} 0L${len-9} 6Z" fill="${col}"/></g>`;
+}
+/* =========================================================
+   Figure 1 : absorption, émission spontanée, émission stimulée
+   ========================================================= */
+const L1={W:960,H:340,cy:150,haut:100,bas:190,demi:70};
+let l1t=0, angles=[-40,25,-15,45,-30];
+function panneau(cx,titre,mode,t){
+  const {haut,bas,demi}=L1, T=4.5, u=(t%T)/T;
+  let s=tx(cx,44,titre,{size:19,anchor:"middle",w:600});
+  s+=`<path d="M${cx-demi} ${haut}H${cx+demi}" stroke="${INK}" stroke-width="3"/>`;
+  s+=`<path d="M${cx-demi} ${bas}H${cx+demi}" stroke="${INK}" stroke-width="3"/>`;
+  s+=tx(cx-demi-10,haut+5,"excité",{size:14,fill:MUT,anchor:"end"});
+  s+=tx(cx-demi-10,bas+5,"repos",{size:14,fill:MUT,anchor:"end"});
+  let eHaut=false, ph=[];
+  if(mode===0){                                   // absorption
+    const arr=Math.min(1,u/0.45);
+    eHaut = u>0.45;
+    if(u<0.45) ph.push({x:cx-160+arr*100,y:L1.cy,a:0,col:AMB});
+  } else if(mode===1){                            // émission spontanée
+    eHaut = u<0.45;
+    if(u>=0.45){ const k=(u-0.45)/0.55, a=angles[Math.floor(t/T)%angles.length];
+      ph.push({x:cx+18*Math.cos(a*Math.PI/180),y:L1.cy+18*Math.sin(a*Math.PI/180),a:a,col:AMB,d:k*70}); }
+  } else {                                        // émission stimulée
+    const arr=Math.min(1,u/0.42);
+    eHaut = u<0.42;
+    if(u<0.42) ph.push({x:cx-160+arr*100,y:L1.cy,a:0,col:AMB});
+    else { const k=(u-0.42)/0.58;
+      ph.push({x:cx+20+k*55,y:L1.cy-22,a:0,col:AMB});
+      ph.push({x:cx+20+k*55,y:L1.cy+22,a:0,col:AMB}); }
+  }
+  s+=`<circle cx="${cx}" cy="${eHaut?haut:bas}" r="9" fill="${ACC}"/>`;
+  for(const p of ph) s+=photon(p.x+(p.d||0)*Math.cos((p.a||0)*Math.PI/180),p.y+(p.d||0)*Math.sin((p.a||0)*Math.PI/180),60,t*6,p.col,p.a||0);
+  return s;
+}
+function drawL1(){
+  let s=panneau(190,"Absorption",0,l1t)+panneau(490,"Émission spontanée",1,l1t)+panneau(800,"Émission stimulée",2,l1t);
+  s+=tx(190,290,"le photon disparaît,",{size:15,fill:MUT,anchor:"middle"});
+  s+=tx(190,312,"l'atome monte",{size:15,fill:MUT,anchor:"middle"});
+  s+=tx(490,290,"l'atome redescend seul,",{size:15,fill:MUT,anchor:"middle"});
+  s+=tx(490,312,"n'importe quand, n'importe où",{size:15,fill:MUT,anchor:"middle"});
+  s+=tx(800,290,"un photon en fait partir deux,",{size:15,fill:RED,anchor:"middle"});
+  s+=tx(800,312,"identiques et parallèles",{size:15,fill:RED,anchor:"middle"});
+  put("f1",L1.W,L1.H,s);
+  $("f1L").innerHTML="<b>Absorption</b> : un photon d'énergie juste bonne disparaît et fait monter l'atome. <b>Émission spontanée</b> : un atome excité retombe tout seul et lâche un photon dans une direction quelconque, à un instant quelconque : c'est ce que fait une ampoule. <b>Émission stimulée</b> : un photon qui passe devant un atome déjà excité le fait retomber immédiatement, et l'atome émet un second photon <b>rigoureusement identique au premier</b>.";
+}
+
+/* =========================================================
+   Figure 2 : la cavité et le seuil
+   ========================================================= */
+const L2={W:960,H:420,x0:150,x1:760,y0:112,y1:212,NA:60,vit:520,T:0.06};
+let l2={p:0,at:[],ph:[],sortie:0,mesure:0,courbe:{},spont:0};
+for(let i=0;i<L2.NA;i++) l2.at.push({x:L2.x0+18+(i%30)*((L2.x1-L2.x0-36)/29),y:L2.y0+26+Math.floor(i/30)*60,e:false});
+function stepL2(dt){
+  const p=l2.p/100;
+  for(const a of l2.at){
+    if(!a.e && Math.random()<p*8.8*dt) a.e=true;
+    else if(a.e && Math.random()<2.0*dt){ a.e=false; l2.spont=Math.min(1,l2.spont+0.25);
+      if(Math.random()<0.06) l2.ph.push({x:a.x,d:Math.random()<0.5?1:-1}); }
+  }
+  l2.spont=Math.max(0,l2.spont-dt*1.2);
+  const exc=l2.at.filter(a=>a.e).length/L2.NA;
+  let sortis=0;
+  const nouveaux=[];
+  for(const f of l2.ph){
+    f.x+=f.d*L2.vit*dt;
+    if(Math.random()<3.0*exc*dt && l2.ph.length+nouveaux.length<420){
+      const cand=l2.at.filter(a=>a.e); if(cand.length){ cand[Math.floor(Math.random()*cand.length)].e=false; nouveaux.push({x:f.x,d:f.d}); }
+    }
+    if(f.x>L2.x1){ if(Math.random()<0.25){ f.mort=true; sortis++; } else { f.x=L2.x1; f.d=-1; } }
+    if(f.x<L2.x0){ f.x=L2.x0; f.d=1; }
+    if(Math.random()<1.4*dt) f.mort=true;
+  }
+  l2.ph=l2.ph.filter(f=>!f.mort).concat(nouveaux);
+  l2.mesure=l2.mesure*0.9+sortis/dt*0.1;
+  const k=Math.round(l2.p);
+  l2.courbe[k]=Math.max(l2.courbe[k]||0,l2.mesure*0.96);
+}
+function drawL2(){
+  const {W,H,x0,x1,y0,y1}=L2, exc=l2.at.filter(a=>a.e).length/L2.NA;
+  let s=`<rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" fill="#f6f8fa" stroke="#c3c9d1"/>`;
+  s+=`<rect x="${x0-12}" y="${y0-14}" width="12" height="${y1-y0+28}" fill="#5d6672"/>`;
+  s+=`<rect x="${x1}" y="${y0-14}" width="12" height="${y1-y0+28}" fill="#9aa4b0"/>`;
+  s+=tx(x0-6,y0-22,"miroir total",{size:14,fill:MUT,anchor:"middle"});
+  s+=tx(x1+6,y0-22,"miroir partiel",{size:14,fill:MUT,anchor:"middle"});
+  // pompage
+  for(let i=0;i<7;i++){const x=x0+40+i*90; s+=arrow(x,y1+64,x,y1+18,VIO,2);}
+  s+=tx((x0+x1)/2,y1+86,"pompage",{size:16,fill:VIO,anchor:"middle",w:600});
+  for(const a of l2.at) s+=`<circle cx="${a.x.toFixed(1)}" cy="${a.y}" r="5" fill="${a.e?VIO:"#c3c9d1"}"/>`;
+  for(const f of l2.ph) s+=`<path d="M${(f.x-f.d*9).toFixed(1)} ${L2.y0+56}h${(f.d*9).toFixed(1)}" stroke="${AMB}" stroke-width="3" stroke-linecap="round"/>`;
+  // lumière parasite et faisceau
+  if(l2.spont>0.05) s+=`<circle cx="${(x0+x1)/2}" cy="${(y0+y1)/2}" r="90" fill="${AMB}" opacity="${(0.10*l2.spont).toFixed(2)}"/>`;
+  const out=Math.min(1,l2.mesure/24);
+  if(out>0.01){ s+=`<path d="M${x1+12} ${(y0+y1)/2}H930" stroke="${RED}" stroke-width="${(2+9*out).toFixed(1)}" opacity="${(0.25+0.7*out).toFixed(2)}"/>`;
+    s+=tx(930,(y0+y1)/2-16,"faisceau",{size:15,fill:RED,anchor:"end"}); }
+  s+=tx(x0,60,"Pompage : "+Math.round(l2.p)+" %",{size:18,w:600});
+  s+=tx(x0+260,60,"atomes excités : "+Math.round(exc*100)+" %",{size:17,fill:VIO});
+  s+=tx(x0+560,60,"photons : "+l2.ph.length,{size:17,fill:"#a8790a"});
+  // courbe sortie / pompage
+  const gx0=150,gx1=780,gy0=300,gy1=396;
+  s+=`<path d="M${gx0} ${gy0}V${gy1}H${gx1}" fill="none" stroke="${INK}"/>`;
+  s+=tx(gx0-10,gy0+6,"sortie",{size:14,fill:MUT,anchor:"end"});
+  s+=tx(gx1,gy1+22,"pompage",{size:14,fill:MUT,anchor:"end"});
+  for(const k of Object.keys(l2.courbe)){ const x=gx0+(+k)/100*(gx1-gx0), y=gy1-Math.min(1,l2.courbe[k]/26)*(gy1-gy0);
+    s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3" fill="${OR}" opacity=".8"/>`; }
+  const cx=gx0+l2.p/100*(gx1-gx0), cyp=gy1-Math.min(1,l2.mesure/26)*(gy1-gy0);
+  s+=`<circle cx="${cx.toFixed(1)}" cy="${cyp.toFixed(1)}" r="6" fill="${RED}"/>`;
+  s+=`<path d="M${cx.toFixed(1)} ${gy1}V${gy1+8}" stroke="${RED}"/>`;
+  s+=tx(930,gy0+66,"Puissance de sortie",{size:16,w:600,anchor:"end"});
+  s+=`<rect x="820" y="${gy0+78}" width="110" height="16" rx="3" fill="#f0f1f3"/>`;
+  s+=`<rect x="820" y="${gy0+78}" width="${(110*out).toFixed(1)}" height="16" rx="3" fill="${RED}"/>`;
+  put("f2",W,H,s);
+  const L=$("f2L");
+  if(l2.p<5) L.innerHTML="Rien ne se passe : les atomes restent au repos. Montez le pompage.";
+  else if(out<0.12) L.innerHTML="Le pompage excite quelques atomes, qui retombent chacun de leur côté en éclairant faiblement, dans tous les sens. Quelques photons partent bien dans l'axe, mais ils se perdent avant d'avoir fait des petits. <b>On est sous le seuil</b> : c'est une lampe.";
+  else if(out<0.5) L.innerHTML="<b>Le seuil est franchi.</b> Un photon dans l'axe déclenche maintenant plus de copies qu'il n'en meurt : l'avalanche s'entretient entre les deux miroirs, et une partie s'échappe à droite.";
+  else L.innerHTML="Bien au-dessus du seuil : la cavité est pleine de photons identiques, et presque toute l'énergie du pompage part dans le faisceau. Regardez la courbe : plate, puis coudée, puis droite. Ce coude est <b>le seuil laser</b>.";
+}
+$("pS").oninput=e=>{l2.p=+e.target.value;};
+$("pR").onclick=()=>{l2.courbe={};};
+
+/* =========================================================
+   Figure 3 : lampe contre laser
+   ========================================================= */
+const COUL=["#c8372d","#d9730d","#e3a21a","#2f8a5f","#2c72c7","#7a5fc0"];
+let l3t=0, l3rnd=[];
+for(let i=0;i<14;i++) l3rnd.push({a:i*(360/14)+Math.random()*14,ph:Math.random()*6.3,c:COUL[i%COUL.length],r:52+Math.random()*34});
+function drawL3(){
+  const W=960,H=340, ax=230, bx=690, cy=160;
+  let s=tx(ax,44,"Lampe",{size:20,anchor:"middle",w:600});
+  s+=tx(bx,44,"Laser",{size:20,anchor:"middle",w:600});
+  s+=`<path d="M480 70V290" stroke="#eceae4"/>`;
+  s+=`<circle cx="${ax}" cy="${cy}" r="16" fill="#e8e2c8" stroke="${INK}"/>`;
+  for(const p of l3rnd){ const a=p.a*Math.PI/180;
+    s+=`<g transform="translate(${(ax+p.r*Math.cos(a)).toFixed(1)} ${(cy+p.r*Math.sin(a)).toFixed(1)}) rotate(${p.a})">`+
+       photon(0,0,46,p.ph+l3t*5,p.c,0,4).replace(/<g[^>]*>|<\/g>/g,"")+`</g>`; }
+  s+=tx(ax,290,"toutes les couleurs, tous les sens,",{size:15,fill:MUT,anchor:"middle"});
+  s+=tx(ax,312,"crêtes en désordre",{size:15,fill:MUT,anchor:"middle"});
+  s+=`<rect x="${bx-160}" y="${cy-34}" width="60" height="68" rx="4" fill="#5d6672"/>`;
+  for(let k=0;k<5;k++) s+=photon(bx-92,cy-32+k*16,210,l3t*5,RED,0,5);
+  s+=tx(bx,290,"une couleur, une direction,",{size:15,fill:RED,anchor:"middle"});
+  s+=tx(bx,312,"toutes les crêtes alignées",{size:15,fill:RED,anchor:"middle"});
+  put("f3",W,H,s);
+}
+
+/* ---------------- boucle ---------------- */
+drawL1(); drawL2(); drawL3();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  l1t+=dt; drawL1();
+  stepL2(dt); drawL2();
+  l3t+=dt; drawL3();
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+</script>
+</body>
+</html>
