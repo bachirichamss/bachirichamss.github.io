@@ -110,7 +110,20 @@ const V_SIMULT = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200
 <circle cx="150" cy="101" r="6" fill="#1b1f24"/>
 <path d="M14 72h172" stroke="#e2e0da"/></svg>`;
 
+const V_JUMEAUX = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<path d="M18 124h164" stroke="#e2e0da"/>
+<path d="M70 118V22" stroke="#1f4f8f" stroke-width="4"/>
+<path d="M70 118L150 70L70 22" fill="none" stroke="#c8372d" stroke-width="4"/>
+<path d="M70 118L168 20" stroke="#e3a21a" stroke-width="1.6" stroke-dasharray="5 5"/>
+<circle cx="70" cy="118" r="6" fill="#1b1f24"/><circle cx="70" cy="22" r="6" fill="#1b1f24"/>
+<circle cx="150" cy="70" r="7" fill="#fff" stroke="#c8372d" stroke-width="3"/></svg>`;
+
 const ARTICLES = [
+  { titre: "Alice et Bob n'ont plus le même âge : le vrai sens du temps propre",
+    url: "jumeaux.html", rubrique: "simulations",
+    date: "2026-09-25", duree: "9 min",
+    resume: "Le paradoxe des jumeaux, sans paradoxe : le temps vécu est la longueur du chemin dans l'espace-temps, et la ligne droite est celle qui fait vieillir le plus. À déplacer soi-même.",
+    vignette: V_JUMEAUX },
   { titre: "Les cigares de Gamow : quand le désaccord devient visible",
     url: "simultaneite.html", rubrique: "simulations",
     date: "2026-09-23", duree: "9 min",

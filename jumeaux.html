@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Alice et Bob n'ont plus le même âge : le vrai sens du temps propre · Chamss Bachiri</title>
+<meta name="description" content="Le paradoxe des jumeaux expliqué par la géométrie de l'espace-temps : le temps vécu est la longueur du chemin, et la ligne droite est celle qui fait vieillir le plus.">
+<meta property="og:title" content="Alice et Bob n'ont plus le même âge">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+<style>
+.result{background:#fff;border:1px solid #e2e0da;border-radius:3px;padding:1.3rem 1.2rem;margin:1.4rem 0;font-family:"IBM Plex Sans",Arial,sans-serif}
+.eqrow{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;justify-content:center}
+.pill{border:1px solid #d5dae1;border-radius:3px;padding:.55rem .8rem;text-align:center;font-size:.8rem;color:#5d6672;line-height:1.4}
+.pill b{display:block;font-size:1.05rem;color:#1b1f24;font-weight:600;margin-top:.15rem}
+.pill.hi{border-color:#1f4f8f;background:#eaf0f8}
+.op{font-size:1.5rem;color:#5d6672}
+.zeros{text-align:center;font-size:.95rem;color:#1f4f8f;margin:1.1rem 0 0}
+.zeros small{display:block;color:#5d6672;font-size:.8rem;margin-top:.3rem}
+.others li{margin-bottom:.9em}
+</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</h1>
+      <p class="dek">Deux jumeaux partent du même événement et se retrouvent au même événement. Celui qui a fait un détour dans l'espace-temps a moins vieilli. Ce n'est pas une illusion, et l'intuition tient dans une seule idée géométrique.</p>
+      <div class="meta"><span>25 septembre 2026</span><span>9 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Le voyage</h2>
+      <p>Alice et Bob ont trente ans. Alice reste sur Terre. Bob part vers une étoile située à quatre années-lumière, à peu près la distance de la plus proche, puis fait demi-tour et revient. Les deux horloges affichent la même chose au départ. <strong>Lancez le voyage et regardez-les diverger.</strong></p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button class="go" id="goB">Lancer le voyage</button>
+        <span class="grp"><label for="bS">Vitesse du vaisseau</label><input type="range" id="bS" min="30" max="97" value="80" style="width:240px"></span>
+      </div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> Les distances sont celles mesurées depuis la Terre. Le compteur de Bob avance visiblement moins vite que celui d'Alice.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Pourquoi ce n'est pas symétrique</h2>
+      <p>L'objection classique : du point de vue de Bob, c'est Alice qui s'éloigne puis revient, donc chacun devrait voir l'autre vieillir moins vite. Et c'est vrai pendant l'aller, et pendant le retour. La symétrie casse au <strong>demi-tour</strong>.</p>
+      <p>Alice reste dans un seul et même référentiel du début à la fin. Bob, lui, change de référentiel en cours de route, et il le sent physiquement : au moment du demi-tour, il est écrasé dans son siège. Ce n'est pas une question de point de vue, c'est un événement qui lui arrive à lui et pas à elle.</p>
+      <p>Ce changement a une conséquence précise. Ce que Bob appelle « en ce moment sur Terre » dépend de sa vitesse, exactement comme dans <a href="simultaneite.html">l'histoire des cigares de Gamow</a>. Quand il fait demi-tour, sa définition du présent sur Terre fait un bond en avant. Faisons les comptes pour un aller-retour à 80 % de la vitesse de la lumière :</p>
+      <div class="result">
+        <div class="eqrow">
+          <span class="pill">Terre vieillit pendant l'aller,<br>vu par Bob<b>1,8 an</b></span>
+          <span class="op">+</span>
+          <span class="pill">pendant le retour<b>1,8 an</b></span>
+          <span class="op">+</span>
+          <span class="pill">saut du demi-tour<br>2 × v × d / c²<b>6,4 ans</b></span>
+          <span class="op">=</span>
+          <span class="pill hi">âge pris par Alice<b>10 ans</b></span>
+        </div>
+        <p class="zeros">Bob, lui, n'a vécu que 6 ans<small>les deux comptabilités tombent juste, aucune des deux n'est fausse</small></p>
+      </div>
+      <p>Les 6,4 ans qui manquaient à l'appel sont exactement le décalage de simultanéité calculé dans l'autre article, avec d égal à quatre années-lumière et v égal à 0,8 fois la vitesse de la lumière.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>L'intuition : le temps est une longueur</h2>
+      <p>Voici la façon de voir qui rend tout évident. Dessinons le temps vers le haut et l'espace vers la droite. Chaque personne trace une ligne, appelée ligne d'univers. Alice, immobile, monte tout droit. Bob part de biais, puis revient de biais.</p>
+      <p><strong>Le temps vécu par quelqu'un, c'est la longueur de sa ligne</strong>, mesurée avec la règle de l'espace-temps. Et cette règle a une particularité : au lieu d'ajouter le carré de la distance parcourue, elle le <strong>retranche</strong>. Résultat : plus vous vous déplacez dans l'espace, moins vous avancez dans le temps.</p>
+      <p><strong>Cliquez dans le diagramme pour déplacer le demi-tour de Bob.</strong> Le départ et l'arrivée restent les mêmes.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> Les pointillés à 45 degrés sont les trajets de la lumière : aucune ligne d'univers ne peut être plus penchée qu'eux. Le temps vécu par Bob se calcule par la racine carrée de la différence des carrés, et non par leur somme.</p>
+      <p>En déplaçant le point, on tombe sur le résultat central : <strong>la ligne droite est le chemin qui fait vieillir le plus</strong>. Tout détour coûte du temps vécu. C'est l'exact contraire de la géométrie ordinaire, où le détour allonge le chemin.</p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 3.</b> À gauche, une carte : le détour est plus long. À droite, le même dessin dans l'espace-temps : le détour est plus court en temps vécu. Une seule différence dans la formule, un signe moins.</p>
+      <p>On peut alors reformuler la relativité générale d'une phrase : un objet libre suit la ligne d'univers qui maximise son temps propre. La chute des corps n'est rien d'autre que ça.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Ce n'est pas une expérience de pensée</h2>
+      <ul class="others">
+        <li><strong>Les muons de l'atmosphère.</strong> Ces particules se désintègrent en deux millionièmes de seconde, ce qui leur laisse à peine six cents mètres avant de disparaître. Elles sont créées à quinze kilomètres d'altitude, et elles arrivent pourtant au sol par millions. Leur horloge interne tourne au ralenti parce qu'elles filent à plus de 99 % de la vitesse de la lumière.</li>
+        <li><strong>Des horloges en avion.</strong> En 1971, Joseph Hafele et Richard Keating ont embarqué quatre horloges atomiques sur des vols commerciaux, vers l'est puis vers l'ouest, et les ont comparées à celles restées au sol. Les écarts, de l'ordre de la centaine de milliardièmes de seconde, correspondaient aux prédictions.</li>
+        <li><strong>Les accélérateurs.</strong> Dans les anneaux de stockage, des muons lancés à très grande vitesse vivent environ trente fois plus longtemps que ceux au repos. Les physiciens comptent là-dessus tous les jours pour concevoir leurs expériences.</li>
+        <li><strong>Votre GPS.</strong> Les horloges des satellites avancent d'environ 38 microsecondes par jour par rapport à celles du sol, en combinant le ralentissement dû à leur vitesse et l'accélération due à la gravité plus faible en altitude. Sans correction, la position dériverait de dix kilomètres par jour.</li>
+      </ul>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> il n'y a pas d'horloge qui ment ni d'illusion d'optique. Alice et Bob ont simplement suivi deux chemins différents entre les deux mêmes points de l'espace-temps, et le temps vécu est la longueur du chemin. Celui qui est resté droit a vieilli le plus.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+/* =========================================================
+   Figure 1 : le voyage
+   ========================================================= */
+const J1={W:960,H:440,y:170,xT:130,xE:820,d:4,age0:30};
+let j1={b:0.8,p:0,run:false};
+function cadran(cx,cy,r,ans,nom,col){
+  const a=(ans%1)*2*Math.PI-Math.PI/2;
+  let s=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="#fff" stroke="${col}" stroke-width="3"/>`;
+  for(let k=0;k<12;k++){const t=k/12*2*Math.PI-Math.PI/2;
+    s+=`<path d="M${(cx+(r-7)*Math.cos(t)).toFixed(1)} ${(cy+(r-7)*Math.sin(t)).toFixed(1)}L${(cx+(r-2)*Math.cos(t)).toFixed(1)} ${(cy+(r-2)*Math.sin(t)).toFixed(1)}" stroke="#c3c9d1" stroke-width="2"/>`;}
+  s+=`<path d="M${cx} ${cy}L${(cx+(r-12)*Math.cos(a)).toFixed(1)} ${(cy+(r-12)*Math.sin(a)).toFixed(1)}" stroke="${col}" stroke-width="3"/>`;
+  s+=`<circle cx="${cx}" cy="${cy}" r="4" fill="${col}"/>`;
+  s+=tx(cx,cy+r+26,nom,{size:17,anchor:"middle",w:600,fill:col});
+  s+=tx(cx,cy+r+50,fr(ans,2)+" an"+(ans>=2?"s":"")+" écoulés",{size:15,anchor:"middle",fill:MUT});
+  s+=tx(cx,cy+r+72,"âge : "+fr(J1.age0+ans,1)+" ans",{size:15,anchor:"middle",fill:INK});
+  return s;
+}
+function drawJ1(){
+  const {W,H,y,xT,xE,d}=J1, b=j1.b, gam=1/Math.sqrt(1-b*b), T=2*d/b, p=j1.p;
+  const t=p*T, tb=t/gam, xs=p<0.5?2*p*d:(2-2*p)*d;
+  const X=x=>xT+x/d*(xE-xT);
+  let s=`<path d="M${xT} ${y}H${xE}" stroke="${LINE}" stroke-dasharray="3 7"/>`;
+  for(let k=0;k<=4;k++) s+=`<path d="M${X(k)} ${y-6}v12" stroke="${LINE}"/>`+tx(X(k),y+28,k+" al",{size:13,fill:MUT,anchor:"middle"});
+  s+=`<circle cx="${xT}" cy="${y}" r="16" fill="${GR}"/>`+tx(xT,y-28,"Terre",{size:16,fill:MUT,anchor:"middle"});
+  s+=`<circle cx="${xE}" cy="${y}" r="13" fill="${AMB}" stroke="#a8790a"/>`+tx(xE,y-28,"étoile",{size:16,fill:MUT,anchor:"middle"});
+  const sx=X(xs), sens=p<0.5?1:-1;
+  s+=`<path d="M${(sx-18*sens).toFixed(1)} ${y-12}L${(sx+16*sens).toFixed(1)} ${y}L${(sx-18*sens).toFixed(1)} ${y+12}Z" fill="${RED}"/>`;
+  s+=tx(sx,xs<0.5?y-52:y-30,"Bob",{size:15,fill:RED,anchor:"middle",w:600});
+  s+=cadran(250,y+120,44,t,"Alice, restée sur Terre",ACC);
+  s+=cadran(700,y+120,44,tb,"Bob, dans le vaisseau",RED);
+  s+=tx(W/2,42,"Vitesse : "+fr(b,2)+" fois la vitesse de la lumière",{size:18,anchor:"middle",w:600});
+  s+=tx(W/2,68,"γ = "+fr(gam,2)+", le temps de Bob avance "+fr(gam,2)+" fois moins vite",{size:15,anchor:"middle",fill:MUT});
+  put("f1",W,H,s);
+  const L=$("f1L");
+  if(p===0) L.innerHTML="Les deux horloges sont à zéro, les deux jumeaux ont trente ans. À cette vitesse, le voyage durera <b>"+fr(T,1)+" ans</b> pour Alice et <b>"+fr(T/gam,1)+" ans</b> pour Bob.";
+  else if(p<0.5) L.innerHTML="Aller. L'aiguille de Bob tourne visiblement moins vite. Pour l'instant, la situation reste symétrique : chacun pourrait dire que c'est l'autre qui ralentit.";
+  else if(p<0.99) L.innerHTML="Retour, après le demi-tour. C'est cet instant qui a cassé la symétrie : Bob a changé de référentiel, Alice non.";
+  else L.innerHTML="Retrouvailles. Alice a vieilli de <b>"+fr(T,1)+" ans</b>, Bob de <b>"+fr(T/gam,1)+" ans</b>. L'écart est de "+fr(T-T/gam,1)+" ans, et il est définitif.";
+}
+$("goB").onclick=()=>{ if(j1.p>=1) j1.p=0; j1.run=!j1.run; $("goB").textContent=j1.run?"Pause":"Reprendre"; if(RM){j1.p=1;j1.run=false;drawJ1();} };
+$("bS").oninput=e=>{ j1.b=+e.target.value/100; drawJ1(); };
+
+/* =========================================================
+   Figure 2 : le diagramme d'espace-temps
+   ========================================================= */
+const J2={W:960,H:480,k:36,x0:330,y0:430,T:10};
+let j2={xt:4,tt:5,drag:false};
+function XJ(x){return J2.x0+x*J2.k;}
+function YJ(t){return J2.y0-t*J2.k;}
+function drawJ2(){
+  const {W,H,T}=J2, xt=j2.xt, tt=j2.tt;
+  const t1=Math.sqrt(Math.max(0,tt*tt-xt*xt)), t2=Math.sqrt(Math.max(0,(T-tt)*(T-tt)-xt*xt));
+  const tau=t1+t2, v1=xt/tt, v2=xt/(T-tt);
+  let s=`<rect x="${XJ(-1.2)}" y="${YJ(T+0.6)}" width="${7.2*J2.k}" height="${(T+1.2)*J2.k}" fill="#fafbfc"/>`;
+  for(let k=-1;k<=6;k++) s+=`<path d="M${XJ(k)} ${YJ(-0.6)}V${YJ(T+0.6)}" stroke="#eceae4"/>`;
+  for(let k=0;k<=T;k++) s+=`<path d="M${XJ(-1.2)} ${YJ(k)}H${XJ(6)}" stroke="#eceae4"/>`;
+  s+=`<path d="M${XJ(-1.2)} ${YJ(0)}H${XJ(6)}" stroke="${INK}"/>`;
+  s+=`<path d="M${XJ(0)} ${YJ(-0.6)}V${YJ(T+0.6)}" stroke="${INK}" opacity=".25"/>`;
+  s+=tx(XJ(6)+6,YJ(0)+5,"espace",{size:14,fill:MUT});
+  s+=tx(XJ(0)+12,YJ(T+0.6)+4,"temps",{size:14,fill:MUT});
+  for(let k=1;k<=5;k++) s+=tx(XJ(k),YJ(0)+20,k+" al",{size:12,fill:MUT,anchor:"middle"});
+  for(let k=2;k<=T;k+=2) s+=tx(XJ(-1.3),YJ(k)+4,k+" ans",{size:12,fill:MUT,anchor:"end"});
+  s+=`<path d="M${XJ(0)} ${YJ(0)}L${XJ(5.6)} ${YJ(5.6)}M${XJ(0)} ${YJ(0)}L${XJ(-1.1)} ${YJ(1.1)}" stroke="${AMB}" stroke-width="1.6" stroke-dasharray="5 5"/>`;
+  s+=tx(XJ(4.2),YJ(4.0),"lumière",{size:13,fill:"#a8790a"});
+  s+=`<path d="M${XJ(0)} ${YJ(0)}V${YJ(T)}" stroke="${ACC}" stroke-width="4"/>`;
+  s+=`<path d="M${XJ(0)} ${YJ(0)}L${XJ(xt)} ${YJ(tt)}L${XJ(0)} ${YJ(T)}" fill="none" stroke="${RED}" stroke-width="4"/>`;
+  s+=`<circle cx="${XJ(0)}" cy="${YJ(0)}" r="7" fill="${INK}"/><circle cx="${XJ(0)}" cy="${YJ(T)}" r="7" fill="${INK}"/>`;
+  s+=tx(XJ(0)-14,YJ(0)+22,"départ",{size:14,anchor:"end"});
+  s+=tx(XJ(0)-14,YJ(T)-12,"retrouvailles",{size:14,anchor:"end"});
+  s+=`<circle cx="${XJ(xt)}" cy="${YJ(tt)}" r="11" fill="#fff" stroke="${RED}" stroke-width="4"/>`;
+  s+=tx(XJ(xt)+18,YJ(tt)+5,"demi-tour",{size:14,fill:RED,w:600});
+  // lecture
+  const px=660;
+  s+=tx(px,70,"Temps vécu",{size:19,w:600});
+  s+=tx(px,112,"Alice, ligne droite",{size:16,fill:ACC});
+  s+=tx(px,146,fr(T,2)+" ans",{size:26,w:600,fill:ACC});
+  s+=tx(px,196,"Bob, avec détour",{size:16,fill:RED});
+  s+=tx(px,230,fr(tau,2)+" ans",{size:26,w:600,fill:RED});
+  s+=`<rect x="${px}" y="254" width="220" height="14" rx="3" fill="#eaf0f8"/>`;
+  s+=`<rect x="${px}" y="254" width="${(220*tau/T).toFixed(1)}" height="14" rx="3" fill="${RED}"/>`;
+  s+=tx(px,304,"il a perdu "+fr(T-tau,2)+" ans",{size:16,fill:INK});
+  s+=tx(px,346,"vitesse aller : "+fr(v1,2)+" c",{size:15,fill:MUT});
+  s+=tx(px,368,"vitesse retour : "+fr(v2,2)+" c",{size:15,fill:MUT});
+  s+=tx(px,412,"Glissez le point blanc",{size:15,fill:ACC,w:600});
+  put("f2",W,H,s);
+  const L=$("f2L");
+  if(xt<0.25) L.innerHTML="Bob ne bouge presque pas : sa ligne est presque droite, et il vieillit presque autant qu'Alice. <b>Le maximum de temps vécu, c'est la ligne droite.</b>";
+  else if(Math.max(v1,v2)>0.93) L.innerHTML="Bob frôle la vitesse de la lumière : sa ligne d'univers est presque couchée sur les pointillés, et son temps vécu s'effondre. À la limite, un rayon de lumière ne vieillit pas du tout.";
+  else L.innerHTML="Détour de "+fr(xt,1)+" années-lumière : Bob vit <b>"+fr(tau,2)+" ans</b> au lieu de "+fr(T,2)+". Rapprochez le point de l'axe et son temps augmente ; éloignez-le et il diminue. Le sommet n'a pas besoin d'être au milieu : essayez de le monter ou de le descendre.";
+}
+(function(){
+  const svg=$("f2");
+  const place=ev=>{
+    const r=svg.getBoundingClientRect(), sc=J2.W/r.width;
+    const px=(ev.clientX-r.left)*sc, py=(ev.clientY-r.top)*sc;
+    let x=(px-J2.x0)/J2.k, t=(J2.y0-py)/J2.k;
+    t=Math.max(0.8,Math.min(J2.T-0.8,t));
+    const lim=Math.min(t,J2.T-t)*0.97;
+    x=Math.max(0,Math.min(lim,x));
+    j2.xt=x; j2.tt=t; drawJ2();
+  };
+  svg.style.touchAction="none"; svg.style.cursor="crosshair";
+  svg.addEventListener("pointerdown",e=>{j2.drag=true;svg.setPointerCapture(e.pointerId);place(e);});
+  svg.addEventListener("pointermove",e=>{if(j2.drag)place(e);});
+  svg.addEventListener("pointerup",()=>{j2.drag=false;});
+  svg.addEventListener("pointercancel",()=>{j2.drag=false;});
+})();
+
+/* =========================================================
+   Figure 3 : l'analogie géométrique
+   ========================================================= */
+function drawJ3(){
+  const W=960,H=330;
+  const panneau=(cx,titre,dr,det,coul,note)=>{
+    const yb=270, yh=70, xm=cx+80;
+    let s=tx(cx,38,titre,{size:19,anchor:"middle",w:600});
+    s+=`<path d="M${cx} ${yb}V${yh}" stroke="${ACC}" stroke-width="4"/>`;
+    s+=`<path d="M${cx} ${yb}L${xm} ${(yb+yh)/2}L${cx} ${yh}" fill="none" stroke="${RED}" stroke-width="4"/>`;
+    s+=`<circle cx="${cx}" cy="${yb}" r="6" fill="${INK}"/><circle cx="${cx}" cy="${yh}" r="6" fill="${INK}"/>`;
+    s+=tx(cx-14,yb-70,dr,{size:16,fill:ACC,anchor:"end",w:600});
+    s+=tx(xm+10,(yb+yh)/2+5,det,{size:16,fill:RED,w:600});
+    s+=tx(cx,306,note,{size:15,fill:MUT,anchor:"middle"});
+    return s;
+  };
+  let s=panneau(230,"Sur une carte","tout droit : 100 km","par le détour : 128 km",ACC,"le détour est plus long");
+  s+=`<path d="M480 60V300" stroke="#eceae4"/>`;
+  s+=panneau(640,"Dans l'espace-temps","tout droit : 10 ans","par le détour : 6 ans",ACC,"le détour est plus court");
+  put("f3",W,H,s);
+}
+
+/* ---------------- boucle ---------------- */
+drawJ1(); drawJ2(); drawJ3();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  if(j1.run){ j1.p+=dt/12; if(j1.p>=1){j1.p=1;j1.run=false;$("goB").textContent="Rejouer";} drawJ1(); }
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+</script>
+</body>
+</html>
