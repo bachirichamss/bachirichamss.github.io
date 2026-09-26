@@ -256,6 +256,27 @@ const ARTICLES = [
     }
   }
 
+  /* figures plus larges que l'écran : on le signale une fois */
+  function indiceFigures() {
+    document.querySelectorAll(".scene").forEach(sc => {
+      const large = sc.scrollWidth > sc.clientWidth + 4;
+      const note = sc.nextElementSibling && sc.nextElementSibling.classList.contains("scene-hint")
+        ? sc.nextElementSibling : null;
+      if (large && !note) {
+        const p = document.createElement("p");
+        p.className = "scene-hint";
+        p.textContent = "Figure plus large que l'écran : faites-la glisser horizontalement.";
+        sc.parentNode.insertBefore(p, sc.nextSibling);
+      } else if (!large && note) {
+        note.remove();
+      }
+    });
+  }
+  addEventListener("load", () => setTimeout(indiceFigures, 400));
+  setTimeout(indiceFigures, 900);
+  let minuteur;
+  addEventListener("resize", () => { clearTimeout(minuteur); minuteur = setTimeout(indiceFigures, 250); });
+
   /* barre de lecture */
   const p = $("prog");
   if (p) {

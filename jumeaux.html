@@ -188,7 +188,7 @@ $("bS").oninput=e=>{ j1.b=+e.target.value/100; drawJ1(); };
 /* =========================================================
    Figure 2 : le diagramme d'espace-temps
    ========================================================= */
-const J2={W:960,H:480,k:36,x0:330,y0:430,T:10};
+const J2={W:960,H:500,k:36,x0:330,y0:430,T:10};
 let j2={xt:4,tt:5,drag:false};
 function XJ(x){return J2.x0+x*J2.k;}
 function YJ(t){return J2.y0-t*J2.k;}
@@ -226,7 +226,8 @@ function drawJ2(){
   s+=tx(px,304,"il a perdu "+fr(T-tau,2)+" ans",{size:16,fill:INK});
   s+=tx(px,346,"vitesse aller : "+fr(v1,2)+" c",{size:15,fill:MUT});
   s+=tx(px,368,"vitesse retour : "+fr(v2,2)+" c",{size:15,fill:MUT});
-  s+=tx(px,412,"Glissez le point blanc",{size:15,fill:ACC,w:600});
+  s+=tx(px,412,"Touchez le diagramme",{size:15,fill:ACC,w:600});
+  s+=tx(px,434,"pour déplacer le demi-tour",{size:15,fill:ACC,w:600});
   put("f2",W,H,s);
   const L=$("f2L");
   if(xt<0.25) L.innerHTML="Bob ne bouge presque pas : sa ligne est presque droite, et il vieillit presque autant qu'Alice. <b>Le maximum de temps vécu, c'est la ligne droite.</b>";
@@ -244,9 +245,10 @@ function drawJ2(){
     x=Math.max(0,Math.min(lim,x));
     j2.xt=x; j2.tt=t; drawJ2();
   };
-  svg.style.touchAction="none"; svg.style.cursor="crosshair";
-  svg.addEventListener("pointerdown",e=>{j2.drag=true;svg.setPointerCapture(e.pointerId);place(e);});
-  svg.addEventListener("pointermove",e=>{if(j2.drag)place(e);});
+  svg.style.touchAction="pan-x pan-y"; svg.style.cursor="crosshair";
+  svg.addEventListener("pointerdown",e=>{ place(e);
+    if(e.pointerType!=="touch"){ j2.drag=true; svg.setPointerCapture(e.pointerId); } });
+  svg.addEventListener("pointermove",e=>{if(j2.drag&&e.pointerType!=="touch")place(e);});
   svg.addEventListener("pointerup",()=>{j2.drag=false;});
   svg.addEventListener("pointercancel",()=>{j2.drag=false;});
 })();
