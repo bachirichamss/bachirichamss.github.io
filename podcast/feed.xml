@@ -5,11 +5,27 @@
   <link>https://bachirichamss.github.io/podcast.html</link>
   <description>Une chronique courte sur l'actualité de la physique et sur des travaux de recherche, écrite et lue avec l'aide de l'intelligence artificielle, relue par Chamss Bachiri.</description>
   <language>fr</language>
-  <lastBuildDate>Wed, 23 Sep 2026 13:48:24 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 28 Sep 2026 20:55:52 +0000</lastBuildDate>
   <itunes:author>Chamss Bachiri</itunes:author>
   <itunes:image href="https://bachirichamss.github.io/podcast/cover.jpg"/>
   <itunes:category text="Science"><itunes:category text="Physics"/></itunes:category>
   <itunes:explicit>false</itunes:explicit>
+  <item>
+   <title>Des tourbillons d'eau aux secrets des trous noirs</title>
+   <description>De la turbulence quantique à la physique des trous noirs, explorons les découvertes récentes qui repoussent nos limites de compréhension.
+
+Sources :
+- Observation of Kelvin-Wave Turbulence along a Vortex Core : http://link.aps.org/doi/10.1103/t3bt-m431
+- Quantum Sensing of Gravitational Frame Dragging with a Superfluid 4He Gyrometer : http://link.aps.org/doi/10.1103/q3v9-rjm9
+- Higher-dimensional black holes hide an exact symmetry in their ringing, and string-inspired gravity breaks it : https://phys.org/news/2026-09-higher-dimensional-black-holes-exact.html
+- Possible Solution to the Gallium Anomaly Moving beyond the Leptonic Wave-Function Factorization : http://link.aps.org/doi/10.1103/5pvf-mcr1</description>
+   <link>https://bachirichamss.github.io/podcast.html#2026-09-28-des-tourbillons-d-eau-aux-secrets-des-trous-noirs</link>
+   <guid isPermaLink="false">2026-09-28-des-tourbillons-d-eau-aux-secrets-des-trous-noirs</guid>
+   <pubDate>Mon, 28 Sep 2026 08:00:00 +0000</pubDate>
+   <enclosure url="https://bachirichamss.github.io/podcast/episodes/2026-09-28-des-tourbillons-d-eau-aux-secrets-des-trous-noirs.mp3" length="992448" type="audio/mpeg"/>
+   <itunes:duration>165</itunes:duration>
+   <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
    <title>La réalité comme un réseau de relations</title>
    <description>Le physicien Carlo Rovelli propose une vision de la physique où les objets n'existent que par leurs interactions mutuelles, transformant notre compréhension de la matière.
