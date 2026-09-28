@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>Votre oreille calcule des transformées de Fourier · Chamss Bachiri</title>
+<meta name="description" content="La cochlée sépare mécaniquement les fréquences d'un son, comme une transformée de Fourier. Simulations sonores, de la recette d'harmoniques à Beethoven analysé en direct.">
+<meta property="og:title" content="Votre oreille calcule des transformées de Fourier">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+<style>
+.others li{margin-bottom:.9em}
+#f4{width:100%;display:block}
+@media (max-width:760px){ #f4{width:760px;max-width:none} }
+</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</h1>
+      <p class="dek">Un son est une somme de sons purs. Pour les séparer, l'oreille n'utilise ni calcul ni électronique : un ruban tendu de trois centimètres, dont chaque point vibre pour une fréquence différente. Avec du son, à écouter au casque.</p>
+      <div class="meta"><span>26 septembre 2026</span><span>11 min</span><span>avec du son</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Un son, c'est un empilement de sons purs</h2>
+      <p>Une corde de violon, une voix, une cloche : chacun produit une vibration compliquée. Joseph Fourier a montré en 1822 qu'une vibration qui se répète, aussi tordue soit-elle, est toujours la somme de vibrations simples, des sinusoïdes, dont les fréquences sont des multiples entiers de la plus basse.</p>
+      <p>Cette plus basse fréquence s'appelle la fondamentale : c'est elle qui donne la note. Les autres sont les harmoniques : ce sont elles qui donnent le timbre, ce qui fait qu'un violon et une flûte ne se ressemblent pas alors qu'ils jouent le même la.</p>
+      <p><strong>Choisissez une recette d'harmoniques, regardez la forme d'onde qu'elle produit, puis écoutez.</strong></p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl"><div class="seg" id="recettes"></div></div>
+      <div class="ctl">
+        <button class="go" id="play1">Écouter</button>
+        <span class="grp"><label for="f0S">Note jouée</label><input type="range" id="f0S" min="80" max="600" value="220"></span>
+      </div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> À gauche, la vibration réelle de l'air. À droite, la même chose décomposée : la hauteur de chaque barre est l'intensité d'un harmonique. Les deux dessins contiennent exactement la même information.</p>
+      <p>La dernière recette mérite un mot. On y supprime complètement la fondamentale, et pourtant l'oreille entend toujours la même note. C'est l'effet de <strong>fondamentale absente</strong> : le cerveau reconstruit la note à partir de l'espacement régulier des harmoniques. C'est grâce à lui qu'une voix grave reste reconnaissable au téléphone, qui ne transmet pourtant presque rien en dessous de 300 hertz.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Le trajet jusqu'au ruban</h2>
+      <p>L'air fait vibrer le tympan. Trois petits os, les plus petits du corps, transmettent ce mouvement à une membrane appelée fenêtre ovale. Leur rôle n'est pas de transmettre fidèlement, mais d'adapter : derrière la fenêtre ovale il y a du liquide, et un son qui passe de l'air à l'eau perd presque toute son énergie. Le levier des osselets et le rapport des surfaces entre le tympan et la fenêtre ovale compensent cette perte.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 2.</b> Schéma de principe. La cochlée est dessinée déroulée à droite, comme on le fera dans toute la suite : c'est un tube enroulé sur deux tours et demi, long d'environ trois centimètres et demi.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Chaque fréquence a sa place</h2>
+      <p>Le tube de la cochlée est partagé sur toute sa longueur par la membrane basilaire. Cette membrane n'est pas uniforme : à l'entrée elle est étroite et raide, au fond elle est large et souple. Comme les cordes d'un piano, chaque portion possède donc sa propre fréquence de résonance, des aigus à l'entrée aux graves tout au fond.</p>
+      <p>Quand un son arrive, une onde parcourt la membrane, enfle en avançant, atteint un maximum à l'endroit qui résonne avec elle, puis s'éteint brutalement. <strong>Changez la fréquence et regardez la bosse se déplacer.</strong></p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="fS">Fréquence</label><input type="range" id="fS" min="0" max="100" value="55"></span>
+        <button class="go" id="play3">Écouter ce son</button>
+      </div>
+      <div class="ctl"><div class="seg" id="sons"></div></div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> Membrane basilaire déroulée, entrée à gauche. La courbe est l'onde qui se propage, la zone colorée l'endroit où les cellules ciliées sont secouées. L'échelle des fréquences vient de la formule de Greenwood, établie sur des cochlées humaines.</p>
+      <p>Georg von Békésy a observé ces ondes au microscope dans les années 1940, sur des cochlées prélevées, et il a reçu le prix Nobel de médecine en 1961 pour ce travail. Sur une cochlée vivante, la bosse est bien plus étroite que sur ses préparations, pour une raison découverte plus tard.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Pourquoi cela revient à une transformée de Fourier</h2>
+      <p>Envoyez plusieurs fréquences en même temps, et vous obtenez plusieurs bosses en même temps, chacune à sa place. C'est exactement ce que fait le calcul de Fourier : transformer une vibration en une liste d'intensités par fréquence. La cochlée le fait mécaniquement, sans rien calculer, parce que sa géométrie sépare les fréquences dans l'espace.</p>
+      <p>Le long de la membrane, environ 3 500 cellules ciliées internes lisent les mouvements, chacune à son emplacement, et attaquent chacune ses fibres nerveuses. <strong>Ce qui part vers le cerveau n'est donc pas le son, mais son spectre</strong>, découpé en une trentaine de bandes de fréquences et réactualisé en permanence.</p>
+      <ul class="others">
+        <li><strong>L'amplificateur vivant.</strong> D'autres cellules, les cellules ciliées externes, se contractent activement au rythme de l'onde et lui rendent de l'énergie. Elles resserrent la bosse et multiplient la sensibilité par un facteur de l'ordre de cent. Effet secondaire spectaculaire : une oreille en bonne santé <strong>émet du son</strong>. Ces otoémissions acoustiques se mesurent avec un microphone dans le conduit auditif, et c'est le test qu'on pratique aujourd'hui sur les nouveau-nés.</li>
+        <li><strong>Le masquage.</strong> Deux sons de fréquences voisines excitent presque la même région : le plus fort couvre le plus faible, qui devient inaudible. Les formats de compression comme le MP3 exploitent exactement cette faiblesse, en supprimant ce que votre cochlée n'aurait de toute façon pas distingué.</li>
+        <li><strong>La finesse.</strong> Vers 1 000 hertz, une oreille entraînée distingue deux sons séparés de 2 ou 3 hertz, soit trois millièmes. C'est mieux que ce que la largeur de la bosse laisse espérer : le cerveau exploite aussi le rythme des impulsions nerveuses, qui suivent la vibration jusque vers 4 000 hertz.</li>
+      </ul>
+      <p>Une image pour finir : ouvrez un piano, appuyez sur la pédale forte pour libérer toutes les cordes, et chantez une note dedans. Seules les cordes accordées sur votre note et sur ses harmoniques se mettent à vibrer, et vous les entendez vous répondre. Votre cochlée fait la même chose, avec un ruban à la place des cordes et trois mille cinq cents micros branchés dessus.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Beethoven, vu par votre cochlée</h2>
+      <p>Voici le morceau joué, et en dessous ce que votre membrane basilaire en fait : les bosses apparaissent et disparaissent, une par harmonique, et se déplacent quand la mélodie monte ou descend. Le bandeau du bas garde la mémoire des dernières secondes, ce qui donne la partition telle que l'oreille la lit.</p>
+      <div class="ctl"><div class="seg" id="morceaux"></div><button id="stopB">Arrêter</button></div>
+      <div class="scene wide"><canvas id="f4" width="960" height="430"></canvas></div>
+      <div class="live" id="f4L"></div>
+      <p class="figcap"><b>Figure 4.</b> Analyse en direct du son qui sort de vos enceintes, replacée sur l'axe de la cochlée. Les œuvres de Beethoven sont dans le domaine public, et les sons sont fabriqués par votre navigateur, note par note.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> l'oreille ne transmet pas le son, elle le décompose avant de le transmettre. Un ruban de trois centimètres et demi, raide d'un côté et souple de l'autre, suffit à étaler les fréquences dans l'espace, et le nerf auditif n'a plus qu'à lire le résultat. C'est une transformée de Fourier faite en mécanique, avec un amplificateur en prime.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+/* =========================================================
+   Son : un petit moteur audio, construit à la première écoute
+   ========================================================= */
+let AC=null, MASTER=null, ANA=null, vivants=[];
+function audio(){
+  if(!AC){
+    const C=window.AudioContext||window.webkitAudioContext;
+    if(!C) return null;
+    AC=new C();
+    MASTER=AC.createGain(); MASTER.gain.value=0.2;
+    ANA=AC.createAnalyser(); ANA.fftSize=4096; ANA.smoothingTimeConstant=0.55;
+    MASTER.connect(ANA); ANA.connect(AC.destination);
+  }
+  if(AC.state==="suspended") AC.resume();
+  return AC;
+}
+function note(f,amps,t0,dur,vol){
+  const ac=audio(); if(!ac||!f) return;
+  const n=amps.length+1, re=new Float32Array(n), im=new Float32Array(n);
+  amps.forEach((a,i)=>im[i+1]=a);
+  const g=ac.createGain(); g.connect(MASTER);
+  const o=ac.createOscillator();
+  o.setPeriodicWave(ac.createPeriodicWave(re,im));
+  o.frequency.value=f; o.connect(g);
+  g.gain.setValueAtTime(0.0001,t0);
+  g.gain.exponentialRampToValueAtTime(Math.max(0.02,vol||0.6),t0+0.015);
+  g.gain.exponentialRampToValueAtTime(0.0004,t0+dur);
+  o.start(t0); o.stop(t0+dur+0.05);
+  vivants.push(o);
+  o.onended=()=>{ vivants=vivants.filter(x=>x!==o); };
+}
+function silence(){ vivants.forEach(o=>{try{o.stop();}catch(e){}}); vivants=[]; }
+
+/* =========================================================
+   Figure 1 : recettes d'harmoniques
+   ========================================================= */
+const RECETTES=[
+  ["Son pur",[1]],
+  ["Flûte",[1,0.25,0.08,0.03]],
+  ["Clarinette",[1,0.03,0.6,0.03,0.35,0.02,0.22,0.02,0.12]],
+  ["Violon",[1,0.82,0.6,0.5,0.42,0.34,0.28,0.22,0.17,0.12]],
+  ["Signal carré",[1,0,0.333,0,0.2,0,0.143,0,0.111,0,0.091]],
+  ["Fondamentale absente",[0,0.8,0.55,0.4,0.28,0.2,0.14]]
+];
+let f1={i:0,f0:220};
+function drawF1(){
+  const W=960,H=400, amps=RECETTES[f1.i][1];
+  const gx0=60,gx1=470,gy=190,amp=118, sx0=560,sx1=930,sy0=80,sy1=300;
+  let s=tx(gx0,46,"La vibration de l'air",{size:18,w:600});
+  s+=tx(sx0,46,"Ses harmoniques",{size:18,w:600});
+  s+=`<path d="M${gx0} ${gy}H${gx1}" stroke="${LINE}"/>`;
+  const val=u=>{let y=0; amps.forEach((a,k)=>y+=a*Math.sin(2*Math.PI*(k+1)*u)); return y;};
+  let mx=0.0001; for(let i=0;i<=400;i++) mx=Math.max(mx,Math.abs(val(i/400*2)));
+  let d="";
+  for(let i=0;i<=400;i++){ const u=i/400*2, x=gx0+i/400*(gx1-gx0);
+    d+=(i?"L":"M")+x.toFixed(1)+" "+(gy-val(u)/mx*amp).toFixed(1); }
+  s+=`<path d="${d}" fill="none" stroke="${ACC}" stroke-width="2.6"/>`;
+  s+=tx(gx0,gy+amp+42,"deux périodes du signal",{size:14,fill:MUT});
+  s+=`<path d="M${sx0} ${sy1}H${sx1}" stroke="${INK}"/>`;
+  const n=amps.length, bw=(sx1-sx0)/n*0.55;
+  amps.forEach((a,k)=>{
+    const x=sx0+(k+0.5)/n*(sx1-sx0), h=a*(sy1-sy0);
+    if(h>1) s+=`<rect x="${(x-bw/2).toFixed(1)}" y="${(sy1-h).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${k===0?RED:ACC}" opacity="${k===0?1:0.85}"/>`;
+    s+=tx(x,sy1+22,(k+1),{size:13,fill:MUT,anchor:"middle"});
+    s+=tx(x,sy1+40,Math.round(f1.f0*(k+1))+"",{size:11,fill:"#9aa4b0",anchor:"middle"});
+  });
+  s+=tx(sx0,sy1+62,"rang de l'harmonique, et sa fréquence en hertz",{size:13,fill:MUT});
+  s+=tx(W/2,24,RECETTES[f1.i][0]+" · note à "+f1.f0+" Hz",{size:18,anchor:"middle",w:600});
+  put("f1",W,H,s);
+  const L=$("f1L"), nom=RECETTES[f1.i][0];
+  const msg={
+    "Son pur":"Une seule fréquence : la forme d'onde est une sinusoïde parfaite. Ce son n'existe quasiment pas dans la nature, il faut un appareil pour le produire.",
+    "Flûte":"Presque toute l'énergie dans la fondamentale, deux ou trois harmoniques faibles : c'est ce qui donne ce timbre rond et doux.",
+    "Clarinette":"Les harmoniques pairs sont presque absents. Ce trou-là suffit à rendre le timbre reconnaissable entre mille, et il vient de la forme du tuyau, fermé d'un côté.",
+    "Violon":"Beaucoup d'harmoniques, jusqu'au dixième et au-delà : la forme d'onde devient anguleuse, le son devient brillant et mordant.",
+    "Signal carré":"Uniquement les harmoniques impairs, en 1, 1/3, 1/5. En les additionnant, les sinusoïdes se combinent en un signal à angles droits : c'est l'exemple historique de Fourier.",
+    "Fondamentale absente":"La fondamentale est à zéro, il ne reste que ses multiples. Écoutez : la note perçue est la même que dans les autres recettes. Votre cerveau la déduit de l'espacement des harmoniques, alors qu'elle n'est physiquement pas là."
+  }[nom];
+  L.innerHTML="<b>"+nom+".</b> "+msg;
+}
+$("recettes").innerHTML=RECETTES.map((r,i)=>`<button data-i="${i}"${i===0?' class="go"':''}>${r[0]}</button>`).join("");
+$("recettes").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  f1.i=+b.dataset.i;
+  $("recettes").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; drawF1();
+});
+$("f0S").oninput=e=>{f1.f0=+e.target.value;drawF1();};
+$("play1").onclick=()=>{ const ac=audio(); if(!ac){$("f1L").innerHTML="Votre navigateur ne sait pas produire de son.";return;}
+  silence(); note(f1.f0,RECETTES[f1.i][1],ac.currentTime+0.02,2.2,0.7); };
+
+/* =========================================================
+   Figure 2 : le trajet du son
+   ========================================================= */
+function drawF2(){
+  const W=960,H=300;
+  let s=`<path d="M60 90q60 -40 96 0v120q-36 40 -96 0z" fill="#f0e6dc" stroke="#b9a999" stroke-width="2"/>`;
+  s+=tx(108,70,"pavillon",{size:14,fill:MUT,anchor:"middle"});
+  s+=`<path d="M156 92H260" stroke="#b9a999" stroke-width="2"/><path d="M156 208H260" stroke="#b9a999" stroke-width="2"/>`;
+  s+=tx(208,80,"conduit",{size:14,fill:MUT,anchor:"middle"});
+  s+=`<path d="M260 96V204" stroke="${AMB}" stroke-width="5"/>`+tx(260,230,"tympan",{size:14,fill:"#a8790a",anchor:"middle"});
+  s+=`<circle cx="292" cy="130" r="13" fill="#cfd8e3" stroke="${MUT}"/><circle cx="322" cy="158" r="11" fill="#cfd8e3" stroke="${MUT}"/><circle cx="352" cy="140" r="10" fill="#cfd8e3" stroke="${MUT}"/>`;
+  s+=`<path d="M273 132L281 156M303 138L312 152M333 152L343 144" stroke="${MUT}" stroke-width="3"/>`;
+  s+=tx(322,104,"osselets",{size:14,fill:MUT,anchor:"middle"});
+  s+=`<path d="M372 122V162" stroke="${ACC}" stroke-width="5"/>`+tx(378,110,"fenêtre ovale",{size:14,fill:ACC});
+  // spirale
+  let sp="M";
+  for(let i=0;i<=260;i++){ const a=i/260*5*Math.PI, r=62*(1-i/300);
+    sp+=(i?"L":"")+(470+r*Math.cos(a)).toFixed(1)+" "+(150+r*Math.sin(a)).toFixed(1); }
+  s+=`<path d="${sp}" fill="none" stroke="${VIO}" stroke-width="7" stroke-linecap="round" opacity=".8"/>`;
+  s+=tx(470,244,"cochlée",{size:15,fill:VIO,anchor:"middle",w:600});
+  s+=arrow(556,150,616,150,MUT,2)+tx(586,136,"déroulée",{size:13,fill:MUT,anchor:"middle"});
+  // cochlée déroulée
+  s+=`<path d="M640 138h270v6h-270z" fill="${VIO}" opacity=".25"/>`;
+  s+=`<path d="M640 120L910 104V196L640 180Z" fill="#f2eefa" stroke="${VIO}" stroke-width="2"/>`;
+  s+=tx(640,92,"entrée",{size:14,fill:MUT});
+  s+=tx(910,92,"fond",{size:14,fill:MUT,anchor:"end"});
+  s+=tx(640,222,"étroite et raide",{size:14,fill:MUT});
+  s+=tx(910,222,"large et souple",{size:14,fill:MUT,anchor:"end"});
+  s+=tx(640,248,"aigus",{size:16,fill:RED,w:600});
+  s+=tx(910,248,"graves",{size:16,fill:ACC,w:600,anchor:"end"});
+  put("f2",W,H,s);
+}
+
+/* =========================================================
+   Figure 3 : la membrane basilaire
+   ========================================================= */
+const CO={W:960,H:430,x0:90,x1:900,cy:225,demi:60};
+function fDeU(u){ return 165.4*(Math.pow(10,2.1*(1-u))-0.88); }
+function uDeF(f){ return 1-Math.log10(f/165.4+0.88)/2.1; }
+function XU(u){ return CO.x0+u*(CO.x1-CO.x0); }
+const SONS=[
+  ["Son pur",null],
+  ["Voyelle « a »",[[130,1],[260,0.8],[390,0.55],[520,0.75],[650,0.5],[780,0.3],[1040,0.35],[1300,0.2]]],
+  ["Violon, la 440",[[440,1],[880,0.8],[1320,0.6],[1760,0.5],[2200,0.4],[2640,0.3],[3080,0.22]]],
+  ["Accord do mi sol",[[261.6,1],[523.2,0.5],[329.6,0.9],[659.2,0.45],[392,0.8],[784,0.4]]]
+];
+let f3={i:0,f:440,t:0};
+function composantes(){ return f3.i===0?[[f3.f,1]]:SONS[f3.i][1]; }
+function enveloppe(u,comps){
+  let v=0;
+  for(const [f,a] of comps){
+    const uc=uDeF(f);
+    if(uc<-0.05||uc>1.05) continue;
+    const d=u-uc, s=d<0?0.30:0.055;
+    v=Math.max(v,a*Math.exp(-(d/s)*(d/s)));
+  }
+  return v;
+}
+function drawF3(){
+  const {W,H,x0,x1,cy,demi}=CO, comps=composantes();
+  let s=`<path d="M${x0} ${cy-22}L${x1} ${cy-demi}L${x1} ${cy+demi}L${x0} ${cy+22}Z" fill="#f4f6f9" stroke="#c3c9d1"/>`;
+  // cellules ciliées
+  for(let i=0;i<=54;i++){ const u=i/54, e=enveloppe(u,comps);
+    s+=`<circle cx="${XU(u).toFixed(1)}" cy="${cy}" r="${(2.5+e*3).toFixed(1)}" fill="${e>0.25?RED:"#c3c9d1"}" opacity="${(0.45+0.55*e).toFixed(2)}"/>`; }
+  // onde
+  let d1="",d2="";
+  for(let i=0;i<=300;i++){ const u=i/300, e=enveloppe(u,comps);
+    const ph=2*Math.PI*(u*5+u*u*13)-f3.t*3.4;
+    const y=cy-e*52*Math.sin(ph), x=XU(u);
+    d1+=(i?"L":"M")+x.toFixed(1)+" "+y.toFixed(1);
+    d2+=(i?"L":"M")+x.toFixed(1)+" "+(cy-e*52).toFixed(1);
+  }
+  s+=`<path d="${d2}" fill="none" stroke="${RED}" stroke-width="1.4" stroke-dasharray="4 4" opacity=".7"/>`;
+  s+=`<path d="${d1}" fill="none" stroke="${ACC}" stroke-width="2.6"/>`;
+  // repères de fréquence
+  for(const f of [16000,8000,4000,2000,1000,500,250,125,60]){ const u=uDeF(f);
+    if(u<0||u>1) continue;
+    s+=`<path d="M${XU(u)} ${cy+demi+6}v8" stroke="${MUT}"/>`;
+    s+=tx(XU(u),cy+demi+30,f>=1000?(f/1000)+" kHz":f+" Hz",{size:13,fill:MUT,anchor:"middle"});
+  }
+  s+=tx(x0,cy+demi+66,"entrée, près du tympan",{size:14,fill:MUT});
+  s+=tx(x1,cy+demi+66,"fond de la spirale",{size:14,fill:MUT,anchor:"end"});
+  // marqueurs des maxima
+  const vus=[[-999,-999],[-999,-999]];
+  comps.slice().sort((a,b)=>uDeF(a[0])-uDeF(b[0])).forEach((c)=>{
+    const [f,a]=c, u=uDeF(f); if(u<0||u>1||a<0.28) return;
+    const x=XU(u);
+    s+=`<path d="M${x} ${cy-78}v22" stroke="${RED}" stroke-width="2"/>`;
+    let r=-1;
+    if(x-vus[0][0]>56) r=0; else if(x-vus[1][0]>56) r=1;
+    if(r<0) return;
+    vus[r][0]=x;
+    s+=tx(x,r===0?cy-86:cy-112,Math.round(f)+" Hz",{size:14,fill:RED,anchor:"middle",w:600});
+  });
+  s+=tx(x0,52,f3.i===0?("Son pur de "+Math.round(f3.f)+" hertz"):SONS[f3.i][0],{size:20,w:600});
+  s+=tx(x0,78,f3.i===0?"une fréquence, une bosse":comps.length+" fréquences, "+comps.length+" bosses en même temps",{size:15,fill:MUT});
+  s+=arrow(x0+10,cy-110,x0+90,cy-110,MUT,2)+tx(x0+100,cy-105,"sens de l'onde",{size:13,fill:MUT});
+  put("f3",W,H,s);
+  const L=$("f3L");
+  if(f3.i===0){
+    const u=uDeF(f3.f), mm=fr(u*35,1);
+    L.innerHTML="La bosse culmine à <b>"+mm+" millimètres</b> de l'entrée. "+(f3.f>4000
+      ? "Les aigus n'entrent pas loin : ils s'épuisent dès le début du ruban, là où il est raide."
+      : f3.f<300 ? "Les graves parcourent presque toute la longueur avant de trouver leur point de résonance, tout au fond de la spirale."
+      : "Vers le milieu du ruban : c'est la zone de la parole, la mieux protégée et la plus finement analysée.")+" Les cellules ciliées colorées sont celles qui envoient un signal au cerveau.";
+  } else {
+    L.innerHTML="<b>"+SONS[f3.i][0]+".</b> Plusieurs fréquences arrivent ensemble, et la membrane produit plusieurs bosses distinctes, chacune à sa place. Le nerf auditif transmet cette liste de positions : c'est déjà un spectre. Aucun calcul n'a été fait, seulement de la mécanique.";
+  }
+}
+$("fS").oninput=e=>{ f3.i=0; $("sons").querySelectorAll("button").forEach((x,i)=>x.className=i===0?"go":"");
+  f3.f=50*Math.pow(10,+e.target.value/100*2.505); drawF3(); };
+$("sons").innerHTML=SONS.map((r,i)=>`<button data-i="${i}"${i===0?' class="go"':''}>${r[0]}</button>`).join("");
+$("sons").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  f3.i=+b.dataset.i;
+  $("sons").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; drawF3();
+});
+$("play3").onclick=()=>{ const ac=audio(); if(!ac) return; silence();
+  const t0=ac.currentTime+0.02;
+  for(const [f,a] of composantes()) note(f,[1],t0,2.0,0.45*a);
+};
+
+/* =========================================================
+   Figure 4 : Beethoven
+   ========================================================= */
+const DEMI={C:-9,"C#":-8,"Db":-8,D:-7,"D#":-6,"Eb":-6,E:-5,F:-4,"F#":-3,"Gb":-3,G:-2,"G#":-1,"Ab":-1,A:0,"A#":1,"Bb":1,B:2};
+function hauteur(n){ const m=/^([A-G][#b]?)(\d)$/.exec(n); return 440*Math.pow(2,(DEMI[m[1]]+(+m[2]-4)*12)/12); }
+const PIANO=[1,0.45,0.28,0.17,0.10,0.06,0.04,0.03];
+const JOIE=[["E4",1],["E4",1],["F4",1],["G4",1],["G4",1],["F4",1],["E4",1],["D4",1],["C4",1],["C4",1],["D4",1],["E4",1],["E4",1.5],["D4",0.5],["D4",2],
+            ["E4",1],["E4",1],["F4",1],["G4",1],["G4",1],["F4",1],["E4",1],["D4",1],["C4",1],["C4",1],["D4",1],["E4",1],["D4",1.5],["C4",0.5],["C4",2]];
+const CINQ=[[null,0.5],["G4",0.5],["G4",0.5],["G4",0.5],["Eb4",2.5],[null,0.5],["F4",0.5],["F4",0.5],["F4",0.5],["D4",3],
+            [null,0.5],["G4",0.5],["G4",0.5],["G4",0.5],["Eb4",2.5],[null,0.5],["F4",0.5],["F4",0.5],["F4",0.5],["D4",3]];
+const MORCEAUX=[["Hymne à la joie",JOIE,0.5],["Cinquième symphonie",CINQ,0.36]];
+let f4={en:null,fin:0,spec:null};
+function jouerMorceau(i){
+  const ac=audio(); if(!ac){ $("f4L").innerHTML="Votre navigateur ne sait pas produire de son."; return; }
+  silence();
+  const [nom,seq,beat]=MORCEAUX[i];
+  let t=ac.currentTime+0.15;
+  for(const [n,d] of seq){ if(n) note(hauteur(n),PIANO,t,d*beat*1.35,0.75); t+=d*beat; }
+  f4.en=nom; f4.fin=t;
+  $("morceaux").querySelectorAll("button").forEach((b,k)=>b.className=k===i?"go":"");
+  $("f4L").innerHTML="<b>"+nom+".</b> Chaque note allume une famille de bosses régulièrement espacées : la fondamentale, puis ses harmoniques, de plus en plus serrés vers la droite. Quand la mélodie monte, tout le peigne glisse vers la gauche, du côté des aigus.";
+}
+$("morceaux").innerHTML=MORCEAUX.map((m,i)=>`<button data-i="${i}">${m[0]}</button>`).join("");
+$("morceaux").querySelectorAll("button").forEach(b=>b.onclick=()=>jouerMorceau(+b.dataset.i));
+$("stopB").onclick=()=>{ silence(); f4.en=null;
+  $("morceaux").querySelectorAll("button").forEach(b=>b.className="");
+  $("f4L").innerHTML="Choisissez un morceau. Le son est fabriqué note par note par votre navigateur ; rien n'est téléchargé."; };
+
+function dessinerF4(){
+  const cv=$("f4"); if(!cv||!cv.getContext) return;
+  const g=cv.getContext("2d"), W=cv.width, H=cv.height;
+  if(!f4.init){ g.fillStyle="#fff"; g.fillRect(0,0,W,H); f4.init=true; }
+  const hb=250, y0=40, sg0=282, sgH=H-sg0-26, x0=70, x1=W-30;
+  const XU4=u=>x0+u*(x1-x0);
+  g.clearRect(0,0,W,hb);
+  g.fillStyle="#fff"; g.fillRect(0,0,W,hb);
+  g.font="14px 'IBM Plex Sans', Arial, sans-serif"; g.fillStyle="#5d6672";
+  g.fillText("Ce que la membrane basilaire reçoit, à cet instant",x0,26);
+  g.strokeStyle="#c3c9d1"; g.beginPath(); g.moveTo(x0,hb-32); g.lineTo(x1,hb-32); g.stroke();
+  for(const f of [8000,4000,2000,1000,500,250,125]){ const u=uDeF(f); if(u<0||u>1) continue;
+    const x=XU4(u); g.beginPath(); g.moveTo(x,hb-32); g.lineTo(x,hb-26); g.stroke();
+    g.fillStyle="#8a929c"; g.font="12px 'IBM Plex Sans', Arial, sans-serif";
+    g.textAlign="center"; g.fillText(f>=1000?(f/1000)+" kHz":f+" Hz",x,hb-10); g.textAlign="left"; }
+  let data=null;
+  if(ANA){ data=new Uint8Array(ANA.frequencyBinCount); ANA.getByteFrequencyData(data); }
+  const N=160, vals=new Array(N).fill(0);
+  if(data&&AC){
+    const df=AC.sampleRate/2/data.length;
+    for(let k=1;k<data.length;k++){ const f=k*df; if(f<40||f>16000) continue;
+      const u=uDeF(f), j=Math.round(u*(N-1)); if(j<0||j>=N) continue;
+      vals[j]=Math.max(vals[j],data[k]/255); }
+  }
+  const bw=(x1-x0)/N;
+  for(let j=0;j<N;j++){
+    const v=vals[j], h=v*(hb-90);
+    if(h<1) continue;
+    g.fillStyle="rgba(31,79,143,"+(0.35+0.6*v).toFixed(2)+")";
+    g.fillRect(XU4(j/(N-1))-bw*0.42,hb-32-h,bw*0.84,h);
+  }
+  // bandeau défilant
+  g.drawImage(cv,x0+2,sg0,x1-x0-2,sgH,x0,sg0,x1-x0-2,sgH);
+  g.fillStyle="#fff"; g.fillRect(x1-2,sg0,2,sgH);
+  for(let j=0;j<N;j++){
+    const v=vals[j];
+    if(v<0.06) continue;
+    const y=sg0+sgH-(j/(N-1))*sgH;
+    g.fillStyle="rgba(31,79,143,"+(v*0.95).toFixed(2)+")";
+    g.fillRect(x1-2,y-sgH/N-1,2,sgH/N+2);
+  }
+  g.fillStyle="#fff"; g.fillRect(0,sg0-30,W,28); g.fillRect(0,H-24,W,24); g.fillRect(0,sg0,x0,sgH); g.fillRect(x1,sg0,W-x1,sgH);
+  g.fillStyle="#5d6672"; g.font="14px 'IBM Plex Sans', Arial, sans-serif";
+  g.fillText("Les dernières secondes, aigus en bas, graves en haut",x0,sg0-10);
+  g.font="12px 'IBM Plex Sans', Arial, sans-serif"; g.fillStyle="#8a929c";
+  g.fillText("le temps défile vers la gauche",x0,H-8);
+  g.strokeStyle="#e2e0da"; g.strokeRect(x0,sg0,x1-x0,sgH);
+}
+
+/* ---------------- boucle ---------------- */
+drawF1(); drawF2(); drawF3();
+$("f4L").innerHTML="Choisissez un morceau. Le son est fabriqué note par note par votre navigateur ; rien n'est téléchargé.";
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  f3.t+=dt; drawF3();
+  dessinerF4();
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop); else { drawF3(); dessinerF4(); }
+</script>
+</body>
+</html>

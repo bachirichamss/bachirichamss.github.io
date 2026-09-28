@@ -118,7 +118,17 @@ const V_JUMEAUX = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="20
 <circle cx="70" cy="118" r="6" fill="#1b1f24"/><circle cx="70" cy="22" r="6" fill="#1b1f24"/>
 <circle cx="150" cy="70" r="7" fill="#fff" stroke="#c8372d" stroke-width="3"/></svg>`;
 
+const V_COCHLEE = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<path d="M58 70m0 0a34 34 0 1 1 -24 -32a26 26 0 1 0 18 24a19 19 0 1 1 -13 -17" fill="none" stroke="#7a5fc0" stroke-width="6" stroke-linecap="round" opacity=".85"/>
+<path d="M104 116h84" stroke="#c3c9d1"/>
+<g fill="#1f4f8f"><rect x="110" y="70" width="9" height="46"/><rect x="126" y="40" width="9" height="76"/><rect x="142" y="84" width="9" height="32"/><rect x="158" y="58" width="9" height="58"/><rect x="174" y="96" width="9" height="20"/></g></svg>`;
+
 const ARTICLES = [
+  { titre: "Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban",
+    url: "cochlee.html", rubrique: "simulations",
+    date: "2026-09-26", duree: "11 min",
+    resume: "La cochlée sépare les fréquences dans l'espace, sans rien calculer. Recettes d'harmoniques à écouter, onde qui court sur la membrane basilaire, et du Beethoven analysé en direct.",
+    vignette: V_COCHLEE },
   { titre: "Alice et Bob n'ont plus le même âge : le vrai sens du temps propre",
     url: "jumeaux.html", rubrique: "simulations",
     date: "2026-09-25", duree: "9 min",
