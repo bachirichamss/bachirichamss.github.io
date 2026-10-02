@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>La théorie quantique des champs, en quatre images · Chamss Bachiri</title>
+<meta name="description" content="Champs, quanta, énergie du vide, création de particules : la théorie quantique des champs expliquée par quatre simulations, et pourquoi elle est la théorie la mieux vérifiée de la science.">
+<meta property="og:title" content="La théorie quantique des champs, en quatre images">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+<style>
+.others li{margin-bottom:.9em}
+.result{background:#fff;border:1px solid #e2e0da;border-radius:3px;padding:1.3rem 1.2rem;margin:1.4rem 0;font-family:"IBM Plex Sans",Arial,sans-serif}
+.chif{display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem;justify-content:space-between;padding:.45rem 0}
+.chif .et{font-size:.86rem;color:#5d6672}
+.chif .nb{font-size:1.18rem;font-variant-numeric:tabular-nums;color:#8a929c;letter-spacing:.01em}
+.chif .nb b{color:#1f4f8f;font-weight:600}
+.zeros{text-align:center;font-size:.95rem;color:#1f4f8f;margin:1rem 0 0}
+.zeros small{display:block;color:#5d6672;font-size:.8rem;margin-top:.3rem}
+@media (max-width:620px){.chif{gap:.2rem}.chif .nb{font-size:1.02rem}}
+</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>La théorie quantique des champs, en quatre images</h1>
+      <p class="dek">Il n'y a pas de particules au départ. Il y a des champs, un par espèce, étalés partout, et ce qu'on appelle une particule est une ondulation de l'un d'eux. Cette idée produit la théorie la mieux vérifiée de toute la science.</p>
+      <div class="meta"><span>28 septembre 2026</span><span>13 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Le champ d'abord, la particule ensuite</h2>
+      <p>Imaginez une membrane tendue qui remplit tout l'espace. Au repos, elle est plate : c'est le vide. Donnez-lui un coup, et une ondulation se forme et part. Cette ondulation, c'est une particule.</p>
+      <p>Il existe un champ par espèce : un champ d'électrons, un champ de photons, un champ de quarks, un champ de Higgs. Les électrons du bout de votre doigt et ceux d'une étoile lointaine sont des ondulations de la même membrane, ce qui explique une chose étrange que personne n'explique autrement : <strong>tous les électrons de l'Univers sont rigoureusement identiques</strong>. Deux rides sur une même nappe ne peuvent pas être de deux modèles différents.</p>
+      <p><strong>Lancez une ondulation, puis changez la masse du champ.</strong></p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button class="go" id="b1a">Créer une ondulation</button>
+        <button id="b1b">Deux, face à face</button>
+        <span class="grp"><label for="mS">Masse du champ</label><input type="range" id="mS" min="0" max="100" value="0"></span>
+      </div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> Un champ à une dimension d'espace, qui obéit à l'équation de Klein-Gordon. Les petits traits sous la courbe sont la valeur du champ en chaque point.</p>
+      <p>La masse du champ n'est pas un décor : c'est elle qui décide de tout le comportement de l'ondulation. À masse nulle, le paquet file à la vitesse de la lumière sans se déformer, comme un photon. Dès qu'on met de la masse, il ralentit et s'étale. Une particule massive est une ondulation que le champ retient.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Ce qui est quantique là-dedans : l'escalier</h2>
+      <p>Jusqu'ici, rien d'autre que des ondes classiques. Le mot quantique arrive avec une règle de comptage. Prenez une seule façon de vibrer du champ, une fréquence précise : son énergie ne peut pas prendre n'importe quelle valeur. Elle monte par marches égales, chacune valant <em>h</em> fois la fréquence.</p>
+      <p>Une marche gravie, c'est <strong>une particule de plus</strong>. Le nombre de particules n'est rien d'autre que le numéro de la marche. <strong>Essayez d'ajouter des quanta, et essayez d'en ajouter la moitié.</strong></p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button class="go" id="b2p">Ajouter un quantum</button>
+        <button id="b2m">En retirer un</button>
+        <button id="b2h">Ajouter un demi-quantum</button>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> Les niveaux d'énergie d'un mode du champ, et l'amplitude de vibration correspondante. Le barreau du bas n'est pas à zéro.</p>
+      <p>Deux conséquences énormes tiennent dans ce dessin. D'abord, on ne peut ni couper une particule en deux, ni en avoir 2,7 : le nombre de marches est entier. Ensuite, <strong>le barreau le plus bas n'est pas à zéro</strong>. Même sans aucune particule, chaque mode garde une demi-marche d'énergie, et le champ continue de trembler. C'est l'énergie du vide, et elle n'est pas une vue de l'esprit.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Le vide pousse sur les miroirs</h2>
+      <p>Entre deux plaques métalliques très proches, le champ électromagnétique ne peut pas trembler n'importe comment : seules les vibrations qui tiennent pile entre les plaques survivent. À l'extérieur, aucune restriction. Il y a donc <strong>moins d'énergie de vide à l'intérieur qu'à l'extérieur</strong>, et la différence pousse les plaques l'une vers l'autre.</p>
+      <p>Hendrik Casimir a prédit cet effet en 1948. Steve Lamoreaux l'a mesuré en 1997, et il est aujourd'hui une nuisance quotidienne pour les ingénieurs des micromachines, où il colle les pièces mobiles. <strong>Rapprochez les plaques.</strong></p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="dS">Écart entre les plaques</label><input type="range" id="dS" min="0" max="100" value="60" style="width:280px"></span>
+      </div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> Les vibrations dessinées entre les plaques sont celles qui tiennent exactement dans l'intervalle. La pression suit la formule de Casimir, en divisant par la puissance quatrième de l'écart.</p>
+      <p>Cette même énergie du vide pose aussi le plus gros problème non résolu de la physique. Quand on tente de calculer l'énergie totale du vide et son effet sur l'expansion de l'Univers, on tombe à côté de la mesure d'un facteur qui s'écrit avec 120 zéros. Personne ne sait pourquoi.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Les particules apparaissent et disparaissent</h2>
+      <p>Dans cette façon de voir, rien n'oblige le nombre de particules à rester constant. Un champ peut rendre son énergie à un autre : une ondulation disparaît ici, deux autres naissent là. C'est pour cela qu'un accélérateur peut fabriquer de la matière avec du mouvement.</p>
+      <p>Le cas le plus simple : un photon assez énergique, qui passe près d'un noyau, se transforme en un électron et son antiparticule. Il faut pour cela au moins de quoi payer les deux masses, soit 1,022 million d'électronvolts. En dessous, rien ne se passe. <strong>Montez l'énergie du photon.</strong></p>
+      <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="eS">Énergie du photon</label><input type="range" id="eS" min="20" max="500" value="60" style="width:280px"></span>
+        <button class="go" id="b4">Envoyer le photon</button>
+      </div>
+      <div class="live" id="f4L"></div>
+      <p class="figcap"><b>Figure 4.</b> Création de paire, telle qu'on la voit dans une chambre à bulles : les deux particules s'enroulent en sens contraires dans le champ magnétique, ce qui trahit leurs charges opposées. À droite, le diagramme de Feynman correspondant.</p>
+      <p>Un mot sur ces diagrammes, parce qu'ils sont souvent mal compris. <strong>Ce ne sont pas des trajectoires.</strong> Ce sont des aide-mémoire de calcul : chaque trait et chaque nœud correspond à un facteur précis dans une formule, et la somme de tous les dessins possibles donne la probabilité du résultat. Les particules dites virtuelles, celles des traits internes, ne sont pas de petites billes cachées : ce sont des termes dans une somme.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Pourquoi c'est capital</h2>
+      <p><strong>Parce que ça marche à un point qui défie l'imagination.</strong> Le magnétisme de l'électron se calcule dans cette théorie, en additionnant des milliers de diagrammes, et se mesure en piégeant un électron unique pendant des mois. Voici les deux nombres, l'un calculé, l'autre mesuré :</p>
+      <div class="result" id="chiffres"></div>
+      <p>Aucune autre théorie, dans aucune discipline, n'est vérifiée à ce niveau. C'est l'équivalent de prévoir la distance Paris-New York à l'épaisseur d'un cheveu près.</p>
+      <ul class="others">
+        <li><strong>Elle décrit tout ce qu'on connaît, sauf la gravitation.</strong> Le modèle standard est une théorie quantique des champs : douze champs de matière, les champs des forces électromagnétique, faible et forte, et le champ de Higgs. Il a prédit l'antimatière avant qu'on la voie, les bosons W et Z avec leurs masses, et le boson de Higgs quarante-huit ans avant sa découverte en 2012.</li>
+        <li><strong>Elle explique d'où vient la masse</strong>, et la réponse surprend : le champ de Higgs donne leur masse aux particules élémentaires, mais il ne compte que pour environ 1 % de votre poids. Tout le reste est l'énergie de l'agitation des quarks et des gluons à l'intérieur de vos protons. Vous êtes essentiellement fait d'énergie de liaison.</li>
+        <li><strong>Elle a changé de métier sans changer de formules.</strong> Les mêmes outils décrivent les vibrations d'un cristal, dont les quanta s'appellent phonons, la supraconductivité, et des excitations collectives qui se comportent exactement comme des particules alors qu'elles n'existent qu'à l'intérieur d'un matériau. La physique de la matière condensée et la physique des particules parlent la même langue.</li>
+        <li><strong>Elle explique pourquoi il y a des galaxies.</strong> Dans les premiers instants, les fluctuations quantiques d'un champ ont été étirées par l'expansion jusqu'à devenir des irrégularités de densité à l'échelle du cosmos. Ces irrégularités se lisent aujourd'hui sur la carte du fond diffus, et c'est autour d'elles que la matière s'est rassemblée. Les amas de galaxies sont d'anciennes fluctuations du vide, agrandies.</li>
+      </ul>
+      <p>Et puis il y a ce qui résiste. La gravitation refuse de se laisser traiter de cette façon : les calculs partent à l'infini de manière incurable, et les deux piliers de la physique moderne, cette théorie des champs et la relativité générale, ne se parlent toujours pas. C'est de là que partent les cordes, la gravitation quantique à boucles, et tout ce qui occupe les théoriciens depuis cinquante ans.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> remplacez « particules qui se déplacent » par « champs qui vibrent, et dont les vibrations se comptent en nombres entiers ». Vous obtenez des particules identiques, un vide qui pousse, de la matière créée à partir d'énergie, et douze chiffres exacts.</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+/* =========================================================
+   Figure 1 : un champ qui ondule (Klein-Gordon)
+   ========================================================= */
+const Q1={W:960,H:340,x0:60,x1:910,N:300,dt:0.45,cy:170,amp:78};
+let q1={m:0,u:new Float64Array(Q1.N),v:new Float64Array(Q1.N),w:new Float64Array(Q1.N),k:0.55};
+function paquet(x0,sens){
+  const {N}=Q1, k=q1.k*sens, m=q1.m, vg=Math.abs(k)/Math.sqrt(k*k+m*m)*(sens);
+  const lar=15;
+  for(let i=0;i<N;i++){
+    const d=i-x0, d2=d-vg/Q1.dt*0.0;
+    q1.u[i]+=Math.exp(-d*d/(2*lar*lar))*Math.cos(k*d);
+    const dd=d+vg*Q1.dt;
+    q1.v[i]+=Math.exp(-dd*dd/(2*lar*lar))*Math.cos(k*dd);
+  }
+}
+function pasQ1(){
+  const {N,dt}=Q1, m=q1.m, c2=1;
+  for(let i=1;i<N-1;i++){
+    q1.w[i]=2*q1.u[i]-q1.v[i]+c2*dt*dt*(q1.u[i+1]-2*q1.u[i]+q1.u[i-1])-m*m*dt*dt*q1.u[i];
+  }
+  q1.w[0]=0; q1.w[N-1]=0;
+  for(let i=0;i<N;i++){ const b=Math.min(i,N-1-i); const f=b<22?0.90+0.10*(b/22):1;
+    q1.v[i]=q1.u[i]*f; q1.u[i]=q1.w[i]*f; }
+}
+function drawQ1(){
+  const {W,H,x0,x1,N,cy,amp}=Q1;
+  const X=i=>x0+i/(N-1)*(x1-x0);
+  let s=`<path d="M${x0} ${cy}H${x1}" stroke="${LINE}" stroke-dasharray="3 7"/>`;
+  for(let i=0;i<N;i+=4){ const y=cy-q1.u[i]*amp;
+    s+=`<path d="M${X(i).toFixed(1)} ${cy}V${y.toFixed(1)}" stroke="#9fb0c3" stroke-width="1.4" opacity=".55"/>`; }
+  let d="";
+  for(let i=0;i<N;i++) d+=(i?"L":"M")+X(i).toFixed(1)+" "+(cy-q1.u[i]*amp).toFixed(1);
+  s+=`<path d="${d}" fill="none" stroke="${ACC}" stroke-width="2.6"/>`;
+  const vg=q1.k/Math.sqrt(q1.k*q1.k+q1.m*q1.m);
+  s+=tx(x0,46,"Champ "+(q1.m<0.02?"sans masse":"massif"),{size:20,w:600});
+  s+=tx(x0,74,q1.m<0.02?"l'ondulation file à la vitesse de la lumière et garde sa forme"
+    :"l'ondulation ralentit et s'étale en avançant",{size:15,fill:MUT});
+  s+=tx(x1,46,"masse : "+fr(q1.m,2),{size:16,fill:MUT,anchor:"end"});
+  s+=tx(x1,76,"vitesse du paquet : "+fr(vg,2)+" c",{size:22,w:600,fill:vg>0.99?ACC:RED,anchor:"end"});
+  s+=tx(x0,H-18,"le champ existe partout, même là où il est plat : c'est le vide",{size:14,fill:MUT});
+  put("f1",W,H,s);
+}
+$("b1a").onclick=()=>{ q1.u.fill(0); q1.v.fill(0); paquet(60,1); };
+$("b1b").onclick=()=>{ q1.u.fill(0); q1.v.fill(0); paquet(60,1); paquet(240,-1);
+  $("f1L").innerHTML="Deux ondulations se croisent et ressortent intactes : un champ libre est linéaire, ses ondulations ne se voient pas. <b>Les interactions, c'est exactement ce qu'on ajoute ensuite</b> dans la théorie, et c'est ce qui rend les calculs difficiles."; };
+$("mS").oninput=e=>{ q1.m=+e.target.value/100*0.9; majQ1(); };
+function majQ1(){
+  const vg=q1.k/Math.sqrt(q1.k*q1.k+q1.m*q1.m);
+  $("f1L").innerHTML=q1.m<0.02
+    ? "Masse nulle : le paquet avance à <b>la vitesse de la lumière</b> sans se déformer. C'est le comportement du photon."
+    : "Masse "+fr(q1.m,2)+" : le paquet n'avance plus qu'à <b>"+fr(vg,2)+" fois la vitesse de la lumière</b>, et il s'étale en chemin. Le terme de masse agit comme un rappel élastique qui freine chaque point du champ. <b>C'est la masse d'une particule</b>, écrite dans l'équation du champ.";
+}
+
+/* =========================================================
+   Figure 2 : l'escalier des quanta
+   ========================================================= */
+const Q2={W:960,H:380,nmax:6};
+let q2={n:0,t:0,flash:0};
+function drawQ2(){
+  const {W,H,nmax}=Q2, x0=120, ybas=320, dy=42;
+  let s=tx(x0-60,52,"Énergie du mode",{size:19,w:600});
+  for(let k=0;k<=nmax;k++){
+    const y=ybas-k*dy, on=k===q2.n;
+    s+=`<path d="M${x0} ${y}H${x0+200}" stroke="${on?RED:"#c3c9d1"}" stroke-width="${on?4:2}"/>`;
+    s+=tx(x0-12,y+5,"n = "+k,{size:15,fill:on?RED:MUT,anchor:"end",w:on?600:400});
+    s+=tx(x0+212,y+5,k===0?"½ hf":"("+k+" + ½) hf",{size:14,fill:on?RED:"#9aa4b0"});
+  }
+  if(q2.flash>0){
+    const y=ybas-(q2.n+0.5)*dy;
+    s+=`<path d="M${x0} ${y}H${x0+200}" stroke="${RED}" stroke-width="3" stroke-dasharray="6 5" opacity="${q2.flash.toFixed(2)}"/>`;
+    s+=tx(x0+100,y-10,"interdit",{size:15,fill:RED,anchor:"middle",w:600,op:q2.flash.toFixed(2)});
+  }
+  s+=arrow(x0+100,ybas+30,x0+100,ybas-nmax*dy-14,MUT,1.5);
+  // le mode qui vibre
+  const cx=560,cx1=920,cy=200, A=26*Math.sqrt(q2.n+0.5);
+  s+=`<rect x="${cx}" y="${cy-120}" width="${cx1-cx}" height="240" fill="#fafbfc" stroke="#e2e0da"/>`;
+  let d="";
+  for(let i=0;i<=200;i++){ const u=i/200, x=cx+u*(cx1-cx);
+    d+=(i?"L":"M")+x.toFixed(1)+" "+(cy-A*Math.sin(u*3*Math.PI)*Math.sin(q2.t*3.2)).toFixed(1); }
+  s+=`<path d="${d}" fill="none" stroke="${ACC}" stroke-width="2.6"/>`;
+  s+=tx((cx+cx1)/2,cy-132,"une façon de vibrer du champ",{size:16,anchor:"middle",fill:MUT});
+  s+=tx((cx+cx1)/2,cy+150,q2.n===0?"aucune particule, et pourtant ça tremble"
+      :q2.n+" quantum"+(q2.n>1?"s":"")+" = "+q2.n+" particule"+(q2.n>1?"s":"")+" dans ce mode",
+      {size:19,anchor:"middle",w:600,fill:q2.n===0?MUT:RED});
+  put("f2",W,H,s);
+}
+function majQ2(msg){
+  $("f2L").innerHTML = msg || (q2.n===0
+    ? "Marche zéro : aucune particule. Le champ garde pourtant une demi-marche d'énergie et continue de vibrer un peu. <b>C'est l'énergie du point zéro</b>, le tremblement irréductible du vide."
+    : "Marche "+q2.n+" : il y a <b>"+q2.n+" particule"+(q2.n>1?"s":"")+"</b> dans ce mode. Elles sont indiscernables, parce qu'il n'y a rien d'autre à dire sur elles que le numéro de la marche. Chaque marche vaut la même énergie, <em>h</em> fois la fréquence.");
+}
+$("b2p").onclick=()=>{ if(q2.n<Q2.nmax){q2.n++;majQ2();} else majQ2("Le dessin s'arrête à six marches, mais l'escalier, lui, monte indéfiniment."); };
+$("b2m").onclick=()=>{ if(q2.n>0){q2.n--;majQ2();} else majQ2("On ne peut pas descendre plus bas : il n'existe pas de marche sous la marche zéro, et la demi-marche d'énergie qui reste ne peut être retirée à personne."); };
+$("b2h").onclick=()=>{ q2.flash=1; majQ2("<b>Impossible.</b> L'énergie de ce mode ne prend que les valeurs de l'escalier. Un demi-quantum n'existe pas, et c'est pour cette raison qu'on ne rencontre jamais une demi-particule."); };
+
+/* =========================================================
+   Figure 3 : l'effet Casimir
+   ========================================================= */
+const Q3={W:960,H:380,cy:190};
+let q3={d:120,t:0};
+function drawQ3(){
+  const {W,H,cy}=Q3, d=q3.d;
+  const ecart=Math.max(40,Math.min(300,d*1.1));
+  const xg=480-ecart/2, xd=480+ecart/2, ht=150;
+  let s="";
+  // vibrations extérieures
+  for(let k=0;k<22;k++){
+    const lam=18+k*9, y=cy-ht+ (k*13)%(2*ht);
+    let d1="",d2="";
+    for(let i=0;i<=40;i++){ const x=40+i/40*(xg-70);
+      d1+=(i?"L":"M")+x.toFixed(1)+" "+(y+7*Math.sin(x/lam*6+q3.t*2+k)).toFixed(1);
+      const x2=xd+40+i/40*(880-xd-40);
+      d2+=(i?"L":"M")+x2.toFixed(1)+" "+(y+7*Math.sin(x2/lam*6+q3.t*2+k)).toFixed(1); }
+    s+=`<path d="${d1}" fill="none" stroke="#9fb0c3" stroke-width="1" opacity=".5"/>`;
+    s+=`<path d="${d2}" fill="none" stroke="#9fb0c3" stroke-width="1" opacity=".5"/>`;
+  }
+  // vibrations autorisées entre les plaques
+  const nmax=Math.max(1,Math.round(ecart/26));
+  for(let n=1;n<=Math.min(nmax,6);n++){
+    let d1="";
+    for(let i=0;i<=60;i++){ const u=i/60, x=xg+u*(xd-xg);
+      d1+=(i?"L":"M")+x.toFixed(1)+" "+(cy-70+ (n-1)*26 + 10*Math.sin(n*Math.PI*u)*Math.sin(q3.t*2.4+n)).toFixed(1); }
+    s+=`<path d="${d1}" fill="none" stroke="${ACC}" stroke-width="2"/>`;
+  }
+  s+=`<rect x="${xg-14}" y="${cy-ht}" width="14" height="${2*ht}" fill="#5d6672"/>`;
+  s+=`<rect x="${xd}" y="${cy-ht}" width="14" height="${2*ht}" fill="#5d6672"/>`;
+  const P=1.3003e-27/Math.pow(d*1e-9,4), F=P*1e-4, mg=F/9.81*1e6;
+  const fl=Math.max(2,Math.min(14,2+Math.log10(Math.max(P,1e-4))*2.6));
+  s+=arrow(xg-90,cy,xg-24,cy,RED,fl)+arrow(xd+104,cy,xd+24,cy,RED,fl);
+  s+=tx(480,cy+ht+30,"écart : "+Math.round(d)+" nanomètres",{size:18,anchor:"middle",w:600});
+  s+=tx(60,52,"Pression du vide",{size:19,w:600});
+  s+=tx(60,86,P>=1000?fr(P/1000,1)+" kilopascals":(P>=1?fr(P,1)+" pascals":fr(P*1000,2)+" millipascals"),{size:26,w:600,fill:RED});
+  s+=tx(60,116,"sur un centimètre carré, "+(mg>=1000?fr(mg/1000,1)+" grammes":fr(mg,1)+" milligrammes")+" de poids",{size:15,fill:MUT});
+  s+=tx(880,52,"ne tiennent pas entre les plaques",{size:14,fill:MUT,anchor:"end"});
+  s+=tx(880,74,"et sont donc absentes à l'intérieur",{size:14,fill:MUT,anchor:"end"});
+  put("f3",W,H,s);
+  const L=$("f3L");
+  L.innerHTML="À "+Math.round(d)+" nanomètres, la pression du vide vaut "+(P>=1000?fr(P/1000,1)+" kilopascals":(P>=1?fr(P,1)+" pascals":fr(P*1000,2)+" millipascals"))+". "
+   +(d<20?"À cette distance, elle dépasse la pression atmosphérique : le vide écrase les plaques l'une contre l'autre."
+     :d<150?"La force divise par seize chaque fois qu'on double l'écart, puisqu'elle varie comme l'inverse de la puissance quatrième."
+     :"Au-delà de quelques centaines de nanomètres, l'effet devient minuscule, et c'est pour cela qu'on a mis cinquante ans à le mesurer.");
+}
+$("dS").oninput=e=>{ q3.d=10+Math.pow(+e.target.value/100,2)*390; drawQ3(); };
+
+/* =========================================================
+   Figure 4 : création de paire
+   ========================================================= */
+const Q4={W:960,H:400,xn:430,cy:200,seuil:1.022};
+let q4={E:0.6,t:-1};
+function trace(x0,y0,R,s0,L,a0){
+  let d="M"+x0.toFixed(1)+" "+y0.toFixed(1), x=x0,y=y0,a=a0;
+  const ds=5;
+  for(let l=0;l<L;l+=ds){
+    const Rl=Math.max(14,R*(1-0.55*l/320));
+    a+=s0*ds/Rl; x+=ds*Math.cos(a); y+=ds*Math.sin(a);
+    if(x<20||x>940||y<20||y>380) break;
+    d+="L"+x.toFixed(1)+" "+y.toFixed(1);
+  }
+  return d;
+}
+function drawQ4(){
+  const {W,H,xn,cy,seuil}=Q4, E=q4.E, t=q4.t, ok=E>=seuil;
+  let s=`<rect x="40" y="60" width="520" height="280" fill="#fafbfc" stroke="#e2e0da"/>`;
+  s+=tx(50,50,"Dans la chambre à bulles",{size:16,fill:MUT});
+  s+=tx(548,50,"champ magnétique vers vous",{size:13,fill:MUT,anchor:"end"});
+  s+=`<circle cx="${xn}" cy="${cy}" r="9" fill="${VIO}"/>`+tx(xn,cy+30,"noyau",{size:14,fill:VIO,anchor:"middle"});
+  if(t<0||t<1){
+    const prog=t<0?1:t, xp=60+Math.min(prog,1)*(xn-60);
+    let d="";
+    for(let i=0;i<=60;i++){ const x=60+i/60*(xp-60);
+      d+=(i?"L":"M")+x.toFixed(1)+" "+(cy+9*Math.sin(x/9)).toFixed(1); }
+    s+=`<path d="${d}" fill="none" stroke="${AMB}" stroke-width="2.6"/>`;
+    s+=tx(60,cy-26,"photon, "+fr(E,2)+" MeV",{size:15,fill:"#a8790a",w:600});
+  }
+  if(t>=1){
+    const L=Math.min(320,(t-1)*260);
+    if(ok){
+      const p=(E-seuil)/2, R=60+p*220;
+      s+=`<path d="${trace(xn,cy,R,-0.9,L,-0.35)}" fill="none" stroke="${ACC}" stroke-width="2.6"/>`;
+      s+=`<path d="${trace(xn,cy,R,0.9,L,0.35)}" fill="none" stroke="${RED}" stroke-width="2.6"/>`;
+      s+=tx(xn+30,cy-78,"électron",{size:15,fill:ACC,w:600});
+      s+=tx(xn+30,cy+86,"positron",{size:15,fill:RED,w:600});
+    } else {
+      let d="";
+      for(let i=0;i<=60;i++){ const x=xn+i/60*L*0.8;
+        d+=(i?"L":"M")+x.toFixed(1)+" "+(cy+9*Math.sin(x/9)).toFixed(1); }
+      s+=`<path d="${d}" fill="none" stroke="${AMB}" stroke-width="2.6" opacity=".8"/>`;
+      s+=tx(xn+20,cy-26,"le photon passe",{size:15,fill:"#a8790a"});
+    }
+  }
+  // diagramme de Feynman
+  const dx=640,dy=cy;
+  s+=tx(dx,50,"Diagramme de Feynman",{size:16,fill:MUT});
+  s+=`<rect x="600" y="60" width="330" height="280" fill="#fff" stroke="#e2e0da"/>`;
+  let w="";
+  for(let i=0;i<=40;i++){ const x=630+i/40*120; w+=(i?"L":"M")+x.toFixed(1)+" "+(dy+8*Math.sin(i/1.6)).toFixed(1); }
+  s+=`<path d="${w}" fill="none" stroke="${AMB}" stroke-width="2.4"/>`+tx(630,dy-22,"photon",{size:14,fill:"#a8790a"});
+  s+=`<circle cx="750" cy="${dy}" r="5" fill="${INK}"/>`;
+  s+=arrow(750,dy,860,dy-70,ACC,2.4)+tx(866,dy-74,"e⁻",{size:16,fill:ACC,w:600});
+  s+=arrow(860,dy+70,750,dy,RED,2.4)+tx(866,dy+78,"e⁺",{size:16,fill:RED,w:600});
+  s+=`<path d="M750 ${dy}V${dy+90}" stroke="${VIO}" stroke-width="2" stroke-dasharray="5 4"/>`;
+  s+=`<path d="M660 ${dy+90}H900" stroke="${VIO}" stroke-width="2.4"/>`+tx(660,dy+112,"noyau",{size:14,fill:VIO});
+  s+=tx(760,dy+78,"photon virtuel",{size:13,fill:VIO});
+  // lecture
+  s+=tx(50,372,"énergie disponible après les deux masses : "+(ok?fr(E-seuil,3)+" MeV":"aucune"),{size:16,fill:ok?INK:MUT});
+  put("f4",W,H,s);
+  const L2=$("f4L");
+  L2.innerHTML = ok
+    ? "<b>"+fr(E,2)+" MeV, au-dessus du seuil.</b> Le photon disparaît, un électron et un positron apparaissent. Il reste "+fr(E-seuil,3)+" MeV qui partent en mouvement : plus il en reste, plus les trajectoires sont tendues. Les deux spirales s'enroulent en sens contraires parce que les charges sont opposées."
+    : "<b>"+fr(E,2)+" MeV, en dessous du seuil de 1,022.</b> Même avec toute la bonne volonté du monde, le photon ne peut pas fabriquer une paire : il n'a pas de quoi payer les deux masses. Le nombre de particules peut changer, mais l'énergie, elle, se conserve exactement.";
+}
+$("eS").oninput=e=>{ q4.E=+e.target.value/100; drawQ4(); };
+$("b4").onclick=()=>{ q4.t=0; };
+
+/* =========================================================
+   Les douze chiffres
+   ========================================================= */
+(function(){
+  const commun="1,001 159 652 18", mes="0 59", cal="2 0";
+  $("chiffres").innerHTML=
+    '<div class="chif"><span class="et">mesuré sur un électron piégé</span>'+
+    '<span class="nb"><b>'+commun+'</b>'+mes+'</span></div>'+
+    '<div class="chif"><span class="et">calculé par la théorie des champs</span>'+
+    '<span class="nb"><b>'+commun+'</b>'+cal+'</span></div>'+
+    '<p class="zeros">les douze premiers chiffres coïncident<small>il s\'agit du magnétisme de l\'électron, en unités où la théorie classique prédirait exactement 1</small></p>';
+})();
+
+/* ---------------- boucle ---------------- */
+majQ1(); paquet(60,1); drawQ1(); majQ2(); drawQ2(); drawQ3(); drawQ4();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  for(let k=0;k<3;k++) pasQ1();
+  q1.c=(q1.c||0)+1;
+  if(q1.c%30===0){ let mx=0; for(let i=0;i<Q1.N;i++) mx=Math.max(mx,Math.abs(q1.u[i]));
+    if(mx<0.05) paquet(60,1); }
+  drawQ1();
+  q2.t+=dt; if(q2.flash>0) q2.flash-=dt*0.8; drawQ2();
+  q3.t+=dt; drawQ3();
+  if(q4.t>=0){ q4.t+=dt*0.9; if(q4.t>3.2) q4.t=-1; drawQ4(); }
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+</script>
+</body>
+</html>

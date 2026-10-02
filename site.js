@@ -123,7 +123,19 @@ const V_COCHLEE = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="20
 <path d="M104 116h84" stroke="#c3c9d1"/>
 <g fill="#1f4f8f"><rect x="110" y="70" width="9" height="46"/><rect x="126" y="40" width="9" height="76"/><rect x="142" y="84" width="9" height="32"/><rect x="158" y="58" width="9" height="58"/><rect x="174" y="96" width="9" height="20"/></g></svg>`;
 
+const V_QFT = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<g stroke="#9fb0c3" stroke-width="1.2"><path d="M24 96v10M36 96v10M48 96v10M60 96v6M72 96v-18M84 96v-34M96 96v-6M108 96v14M120 96v8M132 96v10M144 96v10M156 96v10M168 96v10M180 96v10"/></g>
+<path d="M18 96h168" stroke="#c3c9d1" stroke-dasharray="3 5"/>
+<path d="M18 96q30 0 42 0q6 0 12 -22q6 -24 12 -24q6 0 12 28q6 18 12 18q30 0 78 0" fill="none" stroke="#1f4f8f" stroke-width="3"/>
+<g stroke="#c8372d" stroke-width="3"><path d="M22 44h26"/><path d="M22 30h26"/></g>
+<path d="M22 58h26" stroke="#c3c9d1" stroke-width="3"/></svg>`;
+
 const ARTICLES = [
+  { titre: "La théorie quantique des champs, en quatre images",
+    url: "champs-quantiques.html", rubrique: "simulations",
+    date: "2026-09-28", duree: "13 min",
+    resume: "Une particule est une ondulation d'un champ, et son nombre se compte en marches d'escalier. Quatre simulations : le paquet d'ondes massif, l'escalier des quanta, la pression du vide et la création de paires.",
+    vignette: V_QFT },
   { titre: "Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban",
     url: "cochlee.html", rubrique: "simulations",
     date: "2026-09-26", duree: "11 min",
