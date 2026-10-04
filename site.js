@@ -130,7 +130,20 @@ const V_QFT = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" h
 <g stroke="#c8372d" stroke-width="3"><path d="M22 44h26"/><path d="M22 30h26"/></g>
 <path d="M22 58h26" stroke="#c3c9d1" stroke-width="3"/></svg>`;
 
+const V_BOLTZ = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<rect x="18" y="28" width="86" height="84" fill="#fafbfc" stroke="#c3c9d1"/>
+<g><circle cx="34" cy="46" r="5" fill="#1f4f8f"/><circle cx="62" cy="38" r="5" fill="#d9730d"/><circle cx="86" cy="58" r="5" fill="#1f4f8f"/>
+<circle cx="44" cy="74" r="5" fill="#c8372d"/><circle cx="74" cy="92" r="5" fill="#1f4f8f"/><circle cx="30" cy="98" r="5" fill="#d9730d"/></g>
+<path d="M120 112h66" stroke="#c3c9d1"/>
+<path d="M120 112q14 0 22 -46q8 -42 16 10q8 34 28 36" fill="none" stroke="#c8372d" stroke-width="3"/>
+<g fill="#1f4f8f"><rect x="124" y="92" width="7" height="20"/><rect x="136" y="60" width="7" height="52"/><rect x="148" y="48" width="7" height="64"/><rect x="160" y="74" width="7" height="38"/><rect x="172" y="98" width="7" height="14"/></g></svg>`;
+
 const ARTICLES = [
+  { titre: "La constante de Boltzmann, ou le taux de change entre les degrés et les joules",
+    url: "boltzmann.html", rubrique: "simulations",
+    date: "2026-09-29", duree: "15 min",
+    resume: "Ce qu'elle est vraiment, les huit domaines où elle apparaît, et comment on la mesure en écoutant un gaz. Quatre simulations : l'agitation, l'exponentielle, le comptage de l'entropie, la sphère acoustique.",
+    vignette: V_BOLTZ },
   { titre: "La théorie quantique des champs, en quatre images",
     url: "champs-quantiques.html", rubrique: "simulations",
     date: "2026-09-28", duree: "13 min",

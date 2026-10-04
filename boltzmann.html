@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<title>La constante de Boltzmann, masterclasse · Chamss Bachiri</title>
+<meta name="description" content="Ce qu'est vraiment la constante de Boltzmann, où elle apparaît de la chimie aux étoiles, comment on la mesure, et pourquoi sa valeur est fixée depuis 2019. Avec quatre simulations.">
+<meta property="og:title" content="La constante de Boltzmann, ou le taux de change entre les degrés et les joules">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+<style>
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{white-space:nowrap;font-variant-numeric:tabular-nums;color:#1f4f8f;font-weight:500}
+.tb sup{font-size:.7em}
+</style>
+</head>
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>La constante de Boltzmann, ou le taux de change entre les degrés et les joules</h1>
+      <p class="dek">Elle vaut 1,380 649 × 10⁻²³ joule par kelvin et elle ne décrit rien en elle-même. Elle traduit. Mais ce qu'elle traduit commande la chimie, les étoiles, les transistors, le bruit des amplificateurs, les moteurs de vos cellules et le sens du temps.</p>
+      <div class="meta"><span>29 septembre 2026</span><span>15 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Ce qu'elle est vraiment : un taux de change</h2>
+      <p>La température n'est pas une grandeur fondamentale. C'est une façon commode de parler de l'énergie d'agitation des particules, héritée d'une époque où personne ne savait que la matière était faite de grains. Nous avons inventé le degré avant de comprendre ce qu'il mesurait.</p>
+      <p>La constante de Boltzmann est le taux de change entre les deux unités. Elle dit combien vaut un kelvin en joules : <strong>1,380 649 × 10⁻²³ joule par kelvin</strong>. Si nous avions mesuré les températures en joules dès le départ, elle vaudrait 1 et elle aurait disparu de toutes les formules.</p>
+      <p>C'est pour cela qu'elle apparaît partout où la température rencontre la physique microscopique, et toujours sous la même forme : le produit <strong>kT</strong>, qui est une énergie. Retenez ce produit, le reste de l'article en découle.</p>
+      <p>Détail historique amusant : Ludwig Boltzmann n'a jamais écrit cette constante. C'est Max Planck qui l'a introduite en 1900, dans le même article que son autre constante, et qui lui a donné le nom de Boltzmann. La formule qui est gravée sur la tombe de Boltzmann, à Vienne, a été écrite par Planck.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Premier visage : l'agitation</h2>
+      <p>Dans un gaz, chaque particule possède en moyenne une énergie de mouvement égale à trois demis de kT, quelle que soit sa masse. Lourde ou légère, elle reçoit la même part. Les légères vont donc beaucoup plus vite.</p>
+      <p><strong>Changez la température, puis changez de gaz, et regardez l'énergie moyenne.</strong></p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="tS">Température</label><input type="range" id="tS" min="20" max="1200" value="300" style="width:260px"></span>
+      </div>
+      <div class="ctl"><div class="seg" id="gaz"></div></div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> Un gaz de quelques dizaines de molécules. L'histogramme se construit en direct à partir des vitesses réelles de la simulation ; la courbe est la loi de Maxwell et Boltzmann.</p>
+      <p>Cette simple égalité, trois demis de kT par particule, donne la pression d'un gaz, la vitesse du son, la diffusion des odeurs dans une pièce et la raison pour laquelle l'hydrogène s'échappe de l'atmosphère terrestre alors que l'azote reste.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Deuxième visage : l'exponentielle qui gouverne tout</h2>
+      <p>Voici la formule la plus rentable de toute la physique statistique. Si un état coûte une énergie E de plus qu'un autre, sa population est plus faible dans un rapport <strong>e<sup>−E/kT</sup></strong>. Rien d'autre. Et pourtant.</p>
+      <p>Comme kT vaut 26 millièmes d'électronvolt à température ambiante, une barrière de 1 électronvolt coûte un facteur e<sup>−39</sup>, soit à peu près une chance sur soixante millions de milliards. C'est la raison pour laquelle le sucre ne brûle pas tout seul dans votre tasse, pourquoi il faut une allumette, et pourquoi augmenter un peu la température accélère énormément une réaction.</p>
+      <p><strong>Jouez sur la température et sur la hauteur de la marche.</strong></p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="t2S">Température</label><input type="range" id="t2S" min="0" max="100" value="38" style="width:230px"></span>
+        <span class="grp"><label for="eS">Hauteur de la marche</label><input type="range" id="eS" min="0" max="100" value="30" style="width:230px"></span>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> À gauche, les populations des niveaux d'énergie. À droite, la même exponentielle appliquée à l'atmosphère : l'énergie à payer est alors celle de la pesanteur, et la hauteur caractéristique vaut kT divisé par le poids d'une molécule.</p>
+      <p>La même exponentielle, avec d'autres ingrédients, donne la vitesse des réactions chimiques, le nombre d'électrons libres dans un semi-conducteur, l'aimantation d'un matériau, la raideur d'un polymère, la proportion d'atomes excités dans une flamme, et le taux de fusion dans le cœur du Soleil, où elle entre en concurrence avec l'effet tunnel.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Troisième visage : le comptage, et le sens du temps</h2>
+      <p>Boltzmann a compris que l'entropie n'est pas une substance mais un décompte : le nombre de façons d'arranger les particules sans changer l'aspect d'ensemble. Sa formule relie les deux mondes, et c'est encore la constante k qui fait la conversion.</p>
+      <p class="eq">S = k ln W</p>
+      <p class="eqs">W est le nombre d'arrangements microscopiques compatibles avec ce qu'on observe.</p>
+      <p><strong>Ouvrez la cloison et regardez le compteur.</strong></p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button class="go" id="b3">Ouvrir la cloison</button>
+        <button id="b3r">Tout remettre à gauche</button>
+      </div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> Chaque configuration est aussi probable que n'importe quelle autre. Ce sont les configurations équilibrées qui sont écrasantes en nombre.</p>
+      <p>Rien n'interdit aux molécules de revenir toutes dans la moitié gauche. C'est seulement d'une improbabilité telle qu'on peut l'oublier. Avec soixante molécules seulement, en vérifiant une fois par seconde, il faudrait attendre en moyenne plus de trente milliards d'années. Avec le contenu d'une pièce, le nombre d'années s'écrit avec des milliards de milliards de chiffres.</p>
+      <p><strong>C'est de là que vient la flèche du temps.</strong> Les lois de la mécanique fonctionnent aussi bien à l'envers qu'à l'endroit ; ce qui ne fonctionne pas à l'envers, c'est le comptage. Et le pont entre le comptage et les grandeurs mesurables en joules par kelvin, c'est la constante de Boltzmann.</p>
+      <p>Un prolongement moderne : effacer un bit d'information dans un ordinateur coûte au minimum kT ln 2, soit trois milliardièmes de milliardième de milliardième de joule à température ambiante. Cette limite, énoncée par Rolf Landauer en 1961, a été vérifiée expérimentalement en 2012. L'information et la chaleur sont la même monnaie, et le taux de change est encore k.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>kT à température ambiante, et tous les domaines d'un coup</h2>
+      <p>Voici la valeur de kT à 300 kelvins, soit 27 degrés, exprimée dans les unités de chaque discipline. C'est le même nombre à chaque ligne.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Domaine</th><th>Ce que vaut kT</th><th>Ce que ça décide</th></tr>
+        <tr><td>Physique générale</td><td class="n">4,14 × 10<sup>−21</sup> J</td><td>l'énergie d'agitation typique d'une molécule</td></tr>
+        <tr><td>Physique atomique</td><td class="n">25,9 meV</td><td>minuscule face aux 1 à 10 eV des liaisons chimiques : la matière est stable</td></tr>
+        <tr><td>Électronique</td><td class="n">25,9 mV</td><td>la tension thermique, présente dans l'équation de toute diode et de tout transistor</td></tr>
+        <tr><td>Biologie moléculaire</td><td class="n">4,1 pN·nm</td><td>un moteur moléculaire travaille à quelques kT ; l'ATP en libère environ 20</td></tr>
+        <tr><td>Informatique</td><td class="n">2,87 × 10<sup>−21</sup> J</td><td>le coût minimal d'un effacement de bit, soit kT ln 2</td></tr>
+        <tr><td>Électronique du bruit</td><td class="n">4kTRΔf</td><td>le bruit de fond d'une résistance, inévitable, qui fixe la sensibilité des appareils</td></tr>
+        <tr><td>Astrophysique</td><td class="n">σ = 2π⁵k⁴/15h³c²</td><td>la constante de Stefan, donc la luminosité des étoiles</td></tr>
+        <tr><td>Météorologie</td><td class="n">kT/mg = 8,8 km</td><td>la hauteur sur laquelle la pression atmosphérique est divisée par e</td></tr>
+      </table>
+      </div>
+      <p>Un seul nombre, huit disciplines qui ne se parlent pas. C'est la marque d'une vraie constante fondamentale : elle n'appartient à personne.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>Comment on la mesure</h2>
+      <p>La méthode la plus précise consiste à écouter un gaz. Dans un gaz, la vitesse du son ne dépend que de la température, de la masse des molécules et de leur nature : elle vaut la racine carrée de γkT divisé par la masse d'une molécule. Mesurer cette vitesse à une température connue, c'est donc mesurer k.</p>
+      <p>En pratique, on enferme un gaz rare dans une sphère presque parfaite, on excite ses résonances acoustiques, et on mesure leurs fréquences. Une fréquence se mesure mieux que n'importe quelle autre grandeur physique, et le volume de la sphère se déduit de ses résonances électromagnétiques, mesurées dans la même cavité. <strong>Changez de gaz et de température : la vitesse du son change, le k qu'on en tire, non.</strong></p>
+      <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <div class="seg" id="gaz4"></div>
+        <span class="grp"><label for="t4S">Température</label><input type="range" id="t4S" min="200" max="400" value="273" style="width:230px"></span>
+      </div>
+      <div class="live" id="f4L"></div>
+      <p class="figcap"><b>Figure 4.</b> Thermométrie acoustique. Le Laboratoire national de métrologie et d'essais, à Paris, a obtenu par cette méthode une des meilleures mesures mondiales, avec une incertitude inférieure au millionième.</p>
+      <p>Trois autres familles de méthodes ont donné des résultats compatibles, ce qui était la condition pour conclure. La thermométrie à bruit Johnson mesure le grésillement électrique d'une résistance, qui vaut 4kTRΔf. La thermométrie diélectrique mesure comment un gaz modifie la capacité d'un condensateur. La thermométrie par élargissement Doppler mesure la largeur d'une raie d'absorption, qui vient de l'agitation des molécules.</p>
+      <p>Depuis le 20 mai 2019, tout cela est renversé. <strong>La valeur de k est gelée par définition</strong>, à 1,380 649 × 10⁻²³ joule par kelvin exactement, et c'est elle qui définit le kelvin. On ne mesure plus k : on mesure des températures avec les mêmes appareils, devenus des thermomètres primaires. L'ancienne définition reposait sur le point triple de l'eau, donc sur un échantillon d'eau, avec sa composition isotopique et ses impuretés. La nouvelle ne repose sur rien de matériel.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> la constante de Boltzmann ne décrit aucun phénomène. Elle convertit des degrés en joules, et permet ainsi à la thermodynamique du dix-neuvième siècle et à la physique des atomes de parler la même langue. Partout où vous voyez kT, lisez « l'énergie que l'agitation thermique peut offrir gratuitement », et partout où vous voyez e<sup>−E/kT</sup>, lisez « la chance que ça arrive quand même ».</p>
+    </section>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=3"></script>
+<script>
+
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+const KB=1.380649e-23, QE=1.602176634e-19, NA=6.02214076e23;
+function expo(x,d){ const e=Math.floor(Math.log10(Math.abs(x))); const m=x/Math.pow(10,e);
+  return fr(m,d||2)+" × 10<tspan dy=\"-8\" font-size=\"12\">"+String(e).replace("-","−")+"</tspan><tspan dy=\"8\"> </tspan>"; }
+function expoH(x,d){ const e=Math.floor(Math.log10(Math.abs(x))); const m=x/Math.pow(10,e);
+  return fr(m,d||2)+" × 10<sup>"+String(e).replace("-","−")+"</sup>"; }
+
+/* =========================================================
+   Figure 1 : l'agitation thermique
+   ========================================================= */
+const GAZ=[["Hydrogène",2.016],["Hélium",4.003],["Azote",28.013],["Dioxyde de carbone",44.01]];
+const B1={W:960,H:380,x0:60,x1:520,y0:90,y1:330,N:70,ech:0.085,vmax:4200};
+let b1={T:300,g:2,p:[],hist:new Float64Array(44),tot:0};
+function masse(){ return GAZ[b1.g][1]*1e-3/NA; }
+function tireVit(){ const s=Math.sqrt(KB*b1.T/masse());
+  const g=()=>{let u=0,v=0;while(u===0)u=Math.random();v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
+  return [s*g(),s*g(),s*g()]; }
+function initB1(){
+  b1.p=[]; b1.hist.fill(0); b1.tot=0;
+  for(let i=0;i<B1.N;i++){ const v=tireVit();
+    b1.p.push({x:B1.x0+10+Math.random()*(B1.x1-B1.x0-20),y:B1.y0+10+Math.random()*(B1.y1-B1.y0-20),vx:v[0],vy:v[1],vz:v[2]}); }
+}
+function pasB1(dt){
+  for(const q of b1.p){
+    q.x+=q.vx*B1.ech*dt; q.y+=q.vy*B1.ech*dt;
+    if(q.x<B1.x0+6){q.x=B1.x0+6;q.vx=Math.abs(q.vx);} if(q.x>B1.x1-6){q.x=B1.x1-6;q.vx=-Math.abs(q.vx);}
+    if(q.y<B1.y0+6){q.y=B1.y0+6;q.vy=Math.abs(q.vy);} if(q.y>B1.y1-6){q.y=B1.y1-6;q.vy=-Math.abs(q.vy);}
+  }
+  const q=b1.p[Math.floor(Math.random()*b1.p.length)], v=tireVit();
+  q.vx=v[0]; q.vy=v[1]; q.vz=v[2];
+  const sp=Math.hypot(v[0],v[1],v[2]), j=Math.floor(sp/B1.vmax*b1.hist.length);
+  if(j>=0&&j<b1.hist.length){ b1.hist[j]++; b1.tot++; }
+}
+function drawB1(){
+  const {W,H,x0,x1,y0,y1,vmax}=B1, m=masse(), vrms=Math.sqrt(3*KB*b1.T/m), E=1.5*KB*b1.T;
+  let s=`<rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" fill="#fafbfc" stroke="#c3c9d1"/>`;
+  for(const q of b1.p){ const sp=Math.hypot(q.vx,q.vy,q.vz)/vmax;
+    s+=`<circle cx="${q.x.toFixed(1)}" cy="${q.y.toFixed(1)}" r="5" fill="${sp>1.3?RED:(sp>0.8?OR:ACC)}" opacity=".9"/>`; }
+  // histogramme
+  const hx0=580,hx1=930,hy0=110,hy1=300;
+  s+=`<path d="M${hx0} ${hy1}H${hx1}M${hx0} ${hy1}V${hy0}" fill="none" stroke="${INK}"/>`;
+  let mxh=1e-9; for(let i=0;i<b1.hist.length;i++) mxh=Math.max(mxh,b1.hist[i]);
+  const bw=(hx1-hx0)/b1.hist.length;
+  for(let i=0;i<b1.hist.length;i++){ const h=b1.hist[i]/mxh*(hy1-hy0);
+    if(h>0.5) s+=`<rect x="${(hx0+i*bw).toFixed(1)}" y="${(hy1-h).toFixed(1)}" width="${(bw*0.86).toFixed(1)}" height="${h.toFixed(1)}" fill="${ACC}" opacity=".45"/>`; }
+  let d="",mxf=0; const f=v=>v*v*Math.exp(-m*v*v/(2*KB*b1.T));
+  for(let i=0;i<=120;i++) mxf=Math.max(mxf,f(i/120*vmax));
+  for(let i=0;i<=120;i++){ const v=i/120*vmax;
+    d+=(i?"L":"M")+(hx0+v/vmax*(hx1-hx0)).toFixed(1)+" "+(hy1-f(v)/mxf*(hy1-hy0)*0.94).toFixed(1); }
+  s+=`<path d="${d}" fill="none" stroke="${RED}" stroke-width="2.6"/>`;
+  for(let v=0;v<=4000;v+=1000) s+=tx(hx0+v/vmax*(hx1-hx0),hy1+22,v,{size:13,fill:MUT,anchor:"middle"});
+  s+=tx(hx1,hy1+44,"vitesse, en mètres par seconde",{size:13,fill:MUT,anchor:"end"});
+  s+=tx(hx0,hy0-16,"répartition des vitesses",{size:16,w:600});
+  if(vrms<vmax) s+=`<path d="M${(hx0+vrms/vmax*(hx1-hx0)).toFixed(1)} ${hy0}V${hy1}" stroke="${INK}" stroke-dasharray="4 4"/>`;
+  // lecture
+  s+=tx(x0,52,GAZ[b1.g][0]+" à "+Math.round(b1.T)+" kelvins",{size:20,w:600});
+  s+=tx(x0,y1+34,"vitesse quadratique moyenne",{size:15,fill:MUT});
+  s+=tx(x0,y1+62,milliers(vrms)+" m/s, soit "+milliers(vrms*3.6)+" km/h",{size:22,w:600,fill:RED});
+  s+=tx(x0+300,y1+34,"énergie moyenne par molécule",{size:15,fill:MUT});
+  s+=tx(x0+300,y1+62,fr(E/QE*1000,1)+" meV",{size:22,w:600,fill:ACC});
+  s+=tx(x0+300,y1+84,"la même pour tous les gaz",{size:14,fill:ACC});
+  put("f1",W,H,s);
+  $("f1L").innerHTML="À "+Math.round(b1.T)+" kelvins, chaque molécule emporte en moyenne <b>trois demis de kT</b>, soit "
+    +fr(E/QE*1000,1)+" meV. Changez de gaz : cette énergie ne bouge pas, mais la vitesse, si. "
+    +(b1.g<=1?"Ce gaz est si léger qu'à cette température ses molécules dépassent souvent la vitesse de libération des hautes couches de l'atmosphère, et c'est pour cela que la Terre n'a plus d'hydrogène libre."
+      :"La courbe rouge est la loi de Maxwell et Boltzmann, tracée sans aucun ajustement : l'histogramme de la simulation vient s'y coller tout seul.");
+}
+$("tS").oninput=e=>{ b1.T=+e.target.value; b1.hist.fill(0); b1.tot=0; for(const q of b1.p){const v=tireVit();q.vx=v[0];q.vy=v[1];q.vz=v[2];} drawB1(); };
+$("gaz").innerHTML=GAZ.map((g,i)=>`<button data-i="${i}"${i===2?' class="go"':''}>${g[0]}</button>`).join("");
+$("gaz").querySelectorAll("button").forEach(b=>b.onclick=()=>{ b1.g=+b.dataset.i;
+  $("gaz").querySelectorAll("button").forEach(x=>x.className=""); b.className="go";
+  b1.hist.fill(0); b1.tot=0; for(const q of b1.p){const v=tireVit();q.vx=v[0];q.vy=v[1];q.vz=v[2];} drawB1(); });
+
+/* =========================================================
+   Figure 2 : le facteur de Boltzmann
+   ========================================================= */
+let b2={T:300,E:0.1};
+function drawB2(){
+  const W=960,H=400, kT=KB*b2.T/QE, r=Math.exp(-b2.E/kT);
+  const x0=70,ybas=320,dy=46;
+  let s=tx(x0,46,"Populations des niveaux",{size:19,w:600});
+  for(let n=0;n<=5;n++){
+    const y=ybas-n*dy, p=Math.pow(r,n), L=Math.max(0.6,p*260);
+    s+=`<path d="M${x0} ${y}H${x0+270}" stroke="#e2e0da"/>`;
+    s+=`<rect x="${x0}" y="${y-13}" width="${L.toFixed(1)}" height="13" fill="${ACC}" opacity="${(0.35+0.6*Math.min(1,p)).toFixed(2)}"/>`;
+    s+=tx(x0+282,y-2,n===0?"état de base":(p>1e-4?fr(p*100,p*100<1?3:1)+" %":"1 sur "+expoH(1/p,1)),{size:14,fill:p>1e-4?INK:MUT});
+  }
+  s+=tx(x0,ybas+34,"chaque marche coûte "+(b2.E>=1?fr(b2.E,2)+" eV":fr(b2.E*1000,0)+" meV"),{size:16,fill:MUT});
+  s+=tx(x0,ybas+58,"kT vaut "+fr(kT*1000,1)+" meV à "+Math.round(b2.T)+" kelvins",{size:16,fill:MUT});
+  s+=tx(x0,ybas+86,"rapport entre deux marches : "+(r>1e-4?fr(r,4):"1 sur "+expoH(1/r,1)),{size:19,w:600,fill:RED});
+  // atmosphère
+  const ax=640,aw=170,ah=270,ay0=70, mAir=28.96e-3/NA, Hc=KB*b2.T/(mAir*9.81);
+  s+=tx(ax,46,"La même loi, dans l'air",{size:19,w:600});
+  for(let i=0;i<34;i++){ const h=i/34*40000, y=ay0+ah-(h/40000)*ah;
+    const dens=Math.exp(-h/Hc);
+    s+=`<rect x="${ax}" y="${(y-ah/34).toFixed(1)}" width="${aw}" height="${(ah/34+1).toFixed(1)}" fill="${ACC}" opacity="${(0.06+0.6*dens).toFixed(3)}"/>`; }
+  s+=`<rect x="${ax}" y="${ay0}" width="${aw}" height="${ah}" fill="none" stroke="#c3c9d1"/>`;
+  const yH=ay0+ah-(Math.min(Hc,40000)/40000)*ah;
+  s+=`<path d="M${ax-10} ${yH.toFixed(1)}H${ax+aw+10}" stroke="${RED}" stroke-width="2" stroke-dasharray="5 4"/>`;
+  s+=tx(ax+aw+16,yH+5,"kT/mg = "+fr(Hc/1000,1)+" km",{size:15,fill:RED,w:600});
+  s+=tx(ax,ay0+ah+24,"sol",{size:14,fill:MUT});
+  s+=tx(ax+aw+10,ay0+6,"40 km",{size:14,fill:MUT});
+  s+=tx(ax,ay0+ah+48,"la pression est divisée par e",{size:14,fill:MUT});
+  s+=tx(ax,ay0+ah+68,"à chaque fois qu'on monte de cette hauteur",{size:14,fill:MUT});
+  put("f2",W,H,s);
+  const nb=1/r;
+  $("f2L").innerHTML="kT vaut <b>"+fr(kT*1000,1)+" meV</b>, la marche coûte "+(b2.E>=1?fr(b2.E,2)+" eV":fr(b2.E*1000,0)+" meV")+". "
+    +(r>0.3?"La marche est petite devant l'agitation thermique : les niveaux du haut sont presque aussi peuplés que celui du bas. C'est la situation des rotations d'une molécule, ou d'un spin dans un champ faible."
+      :r>1e-6?"Il faut à peu près "+expoH(nb,1)+" tentatives pour qu'une molécule franchisse la marche. C'est le régime des réactions chimiques : chauffer un peu change tout, parce que l'exponentielle s'affole."
+      :"Franchir la marche demande "+expoH(nb,1)+" tentatives. Autant dire jamais. C'est pour cela que votre table ne s'enflamme pas spontanément, et que les liaisons chimiques tiennent.");
+}
+$("t2S").oninput=e=>{ b2.T=20*Math.pow(10,+e.target.value/100*2); drawB2(); };
+$("eS").oninput=e=>{ b2.E=0.004*Math.pow(10,+e.target.value/100*2.7); drawB2(); };
+
+/* =========================================================
+   Figure 3 : S = k ln W
+   ========================================================= */
+const B3={W:960,H:400,x0:60,x1:540,y0:90,y1:330,N:60};
+let b3={p:[],ouvert:false,t:0};
+const LF=[0]; for(let i=1;i<=200;i++) LF.push(LF[i-1]+Math.log(i));
+function lnC(n,k){ return LF[n]-LF[k]-LF[n-k]; }
+function initB3(){
+  b3.p=[]; b3.ouvert=false;
+  const mil=(B3.x0+B3.x1)/2;
+  for(let i=0;i<B3.N;i++) b3.p.push({x:B3.x0+10+Math.random()*(mil-B3.x0-20),y:B3.y0+10+Math.random()*(B3.y1-B3.y0-20),
+    vx:(Math.random()-0.5)*120,vy:(Math.random()-0.5)*120});
+}
+function pasB3(dt){
+  const mil=(B3.x0+B3.x1)/2;
+  for(const q of b3.p){
+    q.x+=q.vx*dt; q.y+=q.vy*dt;
+    if(q.x<B3.x0+5){q.x=B3.x0+5;q.vx=Math.abs(q.vx);}
+    if(q.x>B3.x1-5){q.x=B3.x1-5;q.vx=-Math.abs(q.vx);}
+    if(q.y<B3.y0+5){q.y=B3.y0+5;q.vy=Math.abs(q.vy);}
+    if(q.y>B3.y1-5){q.y=B3.y1-5;q.vy=-Math.abs(q.vy);}
+    if(!b3.ouvert && q.x>mil-5){ q.x=mil-5; q.vx=-Math.abs(q.vx); }
+  }
+}
+function drawB3(){
+  const {W,H,x0,x1,y0,y1,N}=B3, mil=(x0+x1)/2;
+  let s=`<rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" fill="#fafbfc" stroke="#c3c9d1"/>`;
+  if(!b3.ouvert) s+=`<path d="M${mil} ${y0}V${y1}" stroke="#5d6672" stroke-width="5"/>`;
+  else s+=`<path d="M${mil} ${y0}v18M${mil} ${y1}v-18" stroke="#5d6672" stroke-width="5"/>`;
+  let g=0;
+  for(const q of b3.p){ if(q.x<mil) g++;
+    s+=`<circle cx="${q.x.toFixed(1)}" cy="${q.y.toFixed(1)}" r="5" fill="${q.x<mil?ACC:OR}"/>`; }
+  const lw=lnC(N,g), S=KB*lw;
+  s+=tx(x0,y1+34,"à gauche : "+g+"   à droite : "+(N-g),{size:17,w:600});
+  const log10W=lw/Math.LN10;
+  s+=tx(x0,y1+62,"nombre d'arrangements : "+(log10W<1?Math.round(Math.exp(lw)):"10 puissance "+fr(log10W,1)),{size:17,fill:ACC,w:600});
+  s+=tx(x0,y1+88,"entropie S = k ln W = "+expoH(S,2)+" J/K",{size:17,fill:RED,w:600});
+  // distribution
+  const gx0=620,gx1=930,gy0=110,gy1=300;
+  s+=tx(gx0,gy0-18,"arrangements selon la répartition",{size:16,w:600});
+  let mx=lnC(N,N/2);
+  for(let k=0;k<=N;k++){ const h=Math.exp(lnC(N,k)-mx)*(gy1-gy0);
+    const x=gx0+k/N*(gx1-gx0);
+    s+=`<rect x="${x.toFixed(1)}" y="${(gy1-h).toFixed(1)}" width="${((gx1-gx0)/N*0.9).toFixed(1)}" height="${h.toFixed(1)}" fill="${k===g?RED:ACC}" opacity="${k===g?1:0.35}"/>`; }
+  s+=`<path d="M${gx0} ${gy1}H${gx1}" stroke="${INK}"/>`;
+  s+=tx(gx0,gy1+22,"tout à gauche",{size:13,fill:MUT});
+  s+=tx(gx1,gy1+22,"tout à droite",{size:13,fill:MUT,anchor:"end"});
+  s+=tx((gx0+gx1)/2,gy1+44,"moitié-moitié",{size:13,fill:MUT,anchor:"middle"});
+  put("f3",W,H,s);
+  const L=$("f3L");
+  if(!b3.ouvert) L.innerHTML="Les "+N+" molécules sont enfermées à gauche. Cet état précis est <b>aussi probable que n'importe quel autre arrangement</b> pris individuellement. Son problème est d'être seul de son espèce : il n'existe qu'une seule façon de mettre tout le monde à gauche.";
+  else L.innerHTML="Réparties : "+g+" à gauche, "+(N-g)+" à droite. Il existe <b>10 puissance "+fr(log10W,1)+"</b> arrangements qui donnent ce décompte, contre un seul pour « tout à gauche ». Le système ne cherche pas le désordre : il tombe simplement dans la catégorie la plus nombreuse. L'entropie, c'est le logarithme de ce nombre, converti en joules par kelvin par la constante k.";
+}
+$("b3").onclick=()=>{ b3.ouvert=true; };
+$("b3r").onclick=()=>{ initB3(); };
+
+/* =========================================================
+   Figure 4 : thermométrie acoustique
+   ========================================================= */
+const GAZ4=[["Argon",39.948,5/3],["Hélium",4.0026,5/3],["Azote",28.013,7/5]];
+let b4={g:0,T:273.16,t:0};
+function drawB4(){
+  const W=960,H=380, [nom,M,gam]=GAZ4[b4.g], m=M*1e-3/NA;
+  const c=Math.sqrt(gam*KB*b4.T/m), R=0.05, f=c*4.4934/(2*Math.PI*R);
+  const k=m*c*c/(gam*b4.T);
+  const cx=230,cy=200,rr=120;
+  let s=`<circle cx="${cx}" cy="${cy}" r="${rr}" fill="#fafbfc" stroke="#9aa4b0" stroke-width="3"/>`;
+  for(let i=1;i<=4;i++){ const ph=Math.sin(b4.t*3.1-i*0.9);
+    s+=`<circle cx="${cx}" cy="${cy}" r="${(i*rr/4.4+6*ph).toFixed(1)}" fill="none" stroke="${ACC}" stroke-width="2" opacity="${(0.25+0.2*i/4+0.3*Math.abs(ph)).toFixed(2)}"/>`; }
+  s+=`<circle cx="${cx}" cy="${cy}" r="6" fill="${ACC}"/>`;
+  s+=tx(cx,cy+rr+34,"sphère de 10 cm, remplie de "+nom.toLowerCase(),{size:15,fill:MUT,anchor:"middle"});
+  s+=tx(cx,cy-rr-18,"résonance acoustique",{size:16,anchor:"middle",w:600});
+  const bo=(x,y,t1,t2,col)=>`<rect x="${x}" y="${y}" width="230" height="74" rx="4" fill="#fff" stroke="${col||"#e2e0da"}"/>`
+    +tx(x+16,y+30,t1,{size:15,fill:MUT})+tx(x+16,y+60,t2,{size:22,w:600,fill:col||INK});
+  s+=bo(430,70,"fréquence mesurée",fr(f/1000,3)+" kHz");
+  s+=arrow(545,148,545,176,MUT,2);
+  s+=bo(430,182,"vitesse du son qu'on en déduit",fr(c,1)+" m/s");
+  s+=arrow(545,260,545,288,MUT,2);
+  s+=bo(430,294,"constante qu'on en tire",expoH(k,6)+" J/K",RED).replace("J/K</text>","J/K</text>");
+  s+=tx(700,120,"k = m c² / (γ T)",{size:20,w:600});
+  s+=tx(700,152,"m : masse d'une molécule",{size:14,fill:MUT});
+  s+=tx(700,174,"γ : 5/3 pour un gaz monoatomique",{size:14,fill:MUT});
+  s+=tx(700,196,"T : température mesurée",{size:14,fill:MUT});
+  s+=tx(700,240,"Température : "+fr(b4.T,2)+" K",{size:18,w:600});
+  s+=tx(700,268,"soit "+fr(b4.T-273.15,1)+" °C",{size:15,fill:MUT});
+  put("f4",W,H,s);
+  $("f4L").innerHTML="Avec de l'"+nom.toLowerCase()+" à "+fr(b4.T,1)+" kelvins, le son va à <b>"+fr(c,1)+" m/s</b> et la sphère résonne à "+fr(f/1000,2)+" kHz. "
+   +"Changez le gaz ou la température : ces deux nombres bougent beaucoup, et la constante qu'on en tire reste <b>"+expoH(k,4)+" J/K</b>. "
+   +"C'est précisément ce qui fait d'elle une constante.";
+}
+$("gaz4").innerHTML=GAZ4.map((g,i)=>`<button data-i="${i}"${i===0?' class="go"':''}>${g[0]}</button>`).join("");
+$("gaz4").querySelectorAll("button").forEach(b=>b.onclick=()=>{ b4.g=+b.dataset.i;
+  $("gaz4").querySelectorAll("button").forEach(x=>x.className=""); b.className="go"; drawB4(); });
+$("t4S").oninput=e=>{ b4.T=+e.target.value; drawB4(); };
+
+/* ---------------- boucle ---------------- */
+initB1(); initB3(); drawB1(); drawB2(); drawB3(); drawB4();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  pasB1(dt); drawB1();
+  pasB3(dt); drawB3();
+  b4.t+=dt; drawB4();
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+</script>
+</body>
+</html>
