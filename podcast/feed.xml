@@ -5,11 +5,29 @@
   <link>https://bachirichamss.github.io/podcast.html</link>
   <description>Une chronique courte sur l'actualité de la physique et sur des travaux de recherche, écrite et lue avec l'aide de l'intelligence artificielle, relue par Chamss Bachiri.</description>
   <language>fr</language>
-  <lastBuildDate>Mon, 28 Sep 2026 20:55:52 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 05 Oct 2026 13:56:00 +0000</lastBuildDate>
   <itunes:author>Chamss Bachiri</itunes:author>
   <itunes:image href="https://bachirichamss.github.io/podcast/cover.jpg"/>
   <itunes:category text="Science"><itunes:category text="Physics"/></itunes:category>
   <itunes:explicit>false</itunes:explicit>
+  <item>
+   <title>Des cornichons lumineux au destin de l'univers</title>
+   <description>Une exploration des mystères de la physique, des particules fractionnaires aux nouvelles archives d'Isaac Newton, en passant par la stabilité du vide.
+
+Sources :
+- Probing False Vacuum Decay on a Cold-Atom Gauge-Theory Quantum Simulator : http://link.aps.org/doi/10.1103/vhnm-j9bw
+- Possible Solution to the Gallium Anomaly Moving beyond the Leptonic Wave-Function Factorization : http://link.aps.org/doi/10.1103/5pvf-mcr1
+- Observation of e/4 Charge at ν=1/2 in a Wide GaAs Quantum Well : http://link.aps.org/doi/10.1103/c73x-q4z7
+- Why do pickles glow? Researcher investigates explosive answer : https://phys.org/news/2026-10-pickles-explosive.html
+- https://phys.org/news/2026-09-laser-muons-images-dense.html : https://phys.org/news/2026-09-laser-muons-images-dense.html
+- Revisiting a Young Isaac Newton : https://phys.org/news/2026-09-revisiting-young-isaac-newton.html</description>
+   <link>https://bachirichamss.github.io/podcast.html#2026-10-05-des-cornichons-lumineux-au-destin-de-l-univers</link>
+   <guid isPermaLink="false">2026-10-05-des-cornichons-lumineux-au-destin-de-l-univers</guid>
+   <pubDate>Mon, 05 Oct 2026 08:00:00 +0000</pubDate>
+   <enclosure url="https://bachirichamss.github.io/podcast/episodes/2026-10-05-des-cornichons-lumineux-au-destin-de-l-univers.mp3" length="1763136" type="audio/mpeg"/>
+   <itunes:duration>294</itunes:duration>
+   <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
    <title>Des tourbillons d'eau aux secrets des trous noirs</title>
    <description>De la turbulence quantique à la physique des trous noirs, explorons les découvertes récentes qui repoussent nos limites de compréhension.
