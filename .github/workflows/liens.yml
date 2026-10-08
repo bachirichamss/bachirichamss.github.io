@@ -1,0 +1,185 @@
+name: Liens internes et sitemap
+
+# Reconstruit tout seul, a chaque envoi de fichier :
+#  - la liste « Les autres articles » en bas de chaque article
+#  - la liste de secours de l'accueil et celle de rubrique.html
+#  - la liste des articles sur la page du podcast
+#  - les balises canonical manquantes
+#  - sitemap.xml
+# Il n'y a donc jamais besoin de renvoyer les anciens articles a la main.
+
+on:
+  push:
+    paths:
+      - "site.js"
+      - "*.html"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: liens-internes
+
+jobs:
+  liens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reconstruire les listes et le sitemap
+        run: |
+          python3 - <<'PYTHON'
+          # Reconstruit, a partir de site.js : les listes de liens internes de chaque page,
+          # la liste de secours de l'accueil, celle de rubrique.html, les balises canonical
+          # et le sitemap. Lance par GitHub Actions a chaque envoi de fichier.
+
+          import re, glob, os, hashlib
+          from datetime import datetime, timezone
+
+          SITE = "https://bachirichamss.github.io/"
+          LAB = {"simulations": "Simulation", "recherche": "Recherche", "projets": "Projet",
+                 "recreations": "Recreation", "podcast": "Podcast"}
+          LAB["recreations"] = "Récréation"
+
+          src = open("site.js", encoding="utf-8").read()
+
+          # ---- lecture de la liste ARTICLES ------------------------------------------
+          arts, vus = [], set()
+          for m in re.finditer(r'url:\s*"([^"]+\.html)"', src):
+              url = m.group(1)
+              if url in vus:
+                  continue
+              avant = src[:m.start()]
+              t = re.findall(r'titre:\s*"((?:\\.|[^"\\])*)"', avant)
+              apres = src[m.end():m.end() + 600]
+              r = re.search(r'rubrique:\s*"([^"]+)"', apres)
+              d = re.search(r'date:\s*"(\d{4}-\d{2}-\d{2})"', apres)
+              if not (t and r and d):
+                  continue
+              vus.add(url)
+              arts.append({"url": url, "titre": t[-1].replace('\\"', '"').replace("\\'", "'"),
+                           "rubrique": r.group(1), "date": d.group(1)})
+
+          if len(arts) < 2:
+              raise SystemExit("site.js : liste ARTICLES illisible, rien n'a ete touche.")
+
+          print("%d articles lus dans site.js" % len(arts))
+
+
+          def lis(sauf, indent, avec_rubrique=True):
+              out = []
+              for a in arts:
+                  if a["url"] == sauf:
+                      continue
+                  s = '%s<li><a href="%s">%s</a>' % (indent, a["url"], a["titre"])
+                  if avec_rubrique:
+                      s += "<span>%s</span>" % LAB.get(a["rubrique"], "")
+                  out.append(s + "</li>")
+              return "\n".join(out)
+
+
+          def creux(bloc, defaut="      "):
+              m = re.search(r'^([ \t]*)<li', bloc, re.M)
+              return m.group(1) if m else defaut
+
+
+          NAVPOD = ('  <nav class="suite" aria-label="Les articles">\n'
+                    '    <h2>Les articles du site</h2>\n'
+                    '    <ul>\n%s\n'
+                    '    </ul>\n'
+                    '  </nav>\n')
+
+          NAV = ('    <nav class="suite" aria-label="Autres articles">\n'
+                 '      <h2>Les autres articles</h2>\n'
+                 '      <ul>\n%s\n'
+                 '      </ul>\n'
+                 '      <p class="tout"><a href="index.html">Tout le site</a> · '
+                 '<a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>\n'
+                 '    </nav>\n')
+
+          RX_UL = re.compile(r'(<nav class="suite"[^>]*>.*?<ul>\n?)(.*?)(\s*</ul>)', re.S)
+          RX_SECOURS = re.compile(r'(<ul class="secours">\n?)(.*?)(\s*</ul>)', re.S)
+          RX_CANON = re.compile(r'<link rel="canonical"')
+          RX_CSS = re.compile(r'(<link rel="stylesheet" href="style\.css[^"]*">)')
+
+          # empreinte des deux fichiers communs : sert a forcer les navigateurs
+          # a recharger la feuille de style et le script quand ils changent
+          emp = {}
+          for nom in ("style.css", "site.js"):
+              if os.path.exists(nom):
+                  emp[nom] = hashlib.md5(open(nom, "rb").read()).hexdigest()[:8]
+
+          urls = {a["url"] for a in arts}
+          modifies = []
+
+          for f in sorted(glob.glob("*.html")):
+              s = open(f, encoding="utf-8").read()
+              o = s
+
+              # 1. liste des autres articles
+              if f == "index.html":
+                  def remplir_accueil(m):
+                      ind = creux(m.group(2), "        ")
+                      extra = '%s<li><a href="podcast.html">La chronique de physique, le podcast</a></li>' % ind
+                      return m.group(1) + lis(None, ind, avec_rubrique=False) + "\n" + extra + m.group(3)
+                  s = RX_SECOURS.sub(remplir_accueil, s, count=1)
+              elif f == "rubrique.html":
+                  s = RX_UL.sub(lambda m: m.group(1) + lis(None, creux(m.group(2))) + m.group(3), s, count=1)
+              elif RX_UL.search(s):
+                  s = RX_UL.sub(lambda m: m.group(1) + lis(f, creux(m.group(2))) + m.group(3), s, count=1)
+              elif f == "podcast.html":
+                  m = re.search(r'[ \t]*</main>', s)
+                  if m:
+                      s = s[:m.start()] + (NAVPOD % lis(None, "    ")) + "\n" + s[m.start():]
+              elif f in urls:
+                  m = re.search(r'[ \t]*<hr class="end-rule">', s)
+                  if m:
+                      s = s[:m.start()] + (NAV % lis(f, "      ")) + "\n" + s[m.start():]
+
+              # 2. balise canonical
+              if f in urls or f in ("index.html", "podcast.html", "a-propos.html"):
+                  if not RX_CANON.search(s) and RX_CSS.search(s):
+                      cible = SITE if f == "index.html" else SITE + f
+                      s = RX_CSS.sub(lambda m: m.group(1) + '\n<link rel="canonical" href="%s">' % cible, s, count=1)
+
+              # 3. version de style.css et site.js dans les balises
+              for nom, h in emp.items():
+                  s = re.sub(r'(href|src)="%s(?:\?v=[^"]*)?"' % re.escape(nom),
+                             lambda m, h=h, nom=nom: '%s="%s?v=%s"' % (m.group(1), nom, h), s)
+
+              if s != o:
+                  open(f, "w", encoding="utf-8").write(s)
+                  modifies.append(f)
+
+          print("pages reecrites :", ", ".join(modifies) if modifies else "aucune")
+
+          # ---- sitemap ---------------------------------------------------------------
+          auj = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+          pages = [("", auj), ("a-propos.html", auj), ("podcast.html", auj)] + \
+                  [(a["url"], a["date"]) for a in arts]
+          x = ['<?xml version="1.0" encoding="UTF-8"?>',
+               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+          for p, d in pages:
+              x.append("  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>" % (SITE, p, d))
+          x.append("</urlset>")
+          neuf = "\n".join(x) + "\n"
+          if not os.path.exists("sitemap.xml") or open("sitemap.xml", encoding="utf-8").read() != neuf:
+              open("sitemap.xml", "w", encoding="utf-8").write(neuf)
+              print("sitemap.xml : %d adresses" % len(pages))
+          else:
+              print("sitemap.xml : inchange")
+
+          PYTHON
+
+      - name: Publier s'il y a du changement
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Rien n'a change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Liens internes et sitemap mis a jour automatiquement"
+          git push
