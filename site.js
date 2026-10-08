@@ -138,7 +138,50 @@ const V_BOLTZ = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200"
 <path d="M120 112q14 0 22 -46q8 -42 16 10q8 34 28 36" fill="none" stroke="#c8372d" stroke-width="3"/>
 <g fill="#1f4f8f"><rect x="124" y="92" width="7" height="20"/><rect x="136" y="60" width="7" height="52"/><rect x="148" y="48" width="7" height="64"/><rect x="160" y="74" width="7" height="38"/><rect x="172" y="98" width="7" height="14"/></g></svg>`;
 
+const V_NOBEL = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<path d="M12 26H188" stroke="#9aa4b0" stroke-width="1.6"/>
+<rect x="18" y="34" width="164" height="92" fill="#f4f8fb" stroke="#c3c9d1"/>
+<g stroke="#c3c9d1" stroke-width="1.1"><path d="M34 30v94M58 30v94M82 30v94M106 30v94M130 30v94M154 30v94"/></g>
+<g fill="#c3c9d1"><circle cx="34" cy="108" r="2"/><circle cx="58" cy="118" r="2"/><circle cx="82" cy="46" r="2"/><circle cx="106" cy="118" r="2"/><circle cx="130" cy="50" r="2"/><circle cx="154" cy="60" r="2"/><circle cx="34" cy="80" r="2"/><circle cx="154" cy="84" r="2"/></g>
+<path d="M26 38L178 118" stroke="#1b1f24" stroke-width="2"/>
+<path d="M26 38L96 128" stroke="#1f4f8f" stroke-width="1" stroke-dasharray="4 4"/>
+<path d="M26 38L132 30" stroke="#1f4f8f" stroke-width="1" stroke-dasharray="4 4"/>
+<circle cx="34" cy="44" r="6.5" fill="#c8372d" opacity=".9"/>
+<circle cx="58" cy="57" r="7" fill="#d9730d" opacity=".9"/>
+<circle cx="82" cy="70" r="6.5" fill="#e3a21a" opacity=".9"/>
+<circle cx="106" cy="83" r="5.5" fill="#2f8a5f" opacity=".9"/>
+<circle cx="130" cy="96" r="4.5" fill="#2c72c7" opacity=".9"/>
+<circle cx="154" cy="108" r="3.6" fill="#2c72c7" opacity=".9"/></svg>`;
+
+const V_EVASION = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<path d="M8 96H192" stroke="#9aa4b0" stroke-dasharray="3 5"/>
+<path d="M10 96C24 80 38 72 56 71C78 70 96 82 112 96Z" fill="#eceae4" stroke="#9aa4b0" stroke-width="1.2"/>
+<rect x="44" y="57" width="26" height="15" fill="#fbfbf9" stroke="#1b1f24" stroke-width="1.4"/>
+<path d="M51 60v9M57 60v9M63 60v9" stroke="#1b1f24"/>
+<path d="M116 94Q140 82 164 92" fill="none" stroke="#1f4f8f" stroke-width="1.8" stroke-dasharray="6 5"/>
+<path d="M152 94H188" stroke="#1b1f24" stroke-width="1.8"/>
+<circle cx="158" cy="99" r="3.6" fill="#fbfbf9" stroke="#1b1f24" stroke-width="1.2"/>
+<circle cx="170" cy="99" r="3.6" fill="#fbfbf9" stroke="#1b1f24" stroke-width="1.2"/>
+<circle cx="182" cy="99" r="3.6" fill="#fbfbf9" stroke="#1b1f24" stroke-width="1.2"/>
+<path d="M170 94V68" stroke="#1b1f24" stroke-width="1.8"/>
+<path d="M172 69V91H189Z" fill="none" stroke="#1f4f8f" stroke-width="1.8"/>
+<path d="M172 24v14M165 31h14M167 26l10 10M177 26l-10 10" stroke="#1f4f8f" stroke-width="1.2"/></svg>`;
+
+/* Suites : « La suite : … » ajoutée en bas d'un texte qui en a une.
+   Clé = la page, valeur = la page qui la continue. */
+const SUITES = { "ricochets.html": "evasion.html" };
+
 const ARTICLES = [
+  { titre: "Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace",
+    url: "nobel-2026.html", rubrique: "simulations",
+    date: "2026-10-07", duree: "12 min",
+    resume: "Pourquoi le prix est allé à Francis Halzen et à l'observatoire IceCube. Quatre simulations : la course des trois messagers, le détecteur enfoui sous le pôle Sud, le tri des neutrinos par l'énergie, et la carte du ciel en neutrinos.",
+    vignette: V_NOBEL },
+  { titre: "L'homme qui s'évada par principe",
+    url: "evasion.html", rubrique: "recreations",
+    date: "2026-10-07", duree: "12 min",
+    resume: "Suite de L'homme qui ricochait. Incarcéré par erreur sur une île, un physicien sort avec un pendule, un puits, une résonance, une vitre, un conduit d'aération et huit bidons vides. Sept chapitres, et le vrai du faux à chaque fois.",
+    vignette: V_EVASION },
   { titre: "La constante de Boltzmann, ou le taux de change entre les degrés et les joules",
     url: "boltzmann.html", rubrique: "simulations",
     date: "2026-09-29", duree: "15 min",
@@ -321,6 +364,35 @@ const ARTICLES = [
     };
     addEventListener("scroll", up, { passive: true }); addEventListener("resize", up); up();
   }
+
+  /* Maillage interne. Chaque page porte une liste statique « Les autres articles »
+     figée au jour de sa mise en ligne. On la complète ici avec les articles publiés
+     depuis, ce qui évite de devoir renvoyer toutes les anciennes pages
+     chaque fois qu'un article s'ajoute. */
+  (function completerSuite() {
+    const ul = document.querySelector("nav.suite ul");
+    if (!ul) return;
+    const deja = new Set(Array.from(ul.querySelectorAll("a")).map(a => a.getAttribute("href")));
+    const court = { simulations: "Simulation", recherche: "Recherche", projets: "Projet",
+                    recreations: "Récréation", podcast: "Podcast" };
+    const manque = ARTICLES.filter(a => a.url !== here && !deja.has(a.url));
+    if (!manque.length) return;
+    ul.insertAdjacentHTML("afterbegin", manque.map(a =>
+      `<li><a href="${a.url}">${a.titre}</a><span>${court[a.rubrique] || ""}</span></li>`).join(""));
+  })();
+
+  /* « La suite » en bas des textes qui en ont une (table SUITES) */
+  (function suiteDuTexte() {
+    const cible = SUITES[here];
+    if (!cible) return;
+    const a = ARTICLES.find(x => x.url === cible);
+    const hote = document.querySelector(".prose .chapter:last-of-type") || document.querySelector(".prose");
+    if (!a || !hote) return;
+    const p = document.createElement("p");
+    p.style.marginTop = "1.8rem";
+    p.innerHTML = `<b>La suite :</b> <a href="${a.url}">${a.titre}</a>.`;
+    hote.appendChild(p);
+  })();
 
   /* listes */
   function item(a) {
