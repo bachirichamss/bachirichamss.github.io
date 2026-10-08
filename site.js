@@ -171,7 +171,24 @@ const V_EVASION = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="20
    Clé = la page, valeur = la page qui la continue. */
 const SUITES = { "ricochets.html": "evasion.html" };
 
+const V_OPTO = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<rect x="12" y="58" width="176" height="26" fill="#efe9dc" stroke="#d6cdb8"/>
+<g fill="#ded3b9"><circle cx="22" cy="64" r="4.5"/><circle cx="38" cy="64" r="4.5"/><circle cx="54" cy="64" r="4.5"/><circle cx="70" cy="64" r="4.5"/><circle cx="136" cy="64" r="4.5"/><circle cx="152" cy="64" r="4.5"/><circle cx="168" cy="64" r="4.5"/><circle cx="182" cy="64" r="4.5"/>
+<circle cx="22" cy="78" r="4.5"/><circle cx="38" cy="78" r="4.5"/><circle cx="54" cy="78" r="4.5"/><circle cx="70" cy="78" r="4.5"/><circle cx="136" cy="78" r="4.5"/><circle cx="152" cy="78" r="4.5"/><circle cx="168" cy="78" r="4.5"/><circle cx="182" cy="78" r="4.5"/></g>
+<path d="M84 48h14v46H84Z" fill="#dce7f4" stroke="#1f4f8f" stroke-width="1.4"/>
+<path d="M112 48h14v46h-14Z" fill="#dce7f4" stroke="#1f4f8f" stroke-width="1.4"/>
+<path d="M100 74l4-3 3 2 4-3" fill="none" stroke="#d9730d" stroke-width="2.6"/>
+<path d="M24 14q10 10 20 2t18 12l14 10" fill="none" stroke="#e3a21a" stroke-width="2.2"/>
+<circle cx="78" cy="39" r="5" fill="#e3a21a"/>
+<g fill="#2c72c7" opacity=".85"><circle cx="44" cy="40" r="5.5"/><circle cx="140" cy="26" r="5.5"/><circle cx="166" cy="42" r="5.5"/><circle cx="105" cy="34" r="5.5"/><circle cx="105" cy="104" r="5.5"/><circle cx="105" cy="126" r="5.5"/></g>
+<path d="M152 92v22" stroke="#2c72c7" stroke-width="2"/><path d="M147 108l5 8 5-8z" fill="#2c72c7"/></svg>`;
+
 const ARTICLES = [
+  { titre: "Nobel de médecine 2026 : allumer un neurone avec de la lumière",
+    url: "nobel-medecine-2026.html", rubrique: "simulations",
+    date: "2026-10-08", duree: "14 min",
+    resume: "L'optogénétique, prix Nobel de médecine 2026, est de la physique de bout en bout. Quatre simulations : le photon qui ouvre un canal, la membrane qui se charge comme un condensateur, la lumière qui se perd dans le tissu, et deux couleurs pour deux ordres.",
+    vignette: V_OPTO },
   { titre: "Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace",
     url: "nobel-2026.html", rubrique: "simulations",
     date: "2026-10-07", duree: "12 min",

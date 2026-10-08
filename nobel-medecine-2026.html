@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=a939f82b">
+<link rel="canonical" href="https://bachirichamss.github.io/nobel-medecine-2026.html">
+<title>Nobel de médecine 2026 : allumer un neurone avec de la lumière · Chamss Bachiri</title>
+<meta name="description" content="Le prix Nobel de médecine 2026 récompense l'optogénétique : commander un neurone avec de la lumière. Expliqué en quatre simulations, du photon au condensateur.">
+<meta property="og:title" content="Nobel de médecine 2026 : allumer un neurone avec de la lumière">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+</head>
+
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Nobel de médecine 2026 : allumer un neurone avec de la lumière</h1>
+      <p class="dek">Le 5 octobre 2026, le prix est allé à Karl Deisseroth, Peter Hegemann et Georg Nagel pour leurs découvertes sur les canaux ioniques commandés par la lumière et sur l'optogénétique. C'est un prix de médecine, mais tout y est de la physique : un photon, une molécule qui se déplie, un condensateur qui se charge, et de la lumière qu'il faut faire entrer dans un tissu opaque.</p>
+      <div class="meta"><span>8 octobre 2026</span><span>14 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Le problème : on savait écouter les neurones, pas leur parler</h2>
+      <p>Depuis les années 1950, on sait enregistrer l'activité électrique d'un neurone avec une électrode. L'inverse, commander un neurone, se faisait aussi avec une électrode, mais très mal. Une électrode qui injecte du courant excite tout ce qui se trouve autour d'elle : les neurones qu'on visait, ceux qu'on ne visait pas, les fibres qui ne font que passer. Elle ne sait pas distinguer un type de cellule d'un autre. Et elle ne sait pas <strong>éteindre</strong>.</p>
+      <p>Or une bonne partie des questions intéressantes en neurosciences est de cette forme : si j'allume exactement ces neurones-là, et eux seuls, que fait l'animal ? Et si je les fais taire ?</p>
+      <p>La réponse est arrivée d'un endroit inattendu, et elle avait la forme d'une algue.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Une algue qui nage vers la lumière</h2>
+      <p><i>Chlamydomonas reinhardtii</i> est une algue verte unicellulaire, de dix micromètres, qui se déplace avec deux petits fouets et qui nage vers la lumière. Pour cela, il lui faut un détecteur, et surtout un détecteur qui agisse vite.</p>
+      <p>Peter Hegemann a passé des années à comprendre comment cette cellule voit. Avec Georg Nagel et leurs collègues, il a identifié en 2002 une protéine de sa membrane qu'ils ont appelée <strong>channelrhodopsine</strong>, puis en 2003 une seconde, la channelrhodopsine-2. Le nom dit déjà tout : <i>rhodopsine</i>, parce qu'elle contient du rétinal, la même molécule que celle de notre œil, et <i>channel</i>, canal, parce qu'elle n'est pas un simple détecteur mais un trou qui s'ouvre.</p>
+      <p>C'est là que se trouve la nouveauté physique. Dans notre œil, la rhodopsine absorbe un photon puis déclenche une longue cascade chimique avant qu'un courant apparaisse, ce qui prend des dizaines de millisecondes. Dans l'algue, il n'y a pas de cascade : <strong>la protéine qui absorbe le photon est elle-même le canal</strong>. Un photon, et le passage est ouvert. C'est direct, et c'est rapide.</p>
+      <p><strong>Envoyez un photon et regardez ce qui se passe.</strong></p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button class="go" id="b1">Envoyer un photon</button>
+      </div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> Un canal fermé, puis ouvert. Les ions positifs ne sont pas poussés par la lumière : ils tombent du côté où il y en a moins.</p>
+      <p>Cette distinction mérite d'être appuyée, parce que c'est elle qui rend la méthode possible. Un photon bleu transporte 2,6 électronvolts, soit quatre dix-milliardièmes de milliardième de joule. C'est infime. Il serait hors de question d'alimenter un courant nerveux avec ça.</p>
+      <p>Mais le photon n'alimente rien. Il sert d'<strong>interrupteur</strong>. Toute l'énergie du courant était déjà là, stockée par la cellule sous forme d'un déséquilibre de sodium qu'elle entretient en permanence, à grands frais, avec des pompes. La lumière ne fait que décider du moment où ce déséquilibre a le droit de se relâcher. C'est le principe d'un transistor, ou d'un barrage.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>2005 : le branchement</h2>
+      <p>L'idée de prendre ce canal d'algue et de l'installer dans un neurone de mammifère paraît absurde, et c'est pourtant ce qu'a fait le laboratoire de Karl Deisseroth, avec une construction fournie par Georg Nagel. En 2005, ils montrent que des neurones de rat en culture, dans lesquels on a fait fabriquer de la channelrhodopsine-2, répondent à un éclair bleu par un potentiel d'action, <strong>à la milliseconde près</strong>. Deux ans plus tard, ça marche dans le cerveau d'une souris vivante.</p>
+      <p>Le mot <i>génétique</i> d'optogénétique est là : on ne pose pas la protéine sur les neurones, on leur fait fabriquer eux-mêmes, en introduisant son gène. Et comme on peut choisir de n'activer ce gène que dans un type de cellule précis, on obtient la chose qu'aucune électrode ne savait faire : <strong>une commande qui ne s'adresse qu'aux cellules désignées à l'avance</strong>, et qui laisse leurs voisines indifférentes, même collées contre elles.</p>
+      <p>À partir de là, la physique reprend la main, parce qu'il reste deux problèmes très concrets : est-ce que la lumière suffit à faire partir un neurone, et comment faire entrer de la lumière dans un cerveau.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Un neurone est un condensateur qui fuit</h2>
+      <p>Électriquement, un morceau de membrane est un condensateur : deux milieux conducteurs, l'eau salée du dedans et celle du dehors, séparés par une couche isolante de cinq nanomètres de graisse. Sa capacité est remarquablement constante dans tout le vivant, un microfarad par centimètre carré, ce qui fait une centaine de picofarads pour un neurone entier.</p>
+      <p>Ce condensateur fuit, parce que la membrane n'est pas un isolant parfait. Capacité et fuite, ensemble, donnent une constante de temps de l'ordre de <strong>quinze millisecondes</strong> : c'est le temps que met la membrane à se charger, et c'est aussi sa mémoire. En dessous du seuil de −55 millivolts, elle oublie. Au-dessus, le neurone part tout seul.</p>
+      <p><strong>Montez la puissance lumineuse, puis changez le rythme des éclairs.</strong></p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="pS">Puissance lumineuse</label><input type="range" id="pS" min="0" max="100" value="45" style="width:240px"></span>
+        <div class="seg" id="modeS"></div>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> Modèle à une équation : la membrane se charge par le courant des canaux ouverts, se décharge par sa fuite, et déclenche un potentiel d'action au franchissement du seuil.</p>
+      <p>Le compte est instructif, et il explique pourquoi la méthode a mis du temps à marcher.</p>
+      <div class="tablewrap">
+        <table class="tb">
+          <tr><th>Grandeur</th><th>Ordre de grandeur</th></tr>
+          <tr><td>Énergie d'un photon bleu (470 nm)</td><td class="n">2,6 eV, soit 4,2 × 10⁻¹⁹ J</td></tr>
+          <tr><td>Bascule du rétinal après absorption</td><td class="n">quelques centaines de femtosecondes</td></tr>
+          <tr><td>Ouverture du pore</td><td class="n">environ 0,2 ms</td></tr>
+          <tr><td>Durée d'ouverture d'un canal</td><td class="n">environ 10 ms</td></tr>
+          <tr><td>Conductance d'un seul canal</td><td class="n">environ 50 fS</td></tr>
+          <tr><td>Ions passés par ouverture</td><td class="n">environ 200</td></tr>
+          <tr><td>Capacité d'un neurone</td><td class="n">environ 100 pF</td></tr>
+          <tr><td>Charge pour monter de 15 mV jusqu'au seuil</td><td class="n">1,5 pC, soit 10<sup>7</sup> charges</td></tr>
+          <tr><td>Canaux à ouvrir ensemble</td><td class="n">quelques dizaines de milliers</td></tr>
+        </table>
+      </div>
+      <p>Un canal de channelrhodopsine est un très mauvais robinet : cinquante femtosiemens, c'est mille fois moins qu'un canal sodium ordinaire. Pendant ses dix millisecondes d'ouverture, il ne laisse passer que deux cents ions. Et il faut dix millions de charges pour amener la membrane au seuil.</p>
+      <p>Il faut donc ouvrir <strong>plusieurs dizaines de milliers de canaux en même temps</strong>, ce qui veut dire autant de photons absorbés en quelques millisecondes dans une seule cellule. C'est pour cette raison qu'il a fallu attendre des protéines bien exprimées, des lasers et des diodes correctes, et que l'éclairement nécessaire se compte en milliwatts par millimètre carré. Ce qui nous amène au problème suivant.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Faire entrer de la lumière dans un cerveau</h2>
+      <p>Un cerveau n'est pas transparent. Il absorbe et il diffuse, et il le fait très inégalement selon la couleur. L'hémoglobine absorbe fortement le bleu et le vert. La diffusion, elle, décroît quand la longueur d'onde augmente : les structures du tissu, membranes et faisceaux, dévient d'autant plus la lumière qu'elle est bleue. Les deux effets vont dans le même sens, et ils laissent une fenêtre, entre 650 et 950 nanomètres, où les tissus vivants sont presque translucides. C'est pour ça qu'une lampe de téléphone posée contre la paume traverse la main en rouge.</p>
+      <p>Mauvaise nouvelle : la channelrhodopsine, elle, veut du bleu.</p>
+      <p><strong>Changez la couleur et la puissance, et regardez la zone utile.</strong></p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="lS">Couleur</label><input type="range" id="lS" min="450" max="850" value="470" style="width:240px"></span>
+        <span class="grp"><label for="wS">Puissance</label><input type="range" id="wS" min="0" max="100" value="40" style="width:200px"></span>
+      </div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> Modèle simplifié, pour les ordres de grandeur : étalement conique en sortie de fibre, absorption exponentielle du tissu, élargissement par diffusion. Le seuil retenu est de 1 mW/mm².</p>
+      <p>Deux choses se lisent sur cette figure. D'abord, le volume commandé est petit : un millimètre cube, à peine, pour une puissance raisonnable. Sur un cortex de souris ça passe, sur un cerveau humain c'est très peu. Ensuite, augmenter la puissance ne résout pas le problème, parce que l'intensité décroît exponentiellement avec la profondeur alors que la puissance, elle, ne monte que linéairement, et que tout ce qu'on ajoute finit en chaleur dans le premier millimètre.</p>
+      <p>La seule vraie sortie est de changer la couleur, ce qui veut dire changer la protéine. C'est l'essentiel du travail d'ingénierie des vingt dernières années : fabriquer des channelrhodopsines décalées vers le rouge, et des variantes plus conductrices qui demandent moins de photons.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>Deux couleurs, deux ordres</h2>
+      <p>Il existe une autre famille de protéines à rétinal, les halorhodopsines, qui ne sont pas des canaux mais des pompes : elles font entrer des ions chlorure, donc des charges négatives, donc elles <strong>éteignent</strong> le neurone au lieu de l'allumer. Et leur sensibilité maximale ne se trouve pas au même endroit du spectre : vers 580 nanomètres, dans l'orange.</p>
+      <p>On peut donc mettre les deux dans le même cerveau, dans deux groupes de cellules différents, et choisir à qui l'on s'adresse simplement en changeant la couleur de la lampe. Il n'y a aucun fil, aucun adressage électronique : <strong>c'est la spectroscopie qui sert de câblage</strong>.</p>
+      <p><strong>Faites glisser la couleur de l'éclairage.</strong></p>
+      <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="cS">Couleur de l'éclairage</label><input type="range" id="cS" min="400" max="700" value="470" style="width:300px"></span>
+      </div>
+      <div class="live" id="f4L"></div>
+      <p class="figcap"><b>Figure 4.</b> Spectres d'action approchés des deux protéines, et effet sur deux populations de neurones qui se côtoient dans le même tissu.</p>
+      <p>Au passage, on voit aussi la limite : les deux cloches se recouvrent. Entre 510 et 540 nanomètres, on donne les deux ordres à la fois, et l'expérience ne veut plus rien dire. Toute la difficulté pratique de l'optogénétique à plusieurs couleurs tient dans ce recouvrement.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">7</span>
+      <h2>Ce que ça a changé, et ce que le prix ne dit pas</h2>
+      <p>Avant, on observait des corrélations : quand l'animal fait ceci, ces neurones s'activent. Avec l'optogénétique, on peut faire l'inverse et <strong>tester une cause</strong> : j'allume ces neurones, l'animal fait ceci. La différence est la même qu'entre regarder un orchestre et pouvoir faire jouer un instrument à la demande. Des circuits de la soif, de la faim, du sommeil, de la mémoire, de la peur ont été démontés comme ça, et des modèles de maladie de Parkinson ont été corrigés chez l'animal en éclairant la bonne population de cellules.</p>
+      <p>Il existe aussi une application clinique, et elle est logiquement arrivée par l'œil, le seul organe où la lumière entre déjà. En 2021, un essai a rapporté une perception visuelle partiellement restaurée chez un patient atteint de rétinopathie pigmentaire, après avoir rendu photosensibles des cellules de sa rétine qui ne l'étaient plus, et lui avoir donné des lunettes qui projettent l'image dans la bonne couleur.</p>
+      <p>Un mot sur ce que le prix laisse de côté. L'article de 2005 qui branche la channelrhodopsine sur un neurone a pour premier auteur Ed Boyden, et pour deuxième Feng Zhang. Aucun des deux ne figure parmi les lauréats, parce que le règlement Nobel plafonne à trois personnes et n'autorise pas à récompenser une équipe. Le même plafond avait déjà posé problème au prix de physique de cette année, décerné à une seule personne pour un instrument construit par plusieurs centaines. C'est une règle de 1895 appliquée à une science qui ne travaille plus du tout comme en 1895.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> une algue avait inventé un interrupteur optique direct, un photon qui ouvre un trou dans une membrane. Reconnaître que cet interrupteur pouvait être transplanté dans un neurone a donné aux neurosciences leur premier outil de commande sélective. Et tout ce qui rend la méthode délicate, le seuil de déclenchement, la profondeur atteinte, le choix des couleurs, se calcule avec un condensateur, une exponentielle d'absorption et deux spectres.</p>
+    </section>
+
+    <nav class="suite" aria-label="Autres articles">
+      <h2>Les autres articles</h2>
+      <ul>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
+      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
+      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
+      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="peser-un-atome.html">Manuel pour peser un atome (balance non fournie)</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
+      </ul>
+      <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
+    </nav>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=cc14bd86"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+
+/* =========================================================
+   Figure 1 : un photon ouvre une porte
+   ========================================================= */
+const N1={W:960,H:440,x0:46,x1:660,yo:168,yi:258,xc:352,pw:56,px:700};
+let n1={t:-1,ions:[]};
+function semer(){
+  n1.ions=[]; let g=20260508;
+  const rnd=()=>{g=(g*1103515245+12345)%2147483648;return g/2147483648;};
+  for(let i=0;i<40;i++){
+    const x=N1.x0+18+rnd()*(N1.x1-N1.x0-36), y=52+rnd()*98;
+    if(Math.abs(x-N1.xc)<N1.pw+16 && y>96) continue;
+    n1.ions.push([x,y]);
+  }
+  for(let i=0;i<8;i++){
+    const x=N1.x0+18+rnd()*(N1.x1-N1.x0-36), y=288+rnd()*104;
+    if(Math.abs(x-N1.xc)<N1.pw+16 && y<330) continue;
+    n1.ions.push([x,y]);
+  }
+}
+function ion(x,y,r){
+  return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r||7}" fill="#2c72c7" opacity=".85"/>`;
+}
+function drawN1(){
+  const {W,H,x0,x1,yo,yi,xc,pw,px}=N1, t=n1.t;
+  const ouvert = t>=0.3 && t<1.05;
+  let s="";
+  // milieux
+  s+=`<rect x="${x0}" y="34" width="${x1-x0}" height="${yo-34}" fill="#f1f6fb"/>`;
+  s+=`<rect x="${x0}" y="${yi}" width="${x1-x0}" height="${400-yi}" fill="#fbf7f1"/>`;
+  s+=tx(x0+8,52,"extérieur de la cellule",{size:14,fill:MUT});
+  s+=tx(x0+8,392,"intérieur de la cellule",{size:14,fill:MUT});
+  // membrane
+  s+=`<rect x="${x0}" y="${yo}" width="${x1-x0}" height="${yi-yo}" fill="#efe9dc" stroke="#d6cdb8"/>`;
+  for(let x=x0+9;x<x1-4;x+=18){
+    if(Math.abs(x-xc)<pw-2) continue;
+    s+=`<circle cx="${x}" cy="${yo+7}" r="5.5" fill="#ded3b9"/><circle cx="${x}" cy="${yi-7}" r="5.5" fill="#ded3b9"/>`;
+  }
+  s+=tx(x1-8,(yo+yi)/2+5,"membrane",{size:14,fill:"#8a7f66",anchor:"end"});
+  // ions au repos
+  for(const p of n1.ions) s+=ion(p[0],p[1]);
+  // protéine
+  const ph=ouvert?10:0;
+  const mur=(sgn)=>{
+    const a=xc+sgn*(14+ph), b=xc+sgn*pw;
+    return `<path d="M${a} ${yo-24}L${b} ${yo-24}L${b} ${yi+24}L${a} ${yi+24}Z" fill="#dce7f4" stroke="${ACC}" stroke-width="1.6"/>`;
+  };
+  s+=mur(-1)+mur(1);
+  if(!ouvert) s+=`<path d="M${xc-16} ${(yo+yi)/2}h32" stroke="${ACC}" stroke-width="7"/>`;
+  s+=tx(xc,yo-34,"canal (channelrhodopsine)",{size:15,fill:ACC,anchor:"middle",w:600});
+  // rétinal
+  const yr=(yo+yi)/2;
+  s+=ouvert
+    ? `<path d="M${xc-17} ${yr+2}L${xc-5} ${yr-1}L${xc+6} ${yr+1}L${xc+17} ${yr-2}" fill="none" stroke="${OR}" stroke-width="3.4"/>`
+    : `<path d="M${xc-15} ${yr+9}L${xc-5} ${yr-3}L${xc+4} ${yr+7}L${xc+15} ${yr-6}" fill="none" stroke="${OR}" stroke-width="3.4"/>`;
+  s+=tx(xc-pw-10,yr+5,"rétinal",{size:14,fill:OR,anchor:"end"});
+  // photon
+  if(t>=0&&t<0.3){
+    const u=t/0.3, x=120+u*(xc-24-120), y=58+u*(yr-20-58);
+    let d=`M${x.toFixed(1)} ${y.toFixed(1)}`;
+    for(let k=1;k<=16;k++){
+      const a=k/16, xx=x-a*76*0.93, yy=y-a*76*0.37+6*Math.sin(a*14);
+      d+=`L${xx.toFixed(1)} ${yy.toFixed(1)}`;
+    }
+    s+=`<path d="${d}" fill="none" stroke="${AMB}" stroke-width="2.4"/>`;
+    s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="${AMB}"/>`;
+    s+=tx(104,120,"photon bleu",{size:15,fill:"#a8790a",w:600});
+  }
+  if(t>=0.3&&t<0.46){
+    const r=12+(t-0.3)/0.16*34;
+    s+=`<circle cx="${xc}" cy="${yr}" r="${r.toFixed(1)}" fill="none" stroke="${AMB}" stroke-width="3" opacity="${(1-(t-0.3)/0.16).toFixed(2)}"/>`;
+  }
+  // courant d'ions à travers le pore
+  let passes=0;
+  if(ouvert){
+    const u=(t-0.3)/0.75;
+    for(let k=0;k<7;k++){
+      const a=(u*2.1+k/7)%1;
+      const y=96+a*(344-96);
+      s+=ion(xc-6+12*Math.sin(a*7+k),y,6.5);
+    }
+    passes=Math.round(u*210);
+    s+=arrow(xc+pw+42,yo-6,xc+pw+42,yi+6,BL,2.4);
+    s+=tx(xc+pw+52,(yo+yi)/2+5,"courant",{size:14,fill:BL,w:600});
+  }
+  // panneau de droite
+  s+=`<path d="M${px-16} 40V396" stroke="#e2e0da"/>`;
+  s+=tx(px,62,"Ce que paie le photon",{size:16,w:600});
+  s+=tx(px,88,"2,6 électronvolts,",{size:15,fill:MUT});
+  s+=tx(px,110,"soit 4 × 10⁻¹⁹ joule :",{size:15,fill:MUT});
+  s+=tx(px,132,"juste de quoi plier",{size:15,fill:MUT});
+  s+=tx(px,154,"une molécule.",{size:15,fill:MUT});
+  s+=tx(px,196,"Ce qui fait le courant",{size:16,w:600});
+  s+=tx(px,222,"le sodium entassé",{size:15,fill:MUT});
+  s+=tx(px,244,"dehors par la cellule,",{size:15,fill:MUT});
+  s+=tx(px,266,"qui ne demande qu'à",{size:15,fill:MUT});
+  s+=tx(px,288,"rentrer.",{size:15,fill:MUT});
+  s+=tx(px,336,"Ions passés",{size:15,fill:MUT});
+  s+=tx(px,366,ouvert?milliers(passes):(t>=1.05?"210":"0"),{size:30,fill:ouvert?BL:INK,w:600});
+  put("f1",W,H,s);
+  const L=$("f1L");
+  if(t<0) L.innerHTML="Un canal fermé, du sodium en excès dehors, et rien qui bouge. Appuyez sur le bouton.";
+  else if(t<0.3) L.innerHTML="Un photon bleu arrive. Il va être absorbé par le <b>rétinal</b>, la petite molécule coudée logée au cœur de la protéine. C'est la même molécule que celle qui vous sert à voir.";
+  else if(t<0.46) L.innerHTML="<b>Le rétinal se déplie</b>, en quelques centaines de femtosecondes. La protéine autour de lui ne peut plus garder la même forme : son pore s'ouvre, en deux dixièmes de milliseconde.";
+  else if(t<1.05) L.innerHTML="Le pore est ouvert et les ions positifs se précipitent vers l'intérieur. <b>Le photon ne les pousse pas</b> : il a seulement ouvert la porte. L'énergie du courant vient du déséquilibre que la cellule entretenait.";
+  else L.innerHTML="Au bout d'une dizaine de millisecondes, le rétinal reprend sa forme coudée et le pore se referme. Bilan d'une ouverture : environ <b>210 ions</b>. C'est très peu, et c'est tout le problème de la figure suivante.";
+}
+$("b1").onclick=()=>{ semer(); n1.t=0; $("b1").textContent="Renvoyer un photon"; if(RM){n1.t=0.6;drawN1();} };
+
+/* =========================================================
+   Figure 2 : la membrane est un condensateur
+   ========================================================= */
+const N2={W:960,H:460,x0:330,x1:926,y0:84,y1:352,T:500,VR:-70,VS:-55,VP:34,VB:-78};
+let n2={p:0.45,mode:"flash"};
+function stim(mode){
+  // fenêtres d'éclairage, en millisecondes : des éclairs de 8 ms
+  if(mode==="flash") return [[100,108]];
+  if(mode==="continu") return [[60,460]];
+  const per = mode==="t10"?100:25, out=[];
+  for(let d=60;d<470;d+=per) out.push([d,d+8]);
+  return out;
+}
+function simuler(){
+  const {T,VR,VS,VP,VB}=N2, dt=0.05, tau=14, C=100;   // ms, pF
+  const fen=stim(n2.mode), imax=n2.p*n2.p*1200;       // courant maximal, en pA
+  let V=VR, ref=-99, V2=[], pics=[], g=0;
+  for(let i=0;i*dt<=T;i++){
+    const ms=i*dt;
+    const ecl=fen.some(f=>ms>=f[0]&&ms<f[1]);
+    g += ((ecl?imax:0)-g)*dt/(ecl?0.4:11);             // ouverture vive, fermeture en 11 ms
+    const I = g*(0-V)/70;                               // pA, force motrice vers 0 mV
+    if(ms-ref<5){ V=VB; }                            // période réfractaire
+    else {
+      V += dt*((VR-V)/tau + I/C);
+      if(V>=VS){ pics.push(ms); ref=ms; V=VB; }
+    }
+    if(i%4===0) V2.push([ms,V]);
+  }
+  return {V2,pics,fen};
+}
+function drawN2(){
+  const {W,H,x0,x1,y0,y1,T,VR,VS,VP,VB}=N2;
+  const X=ms=>x0+ms/T*(x1-x0), Y=v=>y1-(v-VB)/(VP-VB)*(y1-y0);
+  const {V2,pics,fen}=simuler();
+  let s="";
+  // schéma électrique à gauche
+  s+=tx(46,62,"Le morceau de membrane",{size:16,w:600});
+  s+=`<rect x="46" y="96" width="232" height="14" fill="#efe9dc" stroke="#d6cdb8"/>`;
+  s+=`<rect x="46" y="300" width="232" height="14" fill="#efe9dc" stroke="#d6cdb8"/>`;
+  s+=tx(46,92,"dehors",{size:13,fill:MUT});
+  s+=tx(46,332,"dedans",{size:13,fill:MUT});
+  // condensateur
+  s+=`<path d="M92 110v62M64 172h56M64 196h56M92 196v104" stroke="${INK}" stroke-width="2"/>`;
+  s+=tx(126,180,"C",{size:17,w:600});
+  s+=tx(126,200,"100 pF",{size:13,fill:MUT});
+  // fuite
+  s+=`<path d="M196 110v42M196 236v64" stroke="${INK}" stroke-width="2"/>`;
+  s+=`<rect x="180" y="152" width="32" height="84" fill="#fff" stroke="${INK}" stroke-width="2"/>`;
+  s+=tx(222,190,"fuite",{size:14,fill:MUT});
+  s+=tx(222,210,"R",{size:15,w:600});
+  // source lumineuse
+  s+=`<circle cx="262" cy="196" r="22" fill="none" stroke="${BL}" stroke-width="2"/>`;
+  s+=`<path d="M262 110v64M262 218v82" stroke="${BL}" stroke-width="2"/>`;
+  s+=arrow(252,206,272,186,BL,2);
+  s+=tx(262,246,"canaux",{size:13,fill:BL,anchor:"middle"});
+  s+=tx(262,264,"ouverts",{size:13,fill:BL,anchor:"middle"});
+  s+=tx(46,386,"τ = R × C ≈ 14 ms",{size:15,w:600});
+  s+=tx(46,410,"le temps que met la membrane",{size:13,fill:MUT});
+  s+=tx(46,428,"à se charger ou se décharger",{size:13,fill:MUT});
+  // cadre du tracé
+  s+=`<path d="M${x0} ${y0}V${y1}H${x1}" fill="none" stroke="${INK}"/>`;
+  for(const v of [-70,-55,0,30]){
+    const y=Y(v);
+    s+=`<path d="M${x0} ${y.toFixed(1)}H${x1}" stroke="${v===-55?"#e8c9c5":"#eceae4"}"${v===-55?' stroke-dasharray="5 4"':""}/>`;
+    s+=tx(x0-8,y+5,v+" mV",{size:12,fill:v===-55?RED:MUT,anchor:"end"});
+  }
+  s+=tx(x0-8,y0-16,"potentiel",{size:13,fill:MUT,anchor:"end"});
+  s+=tx(x0+6,y1+26,"0",{size:12,fill:MUT});
+  for(const ms of [100,200,300,400,500]) s+=tx(X(ms),y1+26,ms+" ms",{size:12,fill:MUT,anchor:"middle"});
+  // bandes d'éclairage
+  for(const f of fen){
+    s+=`<rect x="${X(f[0]).toFixed(1)}" y="${y0-14}" width="${(X(f[1])-X(f[0])).toFixed(1)}" height="10" fill="${BL}" opacity=".75"/>`;
+    s+=`<rect x="${X(f[0]).toFixed(1)}" y="${y0}" width="${(X(f[1])-X(f[0])).toFixed(1)}" height="${y1-y0}" fill="${BL}" opacity=".07"/>`;
+  }
+  s+=tx(x1,y0-20,"lumière",{size:13,fill:BL,anchor:"end"});
+  // seuil et tracé
+  let d="";
+  for(let i=0;i<V2.length;i++) d+=(i?"L":"M")+X(V2[i][0]).toFixed(1)+" "+Y(V2[i][1]).toFixed(1);
+  s+=`<path d="${d}" fill="none" stroke="${ACC}" stroke-width="2.2"/>`;
+  for(const ms of pics){
+    s+=`<path d="M${X(ms).toFixed(1)} ${Y(VS).toFixed(1)}V${Y(VP).toFixed(1)}" stroke="${RED}" stroke-width="2.2"/>`;
+    s+=`<circle cx="${X(ms).toFixed(1)}" cy="${Y(VP).toFixed(1)}" r="3.4" fill="${RED}"/>`;
+  }
+  s+=tx(x1,y1+52,"temps",{size:14,fill:MUT,anchor:"end"});
+  s+=tx(x0,y1+52,pics.length+" potentiel"+(pics.length>1?"s":"")+" d'action",
+       {size:17,w:600,fill:pics.length?RED:MUT});
+  put("f2",W,H,s);
+  const L=$("f2L"), nf=fen.length, np=pics.length;
+  if(n2.mode==="continu"){
+    L.innerHTML = np
+      ? "Sous lumière continue, le courant reste ouvert et le neurone décharge sans s'arrêter : <b>"+np+" potentiels d'action</b> en une demi-seconde. On force la cellule, mais on ne lui dicte plus de rythme."
+      : "Même en lumière continue, à cette puissance la membrane fuit plus vite qu'elle ne se charge. <b>Rien ne part.</b>";
+  } else if(np===0){
+    L.innerHTML = "La membrane se charge un peu à chaque éclair, puis fuit, sans jamais atteindre −55 mV. <b>Rien ne part.</b> Montez la puissance.";
+  } else if(np===nf){
+    L.innerHTML = "<b>Un éclair, un potentiel d'action</b>, exactement, et toujours au même délai après l'éclair. C'est ce résultat, publié en 2005, qui a tout lancé : on écrit dans le neurone à la milliseconde près.";
+  } else if(np<nf){
+    L.innerHTML = "<b>"+np+" potentiels pour "+nf+" éclair"+(nf>1?"s":"")+".</b> À cette puissance, certains éclairs ne suffisent pas à franchir le seuil : le neurone en rate. C'est le bord du fonctionnement, et c'est là qu'une expérience devient fausse sans prévenir.";
+  } else {
+    L.innerHTML = "<b>"+np+" potentiels pour "+nf+" éclair"+(nf>1?"s":"")+".</b> Le courant est si fort qu'un seul éclair en déclenche plusieurs : le neurone ne recopie plus le rythme de la lumière. Trop de puissance abîme l'information autant que pas assez.";
+  }
+}
+$("pS").oninput=e=>{ n2.p=+e.target.value/100; drawN2(); };
+$("modeS").innerHTML=[["flash","Un éclair"],["t10","10 par seconde"],["t40","40 par seconde"],["continu","Lumière continue"]]
+  .map((m,i)=>`<button data-m="${m[0]}"${i===0?' class="go"':''}>${m[1]}</button>`).join("");
+$("modeS").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  n2.mode=b.dataset.m;
+  $("modeS").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; drawN2(); });
+
+/* =========================================================
+   Figure 3 : faire entrer la lumière dans un cerveau
+   ========================================================= */
+const N3={W:960,H:460,cx:430,ytop:96,mm:94,SEUIL:1};
+let n3={lam:470,pw:0.4};
+function mu(lam){
+  // coefficient d'extinction efficace du tissu cérébral, en mm⁻¹
+  const t=[[450,1.25],[500,1.05],[550,0.85],[600,0.55],[650,0.40],[700,0.31],[780,0.22],[850,0.18]];
+  if(lam<=t[0][0]) return t[0][1];
+  for(let i=1;i<t.length;i++) if(lam<=t[i][0]){
+    const a=(lam-t[i-1][0])/(t[i][0]-t[i-1][0]);
+    return t[i-1][1]+a*(t[i][1]-t[i-1][1]);
+  }
+  return t[t.length-1][1];
+}
+function couleur(lam){
+  const p=[[450,"#2b4fd8"],[480,"#1f8fd8"],[510,"#2f9e5a"],[540,"#8fb331"],[570,"#d9b40d"],[600,"#e07a13"],[640,"#d6381f"],[700,"#a81f1f"],[850,"#6b1414"]];
+  if(lam<=p[0][0]) return p[0][1];
+  for(let i=1;i<p.length;i++) if(lam<=p[i][0]) return p[i-1][1];
+  return p[p.length-1][1];
+}
+function puissance(){ return Math.pow(10,-1+n3.pw*2.3); }   // 0,1 à 20 mW
+function eclair(z,r){
+  // modèle simple : étalement conique, absorption, et élargissement par diffusion
+  const rho=0.11+z*0.30, P=puissance();
+  return P/(Math.PI*rho*rho)*Math.exp(-mu(n3.lam)*z)*Math.exp(-(r*r)/(rho*rho));
+}
+function portee(){
+  let z=0; const pas=0.002;
+  while(z<8 && eclair(z,0)>N3.SEUIL) z+=pas;
+  return z;
+}
+function volume(){
+  let v=0; const pas=0.01;
+  for(let z=0;z<8;z+=pas){
+    if(eclair(z,0)<=N3.SEUIL) break;
+    let r=0; while(r<4 && eclair(z,r)>N3.SEUIL) r+=0.01;
+    v+=Math.PI*r*r*pas;
+  }
+  return v;
+}
+function drawN3(){
+  const {W,H,cx,ytop,mm,SEUIL}=N3, col=couleur(n3.lam);
+  let s=`<rect x="40" y="${ytop}" width="880" height="${H-ytop-46}" fill="#f6f4ef" stroke="#e2e0da"/>`;
+  // neurones de fond
+  let g=77;
+  const rnd=()=>{g=(g*1103515245+12345)%2147483648;return g/2147483648;};
+  const cells=[];
+  for(let i=0;i<120;i++) cells.push([60+rnd()*840, ytop+14+rnd()*(H-ytop-78)]);
+  // zone éclairée au-dessus du seuil
+  const P=portee();
+  let haut="", bas="";
+  for(let z=0;z<=P+0.0001;z+=P/48){
+    let r=0; while(r<4 && eclair(z,r)>SEUIL) r+=0.005;
+    const y=ytop+z*mm;
+    haut+=(haut?"L":"M")+(cx-r*mm).toFixed(1)+" "+y.toFixed(1);
+    bas=`L${(cx+r*mm).toFixed(1)} ${y.toFixed(1)}`+bas;
+  }
+  if(haut) s+=`<path d="${haut+bas}Z" fill="${col}" opacity=".3" stroke="${col}" stroke-width="1.4"/>`;
+  for(const c of cells){
+    const z=(c[1]-ytop)/mm, r=Math.abs(c[0]-cx)/mm;
+    const pris = z<P && eclair(z,r)>SEUIL;
+    s+=`<circle cx="${c[0].toFixed(1)}" cy="${c[1].toFixed(1)}" r="${pris?4.6:3}" fill="${pris?col:"#c9cdd3"}"/>`;
+  }
+  // fibre optique
+  s+=`<rect x="${cx-9}" y="30" width="18" height="${ytop-28}" fill="#dfe3e8" stroke="#9aa4b0"/>`;
+  s+=tx(cx+18,52,"fibre optique de 200 µm",{size:14,fill:MUT});
+  s+=tx(cx-18,52,"lumière",{size:14,fill:MUT,anchor:"end"});
+  // échelle
+  s+=`<path d="M70 ${ytop+mm}h${mm}M70 ${ytop+mm-6}v12M${70+mm} ${ytop+mm-6}v12" stroke="${INK}" stroke-width="1.6"/>`;
+  s+=tx(70+mm/2,ytop+mm-12,"1 mm",{size:14,anchor:"middle",w:600});
+  // chiffres
+  s+=tx(620,ytop+40,"longueur d'onde",{size:14,fill:MUT});
+  s+=tx(620,ytop+70,Math.round(n3.lam)+" nm",{size:26,fill:col,w:600});
+  s+=tx(620,ytop+108,"puissance envoyée",{size:14,fill:MUT});
+  s+=tx(620,ytop+138,fr(puissance(),puissance()<1?2:1)+" mW",{size:26,w:600});
+  s+=tx(620,ytop+176,"profondeur utile",{size:14,fill:MUT});
+  s+=tx(620,ytop+206,fr(P,2)+" mm",{size:26,fill:ACC,w:600});
+  s+=tx(620,ytop+244,"volume allumé",{size:14,fill:MUT});
+  s+=tx(620,ytop+274,fr(volume(),2)+" mm³",{size:26,fill:ACC,w:600});
+  s+=tx(40,H-30,"Seuil d'activation de la channelrhodopsine : 1 milliwatt par millimètre carré.",{size:13,fill:MUT});
+  s+=tx(40,H-12,"Au-delà de la zone colorée il y a encore de la lumière, mais trop peu pour ouvrir les canaux.",{size:13,fill:MUT});
+  put("f3",W,H,s);
+  const L=$("f3L");
+  const dur=1/mu(n3.lam);
+  L.innerHTML = "À "+Math.round(n3.lam)+" nanomètres, le tissu divise l'intensité par trois tous les <b>"+fr(dur,2)+" mm</b>. "
+    + (n3.lam<520
+      ? "Le bleu, qui est précisément la couleur dont la channelrhodopsine a besoin, est la plus mal transmise : l'hémoglobine l'absorbe et le tissu la diffuse. D'où une zone utile de l'ordre du millimètre."
+      : n3.lam<620
+        ? "En allant vers le jaune et l'orange, on gagne nettement en profondeur. C'est pour cette raison qu'on a fabriqué des channelrhodopsines décalées vers le rouge."
+        : "Dans le rouge et le proche infrarouge, le cerveau devient presque translucide : c'est la fenêtre optique des tissus vivants. Encore faut-il une protéine qui réponde à ces couleurs.");
+}
+$("lS").oninput=e=>{ n3.lam=+e.target.value; drawN3(); };
+$("wS").oninput=e=>{ n3.pw=+e.target.value/100; drawN3(); };
+
+/* =========================================================
+   Figure 4 : deux couleurs, deux ordres
+   ========================================================= */
+const N4={W:960,H:430,x0:72,x1:548,y0:84,y1:306,L0:400,L1:700};
+let n4={lam:470};
+const cloche=(l,c,w)=>Math.exp(-Math.pow((l-c)/w,2));
+const actOn =l=>cloche(l,470,52);
+const actOff=l=>cloche(l,580,58);
+function drawN4(){
+  const {W,H,x0,x1,y0,y1,L0,L1}=N4, l=n4.lam;
+  const X=v=>x0+(v-L0)/(L1-L0)*(x1-x0), Y=u=>y1-u*(y1-y0);
+  let s=`<path d="M${x0} ${y0}V${y1}H${x1}" fill="none" stroke="${INK}"/>`;
+  for(const v of [400,450,500,550,600,650,700]){
+    s+=`<path d="M${X(v).toFixed(1)} ${y1}v6" stroke="${INK}"/>`;
+    s+=tx(X(v),y1+24,v,{size:12,fill:MUT,anchor:"middle"});
+  }
+  s+=tx(x1,y1+48,"nanomètres",{size:14,fill:MUT,anchor:"end"});
+  // bande de couleurs
+  for(let v=L0;v<L1;v+=4)
+    s+=`<rect x="${X(v).toFixed(1)}" y="${y1+32}" width="${(X(v+4)-X(v)+0.6).toFixed(1)}" height="12" fill="${couleur(v)}" opacity=".8"/>`;
+  // courbes
+  const courbe=(f,c)=>{
+    let d="";
+    for(let v=L0;v<=L1;v+=2) d+=(v>L0?"L":"M")+X(v).toFixed(1)+" "+Y(f(v)).toFixed(1);
+    return `<path d="${d}" fill="none" stroke="${c}" stroke-width="3"/>`;
+  };
+  s+=courbe(actOn,BL)+courbe(actOff,OR);
+  s+=tx(X(470),Y(1)-14,"channelrhodopsine",{size:15,fill:BL,anchor:"middle",w:600});
+  s+=tx(X(470),Y(1)+4,"elle allume",{size:13,fill:BL,anchor:"middle"});
+  s+=tx(X(596),Y(1)-14,"halorhodopsine",{size:15,fill:OR,anchor:"start",w:600});
+  s+=tx(X(596),Y(1)+4,"elle éteint",{size:13,fill:OR,anchor:"start"});
+  // curseur
+  const on=actOn(l), off=actOff(l);
+  s+=`<path d="M${X(l).toFixed(1)} ${y0-10}V${y1}" stroke="${INK}" stroke-width="2" stroke-dasharray="5 4"/>`;
+  s+=`<circle cx="${X(l).toFixed(1)}" cy="${Y(on).toFixed(1)}" r="6" fill="${BL}"/>`;
+  s+=`<circle cx="${X(l).toFixed(1)}" cy="${Y(off).toFixed(1)}" r="6" fill="${OR}"/>`;
+  s+=tx(x0,y0-44,"Réponse de chaque protéine à la couleur de l'éclairage",{size:17,w:600});
+  // les deux populations
+  const bx=630;
+  const pop=(y,nom,col,actif,allume)=>{
+    let t=tx(bx,y-28,nom,{size:16,fill:col,w:600});
+    for(let i=0;i<5;i++){
+      const cxp=bx+10+i*34;
+      t+=`<circle cx="${cxp}" cy="${y}" r="11" fill="${actif>0.25?col:"#dfe3e8"}" opacity="${(0.3+0.7*Math.min(1,actif)).toFixed(2)}"/>`;
+    }
+    // train de potentiels
+    let d=`M${bx} ${y+56}H${bx+180}`;
+    const n = allume ? Math.round(actif*9) : Math.round((1-Math.min(1,actif))*7);
+    for(let k=0;k<n;k++){
+      const xx=bx+12+k*(156/Math.max(1,n));
+      d+=`M${xx.toFixed(1)} ${y+56}V${y+26}M${xx.toFixed(1)} ${y+26}`;
+    }
+    t+=`<path d="${d}" fill="none" stroke="${allume?RED:GR}" stroke-width="2"/>`;
+    t+=tx(bx,y+78,n?(n+" décharge"+(n>1?"s":"")):"silence",{size:14,fill:n?(allume?RED:GR):MUT});
+    return t;
+  };
+  s+=pop(116,"Neurones à channelrhodopsine",BL,on,true);
+  s+=pop(288,"Neurones à halorhodopsine",OR,off,false);
+  put("f4",W,H,s);
+  const L=$("f4L");
+  L.innerHTML = (l<500
+    ? "En bleu, on allume la première population et on laisse la seconde tranquille. <b>Une couleur, un ordre.</b>"
+    : l<545
+      ? "Entre les deux, les spectres se recouvrent : on donne les deux ordres en même temps, à deux populations différentes. <b>C'est la limite de la méthode</b>, et la raison pour laquelle on cherche des protéines aux couleurs mieux séparées."
+      : "En orange, on fait taire la seconde population sans réveiller la première. Pouvoir <b>éteindre</b> un groupe de neurones et regarder ce qui manque est aussi instructif que de l'allumer.")
+    + " Les deux protéines cohabitent dans le même cerveau : c'est la couleur de la lumière, et elle seule, qui choisit à qui on parle.";
+}
+$("cS").oninput=e=>{ n4.lam=+e.target.value; drawN4(); };
+
+/* ---------------- boucle ---------------- */
+semer(); drawN1(); drawN2(); drawN3(); drawN4();
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(0.05,(now-last)/1000); last=now;
+  if(n1.t>=0&&n1.t<1.35){ n1.t+=dt*0.42; drawN1(); }
+  requestAnimationFrame(loop);
+}
+if(!RM) requestAnimationFrame(loop);
+
+</script>
+</body>
+</html>
