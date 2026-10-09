@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=a939f82b">
+<link rel="canonical" href="https://bachirichamss.github.io/entropie-echiquier.html">
+<title>L'entropie sur un échiquier · Chamss Bachiri</title>
+<meta name="description" content="Microétat, macroétat, et S = kB ln W, expliqués avec soixante-quatre cases et trente-deux pièces. Quatre simulations, les formules détaillées, et le nombre qui tombe juste au calorimètre.">
+<meta property="og:title" content="L'entropie sur un échiquier">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;
+  color:#1b1f24;margin:1.7rem 0 .5rem}
+.fx i{font-style:italic}
+.fx sub{font-size:.62em;vertical-align:-.3em}
+.fx sup{font-size:.62em}
+.fx strong{font-weight:600}
+.fxn{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.84rem;color:#5d6672;
+  text-align:center;margin:0 0 1.6rem}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;
+  list-style:none;padding:0;margin:.4rem auto 1.7rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
+.sym b sub{font-style:normal}
+
+</style>
+</head>
+
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>L'entropie sur un échiquier</h1>
+      <p class="dek">Soixante-quatre cases, trente-deux pièces, et une formule à trois symboles. De quoi comprendre ce que compte l'entropie, pourquoi elle monte, et comment un dénombrement de cases donne un nombre que l'on mesure au calorimètre.</p>
+      <div class="meta"><span>9 octobre 2026</span><span>16 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Microétat, macroétat</h2>
+      <p>Prenez un échiquier et des pièces. Il y a deux façons de décrire ce que vous voyez.</p>
+      <p>La première est complète : la pièce est en a1, l'autre en c4, l'autre en f7. Case par case. C'est un <strong>microétat</strong>.</p>
+      <p>La seconde est grossière : il y a trente-deux pièces, dix-sept à gauche et quinze à droite. C'est un <strong>macroétat</strong>. On a jeté l'information sur les cases exactes, et gardé deux nombres.</p>
+      <p>Un macroétat correspond donc à beaucoup de microétats. Combien exactement ? Pour <i>k</i> pièces à placer sur les 32 cases de la moitié gauche et <i>N</i> − <i>k</i> sur les 32 cases de la moitié droite :</p>
+      <p class="fx"><i>W</i> = C(32, <i>k</i>) × C(32, <i>N</i> − <i>k</i>)</p>
+      <p class="fxn">avec C(<i>n</i>, <i>p</i>) = <i>n</i>! / [ <i>p</i>! (<i>n</i> − <i>p</i>)! ]</p>
+      <ul class="sym">
+        <li><b>W</b> le nombre de microétats que contient le macroétat</li>
+        <li><b>C(n, p)</b> le nombre de façons de choisir <i>p</i> cases parmi <i>n</i>, sans se soucier de l'ordre</li>
+        <li><b>n!</b> la factorielle, c'est-à-dire 1 × 2 × 3 × … × <i>n</i></li>
+      </ul>
+      <p>Faites le calcul pour trente-deux pièces réparties en deux fois seize : C(32, 16) vaut 601 080 390, et <i>W</i> = 601 080 390², soit 3,61 × 10<sup>17</sup>. Trois cent soixante et un millions de milliards de façons de réaliser « seize à gauche, seize à droite ».</p>
+      <p><strong>Cliquez des cases, et regardez W changer.</strong></p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl"><div class="seg" id="mise"></div></div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> À droite, le macroétat et son dénombrement exact. Déplacez une pièce à l'intérieur d'une moitié : le microétat change, le macroétat ne bouge pas.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Pourquoi un logarithme, et pas W tout seul</h2>
+      <p>On a un nombre, <i>W</i>. Pourquoi ne pas l'appeler entropie et s'arrêter là ?</p>
+      <p>Parce que <i>W</i> se multiplie quand l'entropie, elle, s'additionne.</p>
+      <p>Posez deux échiquiers côte à côte, indépendants. Le premier a <i>W</i><sub>1</sub> microétats, le second <i>W</i><sub>2</sub>. L'ensemble des deux en a :</p>
+      <p class="fx"><i>W</i> = <i>W</i><sub>1</sub> × <i>W</i><sub>2</sub></p>
+      <p>Chaque microétat du premier peut être associé à chaque microétat du second, donc les comptes se multiplient. Or l'entropie d'un système deux fois plus grand doit être deux fois plus grande : c'est une grandeur <strong>extensive</strong>, comme la masse ou le volume. On veut donc :</p>
+      <p class="fx"><i>S</i> = <i>S</i><sub>1</sub> + <i>S</i><sub>2</sub></p>
+      <p>Il faut une fonction qui transforme un produit en somme. Il n'y en a qu'une :</p>
+      <p class="fx"><i>f</i>(<i>x</i> <i>y</i>) = <i>f</i>(<i>x</i>) + <i>f</i>(<i>y</i>) &nbsp;⟹&nbsp; <i>f</i>(<i>x</i>) = <i>c</i> ln <i>x</i></p>
+      <p>Le logarithme n'est pas un choix de commodité pour écraser des grands nombres. Il est <strong>imposé</strong> par le fait que les entropies s'ajoutent alors que les possibilités se multiplient. Tout ce qui reste à fixer, c'est la constante <i>c</i>.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>La formule</h2>
+      <p class="fx" style="font-size:2rem;margin-top:2rem"><i>S</i> = <i>k</i><sub>B</sub> ln <i>W</i></p>
+      <p class="fxn">la relation de Boltzmann</p>
+      <ul class="sym">
+        <li><b>S</b> l'entropie du macroétat, en joules par kelvin</li>
+        <li><b>k<sub>B</sub></b> la constante de Boltzmann, 1,380 649 × 10<sup>−23</sup> J/K, valeur exacte depuis 2019</li>
+        <li><b>ln</b> le logarithme népérien, celui de base e</li>
+        <li><b>W</b> le nombre de microétats du macroétat, un nombre sans unité</li>
+      </ul>
+      <p>Lisez-la comme une conversion. À droite, un comptage pur, un entier. À gauche, des joules par kelvin, une grandeur de thermodynamique que l'on mesure avec un calorimètre. La constante <i>k</i><sub>B</sub> est le taux de change entre les deux, et c'est son seul rôle. J'ai consacré <a href="boltzmann.html">un autre article</a> à cette constante et aux huit endroits où elle apparaît.</p>
+      <p>Ce <i>W</i> vient de l'allemand <i>Wahrscheinlichkeit</i>, probabilité. C'est le mot de Boltzmann. Lui parlait de la probabilité d'un état, et son raisonnement était que la nature va vers les états probables parce qu'ils sont nombreux, pas parce qu'une force les préfère.</p>
+      <p>Petite ironie historique : Boltzmann n'a jamais écrit cette équation sous cette forme, et n'a jamais introduit la constante qui porte son nom. C'est Max Planck qui l'a écrite ainsi, en 1900, en travaillant sur le rayonnement du corps noir. Elle est gravée sur la tombe de Boltzmann, au cimetière central de Vienne, au-dessus de son buste. Il s'est suicidé en 1906, à Duino, alors que l'existence des atomes était encore contestée par une partie de ses collègues.</p>
+      <p>Sur notre échiquier, pour seize pièces de chaque côté : ln(3,61 × 10<sup>17</sup>) = 40,4, donc <i>S</i> = 1,38 × 10<sup>−23</sup> × 40,4 = 5,6 × 10<sup>−22</sup> J/K. Une entropie ridicule, parce qu'un échiquier n'a que soixante-quatre cases. La suite consiste à remplacer 64 par 10<sup>23</sup>.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Le macroétat qui écrase tous les autres</h2>
+      <p>Tous les macroétats ne pèsent pas le même poids. « Tout à gauche » n'a qu'un seul arrangement possible une fois les cases choisies, alors que l'équilibre en a des millions de milliards. Jetez les pièces au hasard, et vous tomberez presque sûrement près de l'équilibre, non pas par magie, mais parce que c'est là que sont presque tous les tirages.</p>
+      <p><strong>Changez le nombre de pièces et regardez le pic.</strong></p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="nS">Nombre de pièces</label><input type="range" id="nS" min="2" max="60" step="2" value="32" style="width:280px"></span>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> En haut, le logarithme du nombre de microétats, sans quoi la barre centrale sortirait de l'écran. En bas, la probabilité du macroétat, en échelle normale.</p>
+      <p>On peut calculer la forme de ce pic à la main, avec l'approximation de Stirling, qui remplace une factorielle par quelque chose de dérivable :</p>
+      <p class="fx">ln <i>N</i>! ≈ <i>N</i> ln <i>N</i> − <i>N</i></p>
+      <p>En l'appliquant au dénombrement et en posant <i>x</i> = <i>k</i> / <i>N</i>, la fraction de pièces à gauche, tout se simplifie :</p>
+      <p class="fx"><i>S</i> = − <i>N</i> <i>k</i><sub>B</sub> [ <i>x</i> ln <i>x</i> + (1 − <i>x</i>) ln(1 − <i>x</i>) ]</p>
+      <p>Cette fonction est nulle en <i>x</i> = 0 et en <i>x</i> = 1, et maximale en <i>x</i> = 1/2, où elle vaut <i>N</i> <i>k</i><sub>B</sub> ln 2. Le partage équitable est le sommet, et le calcul le dit sans qu'on ait besoin d'y croire.</p>
+      <p>Reste la largeur du pic. L'écart-type du nombre de pièces à gauche vaut :</p>
+      <p class="fx">σ = √( <i>N</i>/4 × (64 − <i>N</i>) / 63 )</p>
+      <p>Pour trente-deux pièces, σ = 2,0. Autrement dit, la quasi-totalité des tirages donnent entre 12 et 20 pièces à gauche sur les 32. Ce qui compte n'est pas σ, mais σ divisé par <i>N</i>, l'écart <strong>relatif</strong> : il décroît comme 1/√<i>N</i>.</p>
+      <div class="tablewrap">
+        <table class="tb">
+          <tr><th>Nombre de pièces ou de molécules</th><th>Écart relatif à l'équilibre</th></tr>
+          <tr><td>32 (notre échiquier)</td><td class="n">6 %</td></tr>
+          <tr><td>10<sup>6</sup></td><td class="n">0,05 %</td></tr>
+          <tr><td>10<sup>12</sup></td><td class="n">5 × 10<sup>−5</sup> %</td></tr>
+          <tr><td>6 × 10<sup>23</sup> (une mole)</td><td class="n">6 × 10<sup>−11</sup> %</td></tr>
+        </table>
+      </div>
+      <p>Voilà pourquoi le deuxième principe de la thermodynamique a l'air d'une loi absolue alors qu'il n'est qu'une affaire de dénombrement. Sur trente-deux pièces, les écarts à l'équilibre sont visibles à l'œil nu. Sur une mole, ils sont à la onzième décimale.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Le film qui ne revient pas en arrière</h2>
+      <p>Mettons toutes les pièces à gauche, puis appliquons une règle parfaitement neutre : à chaque coup, une pièce tirée au hasard va sur une case libre tirée au hasard. Rien dans cette règle ne pousse vers la droite. Elle ne connaît même pas la notion de droite.</p>
+      <p><strong>Lancez, et laissez tourner une minute.</strong></p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <button class="go" id="go3">Lancer</button>
+        <button id="raz3">Tout remettre à gauche</button>
+      </div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> La règle du mouvement est réversible et sans préférence. Ce qui ne l'est pas, c'est le nombre de cases disponibles de chaque côté.</p>
+      <p>La courbe descend, puis se met à osciller dans une bande étroite, et elle n'en ressort plus. C'est l'irréversibilité, et elle est née d'une règle réversible.</p>
+      <p>Attention, ce n'est pas <em>interdit</em> de revenir. C'est juste improbable. La probabilité de retrouver les trente-deux pièces à gauche, à un coup donné, vaut 1 divisé par le nombre total d'arrangements :</p>
+      <p class="fx"><i>p</i> = 1 / C(64, 32) = 1 / (1,83 × 10<sup>18</sup>) = 5,5 × 10<sup>−19</sup></p>
+      <p>Et un théorème dû à Mark Kac donne le temps moyen de retour dans un état : c'est l'inverse de sa probabilité, exprimé en nombre de coups.</p>
+      <p class="fx"><i>t</i><sub>retour</sub> = τ / <i>p</i> = τ × C(64, 32)</p>
+      <p>À un coup par seconde, cela fait 1,83 × 10<sup>18</sup> secondes, soit <strong>58 milliards d'années</strong>, quatre fois l'âge de l'Univers. Pour un échiquier de huit cases sur huit.</p>
+      <p>Maintenant, la même chose avec une mole de gaz dans une boîte à deux moitiés. La probabilité que toutes les molécules se retrouvent du même côté vaut 2<sup>−N</sup> avec <i>N</i> = 6 × 10<sup>23</sup>. Le temps de retour s'écrit avec un exposant à vingt-trois chiffres. On ne l'attend pas, et on n'écrit même pas le nombre.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>De l'échiquier au gaz, et le nombre tombe juste</h2>
+      <p>Un gaz dans une boîte, c'est le même problème avec d'autres chiffres. Découpez le volume en petites cases de taille <i>v</i><sub>0</sub>. Une molécule a <i>V</i> / <i>v</i><sub>0</sub> cases où se trouver. Pour <i>N</i> molécules, les choix se multiplient :</p>
+      <p class="fx"><i>W</i> ∝ (<i>V</i> / <i>v</i><sub>0</sub>)<sup><i>N</i></sup></p>
+      <p>On ne connaît pas <i>v</i><sub>0</sub>, et c'est sans importance, parce qu'on va faire un rapport. Doublez le volume, et le rapport des comptes ne dépend plus que du rapport des volumes :</p>
+      <p class="fx"><i>W</i><sub>2</sub> / <i>W</i><sub>1</sub> = (<i>V</i><sub>2</sub> / <i>V</i><sub>1</sub>)<sup><i>N</i></sup></p>
+      <p>Passez au logarithme, multipliez par <i>k</i><sub>B</sub>, et la variation d'entropie tombe :</p>
+      <p class="fx">Δ<i>S</i> = <i>k</i><sub>B</sub> ln(<i>W</i><sub>2</sub>/<i>W</i><sub>1</sub>) = <i>N</i> <i>k</i><sub>B</sub> ln(<i>V</i><sub>2</sub>/<i>V</i><sub>1</sub>) = <i>n</i> <i>R</i> ln(<i>V</i><sub>2</sub>/<i>V</i><sub>1</sub>)</p>
+      <p class="fxn">avec <i>R</i> = <i>N</i><sub>A</sub> <i>k</i><sub>B</sub> = 8,314 J/(K·mol), la constante des gaz</p>
+      <p>Pour une mole dont on double le volume :</p>
+      <p class="fx">Δ<i>S</i> = <i>R</i> ln 2 = 8,314 × 0,693 = <strong>5,763 J/(K·mol)</strong></p>
+      <p><strong>Changez le rapport des volumes.</strong></p>
+      <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="rS">Rapport V₂ / V₁</label><input type="range" id="rS" min="1" max="8" step="1" value="2" style="width:240px"></span>
+      </div>
+      <div class="live" id="f4L"></div>
+      <p class="figcap"><b>Figure 4.</b> La détente de Joule : on retire une paroi, le gaz occupe tout, sans échanger de chaleur ni fournir de travail. La température ne change pas, l'entropie augmente.</p>
+      <p>Ce 5,763 n'est pas une élégance de théoricien. C'est une valeur mesurable, obtenue bien avant qu'on croie aux atomes, en suivant la chaleur échangée au cours d'une détente isotherme réversible et en divisant par la température. Deux routes totalement étrangères l'une à l'autre, le calorimètre d'un côté et un dénombrement de cases libres de l'autre, arrivent au même nombre.</p>
+      <p>C'est l'argument qui a fini par imposer les atomes. Si la matière n'était pas faite de grains dénombrables, il n'y aurait aucune raison pour qu'un comptage combinatoire reproduise une mesure de chaleur.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">7</span>
+      <h2>Trois précisions pour ne pas dire de bêtises</h2>
+      <p><strong>L'entropie n'est pas le désordre.</strong> Le désordre est une impression, <i>W</i> est un entier. Les deux coïncident souvent, et se séparent parfois : il existe des systèmes qui se rangent tout seuls en augmentant leur entropie, comme des billes identiques dans un bocal secoué, qui s'empilent en réseau régulier parce que cette pile leur laisse plus de place pour vibrer, donc plus de microétats. Comptez, ne jugez pas de l'allure.</p>
+      <p><strong>L'entropie dépend de la description que l'on choisit.</strong> Si l'on décide de regarder case par case, il n'y a plus qu'un seul microétat compatible avec ce que l'on sait, donc <i>W</i> = 1 et <i>S</i> = 0. L'entropie mesure ce qui nous manque pour passer du macroétat au microétat. Elle est donc attachée au couple système-description, et non au système seul. Cette remarque, qui a l'air d'un détail philosophique, est devenue le cœur de la théorie de l'information avec Shannon en 1948, qui a retrouvé la même formule pour mesurer la quantité d'information d'un message.</p>
+      <p><strong>Le deuxième principe n'interdit rien.</strong> Il constate. Un système part d'un macroétat peu nombreux pour aller vers un macroétat très nombreux, parce qu'il y a plus de façons d'y être. Rien ne lui interdit de revenir, et il revient, à condition d'attendre quatre fois l'âge de l'Univers pour trente-deux pièces, et beaucoup plus pour un verre d'eau.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> un macroétat est un paquet de microétats, <i>W</i> compte combien il en contient, et <i>S</i> = <i>k</i><sub>B</sub> ln <i>W</i> traduit ce compte en joules par kelvin. Le logarithme est là parce que les possibilités se multiplient quand les entropies s'ajoutent. Et le même dénombrement qui donne 601 080 390 sur un échiquier donne 5,763 J/(K·mol) pour une mole de gaz qui double de volume, valeur que l'on retrouve au calorimètre.</p>
+    </section>
+
+    <nav class="suite" aria-label="Autres articles">
+      <h2>Les autres articles</h2>
+      <ul>
+      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
+      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
+      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
+      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="peser-un-atome.html">Manuel pour peser un atome (balance non fournie)</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
+      </ul>
+      <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
+    </nav>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=941a2f44"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+
+/* ---------- combinatoire ---------- */
+const SUP="⁰¹²³⁴⁵⁶⁷⁸⁹";
+function expo(n){ return (n<0?"⁻":"")+String(Math.abs(n)).split("").map(c=>SUP[+c]).join(""); }
+const FACT=[1n]; for(let i=1;i<=64;i++) FACT[i]=FACT[i-1]*BigInt(i);
+function Cb(n,k){ return (k<0||k>n)?0n:FACT[n]/(FACT[k]*FACT[n-k]); }
+const LN=[0]; for(let i=1;i<=200;i++) LN[i]=LN[i-1]+Math.log(i);
+function lnC(n,k){ return (k<0||k>n)?-Infinity:LN[n]-LN[k]-LN[n-k]; }
+function affBig(b){
+  const s=b.toString();
+  if(s.length<=10) return s.replace(/\B(?=(\d{3})+(?!\d))/g," ");
+  return s[0]+","+s.slice(1,3)+" × 10"+expo(s.length-1);
+}
+function affLn(ln){                       // affiche eˡⁿ en notation scientifique
+  if(ln<23) return milliers(Math.round(Math.exp(ln)));
+  const l10=ln/Math.LN10, e=Math.floor(l10), m=Math.pow(10,l10-e);
+  return fr(m,2)+" × 10"+expo(e);
+}
+function affSci(x,d){
+  if(!(x>0)) return "0";
+  const e=Math.floor(Math.log10(x)), m=x/Math.pow(10,e);
+  return fr(m,d===undefined?1:d)+" × 10"+expo(e);
+}
+const KB=1.380649e-23;
+function affS(ln){                         // entropie en J/K
+  const S=KB*ln;
+  if(S===0) return "0";
+  const l10=Math.log10(S), e=Math.floor(l10), m=Math.pow(10,l10-e);
+  return fr(m,2)+" × 10"+expo(e)+" J/K";
+}
+
+/* =========================================================
+   Figure 1 : l'échiquier
+   ========================================================= */
+const N1={W:960,H:470,x0:56,y0:60,c:48,px:506};
+let n1={occ:new Array(64).fill(false)};
+(function(){ for(const i of [1,10,19,27,36,44,53,62]) n1.occ[i]=true; })();
+function compte(){
+  let N=0,k=0;
+  for(let i=0;i<64;i++) if(n1.occ[i]){ N++; if(i%8<4) k++; }
+  return {N,k};
+}
+function drawN1(){
+  const {W,H,x0,y0,c,px}=N1, {N,k}=compte();
+  let s="";
+  // cases
+  for(let r=0;r<8;r++) for(let f=0;f<8;f++){
+    const i=r*8+f, x=x0+f*c, y=y0+r*c, clair=(r+f)%2===0;
+    const base = clair?"#f6f2e8":"#ded4c0";
+    const teinte = f<4 ? (clair?"#eef3f9":"#cfdcea") : (clair?"#faf3ea":"#e5d8c4");
+    s+=`<rect x="${x}" y="${y}" width="${c}" height="${c}" fill="${teinte}"/>`;
+  }
+  s+=`<rect x="${x0}" y="${y0}" width="${8*c}" height="${8*c}" fill="none" stroke="${INK}" stroke-width="1.6"/>`;
+  s+=`<path d="M${x0+4*c} ${y0-10}V${y0+8*c+10}" stroke="${ACC}" stroke-width="2.6"/>`;
+  s+=tx(x0+2*c,y0-18,"moitié gauche",{size:15,fill:ACC,anchor:"middle",w:600});
+  s+=tx(x0+6*c,y0-18,"moitié droite",{size:15,fill:"#9a7d4a",anchor:"middle",w:600});
+  // repères
+  for(let f=0;f<8;f++) s+=tx(x0+f*c+c/2,y0+8*c+22,"abcdefgh"[f],{size:13,fill:MUT,anchor:"middle"});
+  for(let r=0;r<8;r++) s+=tx(x0-10,y0+r*c+c/2+5,8-r,{size:13,fill:MUT,anchor:"end"});
+  // pièces
+  for(let i=0;i<64;i++) if(n1.occ[i]){
+    const x=x0+(i%8)*c+c/2, y=y0+Math.floor(i/8)*c+c/2;
+    s+=`<circle cx="${x}" cy="${y}" r="15" fill="${i%8<4?ACC:"#9a7d4a"}"/>`;
+    s+=`<circle cx="${x}" cy="${y-1}" r="8" fill="#fff" opacity=".35"/>`;
+  }
+  // couche de clic
+  for(let i=0;i<64;i++)
+    s+=`<rect data-i="${i}" x="${x0+(i%8)*c}" y="${y0+Math.floor(i/8)*c}" width="${c}" height="${c}" fill="transparent" style="cursor:pointer"/>`;
+  // panneau
+  const lW=lnC(32,k)+lnC(32,N-k), Wb=Cb(32,k)*Cb(32,N-k);
+  s+=`<path d="M${px-18} 40V430" stroke="#e2e0da"/>`;
+  s+=tx(px,62,"Le macroétat",{size:17,w:600});
+  s+=tx(px,88,"« "+N+" pièces, dont "+k+" à gauche »",{size:16,fill:ACC});
+  s+=tx(px,126,"Nombre de microétats",{size:14,fill:MUT});
+  s+=tx(px,152,"W = C(32, "+k+") × C(32, "+(N-k)+")",{size:17,w:500});
+  s+=tx(px,186,"W = "+(N?affBig(Wb):"1"),{size:22,fill:ACC,w:600});
+  s+=tx(px,226,"Entropie de ce macroétat",{size:14,fill:MUT});
+  s+=tx(px,252,'S = k<tspan dy="4" font-size="11">B</tspan><tspan dy="-4"> ln W</tspan>',{size:17,w:500});
+  s+=tx(px,286,"S = "+(N?affS(lW):"0 J/K"),{size:22,fill:ACC,w:600});
+  s+=tx(px,330,"Cliquez une case pour poser",{size:14,fill:MUT});
+  s+=tx(px,350,"ou enlever une pièce.",{size:14,fill:MUT});
+  s+=tx(px,392,"Le dessin ci-contre est UN microétat.",{size:14,fill:MUT});
+  s+=tx(px,412,"Le texte ci-dessus est son macroétat.",{size:14,fill:MUT});
+  put("f1",N1.W,N1.H,s);
+  const L=$("f1L");
+  if(N===0) L.innerHTML="Échiquier vide. Un seul microétat possible, donc W = 1, et comme ln 1 = 0, l'entropie est nulle. C'est le seul cas de la vie où on sait écrire une entropie exacte sans rien mesurer.";
+  else if(k===N) L.innerHTML="Toutes les pièces à gauche. Ce macroétat n'autorise que les arrangements sur 32 cases, donc W reste petit. <b>Un macroétat très particulier a peu de microétats, donc peu d'entropie.</b>";
+  else if(k===0) L.innerHTML="Toutes les pièces à droite. Même compte que tout à gauche, par symétrie.";
+  else L.innerHTML="Déplacez une pièce d'une case : le microétat change, et le macroétat ne change pas tant que la pièce reste du même côté. <b>Un macroétat, c'est un paquet de microétats</b>, et W compte combien il en contient.";
+}
+$("f1").addEventListener("click",e=>{
+  const d=e.target&&e.target.dataset?e.target.dataset.i:null;
+  if(d===null||d===undefined||d==="") return;
+  const i=+d; n1.occ[i]=!n1.occ[i]; drawN1();
+});
+$("mise").innerHTML='<button data-a="hasard" class="go">Tirer 32 pièces au hasard</button>'
+  +'<button data-a="gauche">Tout à gauche</button><button data-a="vide">Vider</button>';
+$("mise").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  const a=b.dataset.a;
+  n1.occ=new Array(64).fill(false);
+  if(a==="hasard"){ let n=0; while(n<32){ const i=Math.floor(Math.random()*64); if(!n1.occ[i]){n1.occ[i]=true;n++;} } }
+  if(a==="gauche"){ for(let r=0;r<8;r++) for(let f=0;f<4;f++) n1.occ[r*8+f]=true; }
+  $("mise").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; drawN1();
+});
+
+/* =========================================================
+   Figure 2 : quel macroétat gagne
+   ========================================================= */
+const N2={W:960,H:470,x0:92,x1:920,ya0:76,ya1:238,yb0:286,yb1:400};
+let n2={N:32};
+function loiW(N){
+  const t=[]; let mx=-Infinity;
+  for(let k=0;k<=N;k++){ const l=lnC(32,k)+lnC(32,N-k); t.push(l); if(l>mx) mx=l; }
+  let som=0; for(const l of t) som+=Math.exp(l-mx);
+  const lTot=mx+Math.log(som);
+  return {t,lTot};
+}
+function drawN2(){
+  const {W,H,x0,x1,ya0,ya1,yb0,yb1}=N2, N=n2.N;
+  const {t,lTot}=loiW(N);
+  const X=k=>x0+(N?k/N:0)*(x1-x0), bw=Math.max(3,Math.min(46,(x1-x0)/(N+1)-3));
+  const l10=t.map(l=>l/Math.LN10), hmax=Math.max(...l10);
+  const p=t.map(l=>Math.exp(l-lTot)), pmax=Math.max(...p);
+  let s="";
+  // panneau haut : log10 W(k)
+  s+=`<path d="M${x0} ${ya0}V${ya1}H${x1}" fill="none" stroke="${INK}"/>`;
+  s+=tx(x0,ya0-34,"Combien de microétats pour chaque macroétat",{size:17,w:600});
+  s+=tx(x0,ya0-14,"hauteur = log₁₀ W(k), sinon la barre du milieu ferait 400 mètres",{size:13,fill:MUT});
+  for(let k=0;k<=N;k++){
+    const h=(l10[k]/hmax)*(ya1-ya0), x=X(k)-bw/2;
+    s+=`<rect x="${x.toFixed(1)}" y="${(ya1-h).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${k===N/2?ACC:"#9fb6d0"}"/>`;
+  }
+  s+=tx(x0-8,ya0+6,fr(hmax,1),{size:12,fill:MUT,anchor:"end"});
+  s+=tx(x0-8,ya1+4,"0",{size:12,fill:MUT,anchor:"end"});
+  // panneau bas : probabilité
+  s+=`<path d="M${x0} ${yb0}V${yb1}H${x1}" fill="none" stroke="${INK}"/>`;
+  s+=tx(x0,yb0-12,"Probabilité de tomber sur ce macroétat, si on jette les pièces au hasard",{size:14,fill:MUT});
+  for(let k=0;k<=N;k++){
+    const h=(p[k]/pmax)*(yb1-yb0), x=X(k)-bw/2;
+    s+=`<rect x="${x.toFixed(1)}" y="${(yb1-h).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${RED}" opacity=".85"/>`;
+  }
+  s+=tx(x0-8,yb0+6,fr(pmax*100,0)+" %",{size:12,fill:MUT,anchor:"end"});
+  s+=tx(x0-8,yb1+4,"0",{size:12,fill:MUT,anchor:"end"});
+  // axe des k
+  const pas=N<=8?1:(N<=16?2:4);
+  for(let k=0;k<=N;k+=pas) s+=tx(X(k),yb1+24,k,{size:12,fill:MUT,anchor:"middle"});
+  s+=tx(x0,yb1+48,"k = nombre de pièces dans la moitié gauche",{size:14,fill:MUT});
+  // écart-type
+  const sig=Math.sqrt(N/4*(64-N)/63);
+  let dans=0; for(let k=0;k<=N;k++) if(Math.abs(k-N/2)<=2*sig) dans+=p[k];
+  s+=`<path d="M${X(N/2-2*sig).toFixed(1)} ${yb0-2}H${X(N/2+2*sig).toFixed(1)}" stroke="${GR}" stroke-width="3"/>`;
+  s+=tx(x1,yb0-10,"± 2σ : "+fr(dans*100,1)+" % des cas",{size:14,fill:GR,anchor:"end",w:600});
+  put("f2",W,H,s);
+  const pmilieu=p[Math.round(N/2)], ptout=p[N];
+  $("f2L").innerHTML = "Avec <b>"+N+" pièces</b>, l'écart-type vaut σ = "+fr(sig,2)+". Le macroétat équilibré rassemble "
+    + fr(pmilieu*100,1)+" % des microétats, et <b>"+fr(dans*100,1)+" %</b> tombent dans l'intervalle ± 2σ autour de l'équilibre. "
+    + "Le macroétat « tout à gauche » n'en rassemble qu'une fraction de "
+    + (ptout<1e-5?affSci(ptout,1):fr(ptout*100,2)+" %")
+    + ". Augmentez le nombre de pièces : le pic ne se déplace pas, il se resserre.";
+}
+$("nS").oninput=e=>{ n2.N=2*Math.round(+e.target.value/2); drawN2(); };
+
+/* =========================================================
+   Figure 3 : le film qui ne revient pas
+   ========================================================= */
+const N3={W:960,H:470,x0:40,y0:78,c:30,px:330,px1:926,py0:96,py1:330};
+let n3={occ:[],hist:[],coup:0,court:false,N:32};
+function razN3(){
+  n3.occ=new Array(64).fill(false);
+  for(let r=0;r<8;r++) for(let f=0;f<4;f++) n3.occ[r*8+f]=true;
+  n3.N=32; n3.hist=[32]; n3.coup=0;
+}
+razN3();
+function unCoup(){
+  const pl=[],vi=[];
+  for(let i=0;i<64;i++) (n3.occ[i]?pl:vi).push(i);
+  const a=pl[Math.floor(Math.random()*pl.length)], b=vi[Math.floor(Math.random()*vi.length)];
+  n3.occ[a]=false; n3.occ[b]=true; n3.coup++;
+  let k=0; for(let i=0;i<64;i++) if(n3.occ[i]&&i%8<4) k++;
+  n3.hist.push(k); if(n3.hist.length>600) n3.hist.shift();
+}
+function drawN3(){
+  const {W,H,x0,y0,c,px,px1,py0,py1}=N3, N=n3.N;
+  let k=0; for(let i=0;i<64;i++) if(n3.occ[i]&&i%8<4) k++;
+  let s="";
+  for(let r=0;r<8;r++) for(let f=0;f<8;f++){
+    const x=x0+f*c, y=y0+r*c, clair=(r+f)%2===0;
+    s+=`<rect x="${x}" y="${y}" width="${c}" height="${c}" fill="${f<4?(clair?"#eef3f9":"#cfdcea"):(clair?"#faf3ea":"#e5d8c4")}"/>`;
+  }
+  s+=`<rect x="${x0}" y="${y0}" width="${8*c}" height="${8*c}" fill="none" stroke="${INK}" stroke-width="1.4"/>`;
+  s+=`<path d="M${x0+4*c} ${y0-8}V${y0+8*c+8}" stroke="${ACC}" stroke-width="2.2"/>`;
+  for(let i=0;i<64;i++) if(n3.occ[i]){
+    const x=x0+(i%8)*c+c/2, y=y0+Math.floor(i/8)*c+c/2;
+    s+=`<circle cx="${x}" cy="${y}" r="9.5" fill="${i%8<4?ACC:"#9a7d4a"}"/>`;
+  }
+  s+=tx(x0,y0-18,"coup n° "+milliers(n3.coup),{size:15,w:600});
+  s+=tx(x0,y0+8*c+26,k+" à gauche, "+(N-k)+" à droite",{size:15,fill:MUT});
+  // graphe
+  const X=i=>px+(i/599)*(px1-px), Y=v=>py1-(v/N)*(py1-py0);
+  s+=`<path d="M${px} ${py0}V${py1}H${px1}" fill="none" stroke="${INK}"/>`;
+  const sig=Math.sqrt(N/4*(64-N)/63);
+  s+=`<rect x="${px}" y="${Y(N/2+2*sig).toFixed(1)}" width="${px1-px}" height="${(Y(N/2-2*sig)-Y(N/2+2*sig)).toFixed(1)}" fill="${GR}" opacity=".12"/>`;
+  s+=`<path d="M${px} ${Y(N/2).toFixed(1)}H${px1}" stroke="${GR}" stroke-width="1.6" stroke-dasharray="6 5"/>`;
+  s+=tx(px1,Y(N/2)-10,"équilibre, k = "+N/2,{size:14,fill:GR,anchor:"end",w:600});
+  let d="";
+  for(let i=0;i<n3.hist.length;i++) d+=(i?"L":"M")+X(i).toFixed(1)+" "+Y(n3.hist[i]).toFixed(1);
+  s+=`<path d="${d}" fill="none" stroke="${ACC}" stroke-width="1.8"/>`;
+  for(const v of [0,N/4,N/2,3*N/4,N]) s+=tx(px-8,Y(v)+5,v,{size:12,fill:MUT,anchor:"end"});
+  s+=tx(px,py0-34,"Nombre de pièces à gauche, coup par coup",{size:17,w:600});
+  s+=tx(px,py0-14,"à chaque coup, une pièce tirée au hasard va sur une case libre tirée au hasard",{size:13,fill:MUT});
+  s+=tx(px,py1+26,"600 derniers coups",{size:13,fill:MUT});
+  // entropie
+  const lW=lnC(32,k)+lnC(32,N-k), lMax=lnC(32,N/2)+lnC(32,N/2);
+  s+=tx(px,py1+60,'S / k<tspan dy="4" font-size="11">B</tspan><tspan dy="-4"> = ln W = '
+   +fr(lW,2)+"   (maximum possible : "+fr(lMax,2)+')</tspan>',{size:16,w:600});
+  s+=`<rect x="${px}" y="${py1+74}" width="${px1-px}" height="10" fill="#eceae4"/>`;
+  s+=`<rect x="${px}" y="${py1+74}" width="${((px1-px)*lW/lMax).toFixed(1)}" height="10" fill="${ACC}"/>`;
+  put("f3",W,H,s);
+  const L=$("f3L");
+  if(n3.coup===0) L.innerHTML="Départ : les 32 pièces du côté gauche. C'est un macroétat parfaitement rangé, et il ne contient qu'un seul microétat par choix de cases, donc W est au plus bas. Appuyez sur Lancer.";
+  else if(k>N*0.7) L.innerHTML="Les pièces commencent à passer. Aucune règle ne les y pousse : il y a simplement plus de cases libres à droite, donc plus de façons d'aller à droite. <b>L'entropie monte parce que le compte des possibilités monte.</b>";
+  else if(k>N/2+2*sig) L.innerHTML="On approche de l'équilibre. La courbe continue de descendre, de plus en plus lentement.";
+  else L.innerHTML="Arrivé dans la bande d'équilibre, le film ne revient plus en arrière. Il n'est pas interdit de revenir : c'est seulement <b>5 chances sur 10 milliards de milliards</b> à chaque coup. Un coup par seconde donne un retour tous les 58 milliards d'années, soit quatre fois l'âge de l'Univers.";
+}
+$("go3").onclick=()=>{ n3.court=!n3.court; $("go3").textContent=n3.court?"Pause":"Lancer"; };
+$("raz3").onclick=()=>{ razN3(); n3.court=false; $("go3").textContent="Lancer"; drawN3(); };
+
+/* =========================================================
+   Figure 4 : de l'échiquier au gaz
+   ========================================================= */
+const N4={W:960,H:480,x0:60,Lt:480};
+let n4={r:2};
+function drawN4(){
+  const {W,H,x0,Lt}=N4, r=n4.r, R=8.314462618, hb=118;
+  const y1=104, y2=y1+hb+96;
+  let s="";
+  let g=4242; const rnd=()=>{g=(g*1103515245+12345)%2147483648;return g/2147483648;};
+  const pts=[]; for(let i=0;i<80;i++) pts.push([rnd(),rnd()]);
+  // avant
+  s+=tx(x0,y1-44,"Avant : la paroi tient tout le gaz à gauche",{size:16,w:600});
+  s+=tx(x0,y1-22,"volume occupé V₁ = V₂ / "+r,{size:14,fill:MUT});
+  s+=`<rect x="${x0}" y="${y1}" width="${Lt}" height="${hb}" fill="#fbfbf9" stroke="${INK}" stroke-width="1.6"/>`;
+  s+=`<rect x="${x0}" y="${y1}" width="${(Lt/r).toFixed(1)}" height="${hb}" fill="#eef3f9"/>`;
+  s+=`<path d="M${(x0+Lt/r).toFixed(1)} ${y1-6}v${hb+12}" stroke="${RED}" stroke-width="4"/>`;
+  s+=tx(x0+Lt/r+10,y1-8,"paroi",{size:14,fill:RED,w:600});
+  if(r>1.2) s+=tx(x0+Lt/r+(Lt-Lt/r)/2,y1+hb/2+5,"vide",{size:16,fill:MUT,anchor:"middle"});
+  for(const p of pts) s+=`<circle cx="${(x0+5+p[0]*(Lt/r-10)).toFixed(1)}" cy="${(y1+6+p[1]*(hb-12)).toFixed(1)}" r="3.2" fill="${ACC}"/>`;
+  // après
+  s+=tx(x0,y2-44,"Après : on retire la paroi, rien d'autre ne change",{size:16,w:600});
+  s+=tx(x0,y2-22,"volume occupé V₂, même énergie, même température",{size:14,fill:MUT});
+  s+=`<rect x="${x0}" y="${y2}" width="${Lt}" height="${hb}" fill="#eef3f9" stroke="${INK}" stroke-width="1.6"/>`;
+  for(const p of pts) s+=`<circle cx="${(x0+5+p[0]*(Lt-10)).toFixed(1)}" cy="${(y2+6+p[1]*(hb-12)).toFixed(1)}" r="3.2" fill="${ACC}"/>`;
+  // comptes
+  const px=600, ex=6.02214076e23*Math.log10(r);
+  s+=`<path d="M${px-24} 56V${H-24}" stroke="#e2e0da"/>`;
+  s+=tx(px,78,"Rapport des volumes : "+r,{size:17,w:600});
+  s+=tx(px,118,"Par le comptage de cases",{size:15,fill:MUT});
+  s+=tx(px,146,"W₂ / W₁ = "+r+"ᴺ",{size:18});
+  s+=tx(px,172,"pour une mole, cela fait",{size:14,fill:MUT});
+  s+=tx(px,196,"un 1 suivi de "+fr(ex/1e23,2)+" × 10"+expo(23),{size:15,fill:ACC,w:600});
+  s+=tx(px,216,"zéros",{size:15,fill:ACC,w:600});
+  s+=tx(px,256,"Par la thermodynamique",{size:15,fill:MUT});
+  s+=tx(px,284,"ΔS = n R ln(V₂ / V₁)",{size:18});
+  s+=tx(px,322,"ΔS = "+fr(R*Math.log(r),3)+" J/K",{size:24,fill:ACC,w:600});
+  s+=tx(px,360,"par mole. Les deux chemins",{size:14,fill:MUT});
+  s+=tx(px,380,"donnent le même nombre,",{size:14,fill:MUT});
+  s+=tx(px,400,"et c'est celui qu'on mesure.",{size:14,fill:MUT});
+  put("f4",W,H,s);
+  $("f4L").innerHTML = "En multipliant le volume par "+r+", chaque molécule gagne "+r+" fois plus de places. Les possibilités de chaque molécule se multiplient entre elles, donc W est multiplié par <b>"+r+"<sup>N</sup></b>. "
+    + "Le logarithme ramène cette puissance à une somme : ΔS = N k<sub>B</sub> ln "+r+" = n R ln "+r+" = <b>"+fr(R*Math.log(r),3)+" J/K</b> par mole. "
+    + "Ce nombre se mesure au calorimètre depuis le 19ᵉ siècle, et il sort ici d'un dénombrement de cases libres.";
+}
+$("rS").oninput=e=>{ n4.r=+e.target.value; drawN4(); };
+
+/* ---------------- boucle ---------------- */
+drawN1(); drawN2(); drawN3(); drawN4();
+let der=performance.now(), acc=0;
+function boucle(now){
+  const dt=Math.min(0.1,(now-der)/1000); der=now;
+  if(n3.court){
+    acc+=dt;
+    while(acc>0.08){ unCoup(); acc-=0.08; }
+    drawN3();
+  }
+  requestAnimationFrame(boucle);
+}
+if(!RM) requestAnimationFrame(boucle);
+
+</script>
+</body>
+</html>
