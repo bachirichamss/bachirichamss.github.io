@@ -5,11 +5,27 @@
   <link>https://bachirichamss.github.io/podcast.html</link>
   <description>Une chronique courte sur l'actualité de la physique et sur des travaux de recherche, écrite et lue avec l'aide de l'intelligence artificielle, relue par Chamss Bachiri.</description>
   <language>fr</language>
-  <lastBuildDate>Mon, 05 Oct 2026 13:56:00 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 16 Oct 2026 07:27:04 +0000</lastBuildDate>
   <itunes:author>Chamss Bachiri</itunes:author>
   <itunes:image href="https://bachirichamss.github.io/podcast/cover.jpg"/>
   <itunes:category text="Science"><itunes:category text="Physics"/></itunes:category>
   <itunes:explicit>false</itunes:explicit>
+  <item>
+   <title>Ondes de fusion, jets de trous noirs et valves du cœur</title>
+   <description>Au sommaire cette semaine : une avancée majeure pour confiner les plasmas de fusion, les secrets cinétiques des trous noirs en rotation, l'effet surprenant des remous sur les valves cardiaques, et une collision de quasiparticules sur une puce quantique.
+
+Sources :
+- First Experimental Evidence of Helicon Current Drive : http://link.aps.org/doi/10.1103/mbn4-fd4v
+- Collisionless Accretion of Finite-Angular-Momentum Plasma onto a Spinning Black Hole : http://link.aps.org/doi/10.1103/n92m-jvpj
+- Stochastic Elastohydrodynamics of Soft Valves : http://link.aps.org/doi/10.1103/h78n-3582
+- An entangling Hubbard quasiparticle collider on a digital quantum processor : http://arxiv.org/abs/2610.13946v1</description>
+   <link>https://bachirichamss.github.io/podcast.html#2026-10-12-ondes-de-fusion-jets-de-trous-noirs-et-valves-du-cur</link>
+   <guid isPermaLink="false">2026-10-12-ondes-de-fusion-jets-de-trous-noirs-et-valves-du-cur</guid>
+   <pubDate>Mon, 12 Oct 2026 08:00:00 +0000</pubDate>
+   <enclosure url="https://bachirichamss.github.io/podcast/episodes/2026-10-12-ondes-de-fusion-jets-de-trous-noirs-et-valves-du-cur.mp3" length="2062512" type="audio/mpeg"/>
+   <itunes:duration>344</itunes:duration>
+   <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
    <title>Des cornichons lumineux au destin de l'univers</title>
    <description>Une exploration des mystères de la physique, des particules fractionnaires aux nouvelles archives d'Isaac Newton, en passant par la stabilité du vide.
