@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/boltzmann.html">
-<title>La constante de Boltzmann, masterclasse · Chamss Bachiri</title>
-<meta name="description" content="Ce qu'est vraiment la constante de Boltzmann, où elle apparaît de la chimie aux étoiles, comment on la mesure, et pourquoi sa valeur est fixée depuis 2019. Avec quatre simulations.">
-<meta property="og:title" content="La constante de Boltzmann, ou le taux de change entre les degrés et les joules">
+<title>Qu'est-ce que la constante de Boltzmann ? · Chamss Bachiri</title>
+<meta name="description" content="La constante de Boltzmann convertit les kelvins en joules. On la suit dans l'équipartition, la loi des gaz parfaits, le facteur exponentiel, l'entropie et le bruit des résistances, puis on voit comment la mesure acoustique dans une sphère a conduit à fixer sa valeur en 2019.">
+<meta property="og:title" content="Qu'est-ce que la constante de Boltzmann ?">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -37,6 +37,11 @@
 .tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
 .tb td.n{white-space:nowrap;font-variant-numeric:tabular-nums;color:#1f4f8f;font-weight:500}
 .tb sup{font-size:.7em}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -49,125 +54,228 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>La constante de Boltzmann, ou le taux de change entre les degrés et les joules</h1>
-      <p class="dek">Elle vaut 1,380 649 × 10⁻²³ joule par kelvin et elle ne décrit rien en elle-même. Elle traduit. Mais ce qu'elle traduit commande la chimie, les étoiles, les transistors, le bruit des amplificateurs, les moteurs de vos cellules et le sens du temps.</p>
-      <div class="meta"><span>29 septembre 2026</span><span>15 min</span></div>
+      <h1>Qu'est-ce que la constante de Boltzmann ?</h1>
+      <p class="dek">Un thermomètre affiche des kelvins, alors que les molécules dont il mesure l'agitation portent des joules. La constante de Boltzmann est le facteur qui relie les deux unités, et elle vaut exactement 1,380 649 × 10<sup>−23</sup> joule par kelvin depuis 2019. Cet article suit ce facteur dans les formules où il apparaît, puis montre comment on l'a mesuré en écoutant résonner une sphère de gaz.</p>
+      <div class="meta"><span>29 septembre 2026</span><span>18 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Ce qu'elle est vraiment : un taux de change</h2>
-      <p>La température n'est pas une grandeur fondamentale. C'est une façon commode de parler de l'énergie d'agitation des particules, héritée d'une époque où personne ne savait que la matière était faite de grains. Nous avons inventé le degré avant de comprendre ce qu'il mesurait.</p>
-      <p>La constante de Boltzmann est le taux de change entre les deux unités. Elle dit combien vaut un kelvin en joules : <strong>1,380 649 × 10⁻²³ joule par kelvin</strong>. Si nous avions mesuré les températures en joules dès le départ, elle vaudrait 1 et elle aurait disparu de toutes les formules.</p>
-      <p>C'est pour cela qu'elle apparaît partout où la température rencontre la physique microscopique, et toujours sous la même forme : le produit <strong>kT</strong>, qui est une énergie. Retenez ce produit, le reste de l'article en découle.</p>
-      <p>Détail historique amusant : Ludwig Boltzmann n'a jamais écrit cette constante. C'est Max Planck qui l'a introduite en 1900, dans le même article que son autre constante, et qui lui a donné le nom de Boltzmann. La formule qui est gravée sur la tombe de Boltzmann, à Vienne, a été écrite par Planck.</p>
+      <h2>Une température est une énergie par particule</h2>
+      <p>Le degré a été défini longtemps avant qu'on sache la matière faite de grains. Quand la théorie cinétique a montré que la chaleur d'un corps était l'énergie de mouvement de ses particules, la température disposait déjà de son unité et l'énergie de la sienne. Les deux grandeurs mesurent la même chose à un facteur près, et ce facteur est la constante de Boltzmann.</p>
+      <p>La forme la plus dépouillée de cette correspondance est le théorème d'équipartition. Chaque façon indépendante dont un système peut emmagasiner de l'énergie de façon quadratique, ce qu'on appelle un degré de liberté, en reçoit la même part à l'équilibre :</p>
+      <p class="fx">⟨<i>E</i>⟩ = ½ <i>k</i><sub>B</sub> <i>T</i> &nbsp;&nbsp; par degré de liberté</p>
+      <ul class="sym">
+        <li><b>⟨E⟩</b> l'énergie moyenne stockée dans ce degré de liberté</li>
+        <li><b>k<sub>B</sub></b> la constante de Boltzmann, 1,380 649 × 10<sup>−23</sup> joule par kelvin</li>
+        <li><b>T</b> la température absolue, comptée en kelvins depuis le zéro absolu</li>
+      </ul>
+      <p>La formule se lit comme un taux de change. À gauche une énergie en joules, à droite une température en kelvins, et au milieu le coefficient qui convertit l'une en l'autre. À 300 kelvins, un degré de liberté emmagasine ½ <i>k</i><sub>B</sub><i>T</i> = 2,07 × 10<sup>−21</sup> joule, soit 12,9 millièmes d'électronvolt. Si les températures avaient été comptées en joules dès le départ, la constante vaudrait 1 et elle sortirait de toutes les formules qui suivent.</p>
+      <p>Il suffit alors de compter les degrés de liberté d'un objet pour connaître son énergie thermique :</p>
+      <p class="fx">⟨<i>E</i>⟩ = (<i>f</i> / 2) <i>k</i><sub>B</sub> <i>T</i></p>
+      <ul class="sym">
+        <li><b>f</b> le nombre de degrés de liberté quadratiques du système</li>
+      </ul>
+      <p>Un atome de gaz ne peut que se déplacer, dans trois directions, donc <i>f</i> = 3 et son énergie moyenne vaut 3/2 <i>k</i><sub>B</sub><i>T</i>. La capacité thermique d'une mole d'un tel gaz vaut 3/2 <i>R</i> = 12,47 joule par kelvin et par mole, et c'est la valeur mesurée pour l'argon. Une molécule d'azote peut en plus tourner autour de deux axes, ce qui porte <i>f</i> à 5 et la capacité à 5/2 <i>R</i> = 20,79, là encore conforme à la mesure. Compter les mouvements possibles d'une molécule suffit à prévoir combien de chaleur il faut pour réchauffer un récipient entier.</p>
+      <p>Ludwig Boltzmann n'a pas écrit cette constante sous cette forme. Max Planck l'a introduite en 1900, dans le travail où il introduisait aussi la constante <i>h</i>, et lui a donné le nom de Boltzmann. La relation gravée sur la tombe de Boltzmann, au cimetière central de Vienne, porte la notation de Planck.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Premier visage : l'agitation</h2>
-      <p>Dans un gaz, chaque particule possède en moyenne une énergie de mouvement égale à trois demis de kT, quelle que soit sa masse. Lourde ou légère, elle reçoit la même part. Les légères vont donc beaucoup plus vite.</p>
-      <p><strong>Changez la température, puis changez de gaz, et regardez l'énergie moyenne.</strong></p>
+      <h2>L'agitation dans un gaz, et la vitesse des molécules</h2>
+      <p>Dans un gaz, les trois degrés de liberté de translation donnent à chaque molécule une énergie de mouvement moyenne de 3/2 <i>k</i><sub>B</sub><i>T</i>, indépendamment de sa masse. Cette énergie vaut aussi ½<i>m</i><i>v</i>², ce qui fixe la vitesse typique des molécules.</p>
+      <p class="fx">½ <i>m</i> ⟨<i>v</i>²⟩ = 3/2 <i>k</i><sub>B</sub> <i>T</i> &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>v</i> = √( 3 <i>k</i><sub>B</sub> <i>T</i> / <i>m</i> )</p>
+      <ul class="sym">
+        <li><b>m</b> la masse d'une molécule</li>
+        <li><b>v</b> la vitesse quadratique moyenne, c'est-à-dire la racine de la moyenne des carrés des vitesses</li>
+      </ul>
+      <p>Comme l'énergie est la même pour tous les gaz à une température donnée, la vitesse varie en raison inverse de la racine de la masse. Une molécule d'azote pèse 4,652 × 10<sup>−26</sup> kilogramme ; à 20 degrés, soit 293,15 kelvins, la formule donne <i>v</i> = 511 mètres par seconde, environ 1 840 kilomètres par heure. Une molécule d'hydrogène, quatorze fois plus légère, atteint 1 904 mètres par seconde dans le même récipient.</p>
+      <p>Cette vitesse se compare directement à celle du son, qui se propage justement par les chocs entre molécules. Dans l'azote à 20 degrés le son va à 349 mètres par seconde, dans l'air à 343. Le rapport entre la vitesse d'agitation et la vitesse du son vaut √(3/γ), soit 1,46 pour l'azote et 1,34 pour un gaz monoatomique. Le son ne peut pas aller beaucoup plus vite que les molécules qui le transportent.</p>
+      <p>Les vitesses individuelles se répartissent autour de cette valeur selon la loi de Maxwell et Boltzmann, qui n'est que le facteur exponentiel de la section 4 appliqué à l'énergie cinétique :</p>
+      <p class="fx"><i>f</i>(<i>v</i>) = 4π ( <i>m</i> / (2π <i>k</i><sub>B</sub> <i>T</i>) )<sup>3/2</sup> <i>v</i>² e<sup>−<i>m</i><i>v</i>²/(2<i>k</i><sub>B</sub><i>T</i>)</sup></p>
+      <p>Le facteur <i>v</i>² fait monter la courbe aux petites vitesses, parce qu'il existe de plus en plus de directions possibles quand la vitesse augmente ; l'exponentielle la fait redescendre aux grandes vitesses, parce que l'énergie à réunir devient trop grande. Pour l'azote à 20 degrés, la vitesse la plus fréquente vaut 417 mètres par seconde, la vitesse moyenne 471, et la vitesse quadratique moyenne 511. Les trois diffèrent de moins de 25 pour cent, et toutes trois varient comme la racine de la température.</p>
+      <p>Réglez la température, puis changez de gaz, et comparez l'énergie moyenne à la vitesse obtenue.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="tS">Température</label><input type="range" id="tS" min="20" max="1200" value="300" style="width:260px"></span>
       </div>
       <div class="ctl"><div class="seg" id="gaz"></div></div>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> Un gaz de quelques dizaines de molécules. L'histogramme se construit en direct à partir des vitesses réelles de la simulation ; la courbe est la loi de Maxwell et Boltzmann.</p>
-      <p>Cette simple égalité, trois demis de kT par particule, donne la pression d'un gaz, la vitesse du son, la diffusion des odeurs dans une pièce et la raison pour laquelle l'hydrogène s'échappe de l'atmosphère terrestre alors que l'azote reste.</p>
+      <p class="figcap"><b>Figure 1.</b> Un gaz de soixante-dix molécules. L'histogramme se construit en direct à partir des vitesses réelles de la simulation ; la courbe rouge est la loi de Maxwell et Boltzmann tracée sans ajustement, et le trait vertical marque la vitesse quadratique moyenne.</p>
+      <p>L'énergie affichée ne change pas quand on passe d'un gaz à l'autre, la vitesse si. Cette séparation explique pourquoi la Terre a perdu son hydrogène libre : dans les hautes couches de l'atmosphère, vers 1 000 kelvins, la vitesse quadratique moyenne de l'hydrogène atteint 3 520 mètres par seconde, et la queue de l'exponentielle fournit sans cesse des molécules au-delà des 11,2 kilomètres par seconde de la vitesse de libération. L'azote, quatorze fois plus lourd, reste.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>Deuxième visage : l'exponentielle qui gouverne tout</h2>
-      <p>Voici la formule la plus rentable de toute la physique statistique. Si un état coûte une énergie E de plus qu'un autre, sa population est plus faible dans un rapport <strong>e<sup>−E/kT</sup></strong>. Rien d'autre. Et pourtant.</p>
-      <p>Comme kT vaut 26 millièmes d'électronvolt à température ambiante, une barrière de 1 électronvolt coûte un facteur e<sup>−39</sup>, soit à peu près une chance sur soixante millions de milliards. C'est la raison pour laquelle le sucre ne brûle pas tout seul dans votre tasse, pourquoi il faut une allumette, et pourquoi augmenter un peu la température accélère énormément une réaction.</p>
-      <p><strong>Jouez sur la température et sur la hauteur de la marche.</strong></p>
+      <h2>La loi des gaz parfaits, écrite à deux échelles</h2>
+      <p>La pression d'un gaz vient des chocs de ses molécules sur la paroi. En comptant la quantité de mouvement qu'elles y déposent par seconde, on obtient la pression en fonction de leur agitation :</p>
+      <p class="fx"><i>P</i> = (1/3) (<i>N</i> / <i>V</i>) <i>m</i> ⟨<i>v</i>²⟩</p>
+      <ul class="sym">
+        <li><b>P</b> la pression, <b>V</b> le volume</li>
+        <li><b>N</b> le nombre de molécules dans ce volume</li>
+      </ul>
+      <p>En y remplaçant <i>m</i>⟨<i>v</i>²⟩ par 3<i>k</i><sub>B</sub><i>T</i>, tiré de la section précédente, le facteur 1/3 et le facteur 3 se compensent et il ne reste plus que la loi des gaz parfaits :</p>
+      <p class="fx"><i>P</i> <i>V</i> = <i>N</i> <i>k</i><sub>B</sub> <i>T</i> &nbsp;&nbsp; et &nbsp;&nbsp; <i>P</i> <i>V</i> = <i>n</i> <i>R</i> <i>T</i></p>
+      <ul class="sym">
+        <li><b>n</b> la quantité de matière, en moles</li>
+        <li><b>R</b> la constante des gaz parfaits, 8,314 462 618 joule par kelvin et par mole</li>
+      </ul>
+      <p>Ces deux écritures sont la même loi vue à deux échelles. La première compte les molécules une par une, la seconde les compte par paquets d'une mole, et le pont entre les deux est le nombre d'Avogadro :</p>
+      <p class="fx"><i>R</i> = <i>N</i><sub>A</sub> <i>k</i><sub>B</sub> &nbsp;&nbsp; avec &nbsp;&nbsp; <i>N</i><sub>A</sub> = 6,022 140 76 × 10<sup>23</sup> mol<sup>−1</sup></p>
+      <p>La constante des gaz parfaits de la chimie du dix-neuvième siècle et la constante de Boltzmann de la physique statistique sont donc la même grandeur, l'une comptée par mole et l'autre par molécule. Le produit donne bien 8,314 462 618 joule par kelvin et par mole. Une mole de gaz à 0 degré Celsius et sous 101 325 pascals occupe <i>RT</i>/<i>P</i> = 22,414 litres, et un litre d'air à 20 degrés sous la même pression contient <i>PV</i>/(<i>k</i><sub>B</sub><i>T</i>) = 2,50 × 10<sup>22</sup> molécules.</p>
+      <p>Cette double écriture explique aussi un fait de laboratoire courant. Un chimiste pèse ses réactifs et travaille avec <i>R</i> sans jamais rencontrer une molécule ; un physicien qui suit une bille de latex au microscope travaille avec <i>k</i><sub>B</sub> et ne manipule jamais une mole. Les deux mesurent la même constante.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Le facteur de Boltzmann</h2>
+      <p>Quand un système est en contact avec un milieu à la température <i>T</i>, la probabilité qu'il se trouve dans un état d'énergie <i>E</i> décroît exponentiellement avec cette énergie. Le rapport des populations de deux états séparés par une énergie <i>E</i> s'écrit :</p>
+      <p class="fx"><i>N</i><sub>2</sub> / <i>N</i><sub>1</sub> = e<sup>−<i>E</i>/<i>k</i><sub>B</sub><i>T</i></sup></p>
+      <ul class="sym">
+        <li><b>E</b> l'énergie que coûte le passage de l'état du bas à celui du haut</li>
+        <li><b>N<sub>1</sub>, N<sub>2</sub></b> les nombres de systèmes dans chacun des deux états</li>
+      </ul>
+      <p>Cette expression dit combien il est rare qu'un système prenne spontanément une énergie <i>E</i>, et la comparaison se fait toujours avec <i>k</i><sub>B</sub><i>T</i>, qui est l'énergie que l'agitation thermique peut fournir sans qu'on ait rien à faire. Tant que <i>E</i> reste petit devant <i>k</i><sub>B</sub><i>T</i>, l'exponentielle est proche de 1 et les deux états sont presque aussi peuplés. Dès que <i>E</i> dépasse <i>k</i><sub>B</sub><i>T</i>, la population s'effondre, et l'effondrement est d'autant plus brutal que <i>T</i> est basse.</p>
+      <p>Les chiffres donnent la mesure de cette brutalité. À 300 kelvins, <i>k</i><sub>B</sub><i>T</i> vaut 25,9 millièmes d'électronvolt. Une barrière de 1 électronvolt, l'ordre de grandeur d'une liaison chimique, représente donc 38,7 fois <i>k</i><sub>B</sub><i>T</i>, et le facteur de Boltzmann tombe à 1,6 × 10<sup>−17</sup>, soit une chance sur soixante millions de milliards. Le sucre d'une tasse de thé ne s'enflamme pas pour cette raison, et il faut une allumette pour apporter l'énergie autrement.</p>
+      <p>La même formule explique la sensibilité des réactions à la température. Passer de 300 à 310 kelvins change <i>E</i>/<i>k</i><sub>B</sub><i>T</i> de 1,25 pour une barrière de 1 électronvolt, ce qui multiplie le facteur par e<sup>1,25</sup> = 3,5. Dix degrés de plus suffisent à tripler la vitesse d'une réaction, règle empirique que les chimistes connaissaient bien avant d'en avoir la formule.</p>
+      <p>Appliquée à l'énergie de pesanteur <i>mgz</i> plutôt qu'à une barrière chimique, la même exponentielle donne la décroissance de la pression avec l'altitude :</p>
+      <p class="fx"><i>P</i>(<i>z</i>) = <i>P</i><sub>0</sub> e<sup>−<i>m</i><i>g</i><i>z</i>/<i>k</i><sub>B</sub><i>T</i></sup> &nbsp;&nbsp; avec &nbsp;&nbsp; <i>H</i> = <i>k</i><sub>B</sub> <i>T</i> / (<i>m</i> <i>g</i>)</p>
+      <ul class="sym">
+        <li><b>z</b> l'altitude, <b>g</b> l'accélération de la pesanteur</li>
+        <li><b>H</b> la hauteur caractéristique, celle sur laquelle la pression est divisée par e</li>
+      </ul>
+      <p>Pour l'air à 300 kelvins, <i>H</i> vaut 8,8 kilomètres. L'atmosphère est donc épaisse d'une dizaine de kilomètres parce que c'est l'altitude à laquelle l'énergie de pesanteur d'une molécule d'air devient comparable à son énergie d'agitation. Réglez la température et la hauteur de la marche, et suivez le rapport affiché.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="t2S">Température</label><input type="range" id="t2S" min="0" max="100" value="38" style="width:230px"></span>
         <span class="grp"><label for="eS">Hauteur de la marche</label><input type="range" id="eS" min="0" max="100" value="30" style="width:230px"></span>
       </div>
       <div class="live" id="f2L"></div>
-      <p class="figcap"><b>Figure 2.</b> À gauche, les populations des niveaux d'énergie. À droite, la même exponentielle appliquée à l'atmosphère : l'énergie à payer est alors celle de la pesanteur, et la hauteur caractéristique vaut kT divisé par le poids d'une molécule.</p>
-      <p>La même exponentielle, avec d'autres ingrédients, donne la vitesse des réactions chimiques, le nombre d'électrons libres dans un semi-conducteur, l'aimantation d'un matériau, la raideur d'un polymère, la proportion d'atomes excités dans une flamme, et le taux de fusion dans le cœur du Soleil, où elle entre en concurrence avec l'effet tunnel.</p>
+      <p class="figcap"><b>Figure 2.</b> À gauche, les populations de six niveaux équidistants. À droite, la même exponentielle appliquée à l'atmosphère, où l'énergie à payer est celle de la pesanteur et la hauteur caractéristique vaut <i>k</i><sub>B</sub><i>T</i>/<i>mg</i>.</p>
+      <p>La marche de la figure couvre tout le domaine utile. Quelques millièmes d'électronvolt correspondent aux rotations d'une molécule ou à un spin dans un champ faible, et les niveaux restent presque également peuplés. Quelques dixièmes d'électronvolt correspondent aux réactions chimiques et aux semi-conducteurs, où le nombre d'électrons libres du silicium suit e<sup>−<i>E</i><sub>g</sub>/2<i>k</i><sub>B</sub><i>T</i></sup> avec une bande interdite <i>E</i><sub>g</sub> de 1,12 électronvolt. Au-delà, le franchissement thermique devient impossible à attendre.</p>
+      <p>Le cœur du Soleil montre la limite de l'argument. À 15,7 millions de kelvins, <i>k</i><sub>B</sub><i>T</i> vaut 1,35 kiloélectronvolt, tandis que la répulsion électrique entre deux protons qui s'approchent se compte en centaines de kiloélectronvolts. Pour 300 kiloélectronvolts, le rapport <i>E</i>/<i>k</i><sub>B</sub><i>T</i> atteint 222 et le facteur de Boltzmann vaut 4 × 10<sup>−97</sup>. La fusion a lieu quand même, parce que l'effet tunnel permet de traverser la barrière sans la franchir, et le taux de réaction résulte de la compétition entre ces deux exponentielles.</p>
     </section>
 
     <section class="step">
-      <span class="no-num">4</span>
-      <h2>Troisième visage : le comptage, et le sens du temps</h2>
-      <p>Boltzmann a compris que l'entropie n'est pas une substance mais un décompte : le nombre de façons d'arranger les particules sans changer l'aspect d'ensemble. Sa formule relie les deux mondes, et c'est encore la constante k qui fait la conversion.</p>
-      <p class="eq">S = k ln W</p>
-      <p class="eqs">W est le nombre d'arrangements microscopiques compatibles avec ce qu'on observe.</p>
-      <p><strong>Ouvrez la cloison et regardez le compteur.</strong></p>
+      <span class="no-num">5</span>
+      <h2>L'entropie, un comptage converti en joules par kelvin</h2>
+      <p>L'entropie avait été introduite par Clausius comme une quantité de chaleur divisée par une température, donc en joules par kelvin, bien avant qu'on sache ce qu'elle comptait. Boltzmann a identifié la grandeur microscopique correspondante : le nombre d'arrangements des particules qui laissent le système identique à l'échelle où on l'observe.</p>
+      <p class="fx"><i>S</i> = <i>k</i><sub>B</sub> ln <i>W</i></p>
+      <ul class="sym">
+        <li><b>S</b> l'entropie, en joules par kelvin</li>
+        <li><b>W</b> le nombre d'arrangements microscopiques compatibles avec l'état observé</li>
+      </ul>
+      <p>Deux choses se jouent dans cette ligne. Le logarithme rend l'entropie additive : en réunissant deux systèmes, les arrangements se multiplient, <i>W</i> = <i>W</i><sub>1</sub><i>W</i><sub>2</sub>, et les logarithmes s'ajoutent, ce qui redonne l'entropie extensive de la thermodynamique. La constante <i>k</i><sub>B</sub>, elle, fait la conversion d'unité : <i>W</i> est un nombre pur, ln <i>W</i> aussi, et seule la constante peut transformer ce comptage en joules par kelvin. L'ordre de grandeur suit : une mole de molécules offre un nombre d'arrangements dont le logarithme se compte en unités, donc une entropie de quelques <i>N</i><sub>A</sub><i>k</i><sub>B</sub>, soit quelques dizaines de joules par kelvin.</p>
+      <p>Ouvrez la cloison et suivez le nombre d'arrangements, puis remettez les molécules à gauche pour comparer.</p>
       <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
       <div class="ctl">
         <button class="go" id="b3">Ouvrir la cloison</button>
         <button id="b3r">Tout remettre à gauche</button>
       </div>
       <div class="live" id="f3L"></div>
-      <p class="figcap"><b>Figure 3.</b> Chaque configuration est aussi probable que n'importe quelle autre. Ce sont les configurations équilibrées qui sont écrasantes en nombre.</p>
-      <p>Rien n'interdit aux molécules de revenir toutes dans la moitié gauche. C'est seulement d'une improbabilité telle qu'on peut l'oublier. Avec soixante molécules seulement, en vérifiant une fois par seconde, il faudrait attendre en moyenne plus de trente milliards d'années. Avec le contenu d'une pièce, le nombre d'années s'écrit avec des milliards de milliards de chiffres.</p>
-      <p><strong>C'est de là que vient la flèche du temps.</strong> Les lois de la mécanique fonctionnent aussi bien à l'envers qu'à l'endroit ; ce qui ne fonctionne pas à l'envers, c'est le comptage. Et le pont entre le comptage et les grandeurs mesurables en joules par kelvin, c'est la constante de Boltzmann.</p>
-      <p>Un prolongement moderne : effacer un bit d'information dans un ordinateur coûte au minimum kT ln 2, soit trois milliardièmes de milliardième de milliardième de joule à température ambiante. Cette limite, énoncée par Rolf Landauer en 1961, a été vérifiée expérimentalement en 2012. L'information et la chaleur sont la même monnaie, et le taux de change est encore k.</p>
-    </section>
-
-    <section class="step">
-      <span class="no-num">5</span>
-      <h2>kT à température ambiante, et tous les domaines d'un coup</h2>
-      <p>Voici la valeur de kT à 300 kelvins, soit 27 degrés, exprimée dans les unités de chaque discipline. C'est le même nombre à chaque ligne.</p>
-      <div class="tablewrap">
-      <table class="tb">
-        <tr><th>Domaine</th><th>Ce que vaut kT</th><th>Ce que ça décide</th></tr>
-        <tr><td>Physique générale</td><td class="n">4,14 × 10<sup>−21</sup> J</td><td>l'énergie d'agitation typique d'une molécule</td></tr>
-        <tr><td>Physique atomique</td><td class="n">25,9 meV</td><td>minuscule face aux 1 à 10 eV des liaisons chimiques : la matière est stable</td></tr>
-        <tr><td>Électronique</td><td class="n">25,9 mV</td><td>la tension thermique, présente dans l'équation de toute diode et de tout transistor</td></tr>
-        <tr><td>Biologie moléculaire</td><td class="n">4,1 pN·nm</td><td>un moteur moléculaire travaille à quelques kT ; l'ATP en libère environ 20</td></tr>
-        <tr><td>Informatique</td><td class="n">2,87 × 10<sup>−21</sup> J</td><td>le coût minimal d'un effacement de bit, soit kT ln 2</td></tr>
-        <tr><td>Électronique du bruit</td><td class="n">4kTRΔf</td><td>le bruit de fond d'une résistance, inévitable, qui fixe la sensibilité des appareils</td></tr>
-        <tr><td>Astrophysique</td><td class="n">σ = 2π⁵k⁴/15h³c²</td><td>la constante de Stefan, donc la luminosité des étoiles</td></tr>
-        <tr><td>Météorologie</td><td class="n">kT/mg = 8,8 km</td><td>la hauteur sur laquelle la pression atmosphérique est divisée par e</td></tr>
-      </table>
-      </div>
-      <p>Un seul nombre, huit disciplines qui ne se parlent pas. C'est la marque d'une vraie constante fondamentale : elle n'appartient à personne.</p>
+      <p class="figcap"><b>Figure 3.</b> Chaque configuration est aussi probable que n'importe quelle autre. Les répartitions voisines de la moitié sont simplement représentées par un nombre écrasant de configurations.</p>
+      <p>Rien n'interdit aux soixante molécules de revenir toutes à gauche. L'attente moyenne, à raison d'une vérification par seconde, dépasse trente milliards d'années. Pour le contenu d'une pièce, le nombre d'années s'écrit avec des milliards de milliards de chiffres. La mécanique fonctionne aussi bien à l'envers qu'à l'endroit, le comptage non, et la flèche du temps vient de là. Le même comptage, mené sur un échiquier plutôt que sur un gaz, est détaillé dans <a href="entropie-echiquier.html">L'entropie sur un échiquier</a>.</p>
+      <p>Un prolongement moderne relie ce comptage au traitement de l'information. Effacer un bit réduit de moitié le nombre d'états accessibles, donc diminue l'entropie de <i>k</i><sub>B</sub> ln 2, ce qui doit être payé en chaleur rejetée :</p>
+      <p class="fx"><i>Q</i><sub>min</sub> = <i>k</i><sub>B</sub> <i>T</i> ln 2</p>
+      <p>À 300 kelvins cela fait 2,87 × 10<sup>−21</sup> joule par bit effacé, une limite énoncée par Rolf Landauer en 1961 et vérifiée expérimentalement en 2012 sur une particule unique piégée dans un double puits. Les processeurs actuels dissipent par opération des milliards de fois plus que ce minimum, qui reste donc une borne théorique.</p>
     </section>
 
     <section class="step">
       <span class="no-num">6</span>
-      <h2>Comment on la mesure</h2>
-      <p>La méthode la plus précise consiste à écouter un gaz. Dans un gaz, la vitesse du son ne dépend que de la température, de la masse des molécules et de leur nature : elle vaut la racine carrée de γkT divisé par la masse d'une molécule. Mesurer cette vitesse à une température connue, c'est donc mesurer k.</p>
-      <p>En pratique, on enferme un gaz rare dans une sphère presque parfaite, on excite ses résonances acoustiques, et on mesure leurs fréquences. Une fréquence se mesure mieux que n'importe quelle autre grandeur physique, et le volume de la sphère se déduit de ses résonances électromagnétiques, mesurées dans la même cavité. <strong>Changez de gaz et de température : la vitesse du son change, le k qu'on en tire, non.</strong></p>
+      <h2>Le bruit thermique d'une résistance</h2>
+      <p>Les électrons d'un conducteur participent à l'agitation thermique comme les molécules d'un gaz. Leurs déplacements désordonnés créent aux bornes du composant une tension fluctuante, présente même sans aucun courant et sans aucune alimentation. John B. Johnson l'a observée en 1928 aux laboratoires Bell, et Harry Nyquist en a donné la même année l'expression théorique.</p>
+      <p class="fx">⟨<i>U</i>²⟩ = 4 <i>k</i><sub>B</sub> <i>T</i> <i>R</i> Δ<i>f</i></p>
+      <ul class="sym">
+        <li><b>⟨U²⟩</b> le carré moyen de la tension mesurée aux bornes de la résistance</li>
+        <li><b>R</b> la valeur de la résistance, <b>Δf</b> la largeur de la bande de fréquences observée</li>
+      </ul>
+      <p>La tension efficace croît comme la racine de la température, comme la racine de la résistance et comme la racine de la bande passante. Une résistance de 1 kilohm à 300 kelvins produit 4,07 nanovolt par racine de hertz ; la même résistance portée à 1 mégohm et observée sur 10 kilohertz donne 12,9 microvolt, une tension que n'importe quel oscilloscope de laboratoire voit. Aucun détail du matériau n'entre dans la formule, ni la nature du conducteur, ni sa densité de porteurs de charge.</p>
+      <p>Cette absence est ce qui rend la formule utile deux fois. Pour l'électronicien, elle fixe le plancher de bruit d'un amplificateur : une fois ce souffle atteint, améliorer le montage ne sert plus à rien, et il ne reste qu'à réduire la bande passante ou la température. Pour le métrologue, elle est un moyen de mesure, puisque <i>R</i>, <i>T</i> et Δ<i>f</i> se mesurent par ailleurs :</p>
+      <p class="fx"><i>k</i><sub>B</sub> = ⟨<i>U</i>²⟩ / (4 <i>T</i> <i>R</i> Δ<i>f</i>)</p>
+      <p>Écouter le souffle d'une résistance dont on connaît la valeur et la température donne donc la constante de Boltzmann. La difficulté est que le signal à mesurer est de l'ordre du nanovolt, et que l'électronique de mesure ajoute son propre bruit ; les montages modernes comparent la résistance à une source de bruit calculable, synthétisée à partir de jonctions Josephson. Cette thermométrie à bruit Johnson a compté parmi les méthodes retenues pour fixer la valeur de la constante, avec une incertitude de quelques millionièmes.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">7</span>
+      <h2>La valeur de k<sub>B</sub>T à température ambiante, discipline par discipline</h2>
+      <p>Le tableau rassemble ce que vaut le produit <i>k</i><sub>B</sub><i>T</i> à 300 kelvins, soit 26,9 degrés, dans les unités de chaque spécialité. Les lignes contiennent le même nombre, converti à chaque fois dans les grandeurs que la discipline mesure.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Domaine</th><th>La grandeur qui contient k<sub>B</sub></th><th>Ce qu'elle fixe</th></tr>
+        <tr><td>Physique générale</td><td class="n">k<sub>B</sub>T = 4,14 × 10<sup>−21</sup> J</td><td>l'énergie d'agitation d'une molécule, échelle commune à toutes les lignes suivantes</td></tr>
+        <tr><td>Physique atomique</td><td class="n">k<sub>B</sub>T = 25,9 meV</td><td>à comparer aux 1 à 10 eV d'une liaison chimique : la matière tient à l'air libre</td></tr>
+        <tr><td>Théorie des gaz</td><td class="n">√(3k<sub>B</sub>T/m) = 511 m/s</td><td>la vitesse d'agitation de l'azote à 20 °C, donc la vitesse du son et la diffusion</td></tr>
+        <tr><td>Chimie</td><td class="n">R = N<sub>A</sub>k<sub>B</sub> = 8,314 462 618 J K<sup>−1</sup> mol<sup>−1</sup></td><td>la même constante comptée par mole, dans PV = nRT</td></tr>
+        <tr><td>Électronique</td><td class="n">k<sub>B</sub>T/e = 25,9 mV</td><td>la tension thermique de l'équation de la diode, soit 60 mV par décade de courant</td></tr>
+        <tr><td>Bruit électronique</td><td class="n">√(4k<sub>B</sub>TR) = 4,07 nV/√Hz</td><td>pour 1 kΩ, le plancher de sensibilité de tout amplificateur</td></tr>
+        <tr><td>Biologie moléculaire</td><td class="n">k<sub>B</sub>T = 4,14 pN·nm</td><td>un moteur moléculaire travaille à quelques k<sub>B</sub>T ; l'hydrolyse de l'ATP en libère une vingtaine</td></tr>
+        <tr><td>Informatique</td><td class="n">k<sub>B</sub>T ln 2 = 2,87 × 10<sup>−21</sup> J</td><td>le coût minimal de l'effacement d'un bit</td></tr>
+        <tr><td>Météorologie</td><td class="n">k<sub>B</sub>T/mg = 8,8 km</td><td>la hauteur sur laquelle la pression atmosphérique est divisée par e</td></tr>
+        <tr><td>Astrophysique</td><td class="n">σ = 2π<sup>5</sup>k<sub>B</sub><sup>4</sup>/(15h<sup>3</sup>c<sup>2</sup>) = 5,670 × 10<sup>−8</sup> W m<sup>−2</sup> K<sup>−4</sup></td><td>la puissance rayonnée par une surface chaude, donc la luminosité des étoiles</td></tr>
+      </table>
+      </div>
+      <p>Deux lignes méritent leur formule complète. Celle de l'électronique vient du facteur de Boltzmann appliqué aux électrons qui franchissent une jonction, et elle régit tous les composants à semi-conducteurs :</p>
+      <p class="fx"><i>I</i> = <i>I</i><sub>0</sub> ( e<sup><i>q</i><i>U</i>/<i>k</i><sub>B</sub><i>T</i></sup> − 1 )</p>
+      <p>Le courant est multiplié par e chaque fois que la tension augmente de <i>k</i><sub>B</sub><i>T</i>/<i>q</i> = 25,9 millivolts, donc par dix tous les 60 millivolts. Cette pente de 60 millivolts par décade est une limite thermodynamique du transistor classique, et elle explique pourquoi la tension d'alimentation des circuits logiques ne peut pas descendre indéfiniment.</p>
+      <p>Celle de l'astrophysique est plus inattendue, puisque le rayonnement n'est pas un gaz de molécules. La constante de Stefan s'obtient en appliquant la statistique de Boltzmann aux modes du champ électromagnétique, et la constante <i>k</i><sub>B</sub> y entre à la puissance quatre. Une étoile de rayon <i>r</i> et de température de surface <i>T</i> rayonne 4π<i>r</i>²σ<i>T</i>⁴, ce qui relie la couleur d'une étoile à sa luminosité.</p>
+      <p>Un même nombre traverse dix spécialités qui ne partagent ni leur vocabulaire ni leurs instruments. Cette ubiquité est la signature d'une constante de conversion entre deux unités, plutôt que d'une propriété d'un objet particulier.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">8</span>
+      <h2>Comment on la mesure, et pourquoi sa valeur est fixée depuis 2019</h2>
+      <p>Mesurer <i>k</i><sub>B</sub> demande de comparer une énergie connue en joules à une température connue en kelvins, sur un système dont on sait compter les degrés de liberté. Un gaz monoatomique dilué est le meilleur candidat, parce que sa théorie ne contient aucun paramètre ajustable. La vitesse du son y donne un accès direct à <i>k</i><sub>B</sub><i>T</i> :</p>
+      <p class="fx"><i>c</i> = √( γ <i>k</i><sub>B</sub> <i>T</i> / <i>m</i> )</p>
+      <ul class="sym">
+        <li><b>c</b> la vitesse du son dans le gaz</li>
+        <li><b>γ</b> le rapport des capacités thermiques, exactement 5/3 pour un gaz monoatomique parfait</li>
+        <li><b>m</b> la masse d'un atome, connue à partir de sa masse atomique</li>
+      </ul>
+      <p>La vitesse du son est fixée par l'agitation des atomes, ce qui en fait un thermomètre dont la graduation est calculable. Dans l'argon au point triple de l'eau, 273,16 kelvins, elle vaut 307,8 mètres par seconde. En retournant la formule, tout ce qui reste à droite est mesurable :</p>
+      <p class="fx"><i>k</i><sub>B</sub> = <i>m</i> <i>c</i>² / (γ <i>T</i>)</p>
+      <p>Mesurer une vitesse sur une distance de quelques centimètres avec une incertitude d'un millionième serait hors de portée. On mesure donc une fréquence, grandeur que l'on sait comparer à une horloge atomique avec une précision sans rivale. Le gaz est enfermé dans une cavité quasi sphérique, où les ondes sonores radiales forment des résonances dont les fréquences sont données par les zéros d'une fonction de Bessel :</p>
+      <p class="fx"><i>f</i> = <i>z</i> <i>c</i> / (2π <i>a</i>) &nbsp;&nbsp; avec &nbsp;&nbsp; <i>z</i> = 4,4934 pour le premier mode radial</p>
+      <ul class="sym">
+        <li><b>f</b> la fréquence de résonance mesurée</li>
+        <li><b>a</b> le rayon de la cavité</li>
+        <li><b>z</b> le premier zéro de la fonction de Bessel sphérique qui décrit le mode</li>
+      </ul>
+      <p>La forme sphérique est choisie parce que, dans un mode radial, le gaz se déplace partout perpendiculairement à la paroi. Les pertes par frottement visqueux le long de la surface disparaissent, les résonances sont fines, et leur fréquence se repère d'autant mieux. En pratique la cavité est un ellipsoïde très légèrement triaxial plutôt qu'une sphère parfaite : cet écart sépare les modes qui seraient autrement confondus et permet de les identifier un par un. En combinant les deux dernières relations, la constante s'exprime entièrement avec des grandeurs d'atelier :</p>
+      <p class="fx"><i>k</i><sub>B</sub> = <i>m</i> (2π <i>a</i> <i>f</i> / <i>z</i>)² / (γ <i>T</i>)</p>
+      <p>Le rayon de la cavité pose le dernier problème, car un micromètre d'erreur sur dix centimètres ruinerait la mesure. On le détermine dans la même cavité, en mesurant ses résonances électromagnétiques : la lumière y résonne selon les mêmes dimensions, et comme la vitesse de la lumière est fixée par définition, les fréquences micro-ondes donnent le rayon. Les mesures sont de plus répétées à plusieurs pressions, puis extrapolées à pression nulle, où le gaz est exactement parfait. Changez de gaz et de température, et suivez les trois nombres de la chaîne.</p>
       <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
       <div class="ctl">
         <div class="seg" id="gaz4"></div>
         <span class="grp"><label for="t4S">Température</label><input type="range" id="t4S" min="200" max="400" value="273" style="width:230px"></span>
       </div>
       <div class="live" id="f4L"></div>
-      <p class="figcap"><b>Figure 4.</b> Thermométrie acoustique. Le Laboratoire national de métrologie et d'essais, à Paris, a obtenu par cette méthode une des meilleures mesures mondiales, avec une incertitude inférieure au millionième.</p>
-      <p>Trois autres familles de méthodes ont donné des résultats compatibles, ce qui était la condition pour conclure. La thermométrie à bruit Johnson mesure le grésillement électrique d'une résistance, qui vaut 4kTRΔf. La thermométrie diélectrique mesure comment un gaz modifie la capacité d'un condensateur. La thermométrie par élargissement Doppler mesure la largeur d'une raie d'absorption, qui vient de l'agitation des molécules.</p>
-      <p>Depuis le 20 mai 2019, tout cela est renversé. <strong>La valeur de k est gelée par définition</strong>, à 1,380 649 × 10⁻²³ joule par kelvin exactement, et c'est elle qui définit le kelvin. On ne mesure plus k : on mesure des températures avec les mêmes appareils, devenus des thermomètres primaires. L'ancienne définition reposait sur le point triple de l'eau, donc sur un échantillon d'eau, avec sa composition isotopique et ses impuretés. La nouvelle ne repose sur rien de matériel.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> la constante de Boltzmann ne décrit aucun phénomène. Elle convertit des degrés en joules, et permet ainsi à la thermodynamique du dix-neuvième siècle et à la physique des atomes de parler la même langue. Partout où vous voyez kT, lisez « l'énergie que l'agitation thermique peut offrir gratuitement », et partout où vous voyez e<sup>−E/kT</sup>, lisez « la chance que ça arrive quand même ».</p>
+      <p class="figcap"><b>Figure 4.</b> Thermométrie acoustique, sur une cavité réduite à 5 centimètres de rayon pour la figure. Les résonateurs réels contiennent quelques litres de gaz. Avec un résonateur de 3 litres rempli d'hélium 4, l'équipe du Laboratoire national de métrologie et d'essais a publié en 2017 la valeur 1,380 648 78 × 10<sup>−23</sup> joule par kelvin, avec une incertitude relative de 0,60 millionième.</p>
+      <p>La fréquence et la vitesse du son changent beaucoup d'un gaz à l'autre, la constante qu'on en tire reste la même, et c'est cette invariance qui est réellement vérifiée. L'hélium et l'argon sont tous deux monoatomiques, avec γ = 5/3, alors que l'azote fait intervenir ses rotations et donne γ = 7/5 : la formule en tient compte, et le résultat ne bouge pas.</p>
+      <p>Fixer une valeur par définition demandait des méthodes indépendantes en accord entre elles. Trois autres familles ont donc été menées en parallèle. La thermométrie à bruit Johnson exploite la formule de la section 6. La thermométrie diélectrique mesure comment un gaz modifie la capacité d'un condensateur, puisque la polarisabilité par molécule est connue et que le nombre de molécules dépend de <i>k</i><sub>B</sub><i>T</i>. La thermométrie par élargissement Doppler mesure la largeur d'une raie d'absorption, élargie par les vitesses d'agitation des molécules selon la loi de Maxwell et Boltzmann. Les quatre approches ont donné des résultats compatibles. L'acoustique est restée la plus précise, la diélectrique et celle à bruit Johnson atteignent quelques millionièmes, et l'élargissement Doppler une incertitude plus grande.</p>
+      <p>La Conférence générale des poids et mesures a tiré les conséquences de cet accord le 16 novembre 2018, pour une entrée en vigueur le 20 mai 2019. La valeur de la constante est désormais fixée par convention :</p>
+      <p class="fx"><i>k</i><sub>B</sub> = 1,380 649 × 10<sup>−23</sup> J/K &nbsp;&nbsp; exactement</p>
+      <p>Le sens de la mesure est inversé. Le kelvin ne se définit plus par le point triple de l'eau, donc par un échantillon d'eau avec sa composition isotopique et ses impuretés, mais par cette valeur : un kelvin est l'écart de température qui correspond à une variation d'énergie thermique de 1,380 649 × 10<sup>−23</sup> joule. Les mêmes sphères acoustiques et les mêmes résistances bruyantes servent toujours, mais elles sont devenues des thermomètres primaires, qui lisent une température sans étalonnage préalable sur un corps de référence.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> la constante de Boltzmann convertit des kelvins en joules, et c'est à ce titre qu'elle apparaît dans l'énergie d'agitation ½<i>k</i><sub>B</sub><i>T</i>, dans la loi des gaz, dans le facteur e<sup>−<i>E</i>/<i>k</i><sub>B</sub><i>T</i></sup>, dans <i>S</i> = <i>k</i><sub>B</sub> ln <i>W</i> et dans le bruit des résistances. Partout le produit <i>k</i><sub>B</sub><i>T</i> joue le même rôle d'énergie de référence, à laquelle on compare toutes les autres. Depuis 2019 sa valeur est exacte par définition, et c'est le kelvin qui en découle.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -180,7 +288,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 
 "use strict";

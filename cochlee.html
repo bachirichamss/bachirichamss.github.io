@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/cochlee.html">
-<title>Votre oreille calcule des transformées de Fourier · Chamss Bachiri</title>
-<meta name="description" content="La cochlée sépare mécaniquement les fréquences d'un son, comme une transformée de Fourier. Simulations sonores, de la recette d'harmoniques à Beethoven analysé en direct.">
-<meta property="og:title" content="Votre oreille calcule des transformées de Fourier">
+<title>Comment l'oreille sépare-t-elle les fréquences d'un son ? · Chamss Bachiri</title>
+<meta name="description" content="Un son est une somme de sinusoïdes, et la cochlée les range dans l'espace sans rien calculer. Les formules de Fourier, de Greenwood et de la résonance, avec des figures sonores jusqu'à Beethoven.">
+<meta property="og:title" content="Comment l'oreille sépare-t-elle les fréquences d'un son ?">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -29,6 +29,11 @@
 .tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
 .tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
 .tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 <style>
 .others li{margin-bottom:.9em}
@@ -46,16 +51,25 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</h1>
-      <p class="dek">Un son est une somme de sons purs. Pour les séparer, l'oreille n'utilise ni calcul ni électronique : un ruban tendu de trois centimètres, dont chaque point vibre pour une fréquence différente. Avec du son, à écouter au casque.</p>
-      <div class="meta"><span>26 septembre 2026</span><span>11 min</span><span>avec du son</span></div>
+      <h1>Comment l'oreille sépare-t-elle les fréquences d'un son ?</h1>
+      <p class="dek">Un son ordinaire est une somme de sons purs, et l'oreille les sépare avant d'en transmettre quoi que ce soit au cerveau. Le tri se fait entièrement en mécanique, sur une membrane de trente-cinq millimètres dont chaque point résonne à une fréquence différente. Les figures de cette page produisent du son, à écouter au casque.</p>
+      <div class="meta"><span>26 septembre 2026</span><span>14 min</span><span>avec du son</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Un son, c'est un empilement de sons purs</h2>
-      <p>Une corde de violon, une voix, une cloche : chacun produit une vibration compliquée. Joseph Fourier a montré en 1822 qu'une vibration qui se répète, aussi tordue soit-elle, est toujours la somme de vibrations simples, des sinusoïdes, dont les fréquences sont des multiples entiers de la plus basse.</p>
-      <p>Cette plus basse fréquence s'appelle la fondamentale : c'est elle qui donne la note. Les autres sont les harmoniques : ce sont elles qui donnent le timbre, ce qui fait qu'un violon et une flûte ne se ressemblent pas alors qu'ils jouent le même la.</p>
+      <h2>Un son périodique est une somme de sinusoïdes</h2>
+      <p>Une corde de violon qui vibre met l'air en mouvement de façon compliquée, et la courbe de pression qui en résulte ne ressemble pas à la sinusoïde régulière d'un son pur. Une voyelle tenue ou une cloche frappée donnent des courbes tout aussi tordues. Joseph Fourier a montré, dans son mémoire sur la propagation de la chaleur publié en 1822, qu'une fonction qui se répète à l'identique peut toujours s'écrire comme une somme de sinusoïdes dont les fréquences sont des multiples entiers de la plus basse.</p>
+      <p>Appliqué au son, ce résultat tient en une ligne.</p>
+      <p class="fx"><i>s</i>(<i>t</i>) = Σ <i>a</i><sub>n</sub> sin(2π <i>n</i> <i>f</i> <i>t</i> + φ<sub>n</sub>)</p>
+      <ul class="sym">
+        <li><b>s(t)</b> la pression de l'air à l'instant <i>t</i>, c'est-à-dire le son lui-même</li>
+        <li><b>f</b> la fréquence fondamentale, en hertz</li>
+        <li><b>n</b> le rang de l'harmonique, qui vibre donc à la fréquence <i>n f</i></li>
+        <li><b>a<sub>n</sub></b> l'amplitude de cet harmonique</li>
+        <li><b>φ<sub>n</sub></b> sa phase, soit son décalage dans le temps</li>
+      </ul>
+      <p>Les fréquences présentes ne sont pas quelconques : elles valent <i>f</i>, 2<i>f</i>, 3<i>f</i>, et ainsi de suite. Pour un la de 440 hertz, les harmoniques tombent sur 880, 1 320 et 1 760 hertz. La fondamentale <i>f</i> fixe la note entendue, et la suite des amplitudes <i>a</i><sub>n</sub> fixe le timbre, ce qui distingue un violon d'une flûte jouant la même note. Les phases φ<sub>n</sub>, elles, s'entendent à peine : on peut les modifier toutes, ce qui déforme complètement la courbe de pression, sans que la note ni le timbre perçus changent. L'oreille retient donc les amplitudes et laisse tomber presque toute l'information de phase.</p>
       <p><strong>Choisissez une recette d'harmoniques, regardez la forme d'onde qu'elle produit, puis écoutez.</strong></p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl"><div class="seg" id="recettes"></div></div>
@@ -64,23 +78,47 @@
         <span class="grp"><label for="f0S">Note jouée</label><input type="range" id="f0S" min="80" max="600" value="220"></span>
       </div>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> À gauche, la vibration réelle de l'air. À droite, la même chose décomposée : la hauteur de chaque barre est l'intensité d'un harmonique. Les deux dessins contiennent exactement la même information.</p>
-      <p>La dernière recette mérite un mot. On y supprime complètement la fondamentale, et pourtant l'oreille entend toujours la même note. C'est l'effet de <strong>fondamentale absente</strong> : le cerveau reconstruit la note à partir de l'espacement régulier des harmoniques. C'est grâce à lui qu'une voix grave reste reconnaissable au téléphone, qui ne transmet pourtant presque rien en dessous de 300 hertz.</p>
+      <p class="figcap"><b>Figure 1.</b> À gauche, la vibration de l'air telle qu'un microphone l'enregistrerait. À droite, la liste des amplitudes <i>a</i><sub>n</sub> : la hauteur de chaque barre est celle d'un harmonique. Les deux dessins contiennent la même information, puisque l'un se déduit de l'autre par la formule ci-dessus.</p>
+      <p>La dernière recette met à zéro l'amplitude <i>a</i><sub>1</sub>, celle de la fondamentale, en gardant tous ses multiples. L'oreille entend pourtant encore la même note. C'est l'effet de <strong>fondamentale absente</strong> : le cerveau retrouve <i>f</i> à partir de l'espacement régulier des harmoniques, qui vaut lui aussi <i>f</i>. Une voix grave reste ainsi reconnaissable au téléphone, dont la bande passante s'arrête vers 300 hertz en bas et 3 400 hertz en haut.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Le trajet jusqu'au ruban</h2>
-      <p>L'air fait vibrer le tympan. Trois petits os, les plus petits du corps, transmettent ce mouvement à une membrane appelée fenêtre ovale. Leur rôle n'est pas de transmettre fidèlement, mais d'adapter : derrière la fenêtre ovale il y a du liquide, et un son qui passe de l'air à l'eau perd presque toute son énergie. Le levier des osselets et le rapport des surfaces entre le tympan et la fenêtre ovale compensent cette perte.</p>
+      <h2>Du tympan à la fenêtre ovale</h2>
+      <p>L'air fait vibrer le tympan. Trois os, les plus petits du corps, transmettent ce mouvement à une membrane appelée fenêtre ovale. Derrière cette fenêtre, le tube de la cochlée est rempli de liquide, et un son qui passe de l'air à l'eau se réfléchit presque entièrement, parce que le liquide est beaucoup plus difficile à mettre en mouvement que l'air. La perte à cette frontière est voisine de 30 décibels. Les osselets servent à la compenser, et ils s'y prennent de deux manières qui se multiplient.</p>
+      <p class="fx"><i>p</i><sub>2</sub> / <i>p</i><sub>1</sub> = (<i>S</i><sub>1</sub> / <i>S</i><sub>2</sub>) × <i>L</i></p>
+      <ul class="sym">
+        <li><b>p<sub>1</sub></b> la pression exercée sur le tympan, <b>p<sub>2</sub></b> celle transmise au liquide</li>
+        <li><b>S<sub>1</sub></b> la surface utile du tympan, <b>S<sub>2</sub></b> celle de la fenêtre ovale</li>
+        <li><b>L</b> le rapport de levier de la chaîne des osselets</li>
+      </ul>
+      <p>Une même force ramenée sur une surface plus petite donne une pression plus grande, d'où le premier facteur. La partie utile du tympan mesure environ 55 millimètres carrés, contre 3,2 pour la fenêtre ovale, soit un rapport voisin de dix-sept. Le levier des osselets ajoute un facteur proche de 1,3. La pression est donc multipliée par une vingtaine, ce qui représente à peu près 27 décibels, et l'essentiel de la perte est récupéré.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 2.</b> Schéma de principe. La cochlée est dessinée déroulée à droite, comme on le fera dans toute la suite : c'est un tube enroulé sur deux tours et demi, long d'environ trois centimètres et demi.</p>
+      <p class="figcap"><b>Figure 2.</b> Schéma de principe. La cochlée est dessinée déroulée à droite, comme elle le sera dans toute la suite : c'est un tube enroulé sur deux tours et demi, long d'environ trente-cinq millimètres.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>Chaque fréquence a sa place</h2>
-      <p>Le tube de la cochlée est partagé sur toute sa longueur par la membrane basilaire. Cette membrane n'est pas uniforme : à l'entrée elle est étroite et raide, au fond elle est large et souple. Comme les cordes d'un piano, chaque portion possède donc sa propre fréquence de résonance, des aigus à l'entrée aux graves tout au fond.</p>
-      <p>Quand un son arrive, une onde parcourt la membrane, enfle en avançant, atteint un maximum à l'endroit qui résonne avec elle, puis s'éteint brutalement. <strong>Changez la fréquence et regardez la bosse se déplacer.</strong></p>
+      <h2>Chaque fréquence résonne à sa place</h2>
+      <p>Le tube de la cochlée est partagé sur toute sa longueur par la membrane basilaire. Cette membrane change de propriétés d'un bout à l'autre. Près de la fenêtre ovale, à la base, elle est étroite, de l'ordre d'un dixième de millimètre, et très raide. Au fond de la spirale, à l'apex, elle atteint un demi-millimètre de large et devient souple. Chaque portion se comporte alors comme un petit oscillateur, avec sa propre fréquence de résonance.</p>
+      <p class="fx"><i>f</i> = (1 / 2π) √( <i>k</i> / <i>m</i> )</p>
+      <ul class="sym">
+        <li><b>k</b> la raideur de la portion de membrane</li>
+        <li><b>m</b> la masse qu'elle met en mouvement, c'est-à-dire elle-même et le liquide qu'elle entraîne</li>
+      </ul>
+      <p>La raideur est au numérateur et la masse au dénominateur. Une portion étroite et raide, qui ne déplace que peu de liquide, résonne donc haut : à la base, la fréquence propre approche 20 kilohertz. Une portion large et souple, qui entraîne davantage de liquide, résonne bas : à l'apex, elle descend vers 20 hertz. La raideur diminue d'un facteur de l'ordre de cent entre les deux extrémités et la largeur quintuple, les deux effets allant dans le même sens.</p>
+      <p>La formule donne le sens de variation, pas la carte exacte, parce que les portions de membrane ne vibrent pas séparément : le liquide les couple, et ce qui se propage le long du tube est une onde unique. La carte, on la mesure. Donald Greenwood l'a ajustée sur des cochlées humaines en 1961, et son expression est encore celle qu'on utilise.</p>
+      <p class="fx"><i>f</i> = <i>A</i> ( 10<sup><i>a x</i></sup> − <i>k</i> )</p>
+      <ul class="sym">
+        <li><b>x</b> la distance à l'apex, comptée en fraction de la longueur totale : 0 au fond, 1 à la base</li>
+        <li><b>A</b> = 165,4 hertz, <b>a</b> = 2,1 par unité de distance relative, <b>k</b> = 0,88 pour l'oreille humaine</li>
+        <li><b>k</b> est ici un simple paramètre d'ajustement, sans rapport avec la raideur de la formule précédente</li>
+      </ul>
+      <p>Les deux bornes se lisent tout de suite. En <i>x</i> = 0, la formule donne 165,4 × (1 − 0,88), soit 19,8 hertz. En <i>x</i> = 1, elle donne 165,4 × (10<sup>2,1</sup> − 0,88), soit près de 20 700 hertz. L'étendue audible d'une oreille jeune, de 20 hertz à 20 kilohertz, recouvre donc la plage des fréquences de résonance disponibles sur la membrane.</p>
+      <p>En retournant la formule, on obtient la position en fonction de la fréquence.</p>
+      <p class="fx"><i>x</i> = (1 / <i>a</i>) log<sub>10</sub> ( <i>f</i> / <i>A</i> + <i>k</i> )</p>
+      <p>La position varie comme le logarithme de la fréquence. Dès que <i>f</i> dépasse quelques centaines de hertz, le terme <i>k</i> devient négligeable et doubler la fréquence déplace <i>x</i> de log<sub>10</sub>(2) / <i>a</i> = 0,143, c'est-à-dire de cinq millimètres sur une membrane de trente-cinq. Chaque octave occupe la même longueur de membrane, ce qui donne à l'oreille une échelle de hauteur logarithmique : passer du la 440 au la 880 se joue sur le même déplacement que passer du la 880 au la 1760. Un la de 440 hertz culmine à <i>x</i> = 0,26, soit à neuf millimètres de l'apex et vingt-six de la fenêtre ovale ; un son de 1 000 hertz culmine à <i>x</i> = 0,40, quatorze millimètres de l'apex.</p>
+      <p>Quand un son arrive, l'onde parcourt la membrane depuis la base, enfle en avançant, atteint son maximum à l'endroit dont la fréquence propre correspond, puis s'éteint rapidement. <strong>Changez la fréquence et regardez la bosse se déplacer.</strong></p>
       <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="fS">Fréquence</label><input type="range" id="fS" min="0" max="100" value="55"></span>
@@ -88,52 +126,81 @@
       </div>
       <div class="ctl"><div class="seg" id="sons"></div></div>
       <div class="live" id="f3L"></div>
-      <p class="figcap"><b>Figure 3.</b> Membrane basilaire déroulée, entrée à gauche. La courbe est l'onde qui se propage, la zone colorée l'endroit où les cellules ciliées sont secouées. L'échelle des fréquences vient de la formule de Greenwood, établie sur des cochlées humaines.</p>
-      <p>Georg von Békésy a observé ces ondes au microscope dans les années 1940, sur des cochlées prélevées, et il a reçu le prix Nobel de médecine en 1961 pour ce travail. Sur une cochlée vivante, la bosse est bien plus étroite que sur ses préparations, pour une raison découverte plus tard.</p>
+      <p class="figcap"><b>Figure 3.</b> Membrane basilaire déroulée, base à gauche et apex à droite. La courbe bleue est l'onde qui se propage, la zone colorée l'endroit où les cellules ciliées sont secouées. L'échelle des fréquences portée sous la membrane est celle de la formule de Greenwood.</p>
+      <p>Georg von Békésy a observé ces ondes au microscope dans les années 1940, sur des cochlées prélevées, et il a reçu le prix Nobel de médecine en 1961 pour ce travail. Sur une cochlée vivante, la bosse est beaucoup plus étroite que sur ses préparations, pour une raison découverte plus tard et décrite à la section suivante.</p>
     </section>
 
     <section class="step">
       <span class="no-num">4</span>
-      <h2>Pourquoi cela revient à une transformée de Fourier</h2>
-      <p>Envoyez plusieurs fréquences en même temps, et vous obtenez plusieurs bosses en même temps, chacune à sa place. C'est exactement ce que fait le calcul de Fourier : transformer une vibration en une liste d'intensités par fréquence. La cochlée le fait mécaniquement, sans rien calculer, parce que sa géométrie sépare les fréquences dans l'espace.</p>
-      <p>Le long de la membrane, environ 3 500 cellules ciliées internes lisent les mouvements, chacune à son emplacement, et attaquent chacune ses fibres nerveuses. <strong>Ce qui part vers le cerveau n'est donc pas le son, mais son spectre</strong>, découpé en une trentaine de bandes de fréquences et réactualisé en permanence.</p>
-      <ul class="others">
-        <li><strong>L'amplificateur vivant.</strong> D'autres cellules, les cellules ciliées externes, se contractent activement au rythme de l'onde et lui rendent de l'énergie. Elles resserrent la bosse et multiplient la sensibilité par un facteur de l'ordre de cent. Effet secondaire spectaculaire : une oreille en bonne santé <strong>émet du son</strong>. Ces otoémissions acoustiques se mesurent avec un microphone dans le conduit auditif, et c'est le test qu'on pratique aujourd'hui sur les nouveau-nés.</li>
-        <li><strong>Le masquage.</strong> Deux sons de fréquences voisines excitent presque la même région : le plus fort couvre le plus faible, qui devient inaudible. Les formats de compression comme le MP3 exploitent exactement cette faiblesse, en supprimant ce que votre cochlée n'aurait de toute façon pas distingué.</li>
-        <li><strong>La finesse.</strong> Vers 1 000 hertz, une oreille entraînée distingue deux sons séparés de 2 ou 3 hertz, soit trois millièmes. C'est mieux que ce que la largeur de la bosse laisse espérer : le cerveau exploite aussi le rythme des impulsions nerveuses, qui suivent la vibration jusque vers 4 000 hertz.</li>
+      <h2>Ce que la membrane remet au nerf auditif</h2>
+      <p>Les derniers boutons de la figure 3 envoient plusieurs fréquences à la fois, et la membrane produit alors plusieurs bosses simultanées, chacune à sa place. C'est l'opération que décrit la transformée de Fourier : passer d'une pression qui varie dans le temps à une intensité par fréquence. La cochlée l'obtient sans rien calculer, parce que sa géométrie range les fréquences dans l'espace.</p>
+      <p>Le long de la membrane, environ 3 500 cellules ciliées internes lisent les mouvements, chacune à son emplacement, et attaquent chacune ses fibres nerveuses, pour un total voisin de 30 000 fibres. Ce qui monte vers le cerveau est donc déjà un spectre, regroupé en vingt-quatre bandes de fréquences, les bandes critiques, et réactualisé en permanence.</p>
+      <p>La sensibilité de ce dispositif se chiffre en décibels, qui comparent une pression à une pression de référence.</p>
+      <p class="fx"><i>L</i> = 20 log<sub>10</sub> ( <i>p</i> / <i>p</i><sub>0</sub> )</p>
+      <ul class="sym">
+        <li><b>L</b> le niveau sonore en décibels SPL</li>
+        <li><b>p</b> la pression acoustique mesurée, <b>p<sub>0</sub></b> = 20 micropascals, la référence</li>
       </ul>
-      <p>Une image pour finir : ouvrez un piano, appuyez sur la pédale forte pour libérer toutes les cordes, et chantez une note dedans. Seules les cordes accordées sur votre note et sur ses harmoniques se mettent à vibrer, et vous les entendez vous répondre. Votre cochlée fait la même chose, avec un ruban à la place des cordes et trois mille cinq cents micros branchés dessus.</p>
+      <p>Le logarithme ramène une très large plage de pressions à une échelle commode. La référence de 20 micropascals a été choisie pour que le seuil d'audition d'une oreille normale, vers 1 000 hertz, tombe sur 0 décibel. Cette pression vaut environ deux dix-milliardièmes de la pression atmosphérique. Le seuil de douleur, situé vers 120 décibels, correspond à 20 pascals, soit un million de fois plus de pression et mille milliards de fois plus de puissance.</p>
+      <ul class="others">
+        <li><strong>L'amplificateur vivant.</strong> D'autres cellules, les cellules ciliées externes, environ 12 000, se contractent activement au rythme de l'onde et lui rendent de l'énergie. Elles resserrent la bosse et multiplient la sensibilité par un facteur de l'ordre de cent, soit 40 décibels. C'est ce que les préparations de Békésy, qui n'étaient plus vivantes, ne pouvaient pas montrer. Une conséquence se mesure de l'extérieur : une oreille en bonne santé émet du son. David Kemp a détecté ces otoémissions acoustiques en 1978 avec un microphone placé dans le conduit auditif, et elles servent aujourd'hui au dépistage de la surdité chez les nouveau-nés.</li>
+        <li><strong>Le masquage.</strong> Deux sons de fréquences voisines excitent presque la même région de la membrane, et le plus fort couvre le plus faible, qui devient inaudible. Les formats de compression comme le MP3 travaillent sur cette propriété : ils suppriment ce que la cochlée n'aurait de toute façon pas distingué, et économisent le débit correspondant.</li>
+        <li><strong>La finesse.</strong> Vers 1 000 hertz, une oreille entraînée distingue deux sons séparés de 2 à 3 hertz, soit trois millièmes de la fréquence. La largeur de la bosse ne suffit pas à l'expliquer : le cerveau exploite aussi le rythme des impulsions nerveuses, qui suivent la vibration jusque vers 4 000 hertz.</li>
+      </ul>
+      <p>Cette finesse a cependant une limite que l'anatomie ne fixe pas. Pour séparer deux fréquences voisines, il faut attendre que leurs oscillations se décalent d'une période entière l'une par rapport à l'autre, ce qui prend un temps de l'ordre de l'inverse de leur écart.</p>
+      <p class="fx">Δ<i>f</i> × Δ<i>t</i> ≈ 1</p>
+      <ul class="sym">
+        <li><b>Δf</b> le plus petit écart de fréquence qu'on puisse distinguer</li>
+        <li><b>Δt</b> la durée pendant laquelle on écoute</li>
+      </ul>
+      <p>Deux sons séparés de 3 hertz demandent donc environ un tiers de seconde d'écoute. À l'inverse, un claquement de dix millisecondes ne peut pas avoir de hauteur définie à mieux que 100 hertz près, et on l'entend comme un bruit plutôt que comme une note. La même inégalité s'écrit en mécanique quantique : en remplaçant l'énergie d'un photon par <i>h f</i> dans Δ<i>E</i> Δ<i>t</i> ≥ ℏ/2, on retrouve Δ<i>f</i> Δ<i>t</i> ≥ 1/4π. Le compromis est contenu dans la définition même d'une fréquence, qui suppose de compter des oscillations pendant un certain temps, et aucune oreille ni aucun appareil n'y échappe.</p>
+      <p>Le même tri se voit à l'œuvre sur un piano. En appuyant sur la pédale forte pour libérer toutes les cordes, puis en chantant une note à l'intérieur de l'instrument, on entend répondre les seules cordes accordées sur la fondamentale et sur ses harmoniques. La cochlée procède ainsi, avec une membrane continue à la place des cordes et 3 500 capteurs répartis sur sa longueur.</p>
     </section>
 
     <section class="step">
       <span class="no-num">5</span>
-      <h2>Beethoven, vu par votre cochlée</h2>
-      <p>Voici le morceau joué, et en dessous ce que votre membrane basilaire en fait : les bosses apparaissent et disparaissent, une par harmonique, et se déplacent quand la mélodie monte ou descend. Le bandeau du bas garde la mémoire des dernières secondes, ce qui donne la partition telle que l'oreille la lit.</p>
+      <h2>Beethoven sur l'axe de la cochlée</h2>
+      <p>La figure suivante joue un morceau et montre en dessous ce que la membrane basilaire en fait. Les bosses apparaissent et disparaissent, une par harmonique, et le peigne entier glisse vers la gauche quand la mélodie monte. Le bandeau du bas conserve les dernières secondes, ce qui donne la partition telle que l'oreille la reçoit. <strong>Choisissez un morceau, puis suivez une note du début à la fin.</strong></p>
       <div class="ctl"><div class="seg" id="morceaux"></div><button id="stopB">Arrêter</button></div>
       <div class="scene wide"><canvas id="f4" width="960" height="430"></canvas></div>
       <div class="live" id="f4L"></div>
-      <p class="figcap"><b>Figure 4.</b> Analyse en direct du son qui sort de vos enceintes, replacée sur l'axe de la cochlée. Les œuvres de Beethoven sont dans le domaine public, et les sons sont fabriqués par votre navigateur, note par note.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> l'oreille ne transmet pas le son, elle le décompose avant de le transmettre. Un ruban de trois centimètres et demi, raide d'un côté et souple de l'autre, suffit à étaler les fréquences dans l'espace, et le nerf auditif n'a plus qu'à lire le résultat. C'est une transformée de Fourier faite en mécanique, avec un amplificateur en prime.</p>
+      <p class="figcap"><b>Figure 4.</b> Analyse en direct du son produit par la page, replacée sur l'axe de la cochlée au moyen de la formule de Greenwood. Les œuvres de Beethoven sont dans le domaine public, et les notes sont fabriquées par le navigateur.</p>
+      <p>Voici, rassemblés, les ordres de grandeur utilisés dans cette page.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Grandeur</th><th>Valeur</th><th>Remarque</th></tr>
+        <tr><td>Étendue audible</td><td class="n">20 Hz à 20 kHz</td><td>Soit un peu plus de dix octaves, pour une oreille jeune</td></tr>
+        <tr><td>Longueur de la membrane basilaire</td><td class="n">environ 35 mm</td><td>Tube enroulé sur deux tours et demi</td></tr>
+        <tr><td>Longueur occupée par une octave</td><td class="n">environ 5 mm</td><td>log<sub>10</sub>(2) / 2,1 de la longueur totale, au-dessus de quelques centaines de hertz</td></tr>
+        <tr><td>Cellules ciliées internes</td><td class="n">environ 3 500</td><td>Les capteurs, une seule rangée sur toute la longueur</td></tr>
+        <tr><td>Cellules ciliées externes</td><td class="n">environ 12 000</td><td>L'amplificateur, qui apporte de l'ordre de 40 dB</td></tr>
+        <tr><td>Fibres du nerf auditif</td><td class="n">environ 30 000</td><td>Plusieurs fibres par cellule interne</td></tr>
+        <tr><td>Bandes critiques</td><td class="n">24</td><td>Le découpage en fréquences que l'oreille transmet</td></tr>
+        <tr><td>Seuil d'audition</td><td class="n">0 dB SPL, soit 20 µPa</td><td>Mesuré vers 1 000 Hz ; c'est la référence de l'échelle</td></tr>
+        <tr><td>Seuil de douleur</td><td class="n">120 dB SPL, soit 20 Pa</td><td>Un million de fois la pression du seuil d'audition</td></tr>
+      </table>
+      </div>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> un son périodique est une somme de sinusoïdes de fréquences <i>n f</i>, et l'oreille sépare ces composantes avant de transmettre quoi que ce soit. La séparation est mécanique : la raideur et la largeur de la membrane basilaire varient d'un bout à l'autre, si bien que chaque fréquence trouve son point de résonance, à une position qui varie comme le logarithme de la fréquence. Le nerf auditif n'a plus qu'à lire quelles cellules sont secouées, et la précision de cette lecture reste bornée par Δ<i>f</i> × Δ<i>t</i> ≈ 1.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -146,7 +213,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 
 "use strict";

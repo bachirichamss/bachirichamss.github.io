@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/aimant.html">
-<title>Couper un aimant en deux pour séparer le nord du sud · Chamss Bachiri</title>
-<meta name="description" content="Pourquoi couper un aimant ne sépare jamais le pôle nord du pôle sud. Démonstration interactive.">
-<meta property="og:title" content="Couper un aimant en deux pour séparer le nord du sud">
+<title>Que se passe-t-il quand on coupe un aimant en deux ? · Chamss Bachiri</title>
+<meta name="description" content="Couper un aimant donne deux aimants complets. Le moment magnétique d'une boucle de courant, l'équation ∇ · B = 0 et le champ d'un dipôle en 1/r³ disent pourquoi un pôle ne se détache pas, avec des figures à manipuler.">
+<meta property="og:title" content="Que se passe-t-il quand on coupe un aimant en deux ?">
 <meta property="og:type" content="article">
 <style>
 /* couleurs des figures de cette page */
@@ -24,6 +24,11 @@
 .lbl{font-family:"IBM Plex Sans",Arial,sans-serif;font-weight:600;fill:#fff;text-anchor:middle}
 .skin{transition:opacity .6s}.fade{transition:opacity .5s}
 g.pc{transition:transform .62s cubic-bezier(.62,.03,.24,1)}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -37,57 +42,81 @@ g.pc{transition:transform .62s cubic-bezier(.62,.03,.24,1)}
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Couper un aimant en deux pour séparer le pôle nord du pôle sud</h1>
-      <p class="dek">Ça ne marche pas. À chaque coupe on obtient deux aimants complets. Voyons ce qui se passe à l'intérieur pendant la coupe.</p>
+      <h1>Que se passe-t-il quand on coupe un aimant en deux ?</h1>
+      <p class="dek">On obtient deux aimants complets, chacun avec son pôle nord et son pôle sud. La raison se lit à l'échelle des atomes, où le magnétisme vient de boucles de courant minuscules, et dans une équation de Maxwell qui interdit à une ligne de champ de commencer quelque part. Les figures qui suivent descendent de l'aimant entier jusqu'à cette dernière boucle.</p>
       <div class="scene"><svg id="heroSvg" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 1.</b> Un aimant droit, la chaîne de mini-aimants qui le compose, et son champ magnétique.</p>
-      
-      <div class="meta"><span>20 septembre 2026</span><span>7 min</span><span>8 étapes</span></div>
+      <p class="figcap"><b>Figure 1.</b> Un aimant droit, la chaîne de moments magnétiques qui le compose, et les lignes de son champ.</p>
+
+      <div class="meta"><span>20 septembre 2026</span><span>9 min</span><span>8 étapes</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Ce qu'on voit de l'extérieur</h2>
-      <p>Un aimant a un bout qui attire le nord de la boussole et un bout qui la repousse. On les appelle pôle nord (rouge) et pôle sud (bleu). Les deux vont toujours ensemble.</p>
+      <h2>Les deux pôles, vus de l'extérieur</h2>
+      <p>L'aiguille d'une boussole est elle-même un petit aimant. Posée près d'un aimant droit, sa pointe nord est attirée par une extrémité de la barre et repoussée par l'autre. La première est le pôle sud, dessiné en bleu dans les figures de cette page, la seconde le pôle nord, en rouge.</p>
+      <p>Aucun aimant ne porte un seul de ces deux pôles. Une barre aimantée en a un de chaque, un grain de limaille aussi, et dans les deux cas ils se trouvent aux deux bouts du même objet.</p>
       <div class="scene"><svg id="outSvg" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 2.</b> Deux aimants face à face et leurs champs.</p>
+      <p class="figcap"><b>Figure 2.</b> Deux aimants face à face et leurs lignes de champ.</p>
       <div class="ctl">
         <button id="flipB" class="go">Retourner l'aimant de droite</button>
         <span class="hint" id="flipT">Un nord en face d'un sud : ils s'attirent.</span>
       </div>
+      <p>Retournez l'aimant de droite. Un nord présenté à un sud donne une attraction, deux nords face à face une répulsion, et dans les deux cas chaque barre conserve ses deux pôles. Le retournement change ce que les aimants se font l'un à l'autre, jamais le nombre de pôles présents.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Ce qu'il y a à l'intérieur</h2>
-      <p>Un aimant est fait d'atomes. Chaque atome de fer est déjà un minuscule aimant, avec son propre nord et son propre sud. Dans un aimant, ils pointent tous dans le même sens et se suivent bout à bout.</p>
-      <p>Un vrai aimant contient des milliards de ces chaînes empilées. Ici on n'en dessine qu'une.</p>
+      <h2>Ce qu'il y a à l'intérieur : des boucles de courant</h2>
+      <p>Un aimant est fait d'atomes, et le magnétisme de chaque atome vient de ses électrons. Un électron qui tourne autour du noyau est une charge qui parcourt un circuit fermé, c'est-à-dire un courant qui circule dans une boucle. Une boucle de ce genre est la plus petite source de champ magnétique connue, et la grandeur qui la caractérise s'appelle le moment magnétique.</p>
+      <p class="fx"><i>m</i> = <i>I</i> × <i>S</i></p>
+      <ul class="sym">
+        <li><b>m</b> le moment magnétique de la boucle, en joules par tesla</li>
+        <li><b>I</b> l'intensité du courant qui y circule</li>
+        <li><b>S</b> l'aire de la surface que la boucle entoure</li>
+      </ul>
+      <p>Le moment grandit avec le courant et avec la surface entourée : doubler l'un ou l'autre double le champ que la boucle produit au loin, et double aussi le couple qu'un champ extérieur exerce sur elle. Une boucle de 1 ampère entourant 1 centimètre carré porte un moment de 10<sup>−4</sup> joule par tesla. Le moment a aussi une direction, perpendiculaire au plan de la boucle : la face par laquelle le champ sort est le pôle nord, celle par laquelle il rentre est le pôle sud.</p>
+      <p>À l'échelle d'un électron, ce moment ne prend pas n'importe quelle valeur. L'unité qui apparaît dans les calculs est le magnéton de Bohr.</p>
+      <p class="fx"><i>μ</i><sub>B</sub> = <i>e</i> <i>ħ</i> / (2 <i>m</i><sub>e</sub>) = 9,274 × 10<sup>−24</sup> J/T</p>
+      <ul class="sym">
+        <li><b>e</b> la charge élémentaire, 1,602 × 10<sup>−19</sup> C</li>
+        <li><b>ħ</b> la constante de Planck réduite, 1,055 × 10<sup>−34</sup> J·s</li>
+        <li><b>m</b><sub>e</sub> la masse de l'électron, 9,109 × 10<sup>−31</sup> kg</li>
+      </ul>
+      <p>C'est l'ordre de grandeur du moment d'un seul électron. Dans le fer, chaque atome en apporte environ 2,2, et un centimètre cube de fer contient 8,5 × 10<sup>22</sup> atomes. Quand tous ces moments pointent dans le même sens, leur somme vaut 1,7 joule par tesla : un aimant ordinaire est une collection de boucles microscopiques alignées, et son magnétisme n'est que leur addition.</p>
       <div class="scene"><svg id="inSvg" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 3.</b> L'intérieur d'un aimant, réduit à une seule chaîne de mini-aimants.</p>
+      <p class="figcap"><b>Figure 3.</b> L'intérieur d'un aimant, réduit à une seule chaîne de moments alignés.</p>
       <div class="ctl">
         <button id="peekB" class="go">Voir l'intérieur</button>
         <span class="hint" id="peekT">Vu de l'extérieur, c'est juste une barre avec deux pôles.</span>
       </div>
+      <p>Appuyez sur le bouton pour ôter la surface de la barre. La figure ne montre qu'une rangée de moments, là où un aimant réel en empile des milliards de milliards, toutes orientées dans le même sens.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>Pourquoi seuls les bouts sont colorés</h2>
-      <p>À l'intérieur de la chaîne, le nord d'un mini-aimant touche le sud du suivant. Les deux se compensent, cet endroit n'attire plus rien.</p>
-      <p>Il ne reste que deux endroits où un pôle n'a personne en face : le sud tout à gauche et le nord tout à droite. Ce sont les pôles de l'aimant entier.</p>
+      <h2>Pourquoi seuls les bouts portent un pôle</h2>
+      <p>Le long de la chaîne, le nord d'un moment se retrouve collé au sud du suivant. Les deux pointent dans le même sens, se recouvrent au même endroit, et leurs contributions s'annulent : ce point du métal n'attire plus rien. Il ne reste que deux emplacements où un pôle n'a personne en face, le sud à une extrémité et le nord à l'autre.</p>
+      <p>Le même constat s'écrit avec les boucles. Deux boucles voisines portent des courants qui tournent dans le même sens, donc des courants opposés le long de leur frontière commune, et ces courants se compensent. De toutes les boucles d'un aimant, il ne reste donc qu'un courant qui fait le tour du bloc, celui qui produit le champ mesuré à l'extérieur.</p>
       <div class="scene"><svg id="cancSvg" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 4.</b> Aux contacts, un nord touche un sud : ils se compensent.</p>
+      <p class="figcap"><b>Figure 4.</b> Aux contacts, un nord touche un sud et la somme est nulle.</p>
       <div class="ctl">
         <button id="cancB" class="go">Montrer les contacts</button>
         <button id="cancR">Effacer</button>
       </div>
+      <p>Affichez les contacts. Un zéro apparaît à chaque jonction intérieure, et les deux seules étiquettes qui subsistent sont le sud libre à gauche et le nord libre à droite.</p>
     </section>
 
     <section class="step">
       <span class="no-num">4</span>
-      <h2>Maintenant on coupe</h2>
-      <p>Chaque coup de ciseaux passe entre deux mini-aimants, jamais à travers. Les mini-aimants ne sont pas touchés, ils sont seulement séparés en deux groupes.</p>
-      <p>Résultat : de chaque côté de la coupure, un pôle se retrouve sans partenaire. Un nouveau nord apparaît à droite du morceau de gauche, un nouveau sud à gauche du morceau de droite.</p>
+      <h2>Ce que fait une coupe</h2>
+      <p>Les ciseaux passent entre deux moments, jamais à travers l'un d'eux. Les boucles ne sont pas modifiées, elles sont réparties en deux groupes. Chaque face neuve expose alors un pôle qui avait un voisin et qui n'en a plus, si bien qu'un nord apparaît à droite du morceau de gauche et un sud à gauche du morceau de droite.</p>
+      <p class="fx"><i>N</i> = 2<sup><i>n</i></sup> &nbsp;&nbsp;&nbsp; <i>ℓ</i> = <i>L</i> / 2<sup><i>n</i></sup></p>
+      <ul class="sym">
+        <li><b>n</b> le nombre de coupes effectuées</li>
+        <li><b>N</b> le nombre de morceaux obtenus, qui portent 2<i>N</i> pôles</li>
+        <li><b>L</b> la longueur de départ, <b>ℓ</b> celle d'un morceau</li>
+      </ul>
+      <p>Le compte des pôles vaut toujours deux fois celui des morceaux, avec autant de nords que de suds. La taille, elle, est divisée par deux à chaque coupe : partant de 30 centimètres, trente coupes donnent des morceaux de 2,8 × 10<sup>−10</sup> mètre, soit le diamètre d'un atome de fer. C'est le nombre de coupes qui sépare un aimant de poche de sa dernière boucle.</p>
       <div class="scene"><svg id="labSvg" aria-hidden="true"></svg></div>
       <p class="figcap"><b>Figure 5.</b> Coupes successives. Chaque morceau reste un aimant complet.</p>
       <div class="rd">
@@ -102,47 +131,58 @@ g.pc{transition:transform .62s cubic-bezier(.62,.03,.24,1)}
         <label class="chk"><input type="checkbox" id="fB"> voir le champ</label>
         <label class="chk"><input type="checkbox" id="sB"> vue de l'extérieur</label>
       </div>
+      <p>Coupez plusieurs fois de suite, puis cochez « voir le champ ». Les trois compteurs suivent la formule, et chaque morceau porte un champ complet, plus petit à chaque coupe mais de même forme que celui de l'aimant entier.</p>
     </section>
 
     <section class="step">
       <span class="no-num">5</span>
-      <h2>Et si on coupe le dernier mini-aimant ?</h2>
-      <p>C'est la vraie question. Un mini-aimant n'est pas une petite barre pleine. Son magnétisme vient d'électrons qui tournent en rond, comme un courant dans une boucle.</p>
-      <p>Une boucle a toujours deux faces. Le champ sort par le dessus et rentre par le dessous. Le dessus est le nord, le dessous est le sud. Coupez la boucle : vous obtenez deux boucles plus petites, chacune avec un dessus et un dessous.</p>
+      <h2>Couper la dernière boucle</h2>
+      <p>Après la trentième coupe, il ne reste qu'une boucle de courant, et la question se repose pour elle. Une boucle n'a pas d'extrémité que l'on pourrait détacher : ses pôles sont ses deux faces, celle par où le champ sort et celle par où il rentre. Une surface fermée a toujours un dessus et un dessous.</p>
+      <p>Remplacer cette boucle par deux boucles plus petites ne change rien au compte. Chacune entoure la moitié de la surface, donc porte la moitié du moment d'après <i>m</i> = <i>I</i> <i>S</i>, et la somme des deux redonne exactement le moment de départ, avec deux fois plus de faces qu'au début.</p>
       <div class="scene"><svg id="loopSvg" aria-hidden="true"></svg></div>
       <p class="figcap"><b>Figure 6.</b> Une boucle de courant vue de biais, et son champ.</p>
       <div class="ctl">
         <button id="loopB" class="go">Couper la boucle</button>
         <span class="hint" id="loopT">Une boucle de courant. Le champ la traverse de bas en haut.</span>
       </div>
-      <p>Un pôle n'est donc pas un ingrédient qu'on pourrait mettre de côté. C'est une face, un bout. Chercher un pôle nord seul revient à chercher un bâton qui n'aurait qu'une extrémité.</p>
+      <p>Coupez la boucle, puis recollez-la. La flèche du champ garde le même sens de part et d'autre, et chacune des deux boucles possède son nord et son sud.</p>
+      <p>Une partie du moment d'un électron ne vient pas d'un parcours autour du noyau mais de son spin, auquel ne correspond aucune rotation que l'on puisse se représenter. Ce moment se comporte malgré tout comme celui d'une boucle : il a une orientation et deux faces, dont aucune ne peut être détachée de l'autre. Un pôle n'est pas un ingrédient de l'aimant, c'est l'un de ses deux bords.</p>
     </section>
 
     <section class="step">
       <span class="no-num">6</span>
-      <h2>La même chose vue par les lignes de champ</h2>
-      <p>Les lignes sortent par le nord, font le tour, rentrent par le sud, puis traversent l'aimant pour revenir à leur point de départ. Chaque ligne se referme sur elle-même. Aucune ne commence nulle part et aucune ne s'arrête nulle part.</p>
+      <h2>Les lignes de champ se referment sur elles-mêmes</h2>
+      <p>La même idée se lit sur le tracé du champ. Les lignes sortent par le nord, font le tour de l'aimant, rentrent par le sud, puis traversent le métal pour rejoindre leur point de départ. Chaque ligne forme une boucle fermée : aucune ne commence en un point, aucune ne s'arrête en un autre.</p>
       <div class="scene"><svg id="closeSvg" aria-hidden="true"></svg></div>
       <p class="figcap"><b>Figure 7.</b> Une ligne de champ fermée, suivie sur un tour complet.</p>
       <div class="ctl">
         <button id="dotB" class="go">Suivre une ligne</button>
         <span class="hint">La partie ambrée est le trajet à l'intérieur de l'aimant.</span>
       </div>
-      <p>Un pôle isolé serait un point d'où les lignes partent sans jamais revenir, comme l'eau qui sort d'un robinet. On n'a jamais observé ça. Les physiciens écrivent ce constat ainsi :</p>
-      <p class="eq">&#8711; &#183; B = 0</p>
-      <p class="eqs">Autour de n'importe quel volume, il sort autant de lignes qu'il n'en rentre.</p>
+      <p>Suivez le point sur un tour. Il ressort du nord, décrit sa courbe dans l'air, rentre par le sud et revient par l'intérieur de la barre, sans jamais quitter la même ligne.</p>
+      <p>Cette propriété est l'une des quatre équations de Maxwell, et elle tient sur une ligne.</p>
+      <p class="fx">∇ · <i>B</i> = 0</p>
+      <ul class="sym">
+        <li><b>B</b> le champ magnétique en un point de l'espace</li>
+        <li><b>∇ ·</b> la divergence, qui compte ce qui sort d'un petit volume moins ce qui y entre</li>
+      </ul>
+      <p>Une divergence nulle partout signifie qu'aucun point de l'espace n'est une source ni un puits de champ magnétique. Autour de n'importe quel volume, il sort exactement autant de lignes qu'il en rentre, donc une ligne qui part doit revenir, donc elle se referme. L'électricité se comporte autrement : l'équation correspondante y vaut ∇ · <i>E</i> = <i>ρ</i> / <i>ε</i><sub>0</sub>, et la densité de charge <i>ρ</i> est précisément le terme qui autorise une ligne à naître sur une charge isolée. Pour le magnétisme, ce terme n'existe pas, et un pôle nord seul serait un point d'où les lignes partiraient sans retour.</p>
+      <p>Un tel objet, appelé monopôle magnétique, reste une question ouverte : on en a cherché dans les rayons cosmiques et auprès des accélérateurs, sans en détecter aucun. Paul Dirac a montré en 1931 qu'un seul monopôle existant quelque part dans l'Univers suffirait à rendre compte de la quantification de la charge électrique.</p>
     </section>
 
     <section class="step">
       <span class="no-num">7</span>
-      <h2>Le monopôle magnétique</h2>
-      <p>Un objet qui n'aurait qu'un seul pôle porte un nom : monopôle magnétique. Rien dans la théorie ne l'interdit formellement. En 1931, Paul Dirac a même montré qu'un seul monopôle quelque part dans l'univers expliquerait pourquoi toutes les charges électriques sont des multiples exacts de celle de l'électron.</p>
-      <ul>
-        <li>1982 : un détecteur de Blas Cabrera à Stanford enregistre un signal compatible avec le passage d'un monopôle. Jamais reproduit depuis.</li>
-        <li>Au LHC, l'expérience MoEDAL est construite pour en attraper un. Rien à ce jour.</li>
-        <li>Dans des cristaux appelés glaces de spin, on observe des perturbations qui se comportent comme des monopôles. Elles n'existent qu'à l'intérieur du matériau et ne peuvent pas en sortir.</li>
+      <h2>Jusqu'où porte le champ d'un aimant</h2>
+      <p>Comme un aimant porte ses deux pôles côte à côte, un observateur éloigné reçoit deux contributions presque égales et de signes contraires. Elles s'annulent presque, et ce qui subsiste décroît plus vite que le champ d'une charge seule. Loin de l'aimant, à une distance grande devant sa longueur, le champ mesuré sur l'axe vaut :</p>
+      <p class="fx"><i>B</i> = <i>μ</i><sub>0</sub> <i>m</i> / (2π <i>r</i><sup>3</sup>)</p>
+      <ul class="sym">
+        <li><b>B</b> le champ magnétique, en teslas</li>
+        <li><b>μ</b><sub>0</sub> la perméabilité du vide, 4π × 10<sup>−7</sup> T·m/A</li>
+        <li><b>m</b> le moment magnétique de l'aimant</li>
+        <li><b>r</b> la distance entre son centre et le point de mesure</li>
       </ul>
-      <p>En attendant, tout ce qui produit du magnétisme autour de nous est une boucle. Et une boucle a deux faces.</p>
+      <p>L'exposant de <i>r</i> distingue ce champ de celui de l'électricité, où une charge isolée produit <i>E</i> = <i>q</i> / (4π<i>ε</i><sub>0</sub> <i>r</i><sup>2</sup>). Doubler la distance divise le champ d'une charge par 4 et celui d'un aimant par 8. Cet exposant 3 vient de ce qu'un pôle ne se présente jamais seul : chacun des deux contribue en 1/<i>r</i><sup>2</sup>, et il ne subsiste que leur différence, plus faible d'une puissance de <i>r</i>.</p>
+      <p>Les chiffres de l'étape 2 donnent l'ordre de grandeur. Avec le centimètre cube de fer et son moment de 1,7 joule par tesla, le champ vaut 0,34 millitesla à 10 centimètres, soit environ sept fois le champ magnétique terrestre, qui est de l'ordre de 50 microteslas. À 20 centimètres il tombe à 43 microteslas, comparable au champ terrestre, et à 1 mètre à 0,34 microtesla, cent cinquante fois plus faible que lui. Un aimant agit donc fortement au contact et presque plus à quelques dizaines de centimètres.</p>
     </section>
 
     <section class="step">
@@ -150,27 +190,27 @@ g.pc{transition:transform .62s cubic-bezier(.62,.03,.24,1)}
       <h2>Trois questions</h2>
       <div id="quiz"></div>
       <p id="score" class="figcap" style="font-size:.9rem"></p>
-      <p style="margin-top:2rem">À retenir : les pôles d'un aimant sont les deux bouts d'une chaîne de mini-aimants. Couper la chaîne crée deux chaînes, donc deux nouveaux bouts, donc deux aimants.</p>
+      <p style="margin-top:2rem"><strong>À retenir :</strong> les pôles d'un aimant ne sont pas des pièces séparables, mais les deux faces d'une collection de boucles de courant alignées. Une coupe ne fait que créer deux nouvelles faces, et l'équation ∇ · B = 0 dit que cela restera vrai à toutes les échelles, puisque aucun point de l'espace ne peut être une source de champ magnétique. Comme les deux pôles restent voisins, leurs effets s'annulent presque à distance et le champ d'un aimant décroît en 1/<i>r</i><sup>3</sup>, là où celui d'une charge décroît en 1/<i>r</i><sup>2</sup>.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -184,7 +224,7 @@ g.pc{transition:transform .62s cubic-bezier(.62,.03,.24,1)}
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 
 "use strict";

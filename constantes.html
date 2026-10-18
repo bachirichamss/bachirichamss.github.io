@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/constantes.html">
-<title>Comment on a mesuré les réglages de l'Univers · Chamss Bachiri</title>
-<meta name="description" content="Vitesse de la lumière, gravitation, constante de Planck : aucune théorie ne donne leur valeur. Les expériences qui les ont mesurées, de la roue dentée de Fizeau à la balance de Kibble.">
-<meta property="og:title" content="Comment on a mesuré les réglages de l'Univers">
+<title>Comment mesure-t-on les constantes fondamentales ? · Chamss Bachiri</title>
+<meta name="description" content="Aucune théorie ne donne la valeur de c, de G ou de h : il a fallu les mesurer, de la roue dentée de Fizeau au piège de Penning. Et depuis le 20 mai 2019, sept constantes sont fixées par convention, les unités se déduisant de leurs valeurs.">
+<meta property="og:title" content="Comment mesure-t-on les constantes fondamentales ?">
 <meta property="og:type" content="article">
 <style>
 /* figures de cette page */
@@ -35,6 +35,11 @@
 .badge.fix{background:#eaf0f8;color:#1f4f8f}
 .badge.mes{background:#fbeee2;color:#9a4f08}
 .others li{margin-bottom:.9em}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+ul.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+ul.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+ul.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -47,127 +52,341 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Comment on a mesuré les réglages de l'Univers</h1>
-      <p class="dek">La vitesse de la lumière, la force de la gravitation, la constante de Planck : aucune théorie ne donne leur valeur. Il a fallu les mesurer, avec une roue dentée, un fil de torsion ou une balance électrique. Voici comment.</p>
-      <div class="meta"><span>22 septembre 2026</span><span>10 min</span></div>
+      <h1>Comment mesure-t-on les constantes fondamentales ?</h1>
+      <p class="dek">Les lois de la physique relient des grandeurs entre elles sans dire combien elles valent. Il a fallu mesurer la vitesse de la lumière avec une roue dentée, la gravitation avec un fil de torsion, la constante de Planck avec une balance électrique. Depuis le 20 mai 2019, sept de ces constantes portent une valeur fixée par convention, et ce sont les unités qui en découlent.</p>
+      <div class="meta"><span>22 septembre 2026</span><span>26 min</span></div>
     </div>
 
     <!-- 1 -->
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Des nombres que personne ne sait calculer</h2>
-      <p>Les lois de la physique disent comment les choses sont reliées. Elles ne disent pas combien vaut la vitesse de la lumière ni quelle est la force de la gravité. Ces nombres, les <strong>constantes fondamentales</strong>, ne se calculent pas : ils se mesurent.</p>
-      <p>Depuis 2019, une partie d'entre eux n'est même plus mesurée : leur valeur est fixée par définition, et c'est elle qui sert à définir le mètre ou le kilogramme. On verra pourquoi à la fin. Mais pour pouvoir les fixer, il a d'abord fallu les connaître.</p>
-      <div class="tablewrap">
-      <table class="cst">
-        <tr><th></th><th>Constante</th><th>Valeur</th><th>Aujourd'hui</th></tr>
-        <tr><td class="sym">c</td><td>vitesse de la lumière</td><td class="val">299 792 458 m/s</td><td><span class="badge fix">fixée en 1983</span></td></tr>
-        <tr><td class="sym">h</td><td>constante de Planck</td><td class="val">6,626 070 15 × 10<sup>−34</sup> J·s</td><td><span class="badge fix">fixée en 2019</span></td></tr>
-        <tr><td class="sym">e</td><td>charge de l'électron</td><td class="val">1,602 176 634 × 10<sup>−19</sup> C</td><td><span class="badge fix">fixée en 2019</span></td></tr>
-        <tr><td class="sym">k</td><td>constante de Boltzmann</td><td class="val">1,380 649 × 10<sup>−23</sup> J/K</td><td><span class="badge fix">fixée en 2019</span></td></tr>
-        <tr><td class="sym">N<sub>A</sub></td><td>nombre d'Avogadro</td><td class="val">6,022 140 76 × 10<sup>23</sup> par mole</td><td><span class="badge fix">fixée en 2019</span></td></tr>
-        <tr><td class="sym">G</td><td>constante de la gravitation</td><td class="val">6,674 30 × 10<sup>−11</sup> m³/(kg·s²)</td><td><span class="badge mes">mesurée, à 2 cent-millièmes près</span></td></tr>
-        <tr><td class="sym">α</td><td>constante de structure fine</td><td class="val">environ 1/137,036</td><td><span class="badge mes">mesurée, à un dix-milliardième près</span></td></tr>
-        <tr><td class="sym">m<sub>e</sub></td><td>masse de l'électron</td><td class="val">9,109 383 7 × 10<sup>−31</sup> kg</td><td><span class="badge mes">mesurée, à 3 dix-milliardièmes près</span></td></tr>
-      </table>
-      </div>
+      <h2>Des nombres qu'aucune théorie ne donne</h2>
+      <p>Une loi physique dit comment des grandeurs sont reliées. Elle dit que la force d'attraction entre deux corps double si l'une des masses double, et qu'elle tombe au quart si la distance double. Elle ne dit pas combien vaut cette force pour deux masses données. Le nombre qui manque est une constante fondamentale, et il ne se calcule pas : il se mesure.</p>
+      <p>La loi de la gravitation universelle le montre en une ligne.</p>
+      <p class="fx"><i>F</i> = <i>G</i> <i>m</i><sub>1</sub> <i>m</i><sub>2</sub> / <i>r</i>²</p>
+      <ul class="sym">
+        <li><b>F</b> la force d'attraction entre les deux corps</li>
+        <li><b>m</b><sub>1</sub>, <b>m</b><sub>2</sub> leurs masses</li>
+        <li><b>r</b> la distance entre leurs centres</li>
+        <li><b>G</b> la constante de la gravitation</li>
+      </ul>
+      <p>La loi donne la forme de la relation, <i>G</i> en donne l'échelle. Deux masses d'un kilogramme séparées d'un mètre s'attirent avec une force de 6,67 × 10<sup>−11</sup> newton, soit le poids d'environ sept milliardièmes de gramme. C'est cette faiblesse qui rend <i>G</i> difficile à mesurer, et c'est pourtant la seule force qui tienne les planètes en orbite, parce qu'elle s'additionne sur des masses énormes au lieu de s'annuler comme les charges électriques.</p>
+      <p>Les constantes se rangent en deux familles. Les premières portent une unité : <i>c</i> en mètres par seconde, <i>G</i> en mètres cubes par kilogramme et par seconde carrée, <i>h</i> en joules fois secondes. Leur valeur numérique dépend donc des unités choisies, et changer d'unités la change. Les constantes de la seconde famille sont des nombres purs, obtenus en divisant deux grandeurs de même nature.</p>
+      <p class="fx"><i>m</i><sub>p</sub> / <i>m</i><sub>e</sub> = 1836,152 673 426</p>
+      <p>Ce rapport de la masse du proton à celle de l'électron n'a pas d'unité. Il vaut 1836 quel que soit le système de mesure employé, sur Terre comme ailleurs. Aucune convention ne peut le déplacer, et aucune théorie connue ne sait le calculer. La constante de structure fine, dont il sera question à la fin, appartient à la même famille.</p>
+      <p>La suite donne d'abord les sept constantes qui servent aujourd'hui à définir les unités, puis les expériences qui ont permis de les connaître assez bien pour qu'on puisse les fixer, puis celles qu'on mesure encore.</p>
     </section>
 
     <!-- 2 -->
     <section class="step">
       <span class="no-num">2</span>
-      <h2>La vitesse de la lumière, avec une roue dentée</h2>
-      <p>En 1849, Hippolyte Fizeau envoie un faisceau de lumière entre les dents d'une roue, vers un miroir placé à 8,6 kilomètres, entre Suresnes et Montmartre. La lumière revient et doit repasser entre les dents pour atteindre l'œil de l'observateur.</p>
-      <p>Si la roue tourne assez vite, elle avance d'une demi-dent pendant l'aller-retour : la lumière revient pile sur une dent et l'observateur ne voit plus rien. La vitesse de la roue à ce moment donne la durée de l'aller-retour, donc la vitesse de la lumière. <strong>À vous : faites tourner la roue jusqu'à ce que la lumière disparaisse.</strong></p>
-      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
-      <div class="ctl">
-        <span class="grp"><label for="fS">Vitesse de la roue</label><input type="range" id="fS" min="0" max="300" value="0" style="width:280px"></span>
+      <h2>Les sept constantes qui définissent le Système international</h2>
+      <p>Le 20 mai 2019, le Système international d'unités a changé de fondement. Sept constantes ont reçu une valeur numérique exacte, décidée une fois pour toutes, et les sept unités de base se déduisent désormais de ces sept valeurs.</p>
+      <div class="tablewrap">
+      <table class="cst">
+        <tr><th></th><th>Constante</th><th>Valeur exacte</th><th>Unité définie</th></tr>
+        <tr><td class="sym">Δν<sub>Cs</sub></td><td>fréquence de la transition hyperfine du césium 133</td><td class="val">9 192 631 770 Hz</td><td>la seconde</td></tr>
+        <tr><td class="sym">c</td><td>vitesse de la lumière dans le vide</td><td class="val">299 792 458 m/s</td><td>le mètre</td></tr>
+        <tr><td class="sym">h</td><td>constante de Planck</td><td class="val">6,626 070 15 × 10<sup>−34</sup> J·s</td><td>le kilogramme</td></tr>
+        <tr><td class="sym">e</td><td>charge élémentaire</td><td class="val">1,602 176 634 × 10<sup>−19</sup> C</td><td>l'ampère</td></tr>
+        <tr><td class="sym">k</td><td>constante de Boltzmann</td><td class="val">1,380 649 × 10<sup>−23</sup> J/K</td><td>le kelvin</td></tr>
+        <tr><td class="sym">N<sub>A</sub></td><td>constante d'Avogadro</td><td class="val">6,022 140 76 × 10<sup>23</sup> mol<sup>−1</sup></td><td>la mole</td></tr>
+        <tr><td class="sym">K<sub>cd</sub></td><td>efficacité lumineuse d'un rayonnement de 540 × 10<sup>12</sup> Hz</td><td class="val">683 lm/W</td><td>la candela</td></tr>
+      </table>
       </div>
-      <div class="live" id="f2L"></div>
-      <p class="figcap"><b>Figure 1.</b> Vue rapprochée du bord de la roue, au ralenti : en réalité, l'aller-retour de 17 kilomètres dure 58 millionièmes de seconde. L'aller et le retour sont dessinés sur deux lignes pour qu'on les distingue ; en vrai, la lumière repasse au même endroit. Quand la roue tourne, la lumière part par salves, chaque fois qu'un creux passe devant la lampe.</p>
-      <p>Fizeau situe l'extinction vers 12,6 tours par seconde et obtient 315 000 km/s, 5 % de trop : juger à l'œil l'instant exact où la lumière s'éteint était la principale difficulté. En 1862, Léon Foucault remplace la roue par un miroir tournant et descend à 0,6 % d'écart. Viendront ensuite Michelson, les cavités à micro-ondes, puis les lasers en 1972 : on mesure séparément la fréquence et la longueur d'onde d'un même laser, et leur produit donne c à un mètre par seconde près.</p>
+      <p>Le retournement se lit dans le sens des définitions. On partait autrefois de l'unité pour mesurer la constante : on disposait d'une seconde et d'un mètre, et on mesurait combien de mètres par seconde parcourt la lumière. On part maintenant de la constante pour en déduire l'unité. La seconde vient en premier, parce qu'une fréquence se mesure mieux que n'importe quelle autre grandeur.</p>
+      <p class="fx">1 s = 9 192 631 770 / Δ<i>ν</i><sub>Cs</sub></p>
+      <p>Un atome de césium 133 placé dans un champ de micro-ondes absorbe l'énergie à une fréquence très précise, celle qui fait basculer l'orientation du spin de son électron extérieur par rapport à celle du noyau. On compte 9 192 631 770 oscillations de ce champ et on appelle cette durée une seconde. La définition date de 1967 et n'a pas changé depuis.</p>
+      <p class="fx">1 m = (<i>c</i> / 299 792 458) s</p>
+      <p>Le mètre devient une durée convertie par <i>c</i> : c'est la distance parcourue par la lumière en 1/299 792 458 de seconde, soit 3,336 nanosecondes. Ce choix a été fait en 1983, quand les mesures de <i>c</i> sont devenues plus précises que la définition du mètre par une longueur d'onde de référence.</p>
+      <p class="fx">1 kg = (<i>h</i> / 6,626 070 15 × 10<sup>−34</sup>) m<sup>−2</sup> s</p>
+      <p>La constante de Planck s'exprime en kilogrammes fois mètres carrés par seconde. Une fois le mètre et la seconde fixés, fixer <i>h</i> fixe donc le kilogramme. La même idée s'écrit de façon plus parlante en combinant l'énergie d'un grain de lumière, <i>E</i> = <i>h</i> <i>ν</i>, et l'équivalence entre masse et énergie, <i>E</i> = <i>m</i> <i>c</i>².</p>
+      <p class="fx"><i>m</i> = <i>h</i> <i>ν</i> / <i>c</i>²</p>
+      <p>Une masse est devenue une fréquence. Un kilogramme correspond à 1,356 392 489 × 10<sup>50</sup> hertz, un nombre qu'aucun appareil ne mesure directement, mais qui dit où est passée la définition. La réalisation pratique se fait avec la balance de Kibble de la section 5.</p>
+      <p class="fx">1 A = (<i>e</i> / 1,602 176 634 × 10<sup>−19</sup>) s<sup>−1</sup></p>
+      <p>Un ampère, c'est le passage de 6,241 509 074 × 10<sup>18</sup> charges élémentaires par seconde. L'ampère était défini depuis 1948 par la force entre deux fils parcourus par des courants, un montage difficile à réaliser avec précision. Il se définit maintenant en comptant des électrons.</p>
+      <p class="fx">1 K = (1,380 649 × 10<sup>−23</sup> / <i>k</i>) J</p>
+      <p>La constante de Boltzmann est un taux de change entre les degrés et les joules. Fixer <i>k</i> revient à décider combien d'énergie représente un kelvin. À 300 kelvins, l'énergie d'agitation d'un atome de gaz monoatomique vaut (3/2) <i>k</i> <i>T</i>, soit 6,2 × 10<sup>−21</sup> joule, ou 0,039 électronvolt.</p>
+      <p class="fx">1 mol = 6,022 140 76 × 10<sup>23</sup> / <i>N</i><sub>A</sub></p>
+      <p>La mole était jusqu'en 2019 le nombre d'atomes contenus dans 12 grammes de carbone 12. Elle est maintenant un nombre d'entités fixé par convention. La conséquence se voit à l'envers : la masse molaire du carbone 12 n'est plus exactement 12 grammes par mole mais une grandeur mesurée, 12,000 000 0126 grammes par mole.</p>
+      <p class="fx">Φ = <i>K</i><sub>cd</sub> <i>P</i></p>
+      <ul class="sym">
+        <li><b>Φ</b> le flux lumineux, en lumens</li>
+        <li><b>P</b> la puissance du rayonnement, en watts</li>
+        <li><b>K</b><sub>cd</sub> l'efficacité lumineuse, pour un rayonnement de fréquence 540 × 10<sup>12</sup> Hz</li>
+      </ul>
+      <p>Un watt de lumière verte à 540 térahertz produit 683 lumens. La candela est la seule des sept unités de base à contenir une donnée de physiologie humaine : la fréquence choisie, qui correspond à une longueur d'onde de 555 nanomètres, est celle où l'œil est le plus sensible.</p>
+      <p>Jusqu'en 2019, le kilogramme restait un objet unique, un cylindre de platine iridié conservé à Sèvres. Ses copies officielles, comparées à lui au cours du vingtième siècle, s'en écartaient d'une cinquantaine de microgrammes, et rien ne permettait de dire lequel avait changé. Une valeur fixée par convention ne peut ni se rayer ni prendre la poussière, et elle est accessible dans n'importe quel laboratoire assez bien équipé.</p>
+      <p>Ces sept constantes ont maintenant une incertitude nulle, par construction. L'incertitude n'a pas disparu : elle s'est déplacée. Le cylindre de Sèvres est devenu un objet dont on mesure la masse, et des constantes autrefois exactes, comme la perméabilité du vide, sont devenues des grandeurs mesurées. Les sections qui suivent racontent comment les valeurs à geler ont été obtenues, puis ce qu'il reste à mesurer.</p>
     </section>
 
     <!-- 3 -->
     <section class="step">
       <span class="no-num">3</span>
-      <h2>La gravitation, avec un fil de torsion</h2>
-      <p>Entre deux objets ordinaires, la gravité est ridiculement faible. Deux grosses boules de plomb attirent deux petites avec une force des dizaines de milliers de fois plus faible que le poids d'un trombone. En 1798, Henry Cavendish la mesure quand même.</p>
-      <p>Il suspend à un fil très fin une tige portant deux petites boules, puis approche deux grosses boules de plomb. L'attraction fait tourner la tige d'un angle minuscule, jusqu'à ce que le fil, en se tordant, la retienne. Un rayon lumineux réfléchi sur la tige amplifie le mouvement sur une règle. <strong>Approchez les boules et regardez la trace.</strong></p>
-      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
-      <div class="ctl"><button class="go" id="f3B">Approcher les grosses boules</button></div>
-      <div class="live" id="f3L"></div>
-      <p class="figcap"><b>Figure 2.</b> Balance de torsion vue de dessus, avec des dimensions proches de celle de Cavendish. L'angle de la tige est exagéré 100 fois sur le dessin, et le temps accéléré 60 fois : une seconde d'animation vaut une minute réelle. G s'obtient par G = 2π² L r² θ / (M T²), où L est la longueur de la tige, r la distance entre les boules, θ l'angle, M la grosse masse et T la période.</p>
-      <p>Cavendish enferme l'appareil dans une pièce close et l'observe de l'extérieur à la lunette : la chaleur d'un corps humain suffit à créer des courants d'air qui faussent tout.</p>
-      <p>Plus de deux siècles plus tard, G reste la constante la moins bien connue. Les meilleures expériences atteignent le cent-millième, mais elles ne sont pas d'accord entre elles :</p>
-      <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 3.</b> Mesures récentes de G retenues par le CODATA, avec leur marge d'erreur. La bande bleue est la valeur recommandée en 2022. Si tout allait bien, les barres se chevaucheraient.</p>
-      <p>Les barres devraient se recouvrir. Elles ne le font pas : quelque chose échappe encore aux expérimentateurs. L'équipe de Florence a même remplacé la balance par des atomes refroidis par laser, pour éviter les pièges des appareils mécaniques. Le désaccord persiste, et la valeur recommandée porte une marge élargie en conséquence.</p>
+      <h2>La vitesse de la lumière, mesurée avec une roue dentée</h2>
+      <p>En 1849, Hippolyte Fizeau envoie un faisceau de lumière entre les dents d'une roue, vers un miroir placé à 8 633 mètres, entre Suresnes et Montmartre. La lumière revient et doit repasser entre les dents pour atteindre l'œil de l'observateur.</p>
+      <p>Si la roue tourne assez vite, elle avance d'une demi-dent pendant l'aller-retour : la lumière revient sur une dent et l'observateur ne voit plus rien. Deux durées s'égalisent à cet instant, celle de l'aller-retour et celle d'un demi-pas de roue.</p>
+      <p class="fx">2 <i>D</i> / <i>c</i> = 1 / (2 <i>N</i> <i>f</i>) &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>c</i> = 4 <i>D</i> <i>N</i> <i>f</i></p>
+      <ul class="sym">
+        <li><b>D</b> la distance de la roue au miroir</li>
+        <li><b>N</b> le nombre de dents de la roue</li>
+        <li><b>f</b> le nombre de tours par seconde</li>
+      </ul>
+      <p>La vitesse de la lumière se lit donc dans une vitesse de rotation, grandeur qu'on sait mesurer avec des moyens mécaniques simples. Avec 720 dents et 8 633 mètres, l'extinction tombe vers 12 tours par seconde : la roue tourne lentement, parce qu'un grand nombre de dents et une longue distance remplacent la rapidité. Réglez la roue jusqu'à ce que la lumière disparaisse.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="fS">Vitesse de la roue</label><input type="range" id="fS" min="0" max="300" value="0" style="width:280px"></span>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 1.</b> Vue rapprochée du bord de la roue, au ralenti : l'aller-retour de 17 kilomètres dure 58 millionièmes de seconde. L'aller et le retour sont dessinés sur deux lignes pour qu'on les distingue, alors que la lumière repasse en vrai au même endroit. Quand la roue tourne, la lumière part par salves, chaque fois qu'un creux passe devant la lampe.</p>
+      <p>Fizeau situe l'extinction à 12,6 tours par seconde et obtient 313 274 kilomètres par seconde, 4,5 pour cent au-dessus de la valeur actuelle. L'écart tient surtout à l'appréciation de l'instant où la lumière s'éteint, difficile à situer à l'œil. Les méthodes suivantes ont consisté à rendre cette lecture plus facile, ou à s'en passer.</p>
+      <ul class="others">
+        <li><strong>1676, Ole Rømer.</strong> Les éclipses du satellite Io de Jupiter arrivent en avance quand la Terre s'approche, en retard quand elle s'éloigne. Rømer en conclut que la lumière met un temps fini à traverser l'orbite terrestre. L'ordre de grandeur qu'on en tire, environ 220 000 km/s, est 27 pour cent en dessous de la valeur actuelle, faute d'une bonne mesure du rayon de l'orbite.</li>
+        <li><strong>1862, Léon Foucault.</strong> La roue est remplacée par un miroir tournant, et l'observateur ne cherche plus une extinction mais mesure un déplacement d'image. L'écart tombe à 0,6 pour cent, avec 298 000 km/s.</li>
+        <li><strong>1879 puis 1926, Albert Michelson.</strong> À Annapolis, avec un miroir tournant soigneusement étalonné, il obtient 299 910 km/s. Quarante-sept ans plus tard, avec un prisme à plusieurs faces et une distance de 35 kilomètres entre deux montagnes de Californie, il obtient 299 796 km/s.</li>
+        <li><strong>1950, Louis Essen.</strong> On enferme des micro-ondes dans une cavité métallique de dimensions connues. La cavité ne résonne qu'à des longueurs d'onde précises, et la fréquence se compte électroniquement : 299 792,5 km/s, à un kilomètre par seconde près.</li>
+        <li><strong>1972, Kenneth Evenson et son équipe.</strong> On mesure séparément la fréquence et la longueur d'onde d'un même laser stabilisé sur une raie du méthane, et on multiplie les deux.</li>
+      </ul>
+      <p class="fx"><i>c</i> = <i>λ</i> <i>ν</i></p>
+      <ul class="sym">
+        <li><b>λ</b> la longueur d'onde, mesurée par interférences</li>
+        <li><b>ν</b> la fréquence, comptée par comparaison avec l'horloge au césium</li>
+      </ul>
+      <p>Le produit d'une longueur par une fréquence donne une vitesse, et chacun des deux facteurs se mesure très bien séparément. Evenson obtient 299 792 456,2 m/s, à 1,1 mètre par seconde près. L'incertitude était alors dominée par le mètre lui-même, et non par la lumière. En 1983 la décision a été prise de fixer <i>c</i> et de définir le mètre à partir d'elle.</p>
     </section>
 
     <!-- 4 -->
     <section class="step">
       <span class="no-num">4</span>
-      <h2>La constante de Planck, avec une balance électrique</h2>
-      <p>La constante de Planck règle la taille des grains d'énergie de la lumière. Max Planck l'estime en 1900 à partir de la couleur des objets chauds, Robert Millikan la mesure en 1916 grâce à l'effet photoélectrique. Aujourd'hui, l'instrument de référence est la <strong>balance de Kibble</strong>, qui compare une force mécanique à une force électrique en deux étapes.</p>
+      <h2>La gravitation, mesurée avec un fil de torsion</h2>
+      <p>Entre deux objets ordinaires, la gravité est très faible. Deux grosses boules de plomb attirent deux petites avec une force des dizaines de milliers de fois plus faible que le poids d'un trombone. En 1798, Henry Cavendish la mesure quand même.</p>
+      <p>Il suspend à un fil très fin une tige portant deux petites boules, puis approche deux grosses boules de plomb. L'attraction fait tourner la tige d'un angle minuscule, jusqu'à ce que le fil, en se tordant, la retienne. Un rayon lumineux réfléchi sur la tige amplifie le mouvement sur une règle. Approchez les boules et regardez la trace.</p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl"><button class="go" id="f3B">Approcher les grosses boules</button></div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 2.</b> Balance de torsion vue de dessus, avec des dimensions proches de celle de Cavendish. L'angle de la tige est exagéré 100 fois sur le dessin, et le temps accéléré 60 fois : une seconde d'animation vaut une minute réelle.</p>
+      <p>On lit deux choses sur la trace du spot lumineux. L'écart au repos donne le couple exercé par les grosses boules, et la période des oscillations donne la raideur du fil. En combinant les deux, la raideur disparaît et <i>G</i> apparaît.</p>
+      <p class="fx"><i>G</i> = 2π² <i>L</i> <i>r</i>² <i>θ</i> / (<i>M</i> <i>T</i>²)</p>
+      <ul class="sym">
+        <li><b>L</b> la longueur de la tige</li>
+        <li><b>r</b> la distance entre une grosse boule et la petite voisine</li>
+        <li><b>θ</b> l'angle dont la tige a tourné</li>
+        <li><b>M</b> la masse d'une grosse boule</li>
+        <li><b>T</b> la période des oscillations de la tige</li>
+      </ul>
+      <p>La masse des petites boules n'apparaît pas dans cette expression. Elle intervient deux fois, dans la force subie et dans l'inertie de la tige, et les deux effets se compensent exactement. On n'a donc pas besoin de la connaître. La période entre au carré, parce qu'un fil souple laisse la tige tourner davantage et la laisse aussi osciller plus lentement : les deux lectures se renforcent au lieu de se contredire.</p>
+      <p>Cavendish enferme l'appareil dans une pièce close et l'observe de l'extérieur à la lunette, la chaleur d'un corps humain suffisant à créer des courants d'air qui faussent la mesure. Sa valeur, retraduite en unités modernes, correspond à 6,74 × 10<sup>−11</sup> m³/(kg·s²), à environ 1 pour cent de la valeur actuelle.</p>
+      <p>Plus de deux siècles après, <i>G</i> reste la constante fondamentale la moins bien connue, avec une incertitude relative de 2,2 × 10<sup>−5</sup>. Les meilleures expériences atteignent chacune le cent-millième, mais elles ne s'accordent pas entre elles.</p>
+      <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 3.</b> Mesures récentes de <i>G</i> retenues par le CODATA, avec leur marge d'erreur. La bande bleue est la valeur recommandée en 2022, 6,674 30 × 10<sup>−11</sup> m³/(kg·s²).</p>
+      <p>Les barres devraient se recouvrir, et elles ne le font pas. L'équipe de Florence a remplacé la balance par des atomes refroidis par laser, dont la chute libre se mesure par interférométrie, afin de ne plus dépendre d'un fil ni d'un pivot. Le désaccord subsiste, et la valeur recommandée porte une marge élargie pour en tenir compte. Aucune autre constante n'est aussi mal connue, et <i>G</i> est la seule des grandes constantes qui n'intervienne dans aucun effet quantique mesurable, donc la seule qu'on ne puisse pas relier aux autres par une fréquence.</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>La constante de Planck, mesurée avec une balance électrique</h2>
+      <p>La constante de Planck règle la taille des grains d'énergie du rayonnement.</p>
+      <p class="fx"><i>E</i> = <i>h</i> <i>ν</i></p>
+      <p>Un grain de lumière verte, à 540 × 10<sup>12</sup> hertz, transporte 3,6 × 10<sup>−19</sup> joule, soit 2,2 électronvolts. La relation est une simple proportionnalité, et <i>h</i> en est le coefficient : la lumière bleue, plus haute en fréquence, arrive donc par paquets plus gros que la lumière rouge, ce qui explique qu'elle arrache des électrons à un métal là où la rouge, même intense, n'y parvient pas. Max Planck obtient une première valeur en 1900 à partir de la couleur des objets chauds, Robert Millikan la mesure en 1916 avec cet effet photoélectrique.</p>
+      <p>L'instrument de référence est aujourd'hui la <strong>balance de Kibble</strong>, qui compare une force mécanique à une force électrique en deux étapes.</p>
       <div class="ctl">
         <div class="seg"><button id="k1" class="go">Étape 1 : peser</button><button id="k2">Étape 2 : déplacer</button></div>
       </div>
       <div class="scene wide"><svg id="f5" aria-hidden="true"></svg></div>
       <div class="live" id="f5L"></div>
       <p class="figcap"><b>Figure 4.</b> Principe de la balance de Kibble, avec des ordres de grandeur proches de ceux de l'instrument américain NIST-4.</p>
-      <p>Le point décisif : la tension et le courant se mesurent grâce à deux effets quantiques, l'effet Josephson et l'effet Hall quantique, dont les valeurs s'expriment directement avec h et la charge de l'électron. La balance relie ainsi une masse posée sur un plateau à la constante de Planck, à un cent-millionième près.</p>
-    </section>
-
-    <!-- 5 -->
-    <section class="step">
-      <span class="no-num">5</span>
-      <h2>Les autres, en quelques lignes</h2>
-      <ul class="others">
-        <li><strong>La charge de l'électron</strong> se mesure d'abord avec les gouttes d'huile de Millikan, en 1909, que vous pouvez refaire dans <a href="peser-un-atome.html">le manuel pour peser un atome</a>. Des méthodes électriques bien plus précises ont pris le relais.</li>
-        <li><strong>La constante de Boltzmann</strong> relie la température à l'agitation des atomes. On l'obtient en mesurant la vitesse du son dans un gaz enfermé dans une sphère presque parfaite, à température connue : plus les atomes s'agitent, plus le son va vite. Le Laboratoire national de métrologie et d'essais, à Paris, en a tiré une des meilleures mesures, à moins d'un millionième près.</li>
-        <li><strong>Le nombre d'Avogadro</strong> a été obtenu en comptant, littéralement, les atomes d'une sphère de silicium d'un kilogramme, parmi les objets les plus ronds jamais fabriqués. Les rayons X donnent la distance entre deux atomes, les lasers le volume exact de la sphère : on en déduit combien d'atomes elle contient.</li>
-        <li><strong>La constante de structure fine</strong>, α, règle l'intensité de la force électromagnétique. C'est la constante la mieux mesurée, à un dix-milliardième près. Deux méthodes rivalisent : un électron seul, piégé pendant des mois, dont on mesure le comportement magnétique ; et des atomes qu'on fait reculer en leur envoyant des photons, une expérience menée notamment au laboratoire Kastler Brossel, à Paris.</li>
+      <p>Les deux étapes font apparaître le même produit <i>B</i> <i>L</i>, le champ magnétique multiplié par la longueur du fil de la bobine. Ce produit est très mal connu, et il s'élimine quand on divise une étape par l'autre.</p>
+      <p class="fx"><i>m</i> <i>g</i> <i>v</i> = <i>U</i> <i>I</i></p>
+      <ul class="sym">
+        <li><b>m</b> la masse posée sur le plateau, <b>g</b> la pesanteur locale</li>
+        <li><b>v</b> la vitesse de déplacement de la bobine à l'étape 2</li>
+        <li><b>U</b> la tension produite, <b>I</b> le courant de l'étape 1</li>
       </ul>
+      <p>À gauche une puissance mécanique, à droite une puissance électrique, et rien d'autre. Avec les nombres de la figure, 1 kg × 9,81 m/s² × 0,002 m/s égale 1,40 V × 0,014 A, soit 0,0196 watt de part et d'autre. Il reste à relier la tension et le courant à des constantes, et c'est là qu'intervient la physique quantique.</p>
+      <p class="fx"><i>U</i> = <i>n</i> <i>f</i> / <i>K</i><sub>J</sub> &nbsp;&nbsp; avec &nbsp;&nbsp; <i>K</i><sub>J</sub> = 2<i>e</i> / <i>h</i> = 483 597,848 4 GHz/V</p>
+      <p>Une jonction Josephson, formée de deux supraconducteurs séparés par une barrière isolante, irradiée par des micro-ondes de fréquence <i>f</i>, développe une tension qui ne peut prendre que des valeurs multiples de <i>f</i> / <i>K</i><sub>J</sub>. Une tension devient ainsi une fréquence multipliée par un nombre entier, ce qui la rend aussi reproductible qu'une horloge.</p>
+      <p class="fx"><i>R</i><sub>K</sub> = <i>h</i> / <i>e</i>² = 25 812,807 45 Ω</p>
+      <p>De la même manière, un gaz d'électrons pris entre deux faces d'un semi-conducteur et placé dans un champ magnétique intense présente une résistance transversale qui ne prend que les valeurs <i>R</i><sub>K</sub> divisées par un entier. Une résistance devient un rapport de nombres entiers. La tension et le courant de la balance s'expriment alors tous deux avec <i>h</i> et <i>e</i>, et l'égalité <i>m</i> <i>g</i> <i>v</i> = <i>U</i> <i>I</i> devient une mesure de <i>h</i> à partir d'une masse.</p>
+      <p>La balance NIST-4 a atteint une incertitude relative de 1,3 × 10<sup>−8</sup> sur <i>h</i>. Ces mesures, confrontées à celles obtenues par le comptage des atomes d'une sphère de silicium, ont fourni la valeur gelée en 2019. Le même instrument fonctionne maintenant à l'envers : <i>h</i> étant fixé, il délivre des masses.</p>
     </section>
 
     <!-- 6 -->
     <section class="step">
       <span class="no-num">6</span>
-      <h2>Pourquoi on ne mesure plus certaines constantes</h2>
-      <p>Jusqu'en 2019, le kilogramme était un petit cylindre de platine iridié conservé à Sèvres, près de Paris. Ses copies officielles, comparées à lui au fil du vingtième siècle, s'en écartaient d'environ 50 microgrammes, sans que personne puisse dire lequel avait changé.</p>
-      <p>En 2019, on a renversé la logique. Les valeurs de h, e, k et N<sub>A</sub>, obtenues avec les expériences ci-dessus, ont été gelées une fois pour toutes. Le kilogramme se définit désormais à partir de h, et se réalise avec la balance de Kibble. La vitesse de la lumière avait suivi le même chemin dès 1983 pour définir le mètre. Ces constantes ne peuvent donc plus changer : ce sont nos unités qui se règlent sur elles.</p>
+      <h2>La charge élémentaire, la constante de Boltzmann et la constante d'Avogadro</h2>
+      <p>La charge de l'électron se mesure d'abord sur des gouttes d'huile, par Robert Millikan en 1909. Les gouttes, pulvérisées entre deux plaques, ont capturé quelques électrons et portent donc une charge que la tension d'équilibre révèle. Le résultat tient dans une égalité qui ne contient que des entiers.</p>
+      <p class="fx"><i>q</i> = <i>n</i> <i>e</i></p>
+      <p>Aucune goutte ne porte une charge et demie. Toutes les valeurs mesurées sont des multiples d'une même quantité, et cette quantité est la charge d'un électron. L'expérience se refait, et se manipule dans l'article <a href="peser-un-atome.html">sur la masse de l'électron</a>. Les méthodes électriques modernes, fondées sur l'effet Josephson et l'effet Hall quantique, ont ensuite donné <i>e</i> à quelques milliardièmes près.</p>
+      <p>La constante de Boltzmann relie la température à l'agitation des atomes. On l'obtient en mesurant la vitesse du son dans un gaz noble enfermé dans une sphère presque parfaite, à température connue.</p>
+      <p class="fx"><i>u</i> = √( <i>γ</i> <i>k</i> <i>T</i> / <i>m</i> )</p>
+      <ul class="sym">
+        <li><b>u</b> la vitesse du son dans le gaz</li>
+        <li><b>γ</b> le rapport des capacités thermiques, égal à 5/3 pour un gaz monoatomique</li>
+        <li><b>T</b> la température absolue, <b>m</b> la masse d'un atome</li>
+      </ul>
+      <p>Le son se propage par collisions entre atomes, et sa vitesse est donc du même ordre que leur vitesse d'agitation. Dans l'argon à 273,16 kelvins, elle vaut 308 mètres par seconde. Tout est connu dans cette formule sauf <i>k</i>, et la vitesse du son se déduit des fréquences de résonance de la sphère, qu'on mesure très bien. Le Laboratoire national de métrologie et d'essais, à Paris, en a tiré une des meilleures mesures, à environ un millionième près.</p>
+      <p>Une fois <i>k</i> et <i>N</i><sub>A</sub> connus, la constante des gaz parfaits suit sans mesure supplémentaire.</p>
+      <p class="fx"><i>R</i> = <i>N</i><sub>A</sub> <i>k</i> = 8,314 462 618 J/(mol·K)</p>
+      <p>La constante des gaz n'est que la constante de Boltzmann comptée par mole au lieu d'être comptée par atome. Elle est exacte depuis 2019, comme produit de deux nombres exacts.</p>
+      <p>La constante d'Avogadro a été obtenue en comptant les atomes d'une sphère de silicium d'un kilogramme, parmi les objets les plus ronds jamais fabriqués, d'un diamètre d'environ 9,4 centimètres. Le silicium cristallise dans une maille cubique contenant huit atomes, dont les rayons X donnent l'arête, <i>a</i> = 0,543 102 nanomètre.</p>
+      <p class="fx"><i>N</i><sub>A</sub> = (8 <i>V</i> / <i>a</i>³) × (<i>M</i> / <i>m</i>)</p>
+      <ul class="sym">
+        <li><b>V</b> le volume de la sphère, mesuré par interférométrie optique</li>
+        <li><b>a</b> l'arête de la maille cubique, mesurée par diffraction de rayons X</li>
+        <li><b>M</b> la masse molaire du silicium employé, <b>m</b> la masse de la sphère</li>
+      </ul>
+      <p>Le premier facteur compte les atomes de la sphère : son volume divisé par celui d'une maille, multiplié par huit, soit 2,14 × 10<sup>25</sup> atomes. Le second ramène ce compte à une mole. La difficulté est dans la matière elle-même, car le silicium naturel mélange trois isotopes de masses différentes : il a fallu produire du silicium 28 presque pur pour que <i>M</i> soit connue aussi bien que le reste.</p>
     </section>
 
     <!-- 7 -->
     <section class="step">
       <span class="no-num">7</span>
-      <h2>Le bilan en une image</h2>
+      <h2>La masse de l'électron et la constante de Rydberg</h2>
+      <p>La masse de l'électron vaut 9,109 383 7 × 10<sup>−31</sup> kilogramme, connue à 3,1 × 10<sup>−10</sup> près. La mesure historique divise la charge, obtenue sur les gouttes d'huile, par le rapport charge sur masse obtenu dans un tube à faisceau d'électrons. Les deux expériences se refont dans l'article <a href="peser-un-atome.html">sur la masse de l'électron</a>. La mesure actuelle se fait dans un piège de Penning, un dispositif qui retient une particule chargée au même endroit avec un champ magnétique et quelques électrodes.</p>
+      <p class="fx"><i>f</i> = <i>e</i> <i>B</i> / (2π <i>m</i><sub>e</sub>)</p>
+      <ul class="sym">
+        <li><b>f</b> la fréquence de rotation de la particule piégée</li>
+        <li><b>B</b> le champ magnétique du piège</li>
+      </ul>
+      <p>La masse se lit donc dans une fréquence, la grandeur que l'on sait mesurer avec le plus de chiffres. Le champ magnétique, lui, reste mal connu, et on l'élimine en plaçant successivement dans le même piège l'électron et un ion de référence : le rapport des deux fréquences ne dépend plus que des masses et des charges. La mesure de référence compare un électron lié à un noyau de carbone 12 et le noyau nu, dans le même champ.</p>
+      <p>Exprimée en énergie, cette masse prend une forme plus maniable.</p>
+      <p class="fx"><i>E</i> = <i>m</i><sub>e</sub> <i>c</i>² = 8,187 × 10<sup>−14</sup> J = 0,511 MeV</p>
+      <p>Un demi-million d'électronvolts est l'échelle naturelle de l'électron. Les niveaux d'énergie des atomes se comptent en électronvolts, soit des dizaines de milliers de fois moins, et les réactions nucléaires en mégaélectronvolts, c'est-à-dire justement à cette échelle, ce qui explique qu'un noyau puisse créer des électrons alors qu'un atome ne le peut pas.</p>
+      <p>La constante de Rydberg, 1,097 373 × 10<sup>7</sup> m<sup>−1</sup>, fixe l'échelle de toutes les raies spectrales de l'hydrogène.</p>
+      <p class="fx">1 / <i>λ</i> = <i>R</i><sub>∞</sub> ( 1/<i>n</i><sub>1</sub>² − 1/<i>n</i><sub>2</sub>² )</p>
+      <ul class="sym">
+        <li><b>λ</b> la longueur d'onde de la raie émise ou absorbée</li>
+        <li><b>n</b><sub>1</sub>, <b>n</b><sub>2</sub> les numéros des deux niveaux entre lesquels l'électron saute</li>
+      </ul>
+      <p>Toutes les raies de l'hydrogène sont des différences de deux termes en 1/<i>n</i>², et <i>R</i><sub>∞</sub> est le seul facteur d'échelle de la série entière. Le saut du niveau 3 au niveau 2 donne 656,3 nanomètres, la raie rouge qu'on voit dans les tubes à hydrogène et dans les nébuleuses. Une seule constante prévoit des dizaines de raies, ce qui en fait une quantité surdéterminée par l'expérience.</p>
+      <p>Cette constante n'est pas indépendante des autres : elle les rassemble.</p>
+      <p class="fx"><i>R</i><sub>∞</sub> = <i>m</i><sub>e</sub> <i>e</i><sup>4</sup> / (8 <i>ε</i><sub>0</sub>² <i>h</i>³ <i>c</i>) = <i>α</i>² <i>m</i><sub>e</sub> <i>c</i> / (2 <i>h</i>)</p>
+      <p>La masse de l'électron, sa charge, la permittivité du vide, la constante de Planck et la vitesse de la lumière y figurent toutes. Mesurer <i>R</i><sub>∞</sub> contraint donc l'ensemble, et c'est une des raisons pour lesquelles les constantes sont ajustées toutes ensemble plutôt qu'une par une.</p>
+      <p>Avec la constante de structure fine, <i>R</i><sub>∞</sub> est la constante la mieux mesurée de toutes : son incertitude relative est de 1,1 × 10<sup>−12</sup>, soit un millième de milliardième. La raison tient à la nature de la mesure. On ne lit pas une longueur ni une masse, on lit une fréquence de raie, qu'on compare à l'horloge au césium. La transition entre les niveaux 1 et 2 de l'hydrogène a été mesurée à 2 466 061 413 187 035 hertz, quinze chiffres significatifs. La conversion de ces fréquences en <i>R</i><sub>∞</sub> demande de connaître le rayon de charge du proton, qui déforme légèrement les niveaux les plus bas, et c'est cette correction qui limite aujourd'hui la précision plutôt que la mesure elle-même.</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="step">
+      <span class="no-num">8</span>
+      <h2>Les deux constantes de l'électricité, et la nature de la lumière</h2>
+      <p>La force entre deux charges immobiles s'écrit avec une constante qui caractérise le vide, la permittivité <i>ε</i><sub>0</sub>.</p>
+      <p class="fx"><i>F</i> = (1 / 4π <i>ε</i><sub>0</sub>) × <i>q</i><sub>1</sub> <i>q</i><sub>2</sub> / <i>r</i>²</p>
+      <ul class="sym">
+        <li><b>q</b><sub>1</sub>, <b>q</b><sub>2</sub> les deux charges, <b>r</b> leur distance</li>
+        <li><b>ε</b><sub>0</sub> la permittivité du vide, 8,854 187 8 × 10<sup>−12</sup> F/m</li>
+      </ul>
+      <p>Le groupement 1 / 4π<i>ε</i><sub>0</sub> vaut 8,99 × 10<sup>9</sup> N·m²/C². Deux charges d'un coulomb placées à un mètre se repousseraient donc avec neuf milliards de newtons, ce qui dit surtout que le coulomb est une charge énorme à l'échelle des particules. Entre deux électrons, la répulsion électrique est 4,2 × 10<sup>42</sup> fois plus intense que leur attraction gravitationnelle.</p>
+      <p>La force entre deux courants s'écrit avec une seconde constante, la perméabilité <i>μ</i><sub>0</sub>.</p>
+      <p class="fx"><i>F</i> / <i>ℓ</i> = <i>μ</i><sub>0</sub> <i>I</i><sub>1</sub> <i>I</i><sub>2</sub> / (2π <i>d</i>)</p>
+      <ul class="sym">
+        <li><b>F</b> / <b>ℓ</b> la force par unité de longueur de fil</li>
+        <li><b>I</b><sub>1</sub>, <b>I</b><sub>2</sub> les courants, <b>d</b> la distance entre les fils</li>
+        <li><b>μ</b><sub>0</sub> la perméabilité du vide, 1,256 637 06 × 10<sup>−6</sup> N/A²</li>
+      </ul>
+      <p>Deux fils parallèles distants d'un mètre, parcourus par un ampère, s'attirent avec 2 × 10<sup>−7</sup> newton par mètre. Cette force a servi à définir l'ampère de 1948 à 2019, et <i>μ</i><sub>0</sub> valait alors exactement 4π × 10<sup>−7</sup>. Depuis que c'est <i>e</i> qui est fixée, <i>μ</i><sub>0</sub> est devenue une grandeur mesurée, et elle reste égale à 4π × 10<sup>−7</sup> à un dix-milliardième près.</p>
+      <p>Ces deux constantes se mesurent sans jamais faire intervenir la lumière : l'une dans des forces entre charges au repos, l'autre dans des forces entre courants. En 1856, Wilhelm Weber et Rudolf Kohlrausch mesurent le rapport de l'unité électrostatique de charge à l'unité électromagnétique, grandeur qui contient leur combinaison. James Clerk Maxwell, en 1862, cherche dans sa théorie du champ la vitesse de propagation d'une onde électromagnétique, et trouve cette expression.</p>
+      <p class="fx"><i>c</i>² = 1 / (<i>ε</i><sub>0</sub> <i>μ</i><sub>0</sub>) &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>c</i> = 1 / √(<i>ε</i><sub>0</sub> <i>μ</i><sub>0</sub>)</p>
+      <p>Le produit <i>ε</i><sub>0</sub> <i>μ</i><sub>0</sub> vaut 1,112 650 1 × 10<sup>−17</sup> s²/m², et son inverse donne bien 299 792 458 mètres par seconde. Maxwell calcule environ 310 000 km/s avec les données dont il dispose, et le compare aux mesures de la vitesse de la lumière de Fizeau et de Foucault, 313 000 et 298 000 km/s. Deux constantes d'électricité et de magnétisme, mesurées sur des fils et des sphères chargées, donnent la vitesse de la lumière. Il en conclut que la lumière est une onde électromagnétique.</p>
+      <p>Depuis 2019, la relation se lit dans l'autre sens. Comme <i>c</i>, <i>h</i> et <i>e</i> sont fixées, <i>ε</i><sub>0</sub> s'exprime avec la constante de structure fine.</p>
+      <p class="fx"><i>ε</i><sub>0</sub> = <i>e</i>² / (2 <i>α</i> <i>h</i> <i>c</i>)</p>
+      <p>Toute l'incertitude de <i>ε</i><sub>0</sub> vient donc de celle de <i>α</i>, et vaut 1,6 × 10<sup>−10</sup>. La permittivité du vide, qui se mesurait autrefois avec des condensateurs, se déduit maintenant du moment magnétique d'un électron piégé. Celle de <i>μ</i><sub>0</sub> suit par la relation de Maxwell, puisque leur produit est exactement 1/<i>c</i>².</p>
+    </section>
+
+    <!-- 9 -->
+    <section class="step">
+      <span class="no-num">9</span>
+      <h2>Trois constantes qui se déduisent des sept</h2>
+      <p>Certaines constantes très employées ne sont pas des grandeurs à mesurer séparément : elles sont des combinaisons des sept constantes fixées, et elles sont donc exactes depuis 2019.</p>
+      <p>La constante de Faraday est la charge portée par une mole d'électrons.</p>
+      <p class="fx"><i>F</i> = <i>N</i><sub>A</sub> <i>e</i> = 96 485,332 12 C/mol</p>
+      <p>Le produit d'un nombre d'entités par la charge de chacune donne une charge totale, et comme les deux facteurs sont exacts, le résultat l'est aussi. L'usage de cette constante est l'électrochimie, où elle convertit une quantité d'électricité en une quantité de matière déposée ou dissoute.</p>
+      <p class="fx"><i>m</i> = (<i>Q</i> / <i>F</i>) × (<i>M</i> / <i>z</i>)</p>
+      <ul class="sym">
+        <li><b>m</b> la masse de métal déposée sur l'électrode</li>
+        <li><b>Q</b> la charge totale qui a traversé le bain, c'est-à-dire le courant multiplié par le temps</li>
+        <li><b>M</b> la masse molaire du métal, <b>z</b> le nombre d'électrons nécessaires par ion</li>
+      </ul>
+      <p>Le rapport <i>Q</i> / <i>F</i> compte les moles d'électrons passées, et <i>M</i> / <i>z</i> dit quelle masse de métal chaque mole d'électrons fait apparaître. Un ampère pendant une heure, soit 3 600 coulombs, dépose 4,02 grammes d'argent, qui ne demande qu'un électron par ion, et 1,19 gramme de cuivre, qui en demande deux. C'est ainsi qu'on calcule la durée d'un argentage ou la consommation électrique d'une électrolyse industrielle.</p>
+      <p>La constante de Stefan-Boltzmann donne la puissance rayonnée par un corps chaud.</p>
+      <p class="fx"><i>P</i> = <i>σ</i> <i>S</i> <i>T</i><sup>4</sup></p>
+      <ul class="sym">
+        <li><b>P</b> la puissance rayonnée, en watts</li>
+        <li><b>S</b> la surface du corps, <b>T</b> sa température absolue</li>
+        <li><b>σ</b> = 5,670 374 × 10<sup>−8</sup> W·m<sup>−2</sup>·K<sup>−4</sup></li>
+      </ul>
+      <p>L'exposant 4 est l'élément décisif. Doubler la température multiplie la puissance rayonnée par seize : un objet tiède rayonne donc très peu, tandis qu'une surface portée à quelques milliers de degrés rayonne des millions de watts par mètre carré. Le Soleil, à 5 772 kelvins, émet 6,3 × 10<sup>7</sup> watts par mètre carré de surface, et sa surface totale de 6,1 × 10<sup>18</sup> mètres carrés porte le total à 3,83 × 10<sup>26</sup> watts. La même formule, appliquée à la Terre, donne la température d'équilibre de la planète et sert de point de départ au calcul de l'effet de serre.</p>
+      <p class="fx"><i>σ</i> = 2π<sup>5</sup> <i>k</i><sup>4</sup> / (15 <i>h</i>³ <i>c</i>²)</p>
+      <p>Cette constante n'a donc rien d'autonome : elle se calcule à partir de la constante de Boltzmann, de celle de Planck et de la vitesse de la lumière, toutes trois exactes. La puissance d'un corps chaud se déduit entièrement de la statistique des grains de lumière qu'il émet.</p>
+      <p>Enfin, la couleur du rayonnement suit la loi de Wien.</p>
+      <p class="fx"><i>λ</i><sub>max</sub> × <i>T</i> = 2,898 × 10<sup>−3</sup> m·K</p>
+      <p>La longueur d'onde où le rayonnement est le plus intense est inversement proportionnelle à la température : plus chaud veut dire plus bleu. Le Soleil, à 5 772 kelvins, rayonne le plus vers 502 nanomètres, au milieu du domaine visible. Un corps humain, à 310 kelvins, rayonne le plus vers 9,3 micromètres, dans l'infrarouge lointain, ce que voient les caméras thermiques. Un filament de lampe à incandescence, à 2 800 kelvins, culmine vers 1,03 micromètre, c'est-à-dire en dehors du visible, et la majeure partie de sa puissance part en chaleur. La constante vaut <i>h</i> <i>c</i> / (4,965 114 <i>k</i>), où 4,965 114 est la solution de l'équation <i>x</i> = 5 (1 − e<sup>−<i>x</i></sup>), un nombre purement mathématique. Cette constante est donc exacte elle aussi.</p>
+    </section>
+
+    <!-- 10 -->
+    <section class="step">
+      <span class="no-num">10</span>
+      <h2>La constante de structure fine, un nombre sans unité</h2>
+      <p>La constante de structure fine mesure la force du couplage entre une charge électrique et le champ électromagnétique. Elle se construit à partir de quatre constantes déjà rencontrées.</p>
+      <p class="fx"><i>α</i> = <i>e</i>² / (4π <i>ε</i><sub>0</sub> <i>ħ</i> <i>c</i>) = 7,297 352 564 × 10<sup>−3</sup> = 1 / 137,035 999 177</p>
+      <ul class="sym">
+        <li><b>e</b> la charge élémentaire, <b>ε</b><sub>0</sub> la permittivité du vide</li>
+        <li><b>ħ</b> la constante de Planck divisée par 2π</li>
+        <li><b>c</b> la vitesse de la lumière</li>
+      </ul>
+      <p>Les unités s'annulent entre elles. Les coulombs du numérateur sont annulés par ceux de la permittivité, les mètres, les secondes et les kilogrammes disparaissent de la même façon, et il ne reste qu'un nombre. Une civilisation qui compterait en pouces et en livres trouverait exactement 1/137,035 999 177, et une civilisation d'une autre galaxie aussi. C'est en ce sens que <i>α</i> est un réglage de l'Univers, alors que la valeur 299 792 458 est un réglage du mètre.</p>
+      <p>Ce nombre se retrouve partout où une charge échange un grain de lumière. Dans le modèle de Bohr, il donne même directement une vitesse.</p>
+      <p class="fx"><i>v</i><sub>1</sub> = <i>α</i> <i>c</i> = 2 188 km/s</p>
+      <p>L'électron de l'atome d'hydrogène sur son premier niveau circule à un cent-trente-septième de la vitesse de la lumière. C'est assez lent pour que la mécanique quantique non relativiste décrive bien l'atome, et assez rapide pour que les corrections relativistes soient mesurables : ce sont elles qui dédoublent les raies spectrales, d'où le nom de structure fine.</p>
+      <p class="fx"><i>E</i><sub>n</sub> = − (1/2) <i>α</i>² <i>m</i><sub>e</sub> <i>c</i>² / <i>n</i>² = − 13,606 eV / <i>n</i>²</p>
+      <p>Toute l'échelle d'énergie de la chimie sort de cette ligne. L'énergie de liaison de l'électron vaut <i>α</i>²/2 fois son énergie de masse, soit environ trente-sept mille fois moins. Les liaisons chimiques se comptent donc en électronvolts quand les réactions nucléaires se comptent en millions d'électronvolts, et c'est ce facteur <i>α</i>² qui sépare les deux mondes.</p>
+      <p>Deux familles d'expériences donnent <i>α</i>. La première mesure le moment magnétique d'un seul électron maintenu pendant des mois dans un piège de Penning refroidi : l'écart de ce moment à la valeur prévue par l'équation de Dirac se calcule en théorie quantique des champs sous la forme d'une série en puissances de <i>α</i>, si bien que la mesure du moment donne la constante. Le moment est aujourd'hui connu à 1,3 × 10<sup>−13</sup> près. La seconde mesure le recul d'un atome qui absorbe des photons, ce qui donne le rapport <i>h</i> / <i>m</i> de l'atome, puis <i>α</i> par combinaison avec la constante de Rydberg et des rapports de masses. Le laboratoire Kastler Brossel, à Paris, l'a menée sur le rubidium, et une équipe de Berkeley sur le césium.</p>
+      <p>Les deux voies ne tombent pas tout à fait sur la même valeur : leurs résultats diffèrent de plusieurs fois leurs marges d'erreur, et la valeur recommandée, 1/137,035 999 177, porte une incertitude élargie de 1,6 × 10<sup>−10</sup> pour en tenir compte. Aucune théorie connue ne produit ce nombre. Il entre dans les calculs comme une donnée mesurée, exactement comme le rapport 1836 entre les masses du proton et de l'électron.</p>
+    </section>
+
+    <!-- 11 -->
+    <section class="step">
+      <span class="no-num">11</span>
+      <h2>Le bilan, et ce qui reste à mesurer</h2>
       <div class="scene wide"><svg id="f6" aria-hidden="true"></svg></div>
       <p class="figcap"><b>Figure 5.</b> Précision relative de quelques mesures marquantes, en ordres de grandeur. Chaque graduation vers le bas correspond à une précision dix fois meilleure. Pour les plus anciennes, c'est l'écart à la valeur actuelle qui est indiqué.</p>
-      <p>La lumière a été mesurée si bien qu'on a fini par fixer sa vitesse. La gravité, elle, résiste : sa précision stagne depuis vingt-cinq ans.</p>
-      <p>Tous les quatre ans, un groupe international, le CODATA, rassemble toutes les mesures et ajuste l'ensemble des constantes d'un seul coup, car elles sont liées : mesurer l'une améliore souvent les autres.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> une constante n'est connue que parce que quelqu'un a construit un appareil assez fin pour la voir. Et les vrais réglages de l'Univers sont les nombres sans unité, comme α, proche de 1/137, ou le rapport de 1836 entre les masses du proton et de l'électron. Changer d'unités ne les change pas, et personne ne sait encore pourquoi ils valent ce qu'ils valent.</p>
+      <p>La vitesse de la lumière a gagné huit ordres de grandeur en trois siècles, jusqu'au point où l'on a préféré la fixer. La gravitation en a gagné un peu moins de trois sur la même période, et sa précision ne progresse plus depuis vingt-cinq ans.</p>
+      <p>Voici où en sont les constantes qui restent mesurées, avec leur incertitude relative et la méthode qui les fournit.</p>
+      <div class="tablewrap">
+      <table class="cst">
+        <tr><th></th><th>Constante</th><th>Valeur</th><th>Incertitude</th><th>Méthode</th></tr>
+        <tr><td class="sym">R<sub>∞</sub></td><td>constante de Rydberg</td><td class="val">10 973 731,568 157 m<sup>−1</sup></td><td class="val">1,1 × 10<sup>−12</sup></td><td>fréquences des raies de l'hydrogène</td></tr>
+        <tr><td class="sym">m<sub>p</sub>/m<sub>e</sub></td><td>rapport des masses proton / électron</td><td class="val">1836,152 673 426</td><td class="val">1,7 × 10<sup>−11</sup></td><td>deux pièges de Penning comparés</td></tr>
+        <tr><td class="sym">α</td><td>constante de structure fine</td><td class="val">1/137,035 999 177</td><td class="val">1,6 × 10<sup>−10</sup></td><td>moment magnétique de l'électron, recul atomique</td></tr>
+        <tr><td class="sym">ε<sub>0</sub></td><td>permittivité du vide</td><td class="val">8,854 187 8188 × 10<sup>−12</sup> F/m</td><td class="val">1,6 × 10<sup>−10</sup></td><td>se déduit de α</td></tr>
+        <tr><td class="sym">μ<sub>0</sub></td><td>perméabilité du vide</td><td class="val">1,256 637 061 27 × 10<sup>−6</sup> N/A²</td><td class="val">1,6 × 10<sup>−10</sup></td><td>se déduit de α et de c</td></tr>
+        <tr><td class="sym">m<sub>e</sub></td><td>masse de l'électron</td><td class="val">9,109 383 7139 × 10<sup>−31</sup> kg</td><td class="val">3,1 × 10<sup>−10</sup></td><td>piège de Penning</td></tr>
+        <tr><td class="sym">G</td><td>constante de la gravitation</td><td class="val">6,674 30 × 10<sup>−11</sup> m³/(kg·s²)</td><td class="val">2,2 × 10<sup>−5</sup></td><td>balances de torsion, atomes froids</td></tr>
+      </table>
+      </div>
+      <p>À côté de cette liste figurent les constantes désormais exactes, parce qu'elles sont des combinaisons des sept valeurs fixées : la constante de Faraday, la constante des gaz, la constante de Stefan-Boltzmann, la constante de Wien, la constante de Josephson et celle de von Klitzing. Aucune mesure ne peut plus les améliorer ni les contredire.</p>
+      <p>Tous les quatre ans, un groupe de travail international, le CODATA, rassemble les mesures publiées et ajuste l'ensemble des constantes d'un seul coup. Les constantes sont liées entre elles par des relations comme celle de Rydberg ou celle de la structure fine, et une mesure qui améliore l'une déplace les autres.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> une constante portant une unité, comme <i>c</i>, <i>h</i> ou <i>k</i>, n'a de valeur que relativement à des unités, et depuis le 20 mai 2019 sept d'entre elles sont fixées par convention, les unités se déduisant de ces valeurs au lieu de l'inverse. Celles qui restent à mesurer vont du millième de milliardième pour la constante de Rydberg au cent-millième pour la gravitation, et chaque chiffre gagné a demandé un appareil nouveau. Les nombres sans unité, comme la constante de structure fine ou le rapport de 1836 entre les masses du proton et de l'électron, sont les seuls qu'aucun choix d'unités ne déplace, et personne ne sait aujourd'hui les calculer.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -180,7 +399,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);

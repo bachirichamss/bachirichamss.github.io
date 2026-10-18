@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/entropie-echiquier.html">
-<title>L'entropie sur un échiquier · Chamss Bachiri</title>
-<meta name="description" content="Microétat, macroétat, et S = kB ln W, expliqués avec soixante-quatre cases et trente-deux pièces. Quatre simulations, les formules détaillées, et le nombre qui tombe juste au calorimètre.">
-<meta property="og:title" content="L'entropie sur un échiquier">
+<title>Que compte l'entropie ? · Chamss Bachiri</title>
+<meta name="description" content="Microétat, macroétat et S = kB ln W, expliqués avec soixante-quatre cases et trente-deux pièces. Quatre simulations, le détail des calculs, et la valeur de 5,763 J/(K·mol) que l'on retrouve au calorimètre.">
+<meta property="og:title" content="Que compte l'entropie ?">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -57,18 +57,17 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>L'entropie sur un échiquier</h1>
-      <p class="dek">Soixante-quatre cases, trente-deux pièces, et une formule à trois symboles. De quoi comprendre ce que compte l'entropie, pourquoi elle monte, et comment un dénombrement de cases donne un nombre que l'on mesure au calorimètre.</p>
+      <h1>Que compte l'entropie ?</h1>
+      <p class="dek">Une position d'échiquier se décrit case par case, ou bien en disant seulement combien de pièces se trouvent de chaque côté. L'entropie compte les descriptions complètes compatibles avec la description grossière, et la relation <i>S</i> = <i>k</i><sub>B</sub> ln <i>W</i> convertit ce compte en joules par kelvin. Les quatre simulations qui suivent mènent le dénombrement sur soixante-quatre cases, puis sur une mole de gaz.</p>
       <div class="meta"><span>9 octobre 2026</span><span>16 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Microétat, macroétat</h2>
-      <p>Prenez un échiquier et des pièces. Il y a deux façons de décrire ce que vous voyez.</p>
-      <p>La première est complète : la pièce est en a1, l'autre en c4, l'autre en f7. Case par case. C'est un <strong>microétat</strong>.</p>
-      <p>La seconde est grossière : il y a trente-deux pièces, dix-sept à gauche et quinze à droite. C'est un <strong>macroétat</strong>. On a jeté l'information sur les cases exactes, et gardé deux nombres.</p>
-      <p>Un macroétat correspond donc à beaucoup de microétats. Combien exactement ? Pour <i>k</i> pièces à placer sur les 32 cases de la moitié gauche et <i>N</i> − <i>k</i> sur les 32 cases de la moitié droite :</p>
+      <h2>Microétat et macroétat</h2>
+      <p>Un échiquier garni de pièces se décrit de deux façons. La première est complète : une pièce en a1, une autre en c4, une autre en f7, case par case. Cette description s'appelle un <strong>microétat</strong>.</p>
+      <p>La seconde est grossière : trente-deux pièces en tout, dix-sept dans la moitié gauche et quinze dans la moitié droite. Cette description s'appelle un <strong>macroétat</strong>. L'information sur les cases exactes a été abandonnée, et il ne reste que deux nombres.</p>
+      <p>Un même macroétat est donc compatible avec un grand nombre de microétats, et ce nombre se calcule exactement. Pour <i>k</i> pièces posées sur les 32 cases de la moitié gauche et <i>N</i> − <i>k</i> sur les 32 cases de la moitié droite :</p>
       <p class="fx"><i>W</i> = C(32, <i>k</i>) × C(32, <i>N</i> − <i>k</i>)</p>
       <p class="fxn">avec C(<i>n</i>, <i>p</i>) = <i>n</i>! / [ <i>p</i>! (<i>n</i> − <i>p</i>)! ]</p>
       <ul class="sym">
@@ -76,31 +75,32 @@
         <li><b>C(n, p)</b> le nombre de façons de choisir <i>p</i> cases parmi <i>n</i>, sans se soucier de l'ordre</li>
         <li><b>n!</b> la factorielle, c'est-à-dire 1 × 2 × 3 × … × <i>n</i></li>
       </ul>
-      <p>Faites le calcul pour trente-deux pièces réparties en deux fois seize : C(32, 16) vaut 601 080 390, et <i>W</i> = 601 080 390², soit 3,61 × 10<sup>17</sup>. Trois cent soixante et un millions de milliards de façons de réaliser « seize à gauche, seize à droite ».</p>
-      <p><strong>Cliquez des cases, et regardez W changer.</strong></p>
+      <p>Les deux moitiés se remplissent indépendamment l'une de l'autre, donc leurs comptes se multiplient. Pour trente-deux pièces réparties en deux fois seize, C(32, 16) vaut 601 080 390 et <i>W</i> vaut 601 080 390², soit 3,61 × 10<sup>17</sup> : trois cent soixante et un millions de milliards de dispositions de pièces donnent le même macroétat « seize à gauche, seize à droite ». Un compte qui grandit à cette vitesse se manipule mal tel quel, ce qui conduit à travailler sur son logarithme.</p>
+      <p>Ce compte dépend de la description que l'on s'est donnée. Si l'on décide de relever la position de chaque pièce, un seul microétat reste compatible avec ce que l'on sait, donc <i>W</i> = 1 et l'entropie est nulle. L'entropie mesure ce qui manque pour passer du macroétat au microétat, et elle est attachée au couple formé par le système et par sa description, et non au système seul.</p>
+      <p>Claude Shannon est parti de la même idée en 1948 pour mesurer la quantité d'information que contient un message, et il a retrouvé la même forme de formule. Une entropie et une information manquante se comptent de la même manière.</p>
+      <p>Cliquez des cases et regardez <i>W</i> changer.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl"><div class="seg" id="mise"></div></div>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> À droite, le macroétat et son dénombrement exact. Déplacez une pièce à l'intérieur d'une moitié : le microétat change, le macroétat ne bouge pas.</p>
+      <p class="figcap"><b>Figure 1.</b> À droite, le macroétat et son dénombrement exact. En déplaçant une pièce à l'intérieur d'une même moitié, le microétat change et le macroétat reste identique.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Pourquoi un logarithme, et pas W tout seul</h2>
-      <p>On a un nombre, <i>W</i>. Pourquoi ne pas l'appeler entropie et s'arrêter là ?</p>
-      <p>Parce que <i>W</i> se multiplie quand l'entropie, elle, s'additionne.</p>
-      <p>Posez deux échiquiers côte à côte, indépendants. Le premier a <i>W</i><sub>1</sub> microétats, le second <i>W</i><sub>2</sub>. L'ensemble des deux en a :</p>
+      <h2>Pourquoi le logarithme de W</h2>
+      <p>Le compte <i>W</i> pourrait servir d'entropie tel quel. Une propriété l'en empêche : <i>W</i> se multiplie là où l'entropie s'additionne.</p>
+      <p>Deux échiquiers indépendants posés côte à côte en donnent l'exemple. Le premier compte <i>W</i><sub>1</sub> microétats, le second <i>W</i><sub>2</sub>, et l'ensemble des deux en compte :</p>
       <p class="fx"><i>W</i> = <i>W</i><sub>1</sub> × <i>W</i><sub>2</sub></p>
-      <p>Chaque microétat du premier peut être associé à chaque microétat du second, donc les comptes se multiplient. Or l'entropie d'un système deux fois plus grand doit être deux fois plus grande : c'est une grandeur <strong>extensive</strong>, comme la masse ou le volume. On veut donc :</p>
+      <p>Chaque microétat du premier échiquier peut être associé à chaque microétat du second, donc les deux comptes se multiplient. L'entropie, de son côté, doit doubler quand on double la taille du système, comme la masse ou le volume : c'est une grandeur <strong>extensive</strong>. On attend donc :</p>
       <p class="fx"><i>S</i> = <i>S</i><sub>1</sub> + <i>S</i><sub>2</sub></p>
-      <p>Il faut une fonction qui transforme un produit en somme. Il n'y en a qu'une :</p>
+      <p>Il faut une fonction qui transforme un produit en somme, et il n'en existe qu'une, à une constante multiplicative près :</p>
       <p class="fx"><i>f</i>(<i>x</i> <i>y</i>) = <i>f</i>(<i>x</i>) + <i>f</i>(<i>y</i>) &nbsp;⟹&nbsp; <i>f</i>(<i>x</i>) = <i>c</i> ln <i>x</i></p>
-      <p>Le logarithme n'est pas un choix de commodité pour écraser des grands nombres. Il est <strong>imposé</strong> par le fait que les entropies s'ajoutent alors que les possibilités se multiplient. Tout ce qui reste à fixer, c'est la constante <i>c</i>.</p>
+      <p>Le logarithme est donc imposé par l'addition des entropies, puisque les possibilités, elles, se multiplient. Il reste seulement à fixer la constante <i>c</i>, et c'est elle qui donnera son unité à l'entropie.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>La formule</h2>
+      <h2>La relation de Boltzmann</h2>
       <p class="fx" style="font-size:2rem;margin-top:2rem"><i>S</i> = <i>k</i><sub>B</sub> ln <i>W</i></p>
       <p class="fxn">la relation de Boltzmann</p>
       <ul class="sym">
@@ -109,31 +109,34 @@
         <li><b>ln</b> le logarithme népérien, celui de base e</li>
         <li><b>W</b> le nombre de microétats du macroétat, un nombre sans unité</li>
       </ul>
-      <p>Lisez-la comme une conversion. À droite, un comptage pur, un entier. À gauche, des joules par kelvin, une grandeur de thermodynamique que l'on mesure avec un calorimètre. La constante <i>k</i><sub>B</sub> est le taux de change entre les deux, et c'est son seul rôle. J'ai consacré <a href="boltzmann.html">un autre article</a> à cette constante et aux huit endroits où elle apparaît.</p>
-      <p>Ce <i>W</i> vient de l'allemand <i>Wahrscheinlichkeit</i>, probabilité. C'est le mot de Boltzmann. Lui parlait de la probabilité d'un état, et son raisonnement était que la nature va vers les états probables parce qu'ils sont nombreux, pas parce qu'une force les préfère.</p>
-      <p>Petite ironie historique : Boltzmann n'a jamais écrit cette équation sous cette forme, et n'a jamais introduit la constante qui porte son nom. C'est Max Planck qui l'a écrite ainsi, en 1900, en travaillant sur le rayonnement du corps noir. Elle est gravée sur la tombe de Boltzmann, au cimetière central de Vienne, au-dessus de son buste. Il s'est suicidé en 1906, à Duino, alors que l'existence des atomes était encore contestée par une partie de ses collègues.</p>
-      <p>Sur notre échiquier, pour seize pièces de chaque côté : ln(3,61 × 10<sup>17</sup>) = 40,4, donc <i>S</i> = 1,38 × 10<sup>−23</sup> × 40,4 = 5,6 × 10<sup>−22</sup> J/K. Une entropie ridicule, parce qu'un échiquier n'a que soixante-quatre cases. La suite consiste à remplacer 64 par 10<sup>23</sup>.</p>
+      <p>Cette égalité se lit comme une conversion. À droite se trouve un comptage pur, un entier sans unité. À gauche se trouvent des joules par kelvin, une grandeur de thermodynamique que l'on mesure avec un calorimètre. La constante <i>k</i><sub>B</sub> assure le taux de change entre les deux, et c'est son seul rôle ici. J'ai consacré <a href="boltzmann.html">un autre article</a> à cette constante et aux huit endroits où elle apparaît.</p>
+      <p>Le mot désordre sert souvent à traduire l'entropie, alors que la formule porte sur un dénombrement. <i>W</i> est un entier, une impression de désordre n'en est pas un, et les deux notions se séparent parfois. Des billes identiques secouées dans un bocal finissent par s'empiler en réseau régulier, parce que cette pile leur laisse plus de place pour vibrer, donc davantage de microétats : l'arrangement devient régulier à l'œil pendant que l'entropie augmente.</p>
+      <p>Le <i>W</i> vient de l'allemand <i>Wahrscheinlichkeit</i>, probabilité. C'est le mot de Boltzmann, qui parlait de la probabilité d'un état et soutenait que la nature va vers les états probables parce qu'ils sont nombreux, et non parce qu'une force les préfère.</p>
+      <p>Boltzmann n'a pas écrit l'équation sous cette forme et n'a pas introduit la constante qui porte son nom. Max Planck l'a écrite ainsi en 1900, en travaillant sur le rayonnement du corps noir. Elle figure sur la tombe de Boltzmann, au cimetière central de Vienne, au-dessus de son buste. Il s'est donné la mort en 1906 à Duino, à une époque où l'existence des atomes était encore discutée par une partie de ses collègues.</p>
+      <p>Sur l'échiquier, pour seize pièces de chaque côté, ln(3,61 × 10<sup>17</sup>) = 40,4, donc <i>S</i> = 1,380 649 × 10<sup>−23</sup> × 40,4 = 5,6 × 10<sup>−22</sup> J/K. Le résultat est minuscule parce que soixante-quatre cases laissent peu de possibilités. La suite consiste à remplacer 64 par 10<sup>23</sup>.</p>
     </section>
 
     <section class="step">
       <span class="no-num">4</span>
-      <h2>Le macroétat qui écrase tous les autres</h2>
-      <p>Tous les macroétats ne pèsent pas le même poids. « Tout à gauche » n'a qu'un seul arrangement possible une fois les cases choisies, alors que l'équilibre en a des millions de milliards. Jetez les pièces au hasard, et vous tomberez presque sûrement près de l'équilibre, non pas par magie, mais parce que c'est là que sont presque tous les tirages.</p>
-      <p><strong>Changez le nombre de pièces et regardez le pic.</strong></p>
+      <h2>Le macroétat le plus nombreux</h2>
+      <p>Les macroétats n'ont pas tous le même poids. « Tout à gauche » laisse seulement le choix des cases à l'intérieur d'une moitié, alors que le partage équilibré rassemble des millions de milliards de dispositions. Pour trente-deux pièces jetées au hasard sur les soixante-quatre cases, le macroétat « seize à gauche » rassemble à lui seul 19,7 % des dispositions possibles, et les répartitions voisines se partagent presque tout le reste.</p>
+      <p>Changez le nombre de pièces et regardez le pic se resserrer.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="nS">Nombre de pièces</label><input type="range" id="nS" min="2" max="60" step="2" value="32" style="width:280px"></span>
       </div>
       <div class="live" id="f2L"></div>
       <p class="figcap"><b>Figure 2.</b> En haut, le logarithme du nombre de microétats, sans quoi la barre centrale sortirait de l'écran. En bas, la probabilité du macroétat, en échelle normale.</p>
-      <p>On peut calculer la forme de ce pic à la main, avec l'approximation de Stirling, qui remplace une factorielle par quelque chose de dérivable :</p>
+      <p>La forme de ce pic se calcule à la main. Le dénombrement contient des factorielles, que l'approximation de Stirling remplace par une expression dérivable :</p>
       <p class="fx">ln <i>N</i>! ≈ <i>N</i> ln <i>N</i> − <i>N</i></p>
-      <p>En l'appliquant au dénombrement et en posant <i>x</i> = <i>k</i> / <i>N</i>, la fraction de pièces à gauche, tout se simplifie :</p>
+      <p>L'erreur commise est de l'ordre de ln <i>N</i>, négligeable devant <i>N</i> ln <i>N</i> dès que <i>N</i> dépasse quelques dizaines. Ce remplacement donne surtout accès à la façon dont le compte varie avec <i>k</i> : au lieu d'évaluer <i>W</i> répartition après répartition, on obtient une courbe continue que l'on peut dériver pour trouver son sommet.</p>
+      <p>En appliquant Stirling au dénombrement et en posant <i>x</i> = <i>k</i> / <i>N</i>, la fraction de pièces à gauche, l'entropie prend une forme courte :</p>
       <p class="fx"><i>S</i> = − <i>N</i> <i>k</i><sub>B</sub> [ <i>x</i> ln <i>x</i> + (1 − <i>x</i>) ln(1 − <i>x</i>) ]</p>
-      <p>Cette fonction est nulle en <i>x</i> = 0 et en <i>x</i> = 1, et maximale en <i>x</i> = 1/2, où elle vaut <i>N</i> <i>k</i><sub>B</sub> ln 2. Le partage équitable est le sommet, et le calcul le dit sans qu'on ait besoin d'y croire.</p>
-      <p>Reste la largeur du pic. L'écart-type du nombre de pièces à gauche vaut :</p>
+      <p>Deux choses se lisent dans cette écriture. L'entropie est proportionnelle à <i>N</i>, donc chaque pièce apporte sa part et l'extensivité attendue est bien là. Le facteur entre crochets, lui, ne dépend que de la proportion <i>x</i> et pas de la taille du système.</p>
+      <p>Ce facteur s'annule en <i>x</i> = 0 et en <i>x</i> = 1, où tout est d'un seul côté et où il ne reste aucun choix à faire. Il est maximal en <i>x</i> = 1/2, où l'entropie vaut <i>N</i> <i>k</i><sub>B</sub> ln 2, soit <i>k</i><sub>B</sub> ln 2 par pièce, le prix d'un choix unique entre deux moitiés. Le sommet est très plat, et s'écarter un peu du partage égal ne coûte presque pas d'entropie, ce qui donne au pic sa largeur.</p>
+      <p>Reste à chiffrer cette largeur. L'écart-type du nombre de pièces à gauche, pour <i>N</i> pièces posées au hasard sur les 64 cases, vaut :</p>
       <p class="fx">σ = √( <i>N</i>/4 × (64 − <i>N</i>) / 63 )</p>
-      <p>Pour trente-deux pièces, σ = 2,0. Autrement dit, la quasi-totalité des tirages donnent entre 12 et 20 pièces à gauche sur les 32. Ce qui compte n'est pas σ, mais σ divisé par <i>N</i>, l'écart <strong>relatif</strong> : il décroît comme 1/√<i>N</i>.</p>
+      <p>Pour trente-deux pièces, σ = 2,0, et la quasi-totalité des tirages donnent entre 12 et 20 pièces à gauche, à l'intérieur de deux écarts-types autour de seize. La largeur absolue du pic grandit comme √<i>N</i> quand le nombre de pièces grandit comme <i>N</i> : l'écart <strong>relatif</strong> à l'équilibre, σ / <i>N</i>, décroît donc comme 1/√<i>N</i>. C'est ce rapport qui décide si un écart à l'équilibre se remarque.</p>
       <div class="tablewrap">
         <table class="tb">
           <tr><th>Nombre de pièces ou de molécules</th><th>Écart relatif à l'équilibre</th></tr>
@@ -143,80 +146,72 @@
           <tr><td>6 × 10<sup>23</sup> (une mole)</td><td class="n">6 × 10<sup>−11</sup> %</td></tr>
         </table>
       </div>
-      <p>Voilà pourquoi le deuxième principe de la thermodynamique a l'air d'une loi absolue alors qu'il n'est qu'une affaire de dénombrement. Sur trente-deux pièces, les écarts à l'équilibre sont visibles à l'œil nu. Sur une mole, ils sont à la onzième décimale.</p>
+      <p>Le deuxième principe de la thermodynamique prend ainsi l'allure d'une loi absolue alors qu'il repose sur un dénombrement. Sur trente-deux pièces, les écarts à l'équilibre se voient à l'œil nu dans la figure. Sur une mole, ils se logent à la onzième décimale, et aucun instrument ne les distingue de zéro.</p>
     </section>
 
     <section class="step">
       <span class="no-num">5</span>
-      <h2>Le film qui ne revient pas en arrière</h2>
-      <p>Mettons toutes les pièces à gauche, puis appliquons une règle parfaitement neutre : à chaque coup, une pièce tirée au hasard va sur une case libre tirée au hasard. Rien dans cette règle ne pousse vers la droite. Elle ne connaît même pas la notion de droite.</p>
-      <p><strong>Lancez, et laissez tourner une minute.</strong></p>
+      <h2>Une règle réversible et un sens unique</h2>
+      <p>Les trente-deux pièces partent toutes de la moitié gauche, et une règle neutre les déplace : à chaque coup, une pièce tirée au hasard va sur une case libre tirée au hasard. Cette règle ne contient aucune préférence pour la droite, et elle est symétrique dans le temps, puisque le déplacement inverse a exactement la même chance d'être tiré.</p>
+      <p>Lancez la simulation et laissez-la tourner une minute.</p>
       <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
       <div class="ctl">
         <button class="go" id="go3">Lancer</button>
         <button id="raz3">Tout remettre à gauche</button>
       </div>
       <div class="live" id="f3L"></div>
-      <p class="figcap"><b>Figure 3.</b> La règle du mouvement est réversible et sans préférence. Ce qui ne l'est pas, c'est le nombre de cases disponibles de chaque côté.</p>
-      <p>La courbe descend, puis se met à osciller dans une bande étroite, et elle n'en ressort plus. C'est l'irréversibilité, et elle est née d'une règle réversible.</p>
-      <p>Attention, ce n'est pas <em>interdit</em> de revenir. C'est juste improbable. La probabilité de retrouver les trente-deux pièces à gauche, à un coup donné, vaut 1 divisé par le nombre total d'arrangements :</p>
-      <p class="fx"><i>p</i> = 1 / C(64, 32) = 1 / (1,83 × 10<sup>18</sup>) = 5,5 × 10<sup>−19</sup></p>
-      <p>Et un théorème dû à Mark Kac donne le temps moyen de retour dans un état : c'est l'inverse de sa probabilité, exprimé en nombre de coups.</p>
+      <p class="figcap"><b>Figure 3.</b> La règle du mouvement est réversible et ne privilégie aucun côté. Le nombre de cases libres, lui, n'est pas le même à gauche qu'à droite tant que les pièces sont rassemblées.</p>
+      <p>La courbe descend, puis oscille dans une bande étroite autour de l'équilibre et n'en sort plus. L'irréversibilité observée vient du dénombrement des cases libres, et non de la règle, qui reste réversible d'un bout à l'autre de la simulation.</p>
+      <p>Le retour à la situation de départ reste possible. Sa probabilité, à un coup donné, est l'inverse du nombre total de dispositions :</p>
+      <p class="fx"><i>p</i> = 1 / C(64, 32) = 1 / (1,8326 × 10<sup>18</sup>) = 5,5 × 10<sup>−19</sup></p>
+      <p>Un théorème de Mark Kac relie cette probabilité à une durée d'attente : pour un système qui repasse par tous ses états, le temps moyen de retour dans un état donné vaut l'inverse de sa probabilité, compté en nombre de coups.</p>
       <p class="fx"><i>t</i><sub>retour</sub> = τ / <i>p</i> = τ × C(64, 32)</p>
-      <p>À un coup par seconde, cela fait 1,83 × 10<sup>18</sup> secondes, soit <strong>58 milliards d'années</strong>, quatre fois l'âge de l'Univers. Pour un échiquier de huit cases sur huit.</p>
-      <p>Maintenant, la même chose avec une mole de gaz dans une boîte à deux moitiés. La probabilité que toutes les molécules se retrouvent du même côté vaut 2<sup>−N</sup> avec <i>N</i> = 6 × 10<sup>23</sup>. Le temps de retour s'écrit avec un exposant à vingt-trois chiffres. On ne l'attend pas, et on n'écrit même pas le nombre.</p>
+      <p>Le théorème dit donc que l'attente ne dépend de rien d'autre que de la rareté de l'état visé, et qu'elle croît exactement aussi vite que le nombre de dispositions. À un coup par seconde, τ vaut 1 s, et l'attente moyenne atteint 1,8326 × 10<sup>18</sup> secondes, soit <strong>58 milliards d'années</strong>, environ quatre fois l'âge de l'Univers, pour un système de soixante-quatre cases et trente-deux pièces.</p>
+      <p>Une mole de gaz dans une boîte à deux moitiés mène au même calcul avec d'autres chiffres. La probabilité que les <i>N</i> = 6 × 10<sup>23</sup> molécules se retrouvent du même côté vaut 2<sup>−N</sup>, et le temps de retour correspondant s'écrit avec un exposant à vingt-trois chiffres. Le deuxième principe n'interdit pas ce retour, il rend son attente plus longue que toute durée physiquement accessible.</p>
     </section>
 
     <section class="step">
       <span class="no-num">6</span>
-      <h2>De l'échiquier au gaz, et le nombre tombe juste</h2>
-      <p>Un gaz dans une boîte, c'est le même problème avec d'autres chiffres. Découpez le volume en petites cases de taille <i>v</i><sub>0</sub>. Une molécule a <i>V</i> / <i>v</i><sub>0</sub> cases où se trouver. Pour <i>N</i> molécules, les choix se multiplient :</p>
+      <h2>Du dénombrement de cases à une mesure de calorimètre</h2>
+      <p>Un gaz dans une boîte pose le même problème avec d'autres chiffres. On découpe le volume en petites cases de taille <i>v</i><sub>0</sub>, et une molécule dispose alors de <i>V</i> / <i>v</i><sub>0</sub> cases où se trouver. Pour <i>N</i> molécules, les choix se multiplient :</p>
       <p class="fx"><i>W</i> ∝ (<i>V</i> / <i>v</i><sub>0</sub>)<sup><i>N</i></sup></p>
-      <p>On ne connaît pas <i>v</i><sub>0</sub>, et c'est sans importance, parce qu'on va faire un rapport. Doublez le volume, et le rapport des comptes ne dépend plus que du rapport des volumes :</p>
+      <p>La taille <i>v</i><sub>0</sub> de ces cases est inconnue, et le calcul qui suit s'en passe, parce qu'il ne fait intervenir qu'un rapport. En multipliant le volume par un facteur, le rapport des deux comptes ne dépend plus que du rapport des volumes :</p>
       <p class="fx"><i>W</i><sub>2</sub> / <i>W</i><sub>1</sub> = (<i>V</i><sub>2</sub> / <i>V</i><sub>1</sub>)<sup><i>N</i></sup></p>
-      <p>Passez au logarithme, multipliez par <i>k</i><sub>B</sub>, et la variation d'entropie tombe :</p>
+      <p>L'exposant <i>N</i> indique la taille de ce rapport : doubler le volume d'une mole multiplie le nombre de microétats par 2 élevé à la puissance 6 × 10<sup>23</sup>. Le logarithme ramène cette puissance à un produit, et la variation d'entropie redevient une quantité de taille ordinaire :</p>
       <p class="fx">Δ<i>S</i> = <i>k</i><sub>B</sub> ln(<i>W</i><sub>2</sub>/<i>W</i><sub>1</sub>) = <i>N</i> <i>k</i><sub>B</sub> ln(<i>V</i><sub>2</sub>/<i>V</i><sub>1</sub>) = <i>n</i> <i>R</i> ln(<i>V</i><sub>2</sub>/<i>V</i><sub>1</sub>)</p>
       <p class="fxn">avec <i>R</i> = <i>N</i><sub>A</sub> <i>k</i><sub>B</sub> = 8,314 J/(K·mol), la constante des gaz</p>
-      <p>Pour une mole dont on double le volume :</p>
+      <p>Seul le rapport des volumes compte, et le volume de départ n'intervient pas : une détente de un à deux litres et une détente de dix à vingt litres donnent la même augmentation d'entropie. Pour une mole dont le volume double :</p>
       <p class="fx">Δ<i>S</i> = <i>R</i> ln 2 = 8,314 × 0,693 = <strong>5,763 J/(K·mol)</strong></p>
-      <p><strong>Changez le rapport des volumes.</strong></p>
+      <p>Changez le rapport des volumes et comparez les deux calculs affichés à droite.</p>
       <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="rS">Rapport V₂ / V₁</label><input type="range" id="rS" min="1" max="8" step="1" value="2" style="width:240px"></span>
       </div>
       <div class="live" id="f4L"></div>
-      <p class="figcap"><b>Figure 4.</b> La détente de Joule : on retire une paroi, le gaz occupe tout, sans échanger de chaleur ni fournir de travail. La température ne change pas, l'entropie augmente.</p>
-      <p>Ce 5,763 n'est pas une élégance de théoricien. C'est une valeur mesurable, obtenue bien avant qu'on croie aux atomes, en suivant la chaleur échangée au cours d'une détente isotherme réversible et en divisant par la température. Deux routes totalement étrangères l'une à l'autre, le calorimètre d'un côté et un dénombrement de cases libres de l'autre, arrivent au même nombre.</p>
-      <p>C'est l'argument qui a fini par imposer les atomes. Si la matière n'était pas faite de grains dénombrables, il n'y aurait aucune raison pour qu'un comptage combinatoire reproduise une mesure de chaleur.</p>
-    </section>
-
-    <section class="step">
-      <span class="no-num">7</span>
-      <h2>Trois précisions pour ne pas dire de bêtises</h2>
-      <p><strong>L'entropie n'est pas le désordre.</strong> Le désordre est une impression, <i>W</i> est un entier. Les deux coïncident souvent, et se séparent parfois : il existe des systèmes qui se rangent tout seuls en augmentant leur entropie, comme des billes identiques dans un bocal secoué, qui s'empilent en réseau régulier parce que cette pile leur laisse plus de place pour vibrer, donc plus de microétats. Comptez, ne jugez pas de l'allure.</p>
-      <p><strong>L'entropie dépend de la description que l'on choisit.</strong> Si l'on décide de regarder case par case, il n'y a plus qu'un seul microétat compatible avec ce que l'on sait, donc <i>W</i> = 1 et <i>S</i> = 0. L'entropie mesure ce qui nous manque pour passer du macroétat au microétat. Elle est donc attachée au couple système-description, et non au système seul. Cette remarque, qui a l'air d'un détail philosophique, est devenue le cœur de la théorie de l'information avec Shannon en 1948, qui a retrouvé la même formule pour mesurer la quantité d'information d'un message.</p>
-      <p><strong>Le deuxième principe n'interdit rien.</strong> Il constate. Un système part d'un macroétat peu nombreux pour aller vers un macroétat très nombreux, parce qu'il y a plus de façons d'y être. Rien ne lui interdit de revenir, et il revient, à condition d'attendre quatre fois l'âge de l'Univers pour trente-deux pièces, et beaucoup plus pour un verre d'eau.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> un macroétat est un paquet de microétats, <i>W</i> compte combien il en contient, et <i>S</i> = <i>k</i><sub>B</sub> ln <i>W</i> traduit ce compte en joules par kelvin. Le logarithme est là parce que les possibilités se multiplient quand les entropies s'ajoutent. Et le même dénombrement qui donne 601 080 390 sur un échiquier donne 5,763 J/(K·mol) pour une mole de gaz qui double de volume, valeur que l'on retrouve au calorimètre.</p>
+      <p class="figcap"><b>Figure 4.</b> La détente de Joule : on retire une paroi, le gaz occupe tout le volume, sans échanger de chaleur ni fournir de travail. La température ne change pas, l'entropie augmente.</p>
+      <p>Cette valeur de 5,763 J/(K·mol) se mesure. On l'obtient en suivant la chaleur échangée au cours d'une détente isotherme réversible et en la divisant par la température, et elle était connue bien avant que les atomes soient admis. Le calorimètre d'un côté, un dénombrement de cases libres de l'autre, deux chemins sans rapport l'un avec l'autre aboutissent au même nombre.</p>
+      <p>Cet accord est l'argument qui a fini par imposer l'hypothèse atomique. Si la matière n'était pas faite de grains dénombrables, un comptage combinatoire n'aurait aucune raison de reproduire une mesure de chaleur.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> un macroétat est un paquet de microétats, <i>W</i> compte combien il en contient, et <i>S</i> = <i>k</i><sub>B</sub> ln <i>W</i> traduit ce compte en joules par kelvin. Le logarithme vient de ce que les possibilités se multiplient quand les entropies s'ajoutent. Le même dénombrement qui donne 601 080 390 sur un échiquier donne 5,763 J/(K·mol) pour une mole de gaz qui double de volume, valeur que l'on retrouve au calorimètre.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -229,7 +224,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);

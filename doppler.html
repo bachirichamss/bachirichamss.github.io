@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/doppler.html">
-<title>L'effet Doppler, de la sirène des pompiers aux galaxies · Chamss Bachiri</title>
-<meta name="description" content="Pourquoi une sirène change de note en passant, et pourquoi la lumière des galaxies lointaines rougit. Le mécanisme de l'effet Doppler, à manipuler.">
-<meta property="og:title" content="L'effet Doppler, de la sirène des pompiers aux galaxies">
+<title>Pourquoi une sirène change-t-elle de note quand elle passe ? · Chamss Bachiri</title>
+<meta name="description" content="Une source en mouvement rapproche les crêtes de son onde devant elle. Le calcul pour une sirène, pour un auditeur qui court, pour la lumière, et jusqu'au décalage vers le rouge des galaxies, à manipuler.">
+<meta property="og:title" content="Pourquoi une sirène change-t-elle de note quand elle passe ?">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -29,6 +29,11 @@
 .tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
 .tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
 .tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -41,87 +46,161 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>L'effet Doppler, de la sirène des pompiers aux galaxies</h1>
-      <p class="dek">Une source qui s'approche tasse ses ondes devant elle et les étire derrière. Ça change la note d'une sirène, et la couleur d'une étoile. Voici le mécanisme, à manipuler.</p>
-      <div class="meta"><span>23 septembre 2026</span><span>8 min</span></div>
+      <h1>Pourquoi une sirène change-t-elle de note quand elle passe ?</h1>
+      <p class="dek">La sirène émet la même note du début à la fin, et pourtant la note entendue baisse au moment du passage. Tout vient de la distance que la source parcourt entre deux crêtes successives de son onde. Le même calcul, appliqué à la lumière, donne la vitesse des étoiles et la distance des galaxies.</p>
+      <div class="meta"><span>23 septembre 2026</span><span>11 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Une source qui avance tasse ses ondes</h2>
-      <p>Une source émet une onde à intervalles réguliers, toujours au même rythme. Chaque bosse part dans toutes les directions à la vitesse de l'onde, sans se soucier du mouvement de la source.</p>
-      <p>Mais entre deux émissions, la source a avancé. La bosse suivante part donc d'un point plus proche de ce qui est devant, et plus loin de ce qui est derrière. <strong>Faites accélérer la source et regardez les cercles.</strong></p>
+      <h2>Une source en mouvement rapproche ses crêtes</h2>
+      <p>Une source sonore émet des crêtes à intervalles réguliers, un nombre fixe de fois par seconde. Chaque crête part ensuite dans toutes les directions à la vitesse du son, environ 340 mètres par seconde dans l'air. Cette vitesse appartient au milieu et non à la source : une fois la crête lâchée, elle avance de la même façon, que la source continue sa route ou qu'elle s'arrête.</p>
+      <p>Entre deux émissions il s'écoule une période, soit 1 / <i>f</i>, et pendant ce temps la source a avancé de <i>v</i> / <i>f</i>. La crête suivante part donc d'un point plus avancé, et l'écart entre deux crêtes se trouve réduit d'autant dans la direction du mouvement.</p>
+      <p class="fx"><i>λ</i><sub>devant</sub> = (<i>c</i> − <i>v</i>) / <i>f</i> &nbsp;&nbsp; et &nbsp;&nbsp; <i>λ</i><sub>derrière</sub> = (<i>c</i> + <i>v</i>) / <i>f</i></p>
+      <ul class="sym">
+        <li><b>λ</b> la distance entre deux crêtes qui arrivent sur l'observateur</li>
+        <li><b>c</b> la vitesse de l'onde dans le milieu</li>
+        <li><b>v</b> la vitesse de la source, <b>f</b> le nombre de crêtes qu'elle émet par seconde</li>
+      </ul>
+      <p>Au repos, l'écart vaut <i>c</i> / <i>f</i> des deux côtés. Les crêtes émises vers l'avant pendant une seconde s'étalent sur 340 mètres quand la source est immobile, et sur 315 mètres seulement quand elle roule à 25 mètres par seconde, soit 90 kilomètres par heure. L'écart entre deux crêtes diminue donc de 7,4 % devant elle et augmente d'autant derrière. La source rattrape ses propres ondes et les tasse devant elle, sans rien changer à ce qu'elle émet.</p>
+      <p>Le rapport des deux vitesses porte un nom, et il fixe à lui seul l'allure des cercles.</p>
+      <p class="fx"><i>M</i> = <i>v</i> / <i>c</i></p>
+      <ul class="sym">
+        <li><b>M</b> le nombre de Mach de la source</li>
+      </ul>
+      <p>Pour un véhicule à 90 kilomètres par heure, <i>M</i> vaut 0,074, et l'écart entre les crêtes se réduit dans la même proportion. À <i>M</i> = 1 la source avance exactement aussi vite que ses crêtes : <i>λ</i><sub>devant</sub> tombe à zéro, et toutes les crêtes émises depuis le départ se retrouvent empilées au même endroit, juste devant elle. Au-delà, la source dépasse ses propres crêtes, qui s'accumulent sur un cône dont le demi-angle vérifie sin <i>α</i> = 1 / <i>M</i>.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="vS">Vitesse de la source</label><input type="range" id="vS" min="0" max="160" value="0" style="width:280px"></span>
       </div>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> Les cercles sont les crêtes successives de l'onde. Leur espacement le long de l'axe est la longueur d'onde reçue.</p>
+      <p>Poussez le curseur depuis zéro et suivez les deux règles graduées. Celle de droite se raccourcit, celle de gauche s'allonge, et les centres des cercles s'échelonnent le long de l'axe au lieu de se superposer.</p>
+      <p class="figcap"><b>Figure 1.</b> Les cercles sont les crêtes successives de l'onde. Leur espacement le long de l'axe est la longueur d'onde reçue. Le curseur se lit en fractions de la vitesse de l'onde, donc en nombre de Mach.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Ce qu'on entend quand l'ambulance passe</h2>
-      <p>La sirène émet toujours la même note. Vous l'entendez plus aiguë tant qu'elle approche, plus grave dès qu'elle s'éloigne. Le basculement se produit au moment du passage, et il est d'autant plus brutal que le véhicule passe près de vous.</p>
+      <h2>La note d'une sirène qui passe</h2>
+      <p>Une oreille ne mesure pas des longueurs d'onde, elle compte des crêtes par seconde. Comme chaque crête arrive toujours à la vitesse <i>c</i>, la fréquence reçue vaut <i>c</i> divisé par l'écart entre deux crêtes, et les deux longueurs d'onde de la section précédente se retournent en deux fréquences.</p>
+      <p class="fx"><i>f</i>' = <i>f</i> × <i>c</i> / (<i>c</i> − <i>v</i>) &nbsp;&nbsp; quand elle approche</p>
+      <p class="fx"><i>f</i>' = <i>f</i> × <i>c</i> / (<i>c</i> + <i>v</i>) &nbsp;&nbsp; quand elle s'éloigne</p>
+      <ul class="sym">
+        <li><b>f'</b> la fréquence reçue, <b>f</b> la fréquence émise</li>
+        <li><b>v</b> la part de la vitesse de la source dirigée vers vous</li>
+      </ul>
+      <p>Toute l'intuition est au dénominateur. La source court derrière ses propres ondes, et plus <i>v</i> se rapproche de <i>c</i>, moins il reste de place entre deux crêtes : la note monte sans limite, et devient infinie à <i>M</i> = 1. Du côté de l'éloignement le dénominateur ne fait que grandir, si bien que la fréquence reçue descend lentement : à <i>v</i> = <i>c</i>, elle n'a baissé que d'une octave.</p>
+      <p>Prenons une sirène à 700 hertz et un véhicule à 90 kilomètres par heure, soit 25 mètres par seconde. Avec <i>c</i> = 340 mètres par seconde, les deux fréquences valent 700 × 340 / 315 et 700 × 340 / 365.</p>
+      <p class="fx"><i>f</i>'<sub>approche</sub> = 755,6 Hz &nbsp;&nbsp;&nbsp; <i>f</i>'<sub>éloignement</sub> = 652,1 Hz</p>
+      <p>L'écart fait 103,5 hertz, et le rapport des deux fréquences vaut 365 / 315, soit 1,159. En musique les intervalles se comptent en demi-tons, chacun valant un rapport de fréquences de 2<sup>1/12</sup>, c'est-à-dire 1,0595. Le passage du véhicule couvre donc 12 × log<sub>2</sub>(1,159), soit 2,6 demi-tons, presque une tierce mineure. L'intervalle est bien plus large que le plus petit écart de hauteur qu'une oreille sépare, qui se compte en centièmes de demi-ton, ce qui explique qu'on entende le glissement sans effort.</p>
+      <p>Réglez le curseur de vitesse sur 90 kilomètres par heure, puis lancez le passage.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
         <button class="go" id="f2B">Lancer le passage</button>
         <span class="grp"><label for="uS">Vitesse</label><input type="range" id="uS" min="30" max="200" value="130"></span>
       </div>
       <div class="live" id="f2L"></div>
+      <p>Les deux valeurs calculées se retrouvent en haut et en bas de la courbe. Elles ne sont atteintes que loin avant et loin après le passage, quand la route et la ligne de vue sont presque confondues. Au moment du passage, la part de la vitesse dirigée vers vous s'annule, et la courbe traverse la ligne des 700 hertz : c'est là que la bascule se produit, d'autant plus vite que le véhicule passe près.</p>
       <p class="figcap"><b>Figure 2.</b> Fréquence perçue par le piéton au cours du passage, pour une sirène de 700 hertz. La vitesse du son est prise à 340 mètres par seconde.</p>
-      <p>La formule tient en une ligne. Pour une source qui s'approche en ligne droite, la fréquence reçue vaut la fréquence émise multipliée par <em>c</em> / (<em>c</em> − <em>v</em>), où <em>c</em> est la vitesse du son. Pour une source qui s'éloigne, on remplace le moins par un plus.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>Le son sait qui bouge, la lumière non</h2>
-      <p>Pour le son, il existe un arbitre : l'air. Une source qui fonce dans l'air immobile et un auditeur qui court dans l'air immobile ne donnent pas exactement le même résultat, même si leur vitesse relative est identique.</p>
+      <h2>L'auditeur en mouvement, puis le cas de la lumière</h2>
+      <p>Reprenons la même scène en échangeant les rôles. La sirène reste immobile, et ses crêtes sont donc toutes espacées de <i>c</i> / <i>f</i> dans l'air, sans aucune déformation. L'auditeur, lui, avance à la rencontre de ces crêtes et en croise davantage par seconde.</p>
+      <p class="fx"><i>f</i>' = <i>f</i> × (<i>c</i> + <i>v</i>) / <i>c</i></p>
+      <ul class="sym">
+        <li><b>v</b> la vitesse de l'auditeur vers la source, à prendre négative s'il s'en écarte</li>
+      </ul>
+      <p>Les crêtes n'ont pas changé d'espacement, et c'est la vitesse à laquelle l'auditeur les traverse qui augmente. Un auditeur courant à 25 mètres par seconde vers notre sirène de 700 hertz en reçoit 751,5 hertz, là où le cas précédent donnait 755,6 hertz. Les deux situations ont la même vitesse relative et donnent pourtant 4 hertz d'écart.</p>
+      <p>Cet écart est possible parce que l'air sert de référence. Les crêtes avancent à 340 mètres par seconde par rapport à l'air, et non par rapport à la source ou à l'oreille. Savoir lequel des deux se déplace par rapport à l'air change le résultat, et une mesure assez fine permet en principe de les distinguer.</p>
       <div class="tablewrap">
       <table class="tb">
         <tr><th></th><th>La source s'approche</th><th>L'auditeur s'approche</th></tr>
-        <tr><td>Son, à 34 m/s (un dixième de la vitesse du son)</td><td class="n">fréquence × 1,111</td><td class="n">fréquence × 1,100</td></tr>
-        <tr><td>Lumière, à un dixième de la vitesse de la lumière</td><td class="n">fréquence × 1,106</td><td class="n">fréquence × 1,106</td></tr>
+        <tr><td>Son, à 25 m/s (90 km/h)</td><td class="n">fréquence × 1,0794</td><td class="n">fréquence × 1,0735</td></tr>
+        <tr><td>Son, à 34 m/s (un dixième de la vitesse du son)</td><td class="n">fréquence × 1,1111</td><td class="n">fréquence × 1,1000</td></tr>
+        <tr><td>Lumière, à un dixième de la vitesse de la lumière</td><td class="n">fréquence × 1,1055</td><td class="n">fréquence × 1,1055</td></tr>
       </table>
       </div>
-      <p>Pour la lumière, les deux colonnes sont identiques, à tous les chiffres qu'on voudra. C'est une conséquence directe du fait qu'il n'existe aucun milieu porteur, et que la lumière va à la même vitesse pour tout le monde, comme le montrent <a href="etoiles-doubles.html">les étoiles doubles</a>. Seule la vitesse relative compte, et la formule fait intervenir en plus le ralentissement du temps de la source.</p>
-      <p>Autre différence : une source lumineuse qui passe juste à côté de vous, sans s'approcher ni s'éloigner à cet instant précis, paraît quand même un peu plus rouge. C'est l'effet Doppler transverse, qui n'existe pas pour le son. Il vient uniquement du ralentissement du temps.</p>
+      <p>Pour la lumière, les deux colonnes coïncident à tous les chiffres qu'on voudra. Il n'existe pas de milieu porteur dont on pourrait mesurer le mouvement, et la lumière avance à la même vitesse pour tout le monde, comme le montrent <a href="etoiles-doubles.html">les étoiles doubles</a>. Il ne reste alors qu'une seule vitesse à mettre dans la formule, celle de la source par rapport à l'observateur.</p>
+      <p class="fx"><i>f</i>' = <i>f</i> √( (1 − <i>β</i>) / (1 + <i>β</i>) ) &nbsp;&nbsp; avec &nbsp;&nbsp; <i>β</i> = <i>v</i> / <i>c</i></p>
+      <ul class="sym">
+        <li><b>β</b> la vitesse relative exprimée en fractions de la vitesse de la lumière</li>
+        <li><b>v</b> la vitesse d'éloignement, à prendre négative quand la source s'approche</li>
+        <li><b>c</b> la vitesse de la lumière, 299 792 458 mètres par seconde</li>
+      </ul>
+      <p>Cette racine carrée se place exactement entre les deux formules sonores, dont elle est la moyenne géométrique. En écrivant les trois cas pour un rapprochement, à la vitesse <i>v</i> :</p>
+      <p class="fx">√( [ <i>c</i> / (<i>c</i> − <i>v</i>) ] × [ (<i>c</i> + <i>v</i>) / <i>c</i> ] ) = √( (<i>c</i> + <i>v</i>) / (<i>c</i> − <i>v</i>) )</p>
+      <p>À un dixième de la vitesse de la lumière, le cas sonore de la source donnerait 1,1111 et celui de l'auditeur 1,1000 ; la formule lumineuse donne 1,1055, qui est la racine du produit des deux. Comme les deux situations sont indiscernables, le résultat ne peut dépendre que de la vitesse relative, et il se place à égale distance géométrique des deux lectures sonores. Le terme qui l'y amène est le ralentissement du temps de la source, et il ne se voit pas aux vitesses ordinaires, puisque les trois résultats ne diffèrent qu'à l'ordre <i>β</i>².</p>
+      <p>Une source lumineuse qui passe juste à côté de vous, sans s'approcher ni s'éloigner à cet instant précis, paraît quand même un peu plus rouge. Cet effet Doppler transverse n'a pas d'équivalent sonore, et il vient entièrement du ralentissement du temps.</p>
     </section>
 
     <section class="step">
       <span class="no-num">4</span>
-      <h2>La couleur des étoiles</h2>
-      <p>Les atomes d'une étoile absorbent des couleurs très précises, qui apparaissent comme des raies sombres dans son spectre. Ces raies sont des repères : on sait exactement où elles devraient tomber. Si l'étoile s'approche ou s'éloigne, elles se déplacent toutes ensemble.</p>
+      <h2>Les raies des étoiles</h2>
+      <p>Les atomes d'une étoile absorbent des longueurs d'onde très précises, qui apparaissent comme des raies sombres dans son spectre. Chacune porte la signature d'un élément, et on sait au laboratoire où elle devrait tomber. Si l'étoile s'approche ou s'éloigne, elles glissent toutes ensemble, dans le même rapport.</p>
+      <p>Les astronomes mesurent ce glissement sur les longueurs d'onde plutôt que sur les fréquences, et lui donnent un nom.</p>
+      <p class="fx"><i>z</i> = ( <i>λ</i><sub>observée</sub> − <i>λ</i><sub>émise</sub> ) / <i>λ</i><sub>émise</sub></p>
+      <ul class="sym">
+        <li><b>z</b> le décalage vers le rouge, sans unité</li>
+        <li><b>λ<sub>observée</sub></b> la longueur d'onde mesurée dans le spectre de l'astre</li>
+        <li><b>λ<sub>émise</sub></b> celle que le même atome produit au repos</li>
+      </ul>
+      <p>Le nombre <i>z</i> est l'allongement relatif des longueurs d'onde, ce qui le rend lisible d'un coup d'œil : <i>z</i> = 0,01 veut dire que chaque raie est déplacée d'un centième de sa propre longueur d'onde, soit 6,6 nanomètres pour la raie Hα de l'hydrogène, qui vaut 656,3 nanomètres au repos. Tant que la vitesse reste petite devant celle de la lumière, <i>z</i> ≈ <i>v</i> / <i>c</i>, et la vitesse s'obtient par une multiplication.</p>
+      <p>Déplacez le curseur dans les deux sens et comparez les traits noirs aux repères gris.</p>
       <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="bS">Vitesse de l'étoile</label><input type="range" id="bS" min="-1500" max="1500" value="0" style="width:300px"></span>
         <button id="bR">Remettre à zéro</button>
       </div>
       <div class="live" id="f3L"></div>
+      <p>Les quatre raies se déplacent du même facteur, et donc pas de la même quantité : le déplacement en nanomètres est plus grand pour la raie rouge que pour la raie bleue, puisque <i>z</i> multiplie une longueur d'onde plus grande. Cette proportionnalité permet de reconnaître un décalage Doppler et de l'attribuer à un mouvement.</p>
       <p class="figcap"><b>Figure 3.</b> Les traits gris au-dessus marquent la position au repos de quatre raies connues. Les traits noirs sont les raies observées.</p>
-      <p>Une étoile de notre galaxie se déplace à quelques dizaines de kilomètres par seconde, soit un dix-millième de la vitesse de la lumière : le décalage est invisible à l'œil, mais un spectromètre le mesure sans difficulté. C'est ainsi qu'on pèse les étoiles doubles, qu'on détecte des planètes autour d'autres étoiles par le minuscule va-et-vient qu'elles imposent à leur étoile, et qu'on a découvert que les galaxies lointaines s'éloignent toutes de nous.</p>
-      <p>Le même principe sert au radar de la police, au sonar, et à l'échographie Doppler qui mesure la vitesse du sang dans les artères.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> l'effet Doppler ne change rien à ce que la source émet. Il change l'intervalle entre deux crêtes qui vous parviennent, parce que la source s'est déplacée entre les deux. Pour le son, il faut savoir qui bouge par rapport à l'air. Pour la lumière, seule la vitesse relative compte.</p>
+      <p>Une étoile de notre galaxie se déplace à quelques dizaines de kilomètres par seconde, soit un dix-millième de la vitesse de la lumière. Pour 30 kilomètres par seconde, la raie Hα bouge de sept centièmes de nanomètre, ce qui échappe à l'œil et se mesure sans difficulté au spectromètre. La méthode donne la masse des étoiles doubles, détecte les planètes extrasolaires par le petit va-et-vient qu'elles imposent à leur étoile, et sert aussi au radar routier, au sonar et à l'échographie Doppler qui mesure la vitesse du sang dans les artères.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Le décalage des galaxies et la loi de Hubble</h2>
+      <p>À partir de 1912, Vesto Slipher mesure les spectres de nébuleuses qu'on sait aujourd'hui être des galaxies, et les trouve presque toutes décalées vers le rouge. En 1929, Edwin Hubble met ces décalages en regard des distances qu'il venait d'estimer et obtient une proportion simple.</p>
+      <p class="fx"><i>v</i> ≈ <i>H</i><sub>0</sub> <i>d</i> &nbsp;&nbsp; avec &nbsp;&nbsp; <i>H</i><sub>0</sub> ≈ 70 km/s/Mpc</p>
+      <ul class="sym">
+        <li><b>v</b> la vitesse de récession déduite du décalage</li>
+        <li><b>d</b> la distance de la galaxie, en mégaparsecs</li>
+        <li><b>H<sub>0</sub></b> la constante de Hubble, mesurée aujourd'hui</li>
+      </ul>
+      <p>Un mégaparsec vaut 3,26 millions d'années-lumière. Une galaxie à 100 mégaparsecs recule donc d'environ 7000 kilomètres par seconde, ce qui correspond à <i>z</i> ≈ 0,023 : toutes ses raies sont déplacées de 2,3 %, et la raie Hα passe de 656,3 à 671,6 nanomètres. Deux fois plus loin donne deux fois plus vite. La constante se lit aussi comme l'inverse d'un temps : 1 / <i>H</i><sub>0</sub> vaut 14 milliards d'années, ce qui fixe l'échelle d'âge de l'Univers.</p>
+      <p>Pour les galaxies lointaines, ce décalage se comprend autrement que celui d'un objet lancé à travers l'espace. Il vient de l'expansion de l'espace lui-même : la longueur d'onde s'allonge pendant tout le trajet, dans la même proportion que les distances entre galaxies pendant ce temps. La lecture en vitesse reste commode tant que <i>z</i> est petit, et elle cesse de l'être quand <i>z</i> approche de 1.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Situation</th><th>Formule</th><th>Exemple numérique</th></tr>
+        <tr><td>Source sonore en mouvement, auditeur fixe</td><td class="n"><i>f</i>' = <i>f c</i> / (<i>c</i> ∓ <i>v</i>)</td><td>700 Hz à 90 km/h : 755,6 puis 652,1 Hz</td></tr>
+        <tr><td>Auditeur en mouvement, source fixe</td><td class="n"><i>f</i>' = <i>f</i> (<i>c</i> ± <i>v</i>) / <i>c</i></td><td>700 Hz, auditeur à 25 m/s : 751,5 Hz</td></tr>
+        <tr><td>Source lumineuse</td><td class="n"><i>f</i>' = <i>f</i> √((1 − <i>β</i>)/(1 + <i>β</i>))</td><td><i>β</i> = 0,1 en éloignement : fréquence × 0,9045</td></tr>
+        <tr><td>Décalage d'une raie</td><td class="n">1 + <i>z</i> = <i>λ</i><sub>obs</sub> / <i>λ</i><sub>émise</sub></td><td><i>z</i> = 0,023 : Hα de 656,3 à 671,6 nm</td></tr>
+        <tr><td>Galaxie lointaine</td><td class="n"><i>v</i> ≈ <i>H</i><sub>0</sub> <i>d</i></td><td>100 Mpc : 7000 km/s</td></tr>
+      </table>
+      </div>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> l'effet Doppler laisse intact ce que la source émet, et modifie l'écart entre deux crêtes reçues, parce que la source ou l'oreille s'est déplacée entre les deux. Pour le son, l'air sert de référence, et deux formules différentes décrivent la source qui bouge et l'auditeur qui bouge. Pour la lumière il n'y a pas de référence, une seule formule suffit, et elle est la moyenne géométrique des deux formules sonores. Pour les galaxies lointaines, le décalage mesure l'allongement de l'espace que la lumière a traversé pendant son voyage.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -134,7 +213,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);

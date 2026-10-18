@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/etoiles-doubles.html">
-<title>Les étoiles doubles interdisent d'aller plus vite que la lumière · Chamss Bachiri</title>
-<meta name="description" content="Si la lumière allait plus vite quand sa source avance, on verrait les étoiles doubles à plusieurs endroits à la fois. On ne les voit pas. Démonstration animée.">
-<meta property="og:title" content="Les étoiles doubles interdisent d'aller plus vite que la lumière">
+<title>La lumière va-t-elle plus vite si sa source avance ? · Chamss Bachiri</title>
+<meta name="description" content="Si la vitesse d'une étoile s'ajoutait à celle de sa lumière, on verrait une étoile double à plusieurs endroits à la fois. Le calcul de l'écart d'arrivée, l'argument de de Sitter en 1913 et sa limite, avec des figures à manipuler.">
+<meta property="og:title" content="La lumière va-t-elle plus vite si sa source avance ?">
 <meta property="og:type" content="article">
 <style>
 /* figures de cette page */
@@ -27,6 +27,11 @@
 .live b.o{color:#c2620a}.live b.b{color:#2c72c7}
 .timeline{display:flex;align-items:center;gap:.7rem;flex:1;min-width:220px}
 .timeline input{flex:1;width:auto}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -39,36 +44,58 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Les étoiles doubles interdisent d'aller plus vite que la lumière</h1>
-      <p class="dek">Une étoile double nous envoie sa lumière tantôt en avançant vers nous, tantôt en reculant. Il suffit de la regarder pour savoir si la vitesse de la lumière en dépend.</p>
-      <div class="meta"><span>20 septembre 2026</span><span>5 min</span></div>
+      <h1>La lumière va-t-elle plus vite si sa source avance ?</h1>
+      <p class="dek">Une étoile double nous envoie sa lumière tantôt en venant vers nous, tantôt en s'éloignant. Si la vitesse de la source s'ajoutait à celle de sa lumière, les images d'un même tour d'orbite nous arriveraient mélangées. Willem de Sitter a remarqué en 1913 qu'il suffit de regarder le ciel pour trancher.</p>
+      <div class="meta"><span>20 septembre 2026</span><span>9 min</span></div>
     </div>
 
     <!-- 1 -->
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Une balle lancée d'un train va plus vite</h2>
-      <p>On lance une balle à 50 km/h. Depuis un train à l'arrêt, elle va à 50 km/h. Depuis un train qui roule à 50 km/h, elle va à 100 km/h : la vitesse du train s'ajoute.</p>
+      <h2>L'hypothèse que l'on veut tester</h2>
+      <p>On lance une balle à 50 km/h. Depuis un train à l'arrêt, elle avance à 50 km/h. Depuis un train qui roule à 50 km/h, elle avance à 100 km/h par rapport au sol, parce que la vitesse du train s'ajoute à celle de la balle.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl"><button class="go" id="f1B">Lancer les deux balles</button></div>
-      <p><strong>La question :</strong> est-ce pareil pour la lumière ? Une lampe qui avance vers nous envoie-t-elle une lumière plus rapide ? Pour le savoir, il faut une lampe qui file à toute allure. Le ciel en fournit.</p>
+      <p>Appuyez sur le bouton pour partir des deux trains en même temps. La balle du train en marche prend une avance qui continue de grandir tout au long du trajet, puisqu'elle garde sa vitesse supérieure.</p>
+      <p>La question est de savoir si la lumière se comporte de la même façon. L'hypothèse à tester tient en deux lignes.</p>
+      <p class="fx"><i>c</i>' = <i>c</i> + <i>v</i> &nbsp; si la source vient vers nous<br><i>c</i>' = <i>c</i> − <i>v</i> &nbsp; si la source s'éloigne de nous</p>
+      <ul class="sym">
+        <li><b>c'</b> la vitesse de la lumière mesurée sur Terre, dans cette hypothèse</li>
+        <li><b>c</b> la vitesse de la lumière émise par une source immobile, 299 792 458 m/s</li>
+        <li><b>v</b> la vitesse de la source le long de la ligne qui la relie à nous</li>
+      </ul>
+      <p>Entre la lumière la plus rapide et la plus lente, l'écart de vitesse vaut 2<i>v</i>. Pour une source qui file à 100 km/s, cela ne fait que 2<i>v</i>/<i>c</i> = 6,7 × 10<sup>−4</sup>, moins d'un millième. Deux moyens permettent de rendre un écart aussi faible visible : disposer d'une source très rapide, ou laisser la lumière voyager très longtemps. Une étoile double offre les deux à la fois.</p>
     </section>
 
     <!-- 2 -->
     <section class="step">
       <span class="no-num">2</span>
       <h2>Une étoile double avance, puis recule</h2>
-      <p>Deux étoiles tournent l'une autour de l'autre. Vue depuis la Terre, l'étoile passe la moitié de son tour à venir vers nous, et l'autre moitié à s'éloigner. C'est une lampe qui avance et recule sans arrêt, à des centaines de kilomètres par seconde.</p>
+      <p>Deux étoiles liées par la gravitation tournent l'une autour de l'autre. Vue depuis la Terre, chacune passe la moitié de son tour à venir vers nous, et l'autre moitié à s'en éloigner. C'est une lampe dont la vitesse change de signe à chaque demi-tour, et qui atteint couramment une centaine de kilomètres par seconde.</p>
+      <p>Cette vitesse se lit sur le spectre de l'étoile, par effet Doppler : ses raies se décalent vers le bleu quand elle approche et vers le rouge quand elle s'éloigne. On dispose donc de la valeur de <i>v</i> le long de la ligne de visée.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 2.</b> L'étoile vue de dessus. La Terre est à droite, très loin. En orange, la partie du tour où l'étoile vient vers nous ; en bleu, celle où elle s'éloigne.</p>
+      <p class="figcap"><b>Figure 2.</b> L'étoile vue de dessus, la Terre étant à droite et très loin. En orange, la partie du tour pendant laquelle l'étoile vient vers nous ; en bleu, celle pendant laquelle elle s'éloigne. Le point gris au centre est son compagnon.</p>
     </section>
 
     <!-- 3 -->
     <section class="step">
       <span class="no-num">3</span>
-      <h2>La course de deux éclairs</h2>
-      <p>Suivons seulement deux éclairs. Le <strong style="color:#2c72c7">bleu</strong> part quand l'étoile s'éloigne. L'<strong style="color:#c2620a">orange</strong> part un demi-tour plus tard, quand elle vient vers nous.</p>
-      <p>Choisissez une hypothèse, lancez, et lisez le cadre sous la figure : il explique chaque moment. Vous pouvez aussi faire glisser le temps à la main.</p>
+      <h2>L'écart entre les deux arrivées</h2>
+      <p>Suivons deux éclairs partis de la même étoile. Le <strong style="color:#2c72c7">bleu</strong> part au moment où elle s'éloigne, l'<strong style="color:#c2620a">orange</strong> un demi-tour plus tard, au moment où elle vient vers nous. Dans l'hypothèse de l'étape 1, ces deux éclairs ne partent pas à la même vitesse et parcourent pourtant la même distance.</p>
+      <p>Le temps de trajet s'écrit alors en une ligne.</p>
+      <p class="fx"><i>t</i> = <i>d</i> / ( <i>c</i> ± <i>v</i> )</p>
+      <ul class="sym">
+        <li><b>t</b> le temps que met l'éclair pour nous atteindre</li>
+        <li><b>d</b> la distance de l'étoile double à la Terre</li>
+        <li><b>±</b> le signe plus pour la lumière émise pendant que l'étoile avance, le signe moins pendant qu'elle recule</li>
+      </ul>
+      <p>La grandeur utile est la différence entre ces deux temps de trajet, c'est-à-dire le retard que l'éclair lent prend sur l'éclair rapide.</p>
+      <p class="fx">Δ<i>t</i> = <i>d</i>/(<i>c</i> − <i>v</i>) − <i>d</i>/(<i>c</i> + <i>v</i>) = 2 <i>d</i> <i>v</i> / (<i>c</i>² − <i>v</i>²) ≈ 2 <i>d</i> <i>v</i> / <i>c</i>²</p>
+      <p>La dernière approximation consiste à négliger <i>v</i>² devant <i>c</i>². Pour une étoile à 100 km/s, elle modifie le résultat d'un dixième de millionième, ce qui est sans conséquence ici.</p>
+      <p>Le facteur <i>d</i> porte toute l'idée. L'écart de vitesse est minuscule, mais il se traduit par un retard proportionnel à la distance parcourue : une étoile deux fois plus lointaine donne un retard deux fois plus grand. Une autre écriture de la même formule le montre encore mieux.</p>
+      <p class="fx">Δ<i>t</i> ≈ ( 2 <i>v</i> / <i>c</i> ) × ( <i>d</i> / <i>c</i> )</p>
+      <p>Le retard vaut le temps de vol de la lumière, <i>d</i>/<i>c</i>, multiplié par le petit nombre 2<i>v</i>/<i>c</i>. Un nombre de l'ordre du millième multiplié par un temps de vol de mille ans donne des mois. Plus l'étoile est loin, plus l'effet attendu est grand, et c'est ce qui donne à l'argument sa force : il suffit de regarder des couples assez lointains pour que l'effet, s'il existait, devienne impossible à manquer.</p>
+      <p>Choisissez une hypothèse, puis lancez l'animation. Le cadre sous la figure commente chaque moment, et le curseur permet de parcourir le temps à la main.</p>
 
       <div class="ctl">
         <div class="seg">
@@ -82,52 +109,76 @@
         <div class="timeline"><input type="range" id="tR" min="0" max="125" value="0" aria-label="Temps"></div>
       </div>
       <div class="live" id="live"></div>
-      <p class="figcap"><b>Figure 3.</b> Les écarts de vitesse sont énormément exagérés pour qu'on les voie. En vrai, l'écart est minuscule, mais la lumière voyage pendant des siècles : il a tout le temps de produire le même effet.</p>
+      <p class="figcap"><b>Figure 3.</b> Les écarts de vitesse sont très exagérés pour rester visibles à l'écran. Sur le ciel réel, l'écart relatif est de l'ordre du dix-millième, mais la lumière voyage pendant des siècles, ce qui lui laisse le temps de produire le même résultat.</p>
+      <p>Avec la première hypothèse, l'éclair orange rattrape puis dépasse le bleu, et l'astronome reçoit d'abord l'image où l'étoile venait vers lui. Avec la seconde, les deux éclairs gardent leur écart de départ et les images arrivent dans l'ordre, simplement avec du retard.</p>
     </section>
 
     <!-- 4 -->
     <section class="step">
       <span class="no-num">4</span>
-      <h2>On verrait l'étoile à plusieurs endroits</h2>
-      <p>Une étoile ne lance pas deux éclairs, elle brille en permanence. Si la lumière rapide double la lumière lente en chemin, des images de moments différents arrivent sur Terre en même temps. On verrait la même étoile à plusieurs endroits de son orbite.</p>
+      <h2>Plusieurs images de la même étoile</h2>
+      <p>Une étoile ne lance pas deux éclairs, elle brille sans interruption. Si la lumière émise en approche rattrape celle émise en recul, des images prises à des moments différents du tour arrivent ensemble sur Terre. On verrait la même étoile à plusieurs endroits de son orbite.</p>
+      <p>Pour savoir si cela se produirait, il faut comparer le retard Δ<i>t</i> à la période orbitale <i>P</i>. Prenons une étoile double à 1000 années-lumière dont les deux composantes se déplacent à 100 km/s.</p>
+      <p class="fx">Δ<i>t</i> ≈ ( 2 × 100 / 299 792 ) × 1000 ans = 0,667 an</p>
+      <p>Cela fait 244 jours, soit 2,11 × 10<sup>7</sup> secondes. Le calcul en unités du système international donne la même valeur : avec <i>d</i> = 9,46 × 10<sup>18</sup> m et <i>v</i> = 1,00 × 10<sup>5</sup> m/s, le quotient 2 <i>d</i> <i>v</i> / <i>c</i>² vaut 1,89 × 10<sup>24</sup> / 8,99 × 10<sup>16</sup>, soit 2,1 × 10<sup>7</sup> s.</p>
+      <p>Reste à estimer la période. Une vitesse de 100 km/s pour chacune des deux étoiles impose leur séparation, puisque c'est la gravitation qui les maintient sur leur orbite.</p>
+      <p class="fx"><i>a</i> = <i>G</i> <i>M</i> / <i>v</i><sub>rel</sub>² &nbsp;&nbsp; puis &nbsp;&nbsp; <i>P</i> = 2π <i>a</i> / <i>v</i><sub>rel</sub></p>
+      <ul class="sym">
+        <li><b>a</b> la distance entre les deux étoiles</li>
+        <li><b>M</b> la masse totale du couple, prise ici à deux masses solaires</li>
+        <li><b>v</b><sub>rel</sub> leur vitesse relative, ici 200 km/s</li>
+        <li><b>G</b> la constante de la gravitation, 6,674 × 10<sup>−11</sup> m³ kg<sup>−1</sup> s<sup>−2</sup></li>
+      </ul>
+      <p>On trouve <i>a</i> = 6,6 × 10<sup>9</sup> m, soit 0,044 unité astronomique, et <i>P</i> = 2,1 × 10<sup>5</sup> s, soit 2,4 jours. Le retard de 244 jours vaut donc une centaine de périodes.</p>
+      <p>La lumière émise pendant une centaine de tours différents nous parviendrait ainsi en même temps. L'orbite reconstituée depuis la Terre serait brouillée, et l'étoile apparaîtrait en plusieurs points à la fois.</p>
       <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 4.</b> À gauche, ce qu'on verrait si la vitesse de l'étoile s'ajoutait à celle de sa lumière. À droite, ce qu'on observe réellement.</p>
-      <p>On observe des milliers d'étoiles doubles. <strong>Aucune ne fait ça.</strong> Toutes tournent normalement, et on s'en sert même pour peser les étoiles.</p>
-      <p>En 1913, l'astronome Willem de Sitter en a tiré la conclusion : <strong>la lumière va à la même vitesse, que sa source avance ou recule.</strong> Des mesures en rayons X faites en 1977 l'ont confirmé à mieux qu'un milliardième près.</p>
+      <p class="figcap"><b>Figure 4.</b> À gauche, ce que l'on verrait si la vitesse de l'étoile s'ajoutait à celle de sa lumière. À droite, ce que l'on observe.</p>
+      <p>On connaît des milliers d'étoiles doubles dont l'orbite est suivie depuis des décennies. Toutes décrivent des trajectoires conformes aux lois de Kepler, et ces orbites servent même à mesurer la masse des étoiles.</p>
+      <p>De Sitter en a tiré sa conclusion en 1913 : la lumière part à la même vitesse, que sa source avance ou recule. En écrivant la vitesse d'émission sous la forme <i>c</i> + <i>k</i> <i>v</i>, où <i>k</i> = 1 correspond à l'hypothèse de l'étape 1 et <i>k</i> = 0 à une vitesse indépendante de la source, ses observations imposaient <i>k</i> &lt; 0,002.</p>
+      <p>Cet argument a une limite, relevée par John G. Fox en 1965. La lumière qui traverse le milieu interstellaire est absorbée puis réémise par la matière rencontrée en chemin, et cette matière est à peu près immobile par rapport à nous. Au bout d'une certaine distance, la lumière repart donc à <i>c</i> quelle qu'ait été la vitesse de sa source, ce qui affaiblit la conclusion tirée des observations en lumière visible.</p>
+      <p>La version moderne de l'expérience se place à des énergies plus élevées, où la longueur d'absorption se compte en dizaines de milliers de parsecs, à l'échelle de la Galaxie entière. En 1977, Kenneth Brecher a appliqué la méthode aux impulsions de trois systèmes binaires émetteurs de rayons X, Her X-1, Cen X-3 et SMC X-1, dont les tops réguliers datent l'émission avec précision. Il en a tiré <i>k</i> &lt; 2 × 10<sup>−9</sup>. Les photons gamma, dont le parcours sans réémission est encore plus long, servent au même type de vérification.</p>
     </section>
 
     <!-- 5 -->
     <section class="step">
       <span class="no-num">5</span>
-      <h2>Et donc, rien ne rattrape la lumière</h2>
-      <p>Pour la balle, les vitesses s'ajoutaient. Pour la lumière, elles ne s'ajoutent pas. La vieille règle d'addition est donc fausse. En 1905, Einstein a trouvé la bonne : elle donne presque le même résultat pour les vitesses de tous les jours, mais elle ne dépasse jamais la vitesse de la lumière.</p>
+      <h2>La règle d'addition des vitesses</h2>
+      <p>Pour la balle lancée du train, les vitesses s'ajoutaient. Pour la lumière, les étoiles doubles montrent qu'elles ne s'ajoutent pas. La règle <i>w</i> = <i>u</i> + <i>v</i> ne peut donc pas être exacte, et celle qu'Einstein a publiée en 1905 la remplace.</p>
+      <p class="fx"><i>w</i> = ( <i>u</i> + <i>v</i> ) / ( 1 + <i>u</i> <i>v</i> / <i>c</i>² )</p>
+      <ul class="sym">
+        <li><b>u</b> la vitesse du vaisseau par rapport à nous</li>
+        <li><b>v</b> la vitesse de la sonde par rapport au vaisseau</li>
+        <li><b>w</b> la vitesse de la sonde par rapport à nous</li>
+      </ul>
+      <p>Tout se joue au dénominateur. Pour un train et une balle, <i>u v</i>/<i>c</i>² vaut environ 2 × 10<sup>−15</sup> : le dénominateur est égal à 1 à quinze chiffres près, et on retrouve l'addition ordinaire. Quand <i>u</i> et <i>v</i> approchent <i>c</i>, ce dénominateur approche 2 et freine la somme : pour <i>u</i> = <i>v</i> = 0,99 <i>c</i>, le résultat vaut 0,99995 <i>c</i>. En posant <i>v</i> = <i>c</i>, la formule redonne <i>w</i> = <i>c</i> quelle que soit la vitesse du vaisseau, ce qui rejoint ce que les étoiles doubles indiquent.</p>
       <div class="scene wide"><svg id="f5" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="u">Vaisseau</label><input type="range" id="u" min="0" max="99" value="60"></span>
         <span class="grp"><label for="v">Sonde lancée du vaisseau</label><input type="range" id="v" min="0" max="99" value="60"></span>
       </div>
-      <p class="figcap"><b>Figure 5.</b> Un vaisseau lance une sonde vers l'avant. En rose, l'addition ordinaire. En bleu, la vraie. Poussez les deux curseurs au maximum.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> les étoiles doubles tournent normalement, donc la vitesse de la lumière ne dépend pas de celle de sa source. Et c'est précisément pour ça qu'on ne peut jamais la dépasser.</p>
+      <p class="figcap"><b>Figure 5.</b> Un vaisseau lance une sonde vers l'avant. En rose, l'addition ordinaire. En bleu, celle d'Einstein. Poussez les deux curseurs jusqu'au maximum.</p>
+      <p>La barre rose franchit alors le trait rouge de la vitesse de la lumière, ce qu'aucune mesure n'a jamais montré. La barre bleue, elle, s'arrête juste avant le trait et ne le dépasse pour aucun réglage des deux curseurs.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> si la vitesse d'une source s'ajoutait à celle de sa lumière, le retard d'une image sur l'autre vaudrait 2<i>d</i><i>v</i>/<i>c</i>², soit 244 jours pour une étoile double à 1000 années-lumière tournant à 100 km/s, cent fois sa période orbitale. Les images d'un même tour nous arriveraient alors mélangées, et les orbites observées sont pourtant régulières. La lumière part donc toujours à la même vitesse, et l'addition des vitesses suit la règle d'Einstein, qui ne franchit jamais <i>c</i>.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -140,7 +191,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);

@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/jumeaux.html">
-<title>Alice et Bob n'ont plus le même âge : le vrai sens du temps propre · Chamss Bachiri</title>
-<meta name="description" content="Le paradoxe des jumeaux expliqué par la géométrie de l'espace-temps : le temps vécu est la longueur du chemin, et la ligne droite est celle qui fait vieillir le plus.">
-<meta property="og:title" content="Alice et Bob n'ont plus le même âge">
+<title>Pourquoi le jumeau qui voyage vieillit-il moins vite ? · Chamss Bachiri</title>
+<meta name="description" content="Le paradoxe des jumeaux et le temps propre : la longueur d'un chemin dans l'espace-temps, le facteur de dilatation, un aller-retour calculé vers une étoile à dix années-lumière, et les horloges qui l'ont vérifié.">
+<meta property="og:title" content="Pourquoi le jumeau qui voyage vieillit-il moins vite ?">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -40,6 +40,11 @@
 .zeros{text-align:center;font-size:.95rem;color:#1f4f8f;margin:1.1rem 0 0}
 .zeros small{display:block;color:#5d6672;font-size:.8rem;margin-top:.3rem}
 .others li{margin-bottom:.9em}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -52,90 +57,159 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</h1>
-      <p class="dek">Deux jumeaux partent du même événement et se retrouvent au même événement. Celui qui a fait un détour dans l'espace-temps a moins vieilli. Ce n'est pas une illusion, et l'intuition tient dans une seule idée géométrique.</p>
-      <div class="meta"><span>25 septembre 2026</span><span>9 min</span></div>
+      <h1>Pourquoi le jumeau qui voyage vieillit-il moins vite ?</h1>
+      <p class="dek">Deux jumeaux partent du même événement et se retrouvent au même événement, et celui qui a voyagé a moins vieilli. L'explication tient à une différence de signe dans la façon de mesurer les longueurs en espace-temps. On la calcule ici sur un aller-retour complet, puis on la compare aux horloges qui ont réellement fait le voyage.</p>
+      <div class="meta"><span>25 septembre 2026</span><span>12 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
       <h2>Le voyage</h2>
-      <p>Alice et Bob ont trente ans. Alice reste sur Terre. Bob part vers une étoile située à quatre années-lumière, à peu près la distance de la plus proche, puis fait demi-tour et revient. Les deux horloges affichent la même chose au départ. <strong>Lancez le voyage et regardez-les diverger.</strong></p>
+      <p>Alice et Bob ont trente ans. Alice reste sur Terre. Bob part vers une étoile située à quatre années-lumière, à peu près la distance de Proxima du Centaure, puis fait demi-tour et revient au point de départ. Les deux horloges affichent la même valeur au moment de la séparation.</p>
+      <p>La question porte sur ce qu'elles affichent aux retrouvailles. Les deux jumeaux ont relié les deux mêmes événements, le départ et l'arrivée, par deux chemins différents dans l'espace-temps, et la durée écoulée dépend du chemin suivi.</p>
+      <p>Lancez le voyage, puis rejouez-le à une autre vitesse avec le curseur.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl">
         <button class="go" id="goB">Lancer le voyage</button>
         <span class="grp"><label for="bS">Vitesse du vaisseau</label><input type="range" id="bS" min="30" max="97" value="80" style="width:240px"></span>
       </div>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> Les distances sont celles mesurées depuis la Terre. Le compteur de Bob avance visiblement moins vite que celui d'Alice.</p>
+      <p class="figcap"><b>Figure 1.</b> Les distances portées sur l'axe sont celles mesurées depuis la Terre. L'aiguille de Bob tourne moins vite que celle d'Alice pendant tout le trajet, et l'écart accumulé subsiste après le retour.</p>
+      <p>L'horloge de Bob n'est pas déréglée. Elle mesure la durée le long du chemin qu'elle a parcouru, et ce chemin est plus court que celui d'Alice au sens de l'espace-temps. Il reste à dire ce que cette longueur signifie et comment elle se calcule.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Pourquoi ce n'est pas symétrique</h2>
-      <p>L'objection classique : du point de vue de Bob, c'est Alice qui s'éloigne puis revient, donc chacun devrait voir l'autre vieillir moins vite. Et c'est vrai pendant l'aller, et pendant le retour. La symétrie casse au <strong>demi-tour</strong>.</p>
-      <p>Alice reste dans un seul et même référentiel du début à la fin. Bob, lui, change de référentiel en cours de route, et il le sent physiquement : au moment du demi-tour, il est écrasé dans son siège. Ce n'est pas une question de point de vue, c'est un événement qui lui arrive à lui et pas à elle.</p>
-      <p>Ce changement a une conséquence précise. Ce que Bob appelle « en ce moment sur Terre » dépend de sa vitesse, exactement comme dans <a href="simultaneite.html">l'histoire des cigares de Gamow</a>. Quand il fait demi-tour, sa définition du présent sur Terre fait un bond en avant. Faisons les comptes pour un aller-retour à 80 % de la vitesse de la lumière :</p>
-      <div class="result">
-        <div class="eqrow">
-          <span class="pill">Terre vieillit pendant l'aller,<br>vu par Bob<b>1,8 an</b></span>
-          <span class="op">+</span>
-          <span class="pill">pendant le retour<b>1,8 an</b></span>
-          <span class="op">+</span>
-          <span class="pill">saut du demi-tour<br>2 × v × d / c²<b>6,4 ans</b></span>
-          <span class="op">=</span>
-          <span class="pill hi">âge pris par Alice<b>10 ans</b></span>
-        </div>
-        <p class="zeros">Bob, lui, n'a vécu que 6 ans<small>les deux comptabilités tombent juste, aucune des deux n'est fausse</small></p>
-      </div>
-      <p>Les 6,4 ans qui manquaient à l'appel sont exactement le décalage de simultanéité calculé dans l'autre article, avec d égal à quatre années-lumière et v égal à 0,8 fois la vitesse de la lumière.</p>
+      <h2>Le temps propre est la longueur d'un chemin</h2>
+      <p>Dessinons le temps vers le haut et l'espace vers la droite. Chaque objet trace alors une courbe, appelée ligne d'univers. Alice, immobile, monte tout droit. Bob part de biais vers la droite, puis revient de biais vers la gauche.</p>
+      <p>La durée que mesure une horloge le long de sa propre ligne d'univers porte le nom de temps propre. Sur un petit morceau de trajet, elle s'écrit ainsi :</p>
+      <p class="fx">d<i>τ</i>² = d<i>t</i>² − d<i>x</i>² / <i>c</i>²</p>
+      <ul class="sym">
+        <li><b>dτ</b> la durée lue sur l'horloge qui suit le mouvement, le temps propre</li>
+        <li><b>dt</b> la durée correspondante lue dans le référentiel où l'on trace le diagramme</li>
+        <li><b>dx</b> la distance parcourue pendant dt dans ce même référentiel</li>
+        <li><b>c</b> la vitesse de la lumière, 299 792 458 mètres par seconde</li>
+      </ul>
+      <p>Tout tient au signe moins. La géométrie ordinaire additionne les carrés, d<i>l</i>² = d<i>x</i>² + d<i>y</i>², et un détour allonge le chemin. Ici les carrés se retranchent, donc chaque mètre parcouru dans l'espace est déduit du temps écoulé. Le jumeau qui s'écarte de la ligne droite accumule moins de temps propre, et il vieillit moins que celui qui ne s'en écarte pas.</p>
+      <p>Quand la vitesse reste constante sur un tronçon, la relation s'intègre et donne directement la durée de ce tronçon :</p>
+      <p class="fx"><i>τ</i> = √( Δ<i>t</i>² − Δ<i>x</i>² / <i>c</i>² )</p>
+      <p>Pour Alice, Δ<i>x</i> vaut zéro et le temps propre égale la durée mesurée depuis la Terre. Pour Bob, Δ<i>x</i> ne vaut pas zéro, et la racine est plus petite. Tout l'écart entre les deux jumeaux est contenu dans ce terme soustrait.</p>
+      <p>Cliquez dans le diagramme pour déplacer le demi-tour de Bob. Le départ et les retrouvailles restent aux mêmes points.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> Les pointillés à 45 degrés sont les trajets de la lumière. Aucune ligne d'univers ne peut être plus penchée qu'eux, ce qui borne le détour accessible pour une durée totale donnée.</p>
+      <p>En déplaçant le point, on retrouve le résultat central : la ligne droite est le chemin qui accumule le plus de temps propre, et tout détour en retire. Le même dessin, lu avec un signe plus ou avec un signe moins, donne deux conclusions opposées.</p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 3.</b> Les deux panneaux ont la même géométrie. À gauche, 50 kilomètres d'avance et 40 kilomètres de décalage donnent √(50² + 40²) = 64,0 par demi-trajet, soit 128 kilomètres au lieu de 100. À droite, 5 ans et 4 années-lumière donnent √(5² − 4²) = 3 ans par demi-trajet, soit 6 ans au lieu de 10.</p>
+      <p>Cette façon de voir dépasse le cas des jumeaux. En relativité générale, un objet soumis à la seule gravitation suit la ligne d'univers qui rend son temps propre maximal, et la chute des corps se décrit entièrement de cette manière.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>L'intuition : le temps est une longueur</h2>
-      <p>Voici la façon de voir qui rend tout évident. Dessinons le temps vers le haut et l'espace vers la droite. Chaque personne trace une ligne, appelée ligne d'univers. Alice, immobile, monte tout droit. Bob part de biais, puis revient de biais.</p>
-      <p><strong>Le temps vécu par quelqu'un, c'est la longueur de sa ligne</strong>, mesurée avec la règle de l'espace-temps. Et cette règle a une particularité : au lieu d'ajouter le carré de la distance parcourue, elle le <strong>retranche</strong>. Résultat : plus vous vous déplacez dans l'espace, moins vous avancez dans le temps.</p>
-      <p><strong>Cliquez dans le diagramme pour déplacer le demi-tour de Bob.</strong> Le départ et l'arrivée restent les mêmes.</p>
-      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
-      <div class="live" id="f2L"></div>
-      <p class="figcap"><b>Figure 2.</b> Les pointillés à 45 degrés sont les trajets de la lumière : aucune ligne d'univers ne peut être plus penchée qu'eux. Le temps vécu par Bob se calcule par la racine carrée de la différence des carrés, et non par leur somme.</p>
-      <p>En déplaçant le point, on tombe sur le résultat central : <strong>la ligne droite est le chemin qui fait vieillir le plus</strong>. Tout détour coûte du temps vécu. C'est l'exact contraire de la géométrie ordinaire, où le détour allonge le chemin.</p>
-      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 3.</b> À gauche, une carte : le détour est plus long. À droite, le même dessin dans l'espace-temps : le détour est plus court en temps vécu. Une seule différence dans la formule, un signe moins.</p>
-      <p>On peut alors reformuler la relativité générale d'une phrase : un objet libre suit la ligne d'univers qui maximise son temps propre. La chute des corps n'est rien d'autre que ça.</p>
+      <h2>Le facteur de dilatation du temps</h2>
+      <p>Sur un tronçon parcouru à vitesse constante <i>v</i>, la distance vaut Δ<i>x</i> = <i>v</i> Δ<i>t</i>. En reportant cette égalité dans la racine précédente, on obtient la relation usuelle entre les deux durées :</p>
+      <p class="fx">Δ<i>t</i> = <i>γ</i> Δ<i>τ</i> &nbsp;&nbsp;avec&nbsp;&nbsp; <i>γ</i> = 1 / √( 1 − <i>v</i>²/<i>c</i>² )</p>
+      <ul class="sym">
+        <li><b>Δτ</b> la durée lue sur l'horloge embarquée</li>
+        <li><b>Δt</b> la durée lue sur les horloges du référentiel traversé</li>
+        <li><b>γ</b> le facteur de Lorentz, jamais inférieur à 1</li>
+      </ul>
+      <p>Le facteur <i>γ</i> vaut 1 au repos et croît avec la vitesse, d'abord très lentement. À un dixième de la vitesse de la lumière, l'écart n'est que de cinq millièmes, ce qui explique qu'aucune horloge d'usage courant ne le voie. Il faut s'approcher de <i>c</i> pour que le facteur devienne grand, et il part vers l'infini quand <i>v</i> tend vers <i>c</i>.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Vitesse <i>v</i>/<i>c</i></th><th>Facteur <i>γ</i></th><th>Temps propre pendant 10 ans écoulés au sol</th></tr>
+        <tr><td class="n">0,1</td><td class="n">1,00504</td><td class="n">9,950 ans</td></tr>
+        <tr><td class="n">0,5</td><td class="n">1,15470</td><td class="n">8,660 ans</td></tr>
+        <tr><td class="n">0,9</td><td class="n">2,29416</td><td class="n">4,359 ans</td></tr>
+        <tr><td class="n">0,99</td><td class="n">7,08881</td><td class="n">1,411 an</td></tr>
+        <tr><td class="n">0,999</td><td class="n">22,36627</td><td class="n">0,447 an, soit 163 jours</td></tr>
+      </table>
+      </div>
+      <p>À la moitié de la vitesse de la lumière, le facteur ne vaut encore que 1,15, et une horloge embarquée ne perd que 1,34 an sur dix. Les deux dernières lignes montrent où l'effet se joue : entre 0,99 et 0,999 fois <i>c</i>, la vitesse ne change que d'un millième alors que le facteur triple.</p>
     </section>
 
     <section class="step">
       <span class="no-num">4</span>
-      <h2>Ce n'est pas une expérience de pensée</h2>
+      <h2>Un aller-retour vers une étoile à dix années-lumière</h2>
+      <p>Prenons une étoile située à dix années-lumière de la Terre et un vaisseau qui s'y rend à 0,8 fois la vitesse de la lumière, fait demi-tour et revient à la même vitesse. Les deux durées se calculent de bout en bout.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Étape du calcul</th><th>Expression</th><th>Valeur</th></tr>
+        <tr><td>Durée du voyage, mesurée depuis la Terre</td><td class="n">2<i>d</i>/<i>v</i> = 2 × 10 / 0,8</td><td class="n">25 ans</td></tr>
+        <tr><td>Facteur de dilatation</td><td class="n">1 / √(1 − 0,8²) = 1 / 0,6</td><td class="n">1,6667</td></tr>
+        <tr><td>Temps propre du voyageur</td><td class="n">25 / 1,6667</td><td class="n">15 ans</td></tr>
+        <tr><td>Écart au retour</td><td class="n">25 − 15</td><td class="n">10 ans</td></tr>
+        <tr><td>Âges aux retrouvailles, à partir de 30 ans</td><td class="n">30 + 25 et 30 + 15</td><td class="n">55 ans et 45 ans</td></tr>
+      </table>
+      </div>
+      <p>Le même résultat s'obtient en se plaçant à bord. Pour le voyageur, la distance jusqu'à l'étoile se contracte dans le rapport <i>γ</i> et vaut six années-lumière. À 0,8 <i>c</i>, il lui faut 6 / 0,8 = 7,5 ans pour la franchir, et autant au retour, ce qui redonne 15 ans. La contraction des longueurs et la dilatation du temps sont deux lectures de la même géométrie, et elles tombent sur le même compte.</p>
+      <p>La formule du temps propre donne le même chiffre sans passer par <i>γ</i>. Sur l'aller, Δ<i>t</i> vaut 12,5 ans et Δ<i>x</i> vaut 10 années-lumière, donc <i>τ</i> = √(12,5² − 10²) = √(156,25 − 100) = √56,25 = 7,5 ans. Les deux tronçons mis ensemble font 15 ans, et Alice en a vécu 25.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Où se brise la symétrie</h2>
+      <p>L'objection habituelle est la suivante : vu du vaisseau, c'est la Terre qui s'éloigne puis revient, donc chacun des deux devrait trouver que l'autre vieillit moins vite. Pendant l'aller, cette lecture est correcte des deux côtés, et pendant le retour aussi. La symétrie se rompt au demi-tour.</p>
+      <p>Alice reste dans un seul référentiel inertiel du début à la fin. Bob en change en cours de route, et ce changement est un fait mesurable à bord. Un accéléromètre posé sur une table du vaisseau indique zéro pendant l'aller et pendant le retour, et sort de zéro pendant le demi-tour. Celui d'Alice ne quitte jamais zéro. Les deux lignes d'univers ne sont donc pas de même nature, et la relativité n'impose aucune symétrie entre elles.</p>
+      <p>L'ordre de grandeur de cette accélération se calcule. Passer de 0,8 <i>c</i> vers l'étoile à 0,8 <i>c</i> vers la Terre en un an de temps de bord demande une accélération propre d'environ 21 mètres par seconde carrée, un peu plus de deux fois la pesanteur terrestre. Ramenée à trente jours, la même manœuvre en demanderait 254 mètres par seconde carrée, soit vingt-six fois la pesanteur.</p>
+      <p>Le changement de référentiel a une seconde conséquence, chiffrable elle aussi. Ce que Bob appelle « en ce moment sur Terre » dépend de sa vitesse, comme dans <a href="simultaneite.html">l'histoire des cigares de Gamow</a>. Au demi-tour, sa définition du présent terrestre avance d'un coup de 2<i>vd</i>/<i>c</i>², soit 2 × 0,8 × 10 = 16 ans. Pour le voyage de la section précédente, sa comptabilité se solde ainsi :</p>
+      <div class="result">
+        <div class="eqrow">
+          <span class="pill">la Terre vieillit pendant l'aller,<br>vu du vaisseau<b>4,5 ans</b></span>
+          <span class="op">+</span>
+          <span class="pill">pendant le retour<b>4,5 ans</b></span>
+          <span class="op">+</span>
+          <span class="pill">saut du demi-tour<br>2 <i>v</i> <i>d</i> / <i>c</i>²<b>16 ans</b></span>
+          <span class="op">=</span>
+          <span class="pill hi">âge pris par Alice<b>25 ans</b></span>
+        </div>
+        <p class="zeros">Le voyageur, lui, n'a vécu que 15 ans<small>les deux comptabilités tombent sur le même résultat</small></p>
+      </div>
+      <p>Les 4,5 ans de chaque tronçon valent les 7,5 ans de temps de bord divisés par <i>γ</i>, puisque c'est l'horloge terrestre qui se déplace dans le référentiel du vaisseau pendant ce tronçon. Les deux tronçons n'en donnent que 9, et les 16 ans qui manquent pour arriver à 25 sont exactement le décalage de simultanéité du demi-tour.</p>
+      <p>Le résultat ne dépend pas de la brutalité du demi-tour. Un vaisseau qui mettrait un an à retourner sa vitesse au lieu d'un instant vivrait un temps propre légèrement différent sur ce morceau de trajet, et l'écart de dix ans resterait. L'accélération sert à repérer laquelle des deux lignes d'univers est coudée ; le calcul du temps propre, lui, se fait sans elle.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>Les vérifications expérimentales</h2>
+      <p>L'écart de dix ans calculé plus haut demande des vitesses hors d'atteinte, mais la même formule se vérifie à petite échelle, avec des horloges et avec des particules.</p>
+      <p>En octobre 1971, Joseph Hafele et Richard Keating ont embarqué quatre horloges atomiques à césium sur des vols commerciaux et ont fait deux fois le tour du monde, une fois vers l'est et une fois vers l'ouest, avant de comparer leurs lectures à celles des horloges restées à l'Observatoire naval des États-Unis. Deux effets se superposent et se soustraient : la vitesse de l'avion retarde ses horloges, l'altitude les avance. Le sens du vol change le bilan, parce que la rotation de la Terre s'ajoute à la vitesse de l'avion vers l'est et s'en retire vers l'ouest.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Décalage, en nanosecondes</th><th>Vol vers l'est</th><th>Vol vers l'ouest</th></tr>
+        <tr><td>Terme d'altitude, prévu</td><td class="n">+144 ± 14</td><td class="n">+179 ± 18</td></tr>
+        <tr><td>Terme de vitesse, prévu</td><td class="n">−184 ± 18</td><td class="n">+96 ± 10</td></tr>
+        <tr><td>Total prévu</td><td class="n">−40 ± 23</td><td class="n">+275 ± 21</td></tr>
+        <tr><td>Écart mesuré</td><td class="n">−59 ± 10</td><td class="n">+273 ± 7</td></tr>
+      </table>
+      </div>
+      <p>Les deux signes sont opposés : les horloges parties vers l'est sont revenues en retard, celles parties vers l'ouest en avance, et les deux écarts tombent dans les barres d'incertitude prévues.</p>
       <ul class="others">
-        <li><strong>Les muons de l'atmosphère.</strong> Ces particules se désintègrent en deux millionièmes de seconde, ce qui leur laisse à peine six cents mètres avant de disparaître. Elles sont créées à quinze kilomètres d'altitude, et elles arrivent pourtant au sol par millions. Leur horloge interne tourne au ralenti parce qu'elles filent à plus de 99 % de la vitesse de la lumière.</li>
-        <li><strong>Des horloges en avion.</strong> En 1971, Joseph Hafele et Richard Keating ont embarqué quatre horloges atomiques sur des vols commerciaux, vers l'est puis vers l'ouest, et les ont comparées à celles restées au sol. Les écarts, de l'ordre de la centaine de milliardièmes de seconde, correspondaient aux prédictions.</li>
-        <li><strong>Les accélérateurs.</strong> Dans les anneaux de stockage, des muons lancés à très grande vitesse vivent environ trente fois plus longtemps que ceux au repos. Les physiciens comptent là-dessus tous les jours pour concevoir leurs expériences.</li>
-        <li><strong>Votre GPS.</strong> Les horloges des satellites avancent d'environ 38 microsecondes par jour par rapport à celles du sol, en combinant le ralentissement dû à leur vitesse et l'accélération due à la gravité plus faible en altitude. Sans correction, la position dériverait de dix kilomètres par jour.</li>
+        <li><strong>Les muons de l'atmosphère.</strong> Un muon au repos a une vie moyenne de 2,2 microsecondes, ce qui ne lui laisserait que 660 mètres de parcours même à la vitesse de la lumière. Les muons du rayonnement cosmique naissent vers quinze kilomètres d'altitude et arrivent au sol en grand nombre, car à 0,999 <i>c</i> le facteur <i>γ</i> vaut 22,4 et la distance moyenne parcourue avant désintégration passe à 14,7 kilomètres. David Frisch et James Smith ont chiffré l'effet en 1963 en comptant les muons au sommet du mont Washington, à 1 917 mètres, puis à Cambridge au niveau de la mer : 563 par heure en haut, 412 par heure en bas, là où sans dilatation du temps il n'en serait arrivé qu'une trentaine. Le facteur de dilatation qu'ils en tirent vaut 8,8 ± 0,8, pour une prévision de 8,4 ± 2.</li>
+        <li><strong>Les muons en anneau de stockage.</strong> Au CERN, des muons lancés à <i>γ</i> = 29,3 dans un anneau voient leur vie moyenne passer de 2,2 à 64,4 microsecondes. La mesure publiée en 1977 par John Bailey et ses collègues s'accorde avec la prévision à mieux que le pour-cent, sur des particules soumises par ailleurs à une accélération transversale de l'ordre de 10<sup>18</sup> fois la pesanteur terrestre. Seule la vitesse intervient dans le calcul du temps propre, et cette accélération n'y ajoute rien.</li>
+        <li><strong>Les satellites du GPS.</strong> Ils orbitent à 26 560 kilomètres du centre de la Terre, ce qui correspond à une vitesse de 3,87 kilomètres par seconde. Leur vitesse retarde leurs horloges de 7,2 microsecondes par jour, leur altitude les avance de 45,7 microsecondes par jour, et le bilan net est une avance de 38 microsecondes par jour. Comme une position GPS s'obtient en multipliant un temps de propagation par <i>c</i>, 38 microsecondes d'erreur d'horloge valent 38 × 10<sup>−6</sup> × 3 × 10<sup>8</sup> ≈ 11 kilomètres sur une distance mesurée. Les horloges embarquées sont donc réglées avant le lancement pour tourner un peu plus lentement que celles du sol.</li>
       </ul>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> il n'y a pas d'horloge qui ment ni d'illusion d'optique. Alice et Bob ont simplement suivi deux chemins différents entre les deux mêmes points de l'espace-temps, et le temps vécu est la longueur du chemin. Celui qui est resté droit a vieilli le plus.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> le temps vécu est la longueur de la ligne d'univers suivie, et cette longueur se calcule en retranchant le déplacement spatial au lieu de l'ajouter. Le jumeau resté droit en accumule donc le maximum, et tout détour en retire. Les deux situations ne sont pas symétriques parce qu'un seul des deux change de référentiel, et l'accéléromètre de son vaisseau le signale au moment du demi-tour.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -148,7 +222,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);

@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/simultaneite.html">
-<title>Les cigares de Gamow : quand le désaccord devient visible · Chamss Bachiri</title>
-<meta name="description" content="Deux cigares allumés en même temps dans un train ne le sont pas pour le quai. De combien exactement, et à partir de quelle vitesse et de quelle distance cela devient mesurable.">
-<meta property="og:title" content="Les cigares de Gamow : quand le désaccord devient visible">
+<title>Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai · Chamss Bachiri</title>
+<meta name="description" content="Deux voyageurs allument leur cigare au même instant dans un train, et le quai ne les date pas ensemble. La transformation de Lorentz donne l'écart, gamma v L sur c carré, avec les chiffres pour un TGV, pour la rotation de la Terre et pour un vaisseau rapide.">
+<meta property="og:title" content="Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -39,6 +39,11 @@
 .op{font-size:1.5rem;color:#5d6672}
 .zeros{text-align:center;font-size:.95rem;color:#1f4f8f;margin:1.1rem 0 0}
 .zeros small{display:block;color:#5d6672;font-size:.8rem;margin-top:.3rem}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -51,34 +56,56 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Les cigares de Gamow : à partir de quand le désaccord devient visible ?</h1>
-      <p class="dek">Deux voyageurs allument leur cigare en même temps dans un train. Pour le chef de gare, ce n'est pas en même temps. Reste à savoir de combien, et à partir de quelles vitesses et de quelles distances ça devient mesurable.</p>
-      <div class="meta"><span>23 septembre 2026</span><span>9 min</span></div>
+      <h1>Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</h1>
+      <p class="dek">Deux voyageurs assis aux deux bouts d'un wagon allument leur cigare au même instant. Pour le chef de gare resté sur le quai, l'un des deux a pris feu avant l'autre. La transformation de Lorentz donne l'écart exact, et dit à partir de quelle vitesse et de quelle longueur il devient mesurable.</p>
+      <div class="meta"><span>23 septembre 2026</span><span>12 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Pourquoi les deux ne peuvent pas être d'accord</h2>
-      <p>Dans <em>Matière, Terre et Ciel</em>, Gamow prend cet exemple : deux voyageurs assis aux deux bouts d'un wagon allument leur cigare au même instant. Pour tous les gens du train, c'est simultané. Pour l'observateur resté sur le quai, non : l'un des deux a allumé avant l'autre.</p>
-      <p>La raison tient à la façon dont on décide que deux choses lointaines sont simultanées. On ne peut pas le voir directement : il faut comparer des signaux, et le signal le plus rapide qui existe est la lumière. Or la lumière va à la même vitesse pour tout le monde, quel que soit le mouvement de sa source, comme le montrent <a href="etoiles-doubles.html">les étoiles doubles</a>. Le voyageur assis au milieu du wagon reçoit les deux lueurs en même temps et conclut, à juste titre, que les deux cigares ont été allumés ensemble. Mais vu du quai, ce voyageur s'est déplacé pendant le trajet de la lumière : il est allé au-devant de la lueur venue de l'avant et s'est éloigné de celle venue de l'arrière. Pour que les deux lui parviennent quand même ensemble, il faut que celle de l'arrière soit partie plus tôt.</p>
-      <p>Aucun des deux n'a tort. Simultané n'est pas une propriété des événements : c'est une propriété des événements <strong>et</strong> de celui qui regarde.</p>
+      <h2>Comment on décide que deux événements lointains sont simultanés</h2>
+      <p>Dans <em>Matière, Terre et Ciel</em>, George Gamow propose cet exemple. Deux voyageurs assis aux deux bouts d'un wagon allument leur cigare au même instant. Pour les gens du train, les deux flammes apparaissent ensemble. Pour l'observateur resté sur le quai, elles n'apparaissent pas ensemble, et c'est celle de l'arrière qui vient la première.</p>
+      <p>Tout vient de la façon dont on établit qu'une chose se produit en même temps qu'une autre, à distance. Le constat ne peut pas être immédiat, puisqu'il faut d'abord que l'information arrive, et le porteur le plus rapide qui existe est la lumière. Or la lumière se propage à la même vitesse pour tout le monde, quel que soit le mouvement de sa source, comme le montrent <a href="etoiles-doubles.html">les étoiles doubles</a>.</p>
+      <p>Le voyageur assis au milieu du wagon reçoit les deux lueurs au même instant, et il en conclut que les deux cigares ont été allumés ensemble. Vu du quai, ce même voyageur s'est déplacé pendant que la lumière voyageait : il est allé au-devant de la lueur venue de l'avant, et il s'est éloigné de celle venue de l'arrière. La lueur arrière a donc parcouru plus de chemin, et pour arriver quand même en même temps que l'autre, elle est partie plus tôt. Les deux descriptions emploient la même définition de la simultanéité et la même vitesse de la lumière, et elles aboutissent à deux réponses différentes.</p>
+      <p>La transformation de Lorentz met cette dépendance noir sur blanc. Elle donne la date d'un événement dans un référentiel lorsqu'on connaît sa date et sa position dans l'autre.</p>
+      <p class="fx"><i>t</i>' = γ ( <i>t</i> − <i>v</i> <i>x</i> / <i>c</i>² )</p>
+      <ul class="sym">
+        <li><b>t</b> la date de l'événement et <b>x</b> sa position, mesurées dans le premier référentiel</li>
+        <li><b>t'</b> la date du même événement dans un référentiel qui se déplace à la vitesse <b>v</b> le long de l'axe des <b>x</b></li>
+        <li><b>c</b> la vitesse de la lumière, 299 792 458 mètres par seconde</li>
+        <li><b>γ</b> un facteur numérique toujours supérieur ou égal à 1, donné juste après</li>
+      </ul>
+      <p>Le terme décisif est <i>v</i> <i>x</i> / <i>c</i>². La nouvelle date ne dépend pas seulement de l'ancienne, elle dépend aussi de l'endroit où l'événement s'est produit. Deux événements qui portent la même date <i>t</i> mais des positions <i>x</i> différentes reçoivent donc deux dates <i>t</i>' différentes. La simultanéité dépend de la position autant que du temps, et deux observateurs en mouvement l'un par rapport à l'autre ne découpent pas le temps en les mêmes tranches d'instants.</p>
+      <p>Le facteur γ se calcule à partir de la seule vitesse.</p>
+      <p class="fx">γ = 1 / √( 1 − <i>v</i>² / <i>c</i>² )</p>
+      <p>Il reste très proche de 1 tant que la vitesse demeure modeste, et il ne grandit vraiment qu'au voisinage de <i>c</i> : 1,005 à 10 % de la vitesse de la lumière, 1,155 à 50 %, 2,294 à 90 % et 7,089 à 99 %. Aux vitesses de la vie courante, γ est indiscernable de 1, et le désaccord sur la simultanéité est alors porté par le seul terme <i>v</i> <i>x</i> / <i>c</i>².</p>
+      <p>Lancez l'animation, puis faites glisser le curseur de temps pour arrêter la scène entre les deux allumages.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl">
         <button class="go" id="playB">Lancer</button>
         <div class="timeline" style="display:flex;align-items:center;gap:.7rem;flex:1;min-width:220px"><input type="range" id="tR" min="0" max="100" value="0" aria-label="Temps" style="flex:1"></div>
       </div>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> Le train va ici à 60 % de la vitesse de la lumière, sinon on ne verrait rien. En bas, le train paraît aussi plus court : c'est la contraction des longueurs, qui accompagne toujours ce décalage.</p>
+      <p class="figcap"><b>Figure 1.</b> Le train va à 60 % de la vitesse de la lumière, faute de quoi rien ne serait visible à l'écran. Dans le panneau du haut, les deux cigares s'allument au même instant. Dans celui du bas, l'arrière s'allume d'abord et le wagon paraît aussi plus court, la contraction des longueurs accompagnant toujours ce décalage.</p>
+      <p>Les deux panneaux montrent le même couple d'événements, daté deux fois. Chacun des deux observateurs mesure correctement dans son propre référentiel, et la question de savoir lequel des deux cigares a été allumé le premier n'a pas de réponse indépendante du référentiel choisi.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>De combien exactement</h2>
-      <p>L'écart se calcule en une ligne. Si les deux événements sont simultanés dans le train et séparés d'une distance <em>d</em> le long du mouvement, alors pour le quai le décalage vaut :</p>
-      <p class="eq">Δt = γ × <em>v</em> × <em>d</em> / c²</p>
-      <p class="eqs">γ vaut 1 aux vitesses ordinaires et ne grossit qu'en approchant de la vitesse de la lumière.</p>
-      <p>Trois choses sautent aux yeux. La taille seule ne suffit pas, la vitesse seule non plus : <strong>c'est leur produit qui compte</strong>. Et ce produit est divisé par c², un nombre gigantesque, 9 suivi de seize zéros. C'est pour cette raison qu'on ne remarque jamais rien dans la vie courante.</p>
-      <p><strong>À vous : cherchez la combinaison qui rend le décalage détectable.</strong></p>
+      <h2>L'écart entre les deux datations</h2>
+      <p>Pour les deux cigares, le calcul tient en une ligne. Les deux allumages portent la même date dans le train, et leurs positions sont séparées de la longueur <i>L</i> qui sépare les deux voyageurs. Dans la différence des dates, le terme en <i>t</i> disparaît et il ne reste que le terme de position.</p>
+      <p class="fx">Δ<i>t</i>' = γ <i>v</i> <i>L</i> / <i>c</i>²</p>
+      <ul class="sym">
+        <li><b>Δt'</b> l'écart entre les deux allumages mesuré depuis le quai</li>
+        <li><b>L</b> la distance entre les deux cigares mesurée dans le train, le long du mouvement</li>
+        <li><b>v</b> la vitesse du train</li>
+      </ul>
+      <p>La vitesse et la longueur entrent par leur produit. Doubler l'une ou l'autre double l'écart, et une grande longueur compense une faible vitesse comme une grande vitesse compense une faible longueur. Seule la composante le long du mouvement intervient, de sorte que deux cigares allumés côte à côte sur la même banquette restent simultanés pour tout le monde. Ce produit est ensuite divisé par <i>c</i>², qui vaut 8,99 × 10<sup>16</sup> mètres carrés par seconde carrée, et ce dénominateur place l'écart hors de portée dans toutes les situations ordinaires.</p>
+      <p>Le ralentissement du temps est un autre effet de la même transformation, porté par le facteur γ. L'écart de simultanéité vient du terme <i>v</i> <i>x</i> / <i>c</i>², et il subsiste entièrement quand γ est indiscernable de 1.</p>
+      <p>Prenons une rame double de 400 mètres lancée à 300 km/h, soit 83,3 mètres par seconde. À cette vitesse γ vaut 1 + 3,9 × 10<sup>−14</sup>, et on peut l'omettre.</p>
+      <p class="fx">Δ<i>t</i>' = 83,3 × 400 / 8,99 × 10<sup>16</sup> = 3,7 × 10<sup>−13</sup> s</p>
+      <p>Soit 0,37 picoseconde, ou 370 femtosecondes. Pendant cette durée, la lumière parcourt 0,11 millimètre. La durée elle-même n'est pas hors d'atteinte des instruments, puisque les meilleures mesures de temps descendent à la femtoseconde, et l'écart vaut encore quelques centaines de fois cette limite. Ce qui manque est la stabilité du dispositif : il faudrait deux horloges aux deux bouts de la rame, synchronisées à mieux d'un dixième de picoseconde, et une longueur de train connue au dixième de millimètre près sur 400 mètres, c'est-à-dire à trois dix-millionièmes près.</p>
+      <p>Réglez la distance et la vitesse, ou choisissez une des situations proposées, et comparez l'écart obtenu aux repères de l'échelle de droite.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="dS">Distance entre les deux cigares</label><input type="range" id="dS" min="0" max="100" value="23" style="width:220px"></span>
@@ -88,15 +115,27 @@
         <div class="seg" id="presets"></div>
       </div>
       <div class="live" id="f2L"></div>
-      <p class="figcap"><b>Figure 2.</b> L'échelle de droite indique ce que différents instruments savent distinguer. Le trait noir est le décalage calculé pour les réglages choisis.</p>
+      <p class="figcap"><b>Figure 2.</b> L'échelle verticale est logarithmique et couvre dix-neuf ordres de grandeur, de la seconde à 10<sup>−19</sup> seconde. Les repères indiquent ce que différents moyens de mesure savent distinguer, et le point bleu donne l'écart calculé pour les réglages choisis. Le bouton TGV correspond à une rame de 200 mètres à 320 km/h, qui donne 0,20 picoseconde.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>La réponse à la question</h2>
-      <p>Pour que le décalage soit <strong>visible à l'œil nu</strong>, il faut environ quatre centièmes de seconde, donc un produit vitesse × distance de l'ordre de 3,6 millions de milliards en unités du système international. Avec un train lancé à 60 % de la vitesse de la lumière, il faudrait qu'il mesure <strong>seize mille kilomètres</strong>. Avec un train de 200 mètres, il faudrait une vitesse mille milliards de fois supérieure à celle de la lumière, ce qui n'existe pas. <strong>À échelle humaine, le décalage ne sera jamais visible, quoi qu'on fasse.</strong></p>
-      <p>Pour qu'il soit simplement <strong>mesurable</strong>, c'est une tout autre histoire, parce que nos instruments descendent jusqu'à la femtoseconde. Le TGV et ses 200 mètres donnent deux dixièmes de picoseconde : c'est mille fois plus que ce qu'on sait mesurer en laboratoire. Rien n'est physiquement impossible là-dedans, seulement très difficile à isoler des autres effets.</p>
-      <p>Et il existe un cas où le décalage n'est pas une curiosité mais une obligation : le GPS.</p>
+      <h2>À partir de quelle vitesse et de quelle longueur l'écart se mesure</h2>
+      <p>La question se retourne. On se fixe l'écart à atteindre, et on demande quel produit de la vitesse par la longueur le fournit.</p>
+      <p class="fx"><i>v</i> <i>L</i> = Δ<i>t</i>' <i>c</i>² / γ</p>
+      <p>Pour une nanoseconde, ce produit vaut 9,0 × 10<sup>7</sup> mètres carrés par seconde. À 300 km/h, il faut alors 1 080 kilomètres entre les deux cigares, et sur 400 mètres il faut 225 kilomètres par seconde, soit 0,075 % de la vitesse de la lumière. Un train ne remplit aucune des deux conditions, un satellite remplit la seconde et la planète elle-même remplit la première.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Écart à atteindre</th><th>Ce qui le distingue</th><th>Couples vitesse et longueur qui le donnent</th></tr>
+        <tr><td class="n">1 ns</td><td>l'électronique courante</td><td>300 km/h sur 1 080 km, ou 400 m à 225 km/s</td></tr>
+        <tr><td class="n">1 µs</td><td>une horloge de laboratoire sans difficulté</td><td>7,05 km/s sur un diamètre terrestre de 12 742 km, soit l'ordre de grandeur de la vitesse d'un satellite en orbite basse</td></tr>
+        <tr><td class="n">1 ms</td><td>n'importe quel chronomètre</td><td>10 % de <i>c</i> sur 2 980 km</td></tr>
+        <tr><td class="n">40 ms</td><td>l'œil humain</td><td>60 % de <i>c</i> sur 16 000 km, 90 % de <i>c</i> sur 5 800 km, 99 % de <i>c</i> sur 1 710 km</td></tr>
+      </table>
+      </div>
+      <p>Un objet de la taille de la Terre déplace le résultat de plusieurs ordres de grandeur. Le diamètre terrestre vaut 12 742 kilomètres, et un point de l'équateur se déplace à 465 mètres par seconde du fait de la rotation. Le produit donne 6,6 × 10<sup>−8</sup> seconde, soit 66 nanosecondes. La même longueur emportée par le mouvement de la Terre autour du Soleil, à 29,8 kilomètres par seconde, donne 4,2 × 10<sup>−6</sup> seconde.</p>
+      <p>Un vaisseau rapide obtient le même résultat avec une longueur ordinaire. À 60 % de la vitesse de la lumière, γ vaut 1,25, et cent mètres suffisent pour 2,5 × 10<sup>−7</sup> seconde, soit 250 nanosecondes, le temps que la lumière parcoure 75 mètres. Pour atteindre les quatre centièmes de seconde que l'œil sait séparer, il faut encore 16 000 kilomètres à cette vitesse, 5 800 kilomètres à 90 % de <i>c</i> et 1 710 kilomètres à 99 %. Le seuil de l'œil demande donc un objet de taille planétaire, quelle que soit la vitesse envisagée.</p>
+      <p>Il existe un cas où cet écart est pris en compte tous les jours, la navigation par satellites. Les positions se calculent à partir de dates d'émission et de réception, et le repère dans lequel ces dates sont comparées tourne avec la Terre dès qu'on se place au sol. Pour une distance de 20 000 kilomètres, qui est l'échelle qui sépare un satellite de son récepteur, la rotation de l'équateur à 465 mètres par seconde donne le chiffre suivant.</p>
       <div class="result">
         <div class="eqrow">
           <span class="pill">vitesse de la surface terrestre<b>465 m/s</b></span>
@@ -105,31 +144,55 @@
           <span class="op">=</span>
           <span class="pill hi">décalage de simultanéité<b>103 nanosecondes</b></span>
         </div>
-        <p class="zeros">soit 31 mètres d'erreur de position si on l'oublie<small>la lumière parcourt 30 centimètres par nanoseconde</small></p>
+        <p class="zeros">soit 31 mètres d'erreur de position si on l'omet<small>la lumière parcourt 30 centimètres par nanoseconde</small></p>
       </div>
-      <p>Les satellites et les récepteurs GPS ne peuvent pas se contenter d'une horloge commune : la Terre tourne, et deux horloges éloignées ne sont pas synchronisées de la même façon selon qu'on se place dans le référentiel du sol ou dans un référentiel qui ne tourne pas. La correction est calculée en permanence dans chaque récepteur. Sans elle, votre position dériverait de plusieurs dizaines de mètres.</p>
-      <p>Une précision, pour éviter une confusion courante : le décalage dont on parle ici n'est pas le ralentissement du temps. Ce sont deux effets distincts, qui apparaissent ensemble. Le ralentissement du temps, lui, est aujourd'hui mesuré au laboratoire pour des différences d'altitude de quelques dizaines de centimètres, et pour des vitesses de l'ordre de celle d'un piéton.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> le désaccord sur la simultanéité est réel et se calcule exactement, mais il se mesure en vitesse multipliée par distance, puis divisée par le carré de la vitesse de la lumière. À notre échelle, il reste des milliards de fois trop petit pour l'œil. À l'échelle d'une planète qui tourne, il vaut déjà trente mètres d'erreur de navigation.</p>
+      <p>Les récepteurs ne comparent donc pas leurs dates dans le repère qui tourne avec le sol, mais dans un repère centré sur la Terre et qui ne tourne pas. La correction correspondante porte le nom de terme de Sagnac, et elle atteint quelques centaines de nanosecondes selon la position du satellite et celle du récepteur. Trois nanosecondes d'erreur de datation valent environ un mètre d'erreur de position.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Ce qui peut changer d'ordre, et ce qui ne peut pas</h2>
+      <p>Si deux observateurs ne datent pas les mêmes événements de la même façon, on peut se demander si l'un d'eux verrait un effet précéder sa cause. La transformation l'exclut, et la condition se lit sur une combinaison des deux écarts qui garde la même valeur dans tous les référentiels.</p>
+      <p class="fx"><i>c</i>² Δ<i>t</i>² − Δ<i>x</i>² = <i>c</i>² Δ<i>t</i>'² − Δ<i>x</i>'²</p>
+      <ul class="sym">
+        <li><b>Δt</b> l'écart de dates entre les deux événements, <b>Δx</b> leur écart de positions</li>
+        <li><b>Δt'</b> et <b>Δx'</b> les mêmes écarts mesurés dans un autre référentiel</li>
+      </ul>
+      <p>Cette combinaison donne le même nombre pour tous les observateurs, signe compris, et c'est le signe qui décide. Quand il est positif, la durée l'emporte sur la distance : un signal lumineux a le temps d'aller du premier événement au second, et les deux se succèdent dans le même ordre pour tout le monde. L'ordre de deux événements ne peut donc s'inverser que dans le cas inverse.</p>
+      <p class="fx"><i>c</i> |Δ<i>t</i>| &lt; |Δ<i>x</i>|</p>
+      <p>Les deux allumages sont dans ce cas. Leur écart de dates est nul dans le train et leur écart de positions vaut <i>L</i>, donc la combinaison vaut −<i>L</i>². Aucune lumière partie de l'un ne peut atteindre l'autre, aucun des deux allumages n'a pu provoquer l'autre, et l'ordre dans lequel on les range n'engage rien. Dès qu'un signal peut passer d'un événement à l'autre, cet ordre devient le même dans tous les référentiels. La causalité n'est à aucun moment en jeu.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Situation</th><th>Vitesse</th><th>Longueur</th><th>Écart de simultanéité</th></tr>
+        <tr><td>Rame TGV double</td><td class="n">300 km/h</td><td class="n">400 m</td><td class="n">3,7 × 10<sup>−13</sup> s</td></tr>
+        <tr><td>Station spatiale internationale</td><td class="n">7,7 km/s</td><td class="n">100 m</td><td class="n">8,5 × 10<sup>−12</sup> s</td></tr>
+        <tr><td>Rotation terrestre à l'équateur</td><td class="n">465 m/s</td><td class="n">12 742 km</td><td class="n">6,6 × 10<sup>−8</sup> s</td></tr>
+        <tr><td>Terre sur son orbite</td><td class="n">29,8 km/s</td><td class="n">12 742 km</td><td class="n">4,2 × 10<sup>−6</sup> s</td></tr>
+        <tr><td>Vaisseau rapide</td><td class="n">60 % de <i>c</i></td><td class="n">100 m</td><td class="n">2,5 × 10<sup>−7</sup> s</td></tr>
+        <tr><td>Vaisseau rapide</td><td class="n">60 % de <i>c</i></td><td class="n">16 000 km</td><td class="n">4,0 × 10<sup>−2</sup> s</td></tr>
+      </table>
+      </div>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> la date d'un événement dans un référentiel dépend de sa position dans l'autre, par le terme <i>v</i> <i>x</i> / <i>c</i>², et deux événements simultanés séparés d'une longueur <i>L</i> se retrouvent décalés de γ <i>v</i> <i>L</i> / <i>c</i>². Le produit de la vitesse par la longueur, divisé par 8,99 × 10<sup>16</sup>, laisse 0,37 picoseconde pour une rame de TGV et 66 nanosecondes pour un diamètre terrestre entraîné par la rotation. L'écart ne devient visible à l'œil qu'à partir d'objets de taille planétaire lancés à une fraction notable de la vitesse de la lumière, et il ne renverse jamais l'ordre de deux événements qu'un signal peut relier.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -142,7 +205,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);

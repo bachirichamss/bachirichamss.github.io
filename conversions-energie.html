@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/conversions-energie.html">
-<title>Trente-six façons de transformer l'énergie · Chamss Bachiri</title>
-<meta name="description" content="Une grille interactive des conversions entre les six formes d'énergie, masse comprise, avec le rendement et un exemple à chaque case, un constructeur de chaînes, et la limite de Carnot.">
-<meta property="og:title" content="Trente-six façons de transformer l'énergie">
+<title>Les conversions d'énergie, forme par forme · Chamss Bachiri</title>
+<meta name="description" content="Une grille interactive des conversions entre six formes d'énergie, masse comprise, avec le rendement et un exemple à chaque case, un constructeur de chaînes de conversion, la limite de Carnot et le coefficient de performance d'une pompe à chaleur.">
+<meta property="og:title" content="Les conversions d'énergie, forme par forme">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -83,39 +83,50 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Trente-six façons de transformer l'énergie</h1>
-      <p class="dek">Les vieux manuels donnaient un tableau à vingt-cinq cases : mécanique, chaleur, électricité, chimie, rayonnement. Il y manque une forme, les six cases de la diagonale, et surtout l'idée que toutes les conversions ne se valent pas. Voici la version complète, à manipuler.</p>
+      <h1>Les conversions d'énergie, forme par forme</h1>
+      <p class="dek">L'énergie se conserve, et pourtant elle ne cesse de changer de forme. Chaque passage d'une forme à une autre porte un nom et un rendement. La grille qui suit croise six formes au départ et six à l'arrivée, soit trente-six cases, avec ensuite un constructeur de chaînes et la limite de Carnot.</p>
       <div class="meta"><span>18 octobre 2026</span><span>15 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Ce qui manque au tableau d'origine</h2>
-      <p>Le tableau des anciens manuels croise cinq formes d'énergie et remplit chaque case avec l'appareil qui fait le passage. Machine à vapeur pour aller de la chaleur au mouvement, dynamo pour aller du mouvement à l'électricité, et ainsi de suite. C'est une très bonne idée, et elle a trois trous.</p>
-      <p><strong>Il manque une sixième forme : la masse.</strong> En 1905, Einstein montre que la masse est de l'énergie, avec un taux de change fixé par <i>E</i> = <i>mc</i>². Cela ajoute une ligne et une colonne, soit onze cases, et ce sont les plus spectaculaires du tableau : c'est là que vivent les étoiles, les réacteurs et l'antimatière.</p>
-      <p><strong>Il manque la diagonale.</strong> Les vieux tableaux la hachurent, comme si transformer une forme en elle-même n'avait pas de sens. Pourtant le transformateur, le levier, l'échangeur de chaleur et la fluorescence sont exactement cela, et ce sont des objets très utiles.</p>
-      <p><strong>Il manque le deuxième principe.</strong> Le tableau présente les cases comme équivalentes, ce qu'elles ne sont pas du tout. Aller du mouvement vers la chaleur marche à 100 %, à tous les coups, gratuitement. Le chemin inverse est plafonné par une limite absolue qu'aucune technique ne franchira. C'est l'objet de la troisième figure.</p>
-      <p>Dernière précision de vocabulaire, qui n'est pas un détail. En toute rigueur, la chaleur n'est pas une forme d'énergie <em>stockée</em> mais un <em>mode de transfert</em> : ce qu'un corps contient s'appelle son énergie interne, et la chaleur est ce qui en passe d'un corps à l'autre à cause d'une différence de température. Je garde le mot « thermique » dans la grille par commodité, comme tout le monde.</p>
+      <h2>Une quantité qui se conserve et qui change de forme</h2>
+      <p>Un système isolé possède une énergie totale, et cette énergie totale ne varie pas. C'est l'énoncé du premier principe de la thermodynamique, et il s'écrit en une ligne.</p>
+      <p class="fx">Δ<i>E</i><sub>total</sub> = 0</p>
+      <ul class="sym">
+        <li><b>E<sub>total</sub></b> la somme des énergies du système, toutes formes additionnées</li>
+        <li><b>Δ</b> la variation de cette somme entre deux instants</li>
+      </ul>
+      <p>La force de cette égalité est qu'elle tient sans rien connaître du détail. Si une forme d'énergie diminue de 40 joules, d'autres augmentent de 40 joules au total, et il suffit de chercher où. Sa limite est tout aussi nette : elle dit ce qui est conservé, pas ce qui est possible. Cent joules de mouvement qui finissent entièrement en chaleur dans une plaquette de frein respectent l'égalité. Cent joules de chaleur qui quitteraient spontanément une plaquette tiède pour relancer la roue la respecteraient tout autant, et cela ne s'observe jamais. Il faut donc une seconde grandeur, l'entropie, pour séparer les transformations qui ont lieu de celles qui n'ont jamais lieu.</p>
+      <p>Les six formes retenues ici sont la mécanique, la thermique, l'électrique, la chimique, la rayonnante et la masse. Chacune se repère à la façon dont elle est rangée dans la matière : le mouvement d'ensemble ou la hauteur d'un objet, l'agitation désordonnée de ses atomes, des charges séparées, des liaisons chimiques, un champ électromagnétique qui se propage, et enfin la masse elle-même.</p>
+      <p>Un point de vocabulaire avant d'entrer dans la grille. En toute rigueur, la chaleur n'est pas une forme d'énergie stockée mais un mode de transfert : ce qu'un corps contient s'appelle son énergie interne, et la chaleur est ce qui en passe d'un corps à l'autre sous l'effet d'une différence de température. Le mot « thermique » désigne ici l'énergie interne, par commodité d'écriture.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>La grille, case par case</h2>
+      <h2>Les trente-six cases, départ et arrivée</h2>
+      <p>La grille reprend une présentation classique des manuels de physique, qui croisent les formes d'énergie et placent dans chaque case l'appareil qui fait le passage : la machine à vapeur pour aller de la chaleur au mouvement, l'alternateur pour aller du mouvement à l'électricité. On y ajoute la masse, que la relation d'Einstein a rendue nécessaire, ce qui porte le compte à six formes et trente-six cases.</p>
+      <p>Les six cases de la diagonale sont celles où une forme devient elle-même. Le levier échange de la force contre du déplacement, le transformateur échange de la tension contre du courant, l'échangeur déplace de la chaleur, la fluorescence change la couleur d'un photon. La forme ne change pas, sa répartition change.</p>
       <p>Six formes en ligne pour le départ, six en colonne pour l'arrivée. <strong>Cliquez n'importe quelle case.</strong></p>
       <div class="matwrap" id="grille"></div>
       <p class="scene-hint" style="margin-top:.5rem">Sur petit écran, la grille se fait glisser horizontalement.</p>
       <div class="fiche" id="fiche"></div>
-      <p class="figcap"><b>Figure 1.</b> Les rendements affichés sont des ordres de grandeur courants, pas des records. Les six cases de la diagonale sont encadrées en pointillés.</p>
-      <p>Deux choses sautent aux yeux quand on parcourt la grille. D'abord, la colonne « thermique » est pleine de 100 % : tout finit facilement en chaleur, et la plupart du temps gratuitement, sans même qu'on le veuille. Ensuite, la ligne « thermique » est la plus pauvre de toutes : repartir de la chaleur coûte cher, et plafonne vite.</p>
-      <p>Cette dissymétrie est la flèche du temps. Elle a sa raison profonde du côté du comptage des états possibles, que j'ai détaillé dans <a href="entropie-echiquier.html">l'article sur l'entropie</a>.</p>
+      <p class="figcap"><b>Figure 1.</b> Les rendements affichés sont des ordres de grandeur courants, et non des records de laboratoire. Les six cases de la diagonale sont encadrées en pointillés.</p>
+      <p>Deux régularités apparaissent quand on parcourt la grille. La colonne « thermique » est pleine de 100 % : toute forme d'énergie finit en chaleur sans qu'il faille d'appareil particulier, et le plus souvent sans qu'on l'ait cherché. La ligne « thermique » est la plus pauvre : repartir de la chaleur demande une machine, et le rendement y plafonne.</p>
+      <p>Cette dissymétrie entre la ligne et la colonne est la flèche du temps. Son origine se trouve du côté du comptage des états possibles, que j'ai détaillé dans <a href="entropie-echiquier.html">l'article sur l'entropie</a>.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>Les rendements se multiplient</h2>
-      <p>Une conversion seule perd peu. Une chaîne de conversions perd énormément, parce que les rendements ne s'additionnent pas, ils se multiplient :</p>
-      <p class="fx">η<sub>total</sub> = η₁ × η₂ × η₃ × …</p>
-      <p>Trois étapes à 70 % chacune ne font pas 70 %, elles font 0,7³ = 34 %. <strong>Construisez votre propre chaîne, ou prenez-en une toute faite.</strong></p>
+      <h2>Les rendements d'une chaîne se multiplient</h2>
+      <p>Presque aucune application ne tient en une seule case. L'électricité d'une lampe vient d'un combustible qui a chauffé de l'eau, dont la vapeur a fait tourner une turbine, qui a entraîné un alternateur. Chaque étape a son rendement, et ces rendements ne s'additionnent pas.</p>
+      <p class="fx">η<sub>total</sub> = η<sub>1</sub> × η<sub>2</sub> × η<sub>3</sub> × …</p>
+      <ul class="sym">
+        <li><b>η<sub>total</sub></b> la part de l'énergie de départ qui ressort à la fin sous la forme voulue</li>
+        <li><b>η<sub>1</sub></b>, <b>η<sub>2</sub></b>, <b>η<sub>3</sub></b> le rendement de chaque étape, chacun compris entre 0 et 1</li>
+      </ul>
+      <p>Comme chaque facteur est inférieur à 1, le produit descend plus vite que l'intuition ne le suggère. Trois étapes à 70 % ne donnent pas 70 % mais 0,70<sup>3</sup>, soit 34 %. Cinq étapes à 90 %, qui semblent toutes excellentes, donnent 0,90<sup>5</sup>, soit 59 %. Une chaîne vaut donc beaucoup moins que son maillon le plus faible, et retirer une étape rapporte souvent plus que d'améliorer celles qui restent.</p>
+      <p><strong>Construisez votre propre chaîne, ou prenez-en une toute faite.</strong></p>
       <div class="ctl" style="margin-bottom:.4rem"><span class="grp" style="margin-right:.6rem">Chaînes connues</span><div class="seg" id="chaines"></div></div>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
@@ -129,23 +140,23 @@
         <button id="vide2">Tout effacer</button>
       </div>
       <div class="live" id="f2L"></div>
-      <p class="figcap"><b>Figure 2.</b> La largeur du ruban est proportionnelle à l'énergie qui reste. Ce qui s'en détache part toujours sous la même forme : de la chaleur à température ambiante, que personne ne pourra plus utiliser.</p>
-      <p>Essayez « Du Soleil à la pédale ». La photosynthèse ne garde que 1,5 % de la lumière reçue, puis le muscle rend 25 % de ce que lui fournit la nourriture. Au bout du compte, pédaler avec de l'énergie solaire passée par un champ de blé se fait à <strong>0,4 %</strong>. Un panneau photovoltaïque suivi d'un moteur électrique fait cinquante fois mieux, sur la même surface au sol.</p>
-      <p>Essayez aussi les deux ampoules. La même centrale, le même réseau, et au bout un filament ou une LED : 1,9 % contre 19 %. Changer la dernière étape d'une chaîne change tout le résultat, et c'est bien plus facile que de changer la centrale.</p>
+      <p class="figcap"><b>Figure 2.</b> La largeur du ruban est proportionnelle à l'énergie qui reste. Ce qui s'en détache part sous la même forme à chaque étape : de la chaleur à température ambiante, qui ne sera plus utilisée.</p>
+      <p>La chaîne « Du Soleil à la pédale » enchaîne deux étapes seulement. La photosynthèse garde 1,5 % de la lumière reçue, puis le muscle rend 25 % de ce que lui fournit la nourriture, ce qui laisse 0,4 % au bout. Sur la même surface au sol, un panneau photovoltaïque à 22 % suivi d'un moteur électrique à 93 % laisse 20 %, soit une cinquantaine de fois plus.</p>
+      <p>Les deux chaînes d'ampoule partent de la même centrale et du même réseau, et ne diffèrent que par la dernière étape : 1,9 % avec un filament, 19 % avec une diode. Changer le dernier maillon multiplie le résultat par dix, pour un coût très inférieur à celui d'une centrale neuve.</p>
     </section>
 
     <section class="step">
       <span class="no-num">4</span>
-      <h2>La seule case avec un plafond</h2>
-      <p>Toutes les cases de la grille ont un rendement limité par la technique du moment. Une seule a une limite imposée par la physique elle-même, et aucun progrès ne la fera bouger : celle qui part de la chaleur.</p>
-      <p>Sadi Carnot l'a démontrée en 1824, à vingt-huit ans, dans un petit livre que personne n'a lu de son vivant, et sans connaître ni les atomes ni la conservation de l'énergie. Son raisonnement n'utilise aucune machine particulière : si une machine dépassait cette limite, on pourrait en coupler deux pour faire remonter la chaleur du froid vers le chaud toute seule, ce qu'on n'a jamais vu.</p>
+      <h2>La limite de Carnot, et le cas de la pompe à chaleur</h2>
+      <p>Dans la plupart des cases, le rendement dépend de la technique du moment et progresse avec elle. La ligne qui part de la chaleur fait exception : son rendement est borné par la thermodynamique elle-même, indépendamment de la machine employée.</p>
+      <p>Sadi Carnot établit cette borne en 1824, dans les <i>Réflexions sur la puissance motrice du feu</i>, sans faire appel aux atomes ni à la conservation de l'énergie, qui n'étaient pas encore établis. Son raisonnement ne suppose aucune machine particulière : si l'une d'elles dépassait la borne, on pourrait l'accoupler à une seconde fonctionnant en sens inverse et faire remonter de la chaleur du froid vers le chaud sans rien dépenser.</p>
       <p class="fx">η ≤ 1 − <i>T</i><sub>froid</sub> / <i>T</i><sub>chaud</sub></p>
       <ul class="sym">
         <li><b>η</b> la part de la chaleur prise à la source chaude qui ressort en travail</li>
         <li><b>T<sub>chaud</sub></b> la température de la source chaude, en kelvins</li>
-        <li><b>T<sub>froid</sub></b> celle de la source froide, en kelvins, et c'est presque toujours l'air ou une rivière</li>
+        <li><b>T<sub>froid</sub></b> celle de la source froide, en kelvins, le plus souvent l'air ou une rivière</li>
       </ul>
-      <p>Le détail qui compte : ce sont des kelvins, donc des températures comptées depuis le zéro absolu. Passer de 20 à 40 °C ne double rien du tout, cela fait passer de 293 à 313 K.</p>
+      <p>Ce sont des kelvins, donc des températures comptées depuis le zéro absolu, et le rapport des deux est tout ce qui compte. Une source à 550 °C, soit 823 K, rejetant dans l'air à 27 °C, soit 300 K, donne une borne de 1 − 300/823, c'est-à-dire 63,5 %. La même machine alimentée à 1500 °C, soit 1773 K, monte à 83,1 %. Avec une source tiède à 80 °C, soit 353 K, et le même air ambiant à 20 °C, soit 293 K, la borne tombe à 17,0 %, ce qui explique la difficulté à valoriser la chaleur résiduelle des usines. Passer de 20 à 40 °C ne double aucun rapport, puisque cela conduit de 293 à 313 K.</p>
       <p><strong>Réglez les deux températures.</strong></p>
       <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
       <div class="ctl">
@@ -153,48 +164,63 @@
         <span class="grp"><label for="tfS">Source froide</label><input type="range" id="tfS" min="250" max="400" step="5" value="300" style="width:180px"></span>
       </div>
       <div class="live" id="f3L"></div>
-      <p class="figcap"><b>Figure 3.</b> Les barres claires donnent la limite de Carnot pour chaque machine, les barres pleines ce qu'elle fait vraiment. Un bon moteur atteint les deux tiers de sa limite.</p>
-      <p>Deux conséquences qu'on oublie souvent. D'abord, une centrale ne « gaspille » pas 60 % de son combustible par négligence : elle est à peu près au maximum de ce que la thermodynamique autorise avec ses températures. Pour gagner, il faut chauffer plus, et la seule limite est la tenue des matériaux de la turbine.</p>
-      <p>Ensuite, une pile à combustible ou un panneau solaire ne passent pas par la chaleur, donc Carnot ne s'applique pas à eux. C'est la vraie raison de l'intérêt pour ces machines, et non une question de pollution.</p>
+      <p class="figcap"><b>Figure 3.</b> Les barres claires donnent la limite de Carnot pour chaque machine, les barres pleines ce qu'elle obtient réellement. Une centrale à charbon rend 42 % pour une borne de 63,5 %, soit les deux tiers de sa limite.</p>
+      <p>Une centrale qui rejette 60 % de la chaleur de son combustible travaille déjà près du maximum que ses deux températures autorisent. Le seul levier est de monter la température d'entrée, et la contrainte devient la tenue des matériaux de la turbine.</p>
+      <p>Les machines qui ne passent pas par la chaleur échappent à cette borne. Une pile à combustible convertit la chimie en électricité molécule par molécule et dépasse 60 %, là où un moteur brûlant le même hydrogène plafonnerait vers 35 %. Un panneau photovoltaïque est dans le même cas, avec une limite d'une autre nature, liée à l'énergie des photons.</p>
+      <p>La machine de Carnot fonctionne aussi en sens inverse. On dépense du travail pour prendre de la chaleur au milieu froid et la déposer dans le milieu chaud, ce qui est le principe du réfrigérateur et de la pompe à chaleur. La grandeur utile est alors un coefficient de performance, et il porte lui aussi une borne.</p>
+      <p class="fx">COP ≤ <i>T</i><sub>chaud</sub> / ( <i>T</i><sub>chaud</sub> − <i>T</i><sub>froid</sub> )</p>
+      <ul class="sym">
+        <li><b>COP</b> la chaleur déposée dans le milieu chaud divisée par le travail dépensé</li>
+      </ul>
+      <p>Ce coefficient dépasse 1, et de beaucoup. Pour chauffer une pièce à 20 °C, soit 293 K, à partir d'un air extérieur à 0 °C, soit 273 K, la borne vaut 293 / 20, c'est-à-dire 14,6. Les pompes à chaleur du commerce atteignent 3 à 5 dans ces conditions, et leur performance baisse quand l'écart de température grandit, puisque le dénominateur grandit avec lui.</p>
+      <p>Rendre 4 kilowattheures de chaleur pour 1 kilowattheure d'électricité ne contredit pas la conservation de l'énergie. Le bilan complet s'écrit <i>Q</i><sub>chaud</sub> = <i>W</i> + <i>Q</i><sub>froid</sub> : les 4 kilowattheures livrés dans la pièce sont la somme du kilowattheure électrique et des 3 kilowattheures prélevés dehors. La machine transporte de la chaleur, elle n'en crée pas, et Δ<i>E</i><sub>total</sub> = 0 reste vérifiée à chaque instant.</p>
     </section>
 
     <section class="step">
       <span class="no-num">5</span>
-      <h2>Ce que la sixième colonne a changé</h2>
-      <p>Les onze cases qui font intervenir la masse méritent un mot à part, parce qu'elles disent quelque chose d'étrange : <strong>toute énergie a une masse</strong>, et pas seulement dans les réacteurs.</p>
-      <p>Un ressort comprimé est plus lourd que le même ressort détendu. Une casserole d'eau chaude est plus lourde que la même eau froide. Une allumette, après avoir brûlé, pèse moins lourd que ses ingrédients de départ si on prend soin de peser aussi les fumées. Les écarts sont de l'ordre de 10⁻¹² à 10⁻¹⁵ fois la masse totale, donc invisibles, mais ils sont réels.</p>
+      <h2>La masse comme forme d'énergie</h2>
+      <p>La sixième forme se distingue des cinq autres en ceci qu'elle accompagne toutes les autres. Toute énergie apportée à un système augmente sa masse, dans un rapport fixé par une constante.</p>
+      <p class="fx"><i>E</i> = <i>m</i> <i>c</i>² &nbsp;&nbsp;⟹&nbsp;&nbsp; Δ<i>m</i> = <i>E</i> / <i>c</i>²</p>
+      <ul class="sym">
+        <li><b>E</b> l'énergie contenue dans la masse <b>m</b></li>
+        <li><b>c</b> la vitesse de la lumière, 2,998 × 10<sup>8</sup> m/s, dont le carré vaut 8,988 × 10<sup>16</sup> m²/s²</li>
+        <li><b>Δm</b> le gain de masse d'un système auquel on a fourni l'énergie <i>E</i></li>
+      </ul>
+      <p>Le carré de la vitesse de la lumière est un très grand nombre, et il est au dénominateur dans la seconde écriture. Un joule stocké ne pèse donc presque rien. Comprimez un ressort avec 100 joules de travail : sa masse augmente de 100 / (8,988 × 10<sup>16</sup>), soit 1,11 × 10<sup>−15</sup> kg, un millionième de milliardième de kilogramme. Les mêmes 100 joules ajoutés sous forme de chaleur donneraient exactement le même gain. Aucune balance ne mesure cela, et la relation n'en est pas moins exacte.</p>
+      <p>Le gain devient mesurable quand l'énergie en jeu est elle-même considérable. Le tableau donne, pour quelques transformations, la part de la masse de départ qui a été convertie.</p>
       <div class="tablewrap">
         <table class="tb">
-          <tr><th>Transformation</th><th>Part de la masse convertie</th></tr>
-          <tr><td>Brûler de l'essence</td><td class="n">0,000 000 05 %</td></tr>
-          <tr><td>Fission d'un noyau d'uranium</td><td class="n">0,09 %</td></tr>
-          <tr><td>Fusion de l'hydrogène dans le Soleil</td><td class="n">0,7 %</td></tr>
-          <tr><td>Chute dans un trou noir en rotation</td><td class="n">jusqu'à 42 %</td></tr>
-          <tr><td>Annihilation matière-antimatière</td><td class="n">100 %</td></tr>
+          <tr><th>Transformation</th><th>Part de la masse convertie</th><th>Énergie par kilogramme</th></tr>
+          <tr><td>Brûler de l'essence</td><td class="n">0,000 000 05 %</td><td class="n">4,4 × 10<sup>7</sup> J</td></tr>
+          <tr><td>Fission d'un noyau d'uranium 235</td><td class="n">0,09 %</td><td class="n">8 × 10<sup>13</sup> J</td></tr>
+          <tr><td>Fusion de l'hydrogène dans le Soleil</td><td class="n">0,7 %</td><td class="n">6 × 10<sup>14</sup> J</td></tr>
+          <tr><td>Chute dans un trou noir en rotation</td><td class="n">jusqu'à 42 %</td><td class="n">4 × 10<sup>16</sup> J</td></tr>
+          <tr><td>Annihilation matière-antimatière</td><td class="n">100 %</td><td class="n">9,0 × 10<sup>16</sup> J</td></tr>
         </table>
       </div>
-      <p>La première ligne explique pourquoi Lavoisier a pu énoncer que rien ne se perd et que la masse se conserve : à l'échelle d'une balance de chimiste, un écart de cinq cent-millionièmes de pour cent n'existe pas. La chimie et la physique nucléaire font exactement la même chose, réarranger de la matière pour en tirer la différence d'énergie de liaison. Seul le facteur d'échelle change, et il vaut environ un million.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> six formes, trente-six cases, et une seule règle qui les gouverne toutes : l'énergie ne se crée ni ne se détruit, elle change de forme. Mais à chaque changement, une part tombe du côté de la chaleur, et plus personne ne la récupère. Le tableau de votre vieux manuel disait la conservation. Il lui manquait la dégradation.</p>
+      <p>La chimie et la physique nucléaire effectuent la même opération : réarranger des constituants liés pour récupérer la différence d'énergie de liaison. Seule l'échelle diffère. Une liaison chimique se compte en électronvolts, l'énergie de liaison par nucléon se compte en millions d'électronvolts, et le rapport des deux est de l'ordre du million. Les deux premières lignes du tableau le confirment, avec un facteur voisin de deux millions par kilogramme.</p>
+      <p>La première ligne se situe très loin sous la précision d'une balance de laboratoire. La conservation de la masse, établie par Lavoisier à la fin du XVIII<sup>e</sup> siècle, reste donc exacte pour toute la chimie pratique : un écart de cinq cent-millionièmes de pour cent n'est pas accessible à la mesure, hier comme aujourd'hui.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> six formes d'énergie donnent trente-six conversions, et la somme des énergies reste constante dans chacune d'elles. Cette conservation ne dit pourtant rien de ce qui est faisable : à chaque passage, une part de l'énergie se retrouve en chaleur à température ambiante, et la ligne qui repart de la chaleur est bornée par le rapport des températures. Les rendements se multipliant le long d'une chaîne, le moyen le plus efficace de gagner reste de supprimer des étapes.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -207,7 +233,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
@@ -246,7 +272,7 @@ const FORMES=[
   {id:"rayo",nom:"Rayonnante",court:"Rayonnante",coul:"#c68f0a",
    quoi:"Le champ électromagnétique qui se propage : lumière, infrarouge, ondes radio, rayons X."},
   {id:"mass",nom:"Masse",court:"Masse",coul:"#7a5fc0",
-   quoi:"L'énergie contenue dans la masse elle-même, E = mc². Absente du tableau de 1935, et c'est le plus gros réservoir de tous."}
+   quoi:"L'énergie contenue dans la masse elle-même, E = mc². C'est le réservoir le plus dense dont on dispose."}
 ];
 
 const T={};
@@ -258,7 +284,7 @@ C("meca","meca",{t:"Levier, engrenage, poulie",r:0.95,
   txt:"On n'ajoute rien, on échange de la force contre du déplacement. Une poulie qui divise la force par deux oblige à tirer deux fois plus de corde, et le produit des deux ne bouge pas.",
   ex:"Un cric de voiture, le dérailleur d'un vélo, la boîte de vitesses."});
 C("meca","ther",{t:"Frottement",r:1.00,
-  txt:"Le mouvement ordonné de l'objet devient l'agitation désordonnée de ses atomes. C'est la seule conversion qui marche toujours à 100 %, et c'est justement pour ça qu'elle est à sens unique.",
+  txt:"Le mouvement ordonné de l'objet devient l'agitation désordonnée de ses atomes. C'est la seule conversion qui marche toujours à 100 %, et elle ne fonctionne que dans ce sens.",
   ex:"Les freins d'une voiture, les mains qu'on frotte, une météorite qui entre dans l'atmosphère."});
 C("meca","elec",{t:"Alternateur, piézoélectricité",r:0.97,
   f:"e = − dΦ/dt",
@@ -293,7 +319,7 @@ C("ther","chim",{t:"Réactions endothermiques",r:0.6,
 C("ther","rayo",{t:"Incandescence",r:0.05,
   f:"P = σ S T⁴",
   txt:"Tout corps chaud rayonne, et d'autant plus que sa température est haute, à la puissance quatre. La couleur du rayonnement monte avec la température : rouge, orange, blanc, bleu.",
-  ex:"Une ampoule à filament ne met que 5 % de son électricité en lumière visible, le reste part en infrarouge. C'est un radiateur qui éclaire un peu."});
+  ex:"Une ampoule à filament ne met que 5 % de son électricité en lumière visible, le reste part en infrarouge. L'essentiel de sa consommation ressort donc en chaleur."});
 C("ther","mass",{t:"Un objet chaud pèse plus lourd",r:1.00,rtxt:"total, mais indétectable",
   f:"Δm = Q / c²",
   txt:"Chauffer, c'est ajouter de l'énergie, donc de la masse. Un litre d'eau porté de 0 à 100 °C gagne 4,7 × 10⁻¹² kg.",
@@ -344,7 +370,7 @@ C("chim","rayo",{t:"Chimiluminescence",r:0.4,
 C("chim","mass",{t:"Une allumette brûlée est plus légère",r:1.00,rtxt:"total, mais indétectable",
   f:"Δm = E / c²",
   txt:"La combustion d'un kilo d'essence libère 44 MJ, donc fait disparaître 5 × 10⁻¹⁰ kg de masse, répartis sur tous les produits de la combustion.",
-  ex:"Un demi-milliardième du total. C'est pourquoi Lavoisier a pu écrire que rien ne se perd : à son échelle de mesure, c'était vrai."});
+  ex:"Un demi-milliardième du total, très loin sous la précision d'une balance de laboratoire."});
 
 /* ---------- depuis le rayonnement ---------- */
 C("rayo","meca",{t:"Pression de radiation, voile solaire",r:null,rtxt:"force minuscule, mais gratuite",
@@ -360,7 +386,7 @@ C("rayo","elec",{t:"Effet photovoltaïque",r:0.22,
   ex:"Panneau du commerce : 20 à 24 %. Limite théorique d'une jonction simple : 33 %. Les cellules tandem de laboratoire approchent 35 %."});
 C("rayo","chim",{t:"Photosynthèse, vision, photographie",r:0.02,
   txt:"Un photon casse une liaison ou déforme une molécule, et la chimie suivante s'en sert. Dans votre œil, un seul photon suffit à déplier le rétinal et à déclencher un signal.",
-  ex:"La photosynthèse ne garde que 1 à 2 % de la lumière reçue, 6 % dans le meilleur des cas théoriques. Toute la nourriture de la planète sort de ce maigre pourcentage."});
+  ex:"La photosynthèse ne garde que 1 à 2 % de la lumière reçue, 6 % dans le meilleur des cas théoriques. Toute la nourriture de la planète sort de ce pourcentage."});
 C("rayo","rayo",{t:"Fluorescence, doublage de fréquence",r:0.6,
   txt:"Un photon est absorbé, une partie de son énergie part en chaleur, et il ressort plus rouge qu'il n'est entré. Dans un cristal bien choisi, deux photons peuvent au contraire fusionner en un seul, deux fois plus énergique.",
   ex:"Le gilet jaune fluo, qui renvoie en jaune l'ultraviolet invisible. Et le pointeur laser vert, qui est un laser infrarouge dont on a doublé la fréquence."});
@@ -371,7 +397,7 @@ C("rayo","mass",{t:"Création de paires",r:1.00,
 
 /* ---------- depuis la masse ---------- */
 C("mass","meca",{t:"Propulsion nucléaire",r:0.33,carnot:true,
-  txt:"La fission chauffe de l'eau, la vapeur pousse une turbine. On repasse par la chaleur, donc par Carnot, et c'est pour ça qu'une centrale nucléaire ne dépasse pas le tiers.",
+  txt:"La fission chauffe de l'eau, la vapeur pousse une turbine. On repasse par la chaleur, donc par Carnot, et une centrale nucléaire ne dépasse pas le tiers.",
   ex:"Un sous-marin nucléaire tient vingt ans sans faire le plein. Et sous vos pieds, la radioactivité du manteau entretient la tectonique des plaques."});
 C("mass","ther",{t:"Fission, fusion, radioactivité",r:null,rtxt:"0,09 % de la masse en fission",
   f:"E = Δm c²",
@@ -514,11 +540,11 @@ function drawN2(){
     mots+=(i?", puis ":"")+"<b>"+o.t+"</b> ("+pct(n2.pas[i][2])+")";
   }
   $("f2L").innerHTML = n===0
-    ? "Choisissez une première conversion. Les rendements se multiplient entre eux, et c'est tout le drame."
+    ? "Choisissez une première conversion. Les rendements des étapes se multiplient entre eux."
     : "Le trajet : "+mots+". Au bout de <b>"+n+" étape"+(n>1?"s":"")+"</b>, il reste <b>"+joules(reste*100)
       +"</b> sur les 100 du départ, soit "+pct(reste)+". "
       + (reste<0.05
-        ? "Le produit de plusieurs nombres inférieurs à 1 s'effondre vite : voilà pourquoi on cherche toujours à raccourcir les chaînes."
+        ? "Le produit de plusieurs nombres inférieurs à 1 s'effondre vite, ce qui pousse à raccourcir les chaînes autant que possible."
         : "Chaque étape prélève sa part, et ce qui est perdu l'est toujours sous la même forme : de la chaleur à température ambiante, que personne ne récupérera.");
 }
 $("chaines").innerHTML=CHAINES.map((c,i)=>`<button data-i="${i}">${c.nom}</button>`).join("");

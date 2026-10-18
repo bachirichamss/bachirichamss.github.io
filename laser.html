@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/laser.html">
-<title>Le laser, ou comment obliger la lumière à marcher au pas · Chamss Bachiri</title>
-<meta name="description" content="Émission stimulée, inversion de population, seuil laser : le fonctionnement du laser en simulations, et pourquoi il est devenu l'outil central de la physique de précision.">
-<meta property="og:title" content="Le laser, ou comment obliger la lumière à marcher au pas">
+<title>Comment un laser produit-il des photons tous identiques ? · Chamss Bachiri</title>
+<meta name="description" content="L'énergie du photon E = hν = E₂ − E₁, la répartition de Boltzmann qui interdit l'amplification à l'équilibre, la condition de seuil R₁R₂exp(2gL) = 1 et la longueur de cohérence : émission stimulée, inversion de population, cavité et seuil, avec simulations.">
+<meta property="og:title" content="Comment un laser produit-il des photons tous identiques ?">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -29,6 +29,11 @@
 .tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
 .tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
 .tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 <style>.others li{margin-bottom:.9em}</style>
 </head>
@@ -42,70 +47,167 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Le laser, ou comment obliger la lumière à marcher au pas</h1>
-      <p class="dek">Une ampoule envoie des photons dans tous les sens, de toutes les couleurs, au hasard. Un laser les envoie tous dans la même direction, à la même couleur, en phase. Ce petit changement a transformé la physique.</p>
-      <div class="meta"><span>23 septembre 2026</span><span>9 min</span></div>
+      <h1>Comment un laser produit-il des photons tous identiques ?</h1>
+      <p class="dek">Une lampe émet des photons d'énergies variées, dans toutes les directions, à des instants indépendants les uns des autres. Un laser émet des photons de même énergie, de même direction et de même phase, parce qu'il les fait fabriquer par copie les uns des autres. Les formules et les simulations qui suivent donnent la condition à remplir pour cela, et montrent pourquoi elle oblige à maintenir le matériau hors d'équilibre.</p>
+      <div class="meta"><span>23 septembre 2026</span><span>13 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Trois façons pour un atome de croiser un photon</h2>
-      <p>Un atome possède des niveaux d'énergie. Il peut être au repos, en bas, ou excité, en haut. Trois choses peuvent lui arriver, et la troisième est la clé du laser.</p>
-      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
-      <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> Les trois processus, au ralenti. Einstein a prédit le troisième en 1917, plus de quarante ans avant le premier laser.</p>
-      <p>L'émission stimulée fabrique un <strong>clone</strong> : même couleur, même direction, même phase, c'est-à-dire crêtes alignées sur crêtes. Un photon en donne deux, deux en donnent quatre. C'est une avalanche de copies identiques, et c'est ce que veut dire le sigle laser : amplification de lumière par émission stimulée de rayonnement.</p>
+      <h2>La couleur est fixée par un écart entre deux niveaux</h2>
+      <p>Un atome ne peut pas prendre n'importe quelle énergie. Il dispose d'un jeu de niveaux séparés, et une transition entre deux de ces niveaux s'accompagne de l'échange d'un photon dont l'énergie vaut exactement la différence.</p>
+      <p class="fx"><i>E</i> = <i>h</i> <i>ν</i> = <i>E</i><sub>2</sub> − <i>E</i><sub>1</sub></p>
+      <ul class="sym">
+        <li><b>E</b> l'énergie emportée par le photon</li>
+        <li><b>h</b> la constante de Planck, 6,626 × 10<sup>−34</sup> joule-seconde</li>
+        <li><b>ν</b> la fréquence de l'onde associée au photon</li>
+        <li><b>E<sub>2</sub></b> le niveau haut, <b>E<sub>1</sub></b> le niveau bas</li>
+      </ul>
+      <p>La fréquence du photon, et donc sa couleur, se lit dans le seul écart entre les deux niveaux. La puissance qu'on injecte dans le matériau n'y change rien, et sa température non plus : elles modifient le nombre de photons émis, pas leur énergie. Un laser plus puissant est un laser plus brillant, jamais un laser d'une autre couleur.</p>
+      <p>En remplaçant la fréquence par la longueur d'onde, avec <i>ν</i> = <i>c</i> / <i>λ</i>, on obtient directement la couleur :</p>
+      <p class="fx"><i>λ</i> = <i>h</i> <i>c</i> / ( <i>E</i><sub>2</sub> − <i>E</i><sub>1</sub> )</p>
+      <p>Le laser hélium-néon utilise une transition du néon dont l'écart vaut 1,96 électronvolt, soit 3,14 × 10<sup>−19</sup> joule. La formule donne alors 632,8 nanomètres, un rouge orangé, à la fréquence de 4,736 × 10<sup>14</sup> hertz. Cette valeur ne dépend que du néon, et deux tubes construits à des décennies d'intervalle émettent la même couleur.</p>
+      <p>Dans une diode laser, l'écart n'est plus entre deux niveaux atomiques mais entre les deux bords de la bande interdite d'un semiconducteur. Pour les alliages des diodes rouges, cet écart vaut environ 1,91 électronvolt et la diode émet vers 650 nanomètres. Changer la composition de l'alliage change l'écart, et donc la couleur : une diode de lecteur Blu-ray travaille sur 3,06 électronvolt et émet à 405 nanomètres.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Deux conditions, et un seuil</h2>
-      <p>Pour que l'avalanche démarre, il faut deux choses. D'abord que la majorité des atomes soient excités, sans quoi les photons sont absorbés plus souvent qu'ils ne sont clonés : on appelle ça l'inversion de population, et on l'obtient en <strong>pompant</strong> de l'énergie dans le matériau. Ensuite il faut garder les photons assez longtemps pour qu'ils rencontrent beaucoup d'atomes : on les enferme entre deux miroirs, dont l'un laisse passer quelques pour cent de la lumière. Ce qui sort par là, c'est le faisceau.</p>
-      <p><strong>Montez la puissance de pompage et regardez la courbe de sortie se construire.</strong></p>
+      <h2>Les trois échanges possibles entre un atome et un photon</h2>
+      <p>Un atome et un photon qui se croisent n'ont que trois issues. Le photon disparaît et l'atome monte : c'est l'absorption. L'atome déjà excité redescend de lui-même et lâche un photon dans une direction quelconque : c'est l'émission spontanée. Enfin un photon passant devant un atome excité le fait redescendre immédiatement, et l'atome émet un second photon de même énergie, de même direction et de même phase : c'est l'émission stimulée, le mécanisme que décrit le sigle laser, amplification de lumière par émission stimulée de rayonnement.</p>
+      <p>Einstein a mis ces trois échanges en équations en 1917, dans un article sur la théorie quantique du rayonnement, en leur attribuant des coefficients. Le coefficient <i>A</i><sub>21</sub> gouverne l'émission spontanée : c'est la probabilité par unité de temps qu'un atome excité retombe sans y être invité.</p>
+      <p class="fx">d<i>N</i><sub>2</sub> / d<i>t</i> = − <i>A</i><sub>21</sub> <i>N</i><sub>2</sub></p>
+      <ul class="sym">
+        <li><b>N<sub>2</sub></b> le nombre d'atomes sur le niveau haut, <b>N<sub>1</sub></b> le nombre sur le niveau bas</li>
+        <li><b>A<sub>21</sub></b> le taux d'émission spontanée, en inverse de seconde</li>
+      </ul>
+      <p>Comme <i>A</i><sub>21</sub> est l'inverse d'un temps, il se lit comme une durée de vie. Pour la raie à 632,8 nanomètres, il vaut 3,39 × 10<sup>6</sup> s<sup>−1</sup>, soit 1 / <i>A</i><sub>21</sub> = 0,3 microseconde : un atome de néon laissé seul sur ce niveau y reste en moyenne trois dixièmes de microseconde avant de retomber par cette voie.</p>
+      <p>Les coefficients <i>B</i><sub>12</sub> et <i>B</i><sub>21</sub> gouvernent les deux échanges qui demandent un rayonnement déjà présent. Les taux correspondants sont proportionnels à la densité d'énergie de ce rayonnement, et non plus seulement aux populations.</p>
+      <p class="fx">taux absorbé = <i>B</i><sub>12</sub> <i>ρ</i>(<i>ν</i>) <i>N</i><sub>1</sub> &nbsp;&nbsp; et &nbsp;&nbsp; taux stimulé = <i>B</i><sub>21</sub> <i>ρ</i>(<i>ν</i>) <i>N</i><sub>2</sub></p>
+      <ul class="sym">
+        <li><b>ρ(ν)</b> la densité d'énergie du rayonnement à la fréquence <i>ν</i></li>
+        <li><b>B<sub>12</sub></b> le coefficient d'absorption, <b>B<sub>21</sub></b> celui d'émission stimulée</li>
+      </ul>
+      <p>En exigeant que ces trois taux s'équilibrent lorsque la matière baigne dans un rayonnement de corps noir, Einstein obtient deux relations entre les coefficients, pour deux niveaux de même multiplicité :</p>
+      <p class="fx"><i>B</i><sub>12</sub> = <i>B</i><sub>21</sub> &nbsp;&nbsp; et &nbsp;&nbsp; <i>A</i><sub>21</sub> / <i>B</i><sub>21</sub> = 8 π <i>h</i> <i>ν</i>³ / <i>c</i>³</p>
+      <p>La première relation porte tout l'article. Absorption et émission stimulée ont rigoureusement la même force, donc la seule chose qui décide laquelle des deux l'emporte est la comparaison de <i>N</i><sub>1</sub> et de <i>N</i><sub>2</sub>. La seconde relation dit que l'émission spontanée, qui pour un laser est une pure perte puisqu'elle envoie des photons dans n'importe quelle direction, croît comme le cube de la fréquence. Elle est négligeable dans le domaine des micro-ondes, ce qui explique que le maser ait fonctionné en 1954, six ans avant le premier laser, et elle devient écrasante vers les rayons X, où les lasers sont restés longtemps hors de portée.</p>
+      <p>Ces trois échanges se déroulent côte à côte sur la figure.</p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> Les trois échanges, au ralenti. Kopfermann et Ladenburg ont apporté la première preuve expérimentale de l'émission stimulée en 1928, onze ans après la prédiction, en mesurant une dispersion négative dans un gaz excité. Il a fallu attendre le 16 mai 1960 et le rubis de Theodore Maiman, à 694,3 nanomètres, pour qu'on en tire un faisceau.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>À l'équilibre, un milieu absorbe toujours plus qu'il n'amplifie</h2>
+      <p>Puisque <i>B</i><sub>12</sub> = <i>B</i><sub>21</sub>, le bilan d'un faisceau traversant le matériau se réduit à une soustraction de populations. Chaque atome du bas retire un photon, chaque atome du haut en ajoute un, avec la même probabilité.</p>
+      <p class="fx">gain ∝ <i>N</i><sub>2</sub> − <i>N</i><sub>1</sub></p>
+      <p>Le faisceau ressort donc amplifié si et seulement si le niveau haut est plus peuplé que le bas. Cette situation porte le nom d'inversion de population. Reste à savoir comment l'obtenir. La répartition de Boltzmann, qui donne les populations d'un milieu à l'équilibre thermique, écarte d'emblée la solution la plus simple, qui serait de chauffer le matériau.</p>
+      <p class="fx"><i>N</i><sub>2</sub> / <i>N</i><sub>1</sub> = exp( − ( <i>E</i><sub>2</sub> − <i>E</i><sub>1</sub> ) / <i>k</i><sub>B</sub> <i>T</i> )</p>
+      <ul class="sym">
+        <li><b>k<sub>B</sub></b> la constante de Boltzmann, 1,381 × 10<sup>−23</sup> joule par kelvin</li>
+        <li><b>T</b> la température absolue du matériau, en kelvins</li>
+      </ul>
+      <p>L'exposant est négatif pour toute température positive, donc le rapport est toujours inférieur à 1. Le niveau haut est toujours moins peuplé que le bas. Un milieu à l'équilibre thermique absorbe donc plus qu'il n'amplifie, à toute température et quel que soit le matériau.</p>
+      <p>Les nombres donnent la mesure de l'écart. À 300 kelvins, le produit <i>k</i><sub>B</sub><i>T</i> vaut 0,0259 électronvolt, soit soixante-seize fois moins que l'écart de 1,96 électronvolt du néon. Le rapport des populations vaut alors exp(−76), c'est-à-dire environ 10<sup>−33</sup> : dans une mole de néon, qui contient 6,02 × 10<sup>23</sup> atomes, on ne trouverait pas un seul atome excité. Pour amener le rapport à un demi, il faudrait porter le gaz à 33 000 kelvins, et même à température infinie le rapport tendrait vers 1 sans jamais le dépasser.</p>
+      <p>Aucune température ne conduit donc à l'inversion de population. En reportant <i>N</i><sub>2</sub> &gt; <i>N</i><sub>1</sub> dans la répartition de Boltzmann, on obtiendrait un <i>T</i> négatif, signe que l'état décrit se situe en dehors de l'équilibre thermique. Il faut par conséquent l'entretenir en permanence : le pompage doit remplir le niveau haut plus vite que les atomes n'en partent. Coupez l'alimentation d'un laser et la répartition de Boltzmann se rétablit en quelques durées de vie du niveau, ici en quelques microsecondes.</p>
+      <p>La facilité du pompage dépend de la structure des niveaux. Dans le rubis de 1960, le niveau bas de la transition est le fondamental, qui est peuplé au départ, et il faut donc exciter plus de la moitié des ions chrome en même temps : seul un flash très intense y parvient. Dans l'hélium-néon, le niveau bas de la transition se vide spontanément, et plus vite qu'il ne se remplit, vers des niveaux encore inférieurs. Il reste presque vide en permanence, de sorte qu'un petit nombre d'atomes sur le niveau haut suffit à vérifier <i>N</i><sub>2</sub> &gt; <i>N</i><sub>1</sub>, et une décharge électrique modeste entretient l'inversion en continu.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>La cavité, et la condition de seuil</h2>
+      <p>Amplifier une fois ne suffit pas. Dans un tube hélium-néon, le gain mesuré est d'une dizaine de pour cent par mètre, ce qui représente 3 pour cent sur les 30 centimètres du tube. Une telle amplification se décrit par une exponentielle, puisque chaque tranche traversée multiplie l'intensité par le même facteur.</p>
+      <p class="fx"><i>I</i>(<i>L</i>) = <i>I</i><sub>0</sub> exp( <i>g</i> <i>L</i> )</p>
+      <ul class="sym">
+        <li><b>I<sub>0</sub></b> l'intensité à l'entrée, <b>I(L)</b> l'intensité à la sortie</li>
+        <li><b>g</b> le coefficient de gain par unité de longueur, en inverse de mètre</li>
+        <li><b>L</b> la longueur du milieu amplificateur traversée</li>
+      </ul>
+      <p>Pour obtenir un faisceau, il faut faire repasser la lumière dans le milieu un grand nombre de fois. Deux miroirs face à face s'en chargent, l'un réfléchissant presque tout, l'autre laissant fuir une petite fraction qui constitue le faisceau utile. À chaque aller-retour la lumière traverse deux fois la longueur <i>L</i> et se réfléchit sur les deux miroirs. La condition de seuil demande que ce tour complet laisse l'intensité inchangée.</p>
+      <p class="fx"><i>R</i><sub>1</sub> <i>R</i><sub>2</sub> exp( 2 <i>g</i> <i>L</i> ) = 1</p>
+      <ul class="sym">
+        <li><b>R<sub>1</sub></b> et <b>R<sub>2</sub></b> les coefficients de réflexion des deux miroirs</li>
+        <li><b>2 g L</b> le gain sur un aller-retour, puisque le milieu est traversé deux fois</li>
+      </ul>
+      <p>Le membre de gauche est le facteur par lequel l'intensité se trouve multipliée à chaque aller-retour. S'il est inférieur à 1, toute onde partie dans l'axe s'éteint au bout de quelques passages. S'il est supérieur à 1, elle croît à chaque tour jusqu'à ce que le gain sature, faute d'atomes excités disponibles. L'égalité définit le seuil, et en la résolvant on obtient le gain minimal exigé :</p>
+      <p class="fx"><i>g</i><sub>seuil</sub> = − ln( <i>R</i><sub>1</sub> <i>R</i><sub>2</sub> ) / ( 2 <i>L</i> )</p>
+      <p>Avec un miroir arrière à <i>R</i><sub>1</sub> = 0,999, un miroir de sortie à <i>R</i><sub>2</sub> = 0,99 et <i>L</i> = 0,30 mètre, les pertes par aller-retour valent 1,1 pour cent et le gain de seuil tombe à 0,018 inverse de mètre, soit 1,8 pour cent par mètre. Le gain disponible, une dizaine de pour cent par mètre, le dépasse d'un facteur cinq : le tube fonctionne. Si le miroir de sortie laissait passer 6 pour cent au lieu de 1 pour cent, le gain de seuil remonterait au niveau du gain disponible et l'émission s'arrêterait. La formule dicte ainsi la qualité des miroirs, et elle explique le rendement : une dizaine de watts électriques dans la décharge pour quelques milliwatts de faisceau, soit environ un millième.</p>
+      <p>La même formule rend compte de l'allure d'une diode laser. Sa cavité ne mesure que 0,3 millimètre, et ses deux faces clivées réfléchissent environ 30 pour cent par simple contraste d'indice, sans aucun traitement. Le gain de seuil vaut alors 4,0 × 10<sup>3</sup> inverse de mètre, soit 40 par centimètre : quarante mille fois celui du tube à néon. Un semiconducteur fournit ce gain, ce qui dispense la diode de miroirs et permet de la loger dans un pointeur.</p>
+      <p>La cavité fait une seconde chose. Entre les miroirs, seules survivent les ondes dont un aller-retour contient un nombre entier de longueurs d'onde, ce qui découpe le spectre en fréquences permises régulièrement espacées.</p>
+      <p class="fx">Δ<i>ν</i> = <i>c</i> / ( 2 <i>L</i> )</p>
+      <p>Pour <i>L</i> = 0,30 mètre, l'écart entre deux fréquences permises vaut 500 mégahertz. La courbe de gain du néon, élargie par le mouvement des atomes dans la décharge, est large d'environ 1,5 gigahertz. Trois fréquences permises seulement tiennent sous cette courbe, et le faisceau sort constitué de trois ondes au plus. Le spectre d'une lampe, lui, est continu sur tout le visible.</p>
+      <p>La simulation ci-dessous met les deux conditions ensemble. Montez progressivement la puissance de pompage, puis suivez la courbe du bas.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="pS">Puissance de pompage</label><input type="range" id="pS" min="0" max="100" value="0" style="width:300px"></span>
         <button id="pR">Effacer la courbe</button>
       </div>
       <div class="live" id="f2L"></div>
-      <p class="figcap"><b>Figure 2.</b> Simulation d'une cavité laser. Chaque point orange est un photon, chaque point du haut un atome : gris s'il est au repos, coloré s'il est excité.</p>
-      <p>En dessous du seuil, la machine est une lampe médiocre : les atomes se désexcitent chacun dans leur coin, dans n'importe quelle direction. Au-dessus, une seule et même onde prend toute la puissance pour elle. Le passage entre les deux est brutal, et c'est pour cette raison qu'un laser ne ressemble à rien d'autre.</p>
+      <p class="figcap"><b>Figure 2.</b> Simulation d'une cavité laser. Chaque trait orange est un photon, chaque point du haut un atome, gris au repos et coloré s'il est excité. La courbe du bas porte la puissance sortie en fonction de la puissance de pompage.</p>
+      <p>En dessous du seuil, le pompage excite des atomes qui retombent par émission spontanée, chacun dans une direction propre, et la sortie reste faible. Au-dessus, une même onde réclame pour elle presque toute l'énergie du pompage, et la courbe s'infléchit pour devenir une droite. Ce coude est le seuil, et sa netteté vient de l'exponentielle : l'avalanche ne démarre pas progressivement, elle démarre quand le produit du membre de gauche franchit 1.</p>
     </section>
 
     <section class="step">
-      <span class="no-num">3</span>
-      <h2>Ce que ça change par rapport à une lampe</h2>
-      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
-      <p class="figcap"><b>Figure 3.</b> À gauche, la lumière d'une lampe. À droite, celle d'un laser.</p>
-      <p>Une lampe de 100 watts envoie plus d'énergie qu'un pointeur laser d'un milliwatt, mais elle l'éparpille dans toutes les directions, sur toutes les couleurs et sans aucun ordre. Le laser concentre tout : une seule direction, une seule couleur, une seule onde bien rangée. C'est ce rangement, et non la puissance, qui rend l'instrument si utile.</p>
-      <ul class="others">
-        <li><strong>Une couleur unique et très stable</strong> devient une règle pour mesurer le temps et les longueurs. C'est avec des lasers qu'on a mesuré la vitesse de la lumière assez bien pour <a href="constantes.html">la fixer par définition en 1983</a>, et les horloges optiques d'aujourd'hui se trompent de moins d'une seconde sur l'âge de l'Univers.</li>
-        <li><strong>Une onde en phase avec elle-même</strong> permet les interférences sur de longues distances. Le détecteur LIGO compare deux bras de quatre kilomètres et repère une variation de longueur quelques centaines de fois plus petite qu'un proton : c'est ainsi qu'on a vu passer les ondes gravitationnelles en 2015.</li>
-        <li><strong>Un faisceau qui pousse et qui refroidit.</strong> Des lasers bien réglés freinent des atomes jusqu'à quelques millionièmes de degré au-dessus du zéro absolu. Les atomes froids servent aujourd'hui de capteurs de gravité, et ils ont donné une des mesures de <a href="constantes.html">la constante G</a>. Claude Cohen-Tannoudji a partagé le prix Nobel 1997 pour ces méthodes.</li>
-        <li><strong>Des impulsions extrêmement brèves et intenses.</strong> La technique d'amplification à dérive de fréquence, inventée par Gérard Mourou et Donna Strickland, prix Nobel 2018, produit des impulsions si courtes qu'elles permettent de filmer le mouvement des électrons, et assez intenses pour opérer un œil sans le chauffer.</li>
-        <li><strong>Et le quotidien</strong> : la fibre optique qui transporte cette page, les lecteurs de codes-barres, la découpe industrielle, la chirurgie, les télémètres.</li>
+      <span class="no-num">5</span>
+      <h2>La longueur de cohérence</h2>
+      <p>Une onde ne reste prévisible à partir d'elle-même que sur une certaine distance. Au-delà, sa phase a dérivé, et savoir où se trouve une crête ne dit plus rien sur la position des crêtes suivantes. Cette distance se déduit de la largeur du spectre de la source.</p>
+      <p class="fx"><i>L</i><sub>c</sub> = <i>c</i> / Δ<i>ν</i> = <i>λ</i>² / Δ<i>λ</i></p>
+      <ul class="sym">
+        <li><b>L<sub>c</sub></b> la longueur de cohérence</li>
+        <li><b>Δν</b> la largeur spectrale de la source, en hertz, <b>Δλ</b> la même largeur exprimée en longueur d'onde</li>
       </ul>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> le laser n'invente pas de lumière nouvelle. Il oblige des milliards de photons à être rigoureusement identiques. Toute la physique de précision moderne repose sur cette discipline imposée.</p>
+      <p>Plus le spectre est étroit, plus l'onde garde longtemps la mémoire de sa phase. Une lampe à incandescence émet sur tout le visible, soit une largeur Δ<i>λ</i> d'environ 300 nanomètres autour de 550 nanomètres : sa longueur de cohérence vaut 1,0 micromètre, moins de deux longueurs d'onde. Un tube hélium-néon ordinaire, large de 1,5 gigahertz, atteint 20 centimètres, deux cent mille fois plus. Un hélium-néon asservi sur une seule fréquence descend à quelques kilohertz de largeur, ce qui porte la longueur de cohérence à des dizaines de kilomètres.</p>
+      <p>C'est cette grandeur, et non la puissance, qui sépare les deux sources. Pour que deux faisceaux issus d'une même source interfèrent, la différence de chemin entre eux doit rester inférieure à la longueur de cohérence. Avec une lampe, les franges n'apparaissent que si les deux trajets diffèrent de moins d'un micromètre, ce qui limite l'interférométrie à des trajets presque égaux. Avec un laser asservi, on peut séparer un faisceau en deux bras de plusieurs kilomètres et les recombiner, ce que fait le détecteur LIGO.</p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <p class="figcap"><b>Figure 3.</b> À gauche, la lumière d'une lampe : des longueurs d'onde différentes, des directions quelconques, des phases sans relation entre elles. À droite, celle d'un laser.</p>
+      <p>Une ampoule de 100 watts rayonne cent mille fois plus de puissance qu'un pointeur d'un milliwatt, pour l'essentiel dans l'infrarouge. Elle la répartit sur toutes les directions et sur une plage continue de longueurs d'onde, sans relation de phase. Le laser porte la sienne sur une direction et une longueur d'onde, avec les phases alignées, et c'est cette concentration qui fait les usages suivants.</p>
+      <ul class="others">
+        <li><strong>Une fréquence unique et stable</strong> sert de règle pour le temps et les longueurs. Des mesures au laser ont donné la vitesse de la lumière avec assez de précision pour qu'on <a href="constantes.html">la fixe par définition en 1983</a>, le mètre devenant la distance parcourue en 1 / 299 792 458 seconde. Les horloges optiques actuelles atteignent une incertitude relative de 10<sup>−18</sup>, soit moins d'une seconde d'erreur sur les 13,8 milliards d'années de l'Univers.</li>
+        <li><strong>Une grande longueur de cohérence</strong> rend possibles les interférences sur de longues distances. LIGO compare deux bras de 4 kilomètres et détecte une variation de longueur de l'ordre de 10<sup>−18</sup> mètre, quelques centaines de fois plus petite qu'un proton. C'est ainsi qu'une onde gravitationnelle a été observée pour la première fois le 14 septembre 2015.</li>
+        <li><strong>Un faisceau qui freine les atomes.</strong> Des lasers accordés juste en dessous d'une transition ralentissent un gaz jusqu'à quelques millionièmes de kelvin au-dessus du zéro absolu. Steven Chu, Claude Cohen-Tannoudji et William Phillips ont reçu le prix Nobel 1997 pour ces méthodes. Les atomes froids servent aujourd'hui de capteurs de gravité et ont fourni une mesure de <a href="constantes.html">la constante G</a>.</li>
+        <li><strong>Des impulsions brèves et intenses.</strong> L'amplification à dérive de fréquence, mise au point par Gérard Mourou et Donna Strickland, prix Nobel 2018, produit des impulsions assez courtes et assez intenses pour découper la cornée sans échauffer les tissus voisins. En focalisant de telles impulsions dans un gaz, on obtient des impulsions attosecondes qui permettent de suivre le mouvement des électrons, objet du prix Nobel 2023.</li>
+        <li><strong>Les usages ordinaires</strong> reposent sur les mêmes propriétés : les diodes des fibres optiques qui transportent cette page, les lecteurs de codes-barres, la découpe industrielle et les télémètres.</li>
+      </ul>
+    </section>
+
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>Quelques ordres de grandeur</h2>
+      <p>Le tableau couvre un facteur vingt-six en longueur d'onde, du bleu-violet à l'infrarouge lointain. L'énergie du photon suit l'écart de niveaux du milieu amplificateur, comme l'annonce la première formule de l'article, et aucune autre caractéristique du laser n'intervient.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Laser</th><th>Longueur d'onde</th><th>Énergie du photon</th><th>Puissance courante</th><th>Milieu amplificateur</th></tr>
+        <tr><td>Diode bleu-violet</td><td class="n">405 nm</td><td class="n">3,06 eV</td><td class="n">quelques mW</td><td>Nitrure d'indium et de gallium</td></tr>
+        <tr><td>Hélium-néon</td><td class="n">632,8 nm</td><td class="n">1,96 eV</td><td class="n">1 à 20 mW</td><td>Décharge dans un mélange hélium-néon</td></tr>
+        <tr><td>Diode rouge de pointeur</td><td class="n">635 à 660 nm</td><td class="n">1,88 à 1,95 eV</td><td class="n">≤ 1 mW en classe 2</td><td>Alliage aluminium-indium-gallium-phosphore</td></tr>
+        <tr><td>Rubis de Maiman, 1960</td><td class="n">694,3 nm</td><td class="n">1,79 eV</td><td class="n">en impulsions</td><td>Ions chrome dans un corindon</td></tr>
+        <tr><td>Néodyme-YAG</td><td class="n">1064 nm</td><td class="n">1,17 eV</td><td class="n">jusqu'au kW</td><td>Ions néodyme dans un grenat</td></tr>
+        <tr><td>Dioxyde de carbone</td><td class="n">10,6 µm</td><td class="n">0,117 eV</td><td class="n">jusqu'à plusieurs kW</td><td>Niveaux de vibration de la molécule CO<sub>2</sub></td></tr>
+      </table>
+      </div>
+      <p>La dernière ligne montre que les niveaux en jeu ne sont pas forcément électroniques. Dans un laser à dioxyde de carbone, l'écart de 0,117 électronvolt sépare deux états de vibration de la molécule, et il est dix-sept fois plus petit que celui du néon, d'où une longueur d'onde dix-sept fois plus grande.</p>
+      <p>Le milliwatt d'un pointeur ne chauffe pas la main. La raison pour laquelle on ne regarde pas dans le faisceau tient à l'optique de l'œil, qui concentre un faisceau parallèle sur une tache de rétine d'une vingtaine de micromètres, dont l'aire vaut 3 × 10<sup>−10</sup> mètre carré. L'éclairement y atteint un milliwatt divisé par cette aire, soit 3 × 10<sup>6</sup> watts par mètre carré. Le Soleil au zénith délivre environ 10<sup>3</sup> watts par mètre carré au sol, mais il est étendu d'un demi-degré, si bien que son image sur la rétine couvre 150 micromètres et que son éclairement rétinien tombe à 2 × 10<sup>5</sup> watts par mètre carré. Un pointeur d'un milliwatt dépose donc sur la rétine une quinzaine de fois ce que le Soleil y dépose, concentré sur un point unique. Le classement en classe 2 repose sur le réflexe de clignement, qui survient en 0,25 seconde environ et limite la dose reçue. Au-delà du milliwatt, ce réflexe ne suffit plus.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> la couleur d'un laser est l'écart entre deux niveaux d'énergie, et rien d'autre. Comme l'absorption et l'émission stimulée ont exactement la même force, l'amplification exige que le niveau haut soit plus peuplé que le bas, ce que la répartition de Boltzmann interdit à toute température positive : il faut donc entretenir sans interruption un état hors d'équilibre. La cavité ajoute la condition de seuil, en renvoyant la lumière assez de fois pour que le gain cumulé dépasse les pertes des miroirs.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -118,7 +220,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);

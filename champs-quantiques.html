@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/champs-quantiques.html">
-<title>La théorie quantique des champs, en quatre images · Chamss Bachiri</title>
-<meta name="description" content="Champs, quanta, énergie du vide, création de particules : la théorie quantique des champs expliquée par quatre simulations, et pourquoi elle est la théorie la mieux vérifiée de la science.">
-<meta property="og:title" content="La théorie quantique des champs, en quatre images">
+<title>Qu'est-ce qu'une particule, pour la théorie quantique des champs ? · Chamss Bachiri</title>
+<meta name="description" content="Un champ par espèce, dont les ondulations se comptent en nombres entiers : l'équation de Klein-Gordon, l'escalier des quanta, l'énergie du vide mesurée par la force de Casimir et la portée des interactions, avec quatre simulations à manipuler.">
+<meta property="og:title" content="Qu'est-ce qu'une particule, pour la théorie quantique des champs ?">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -40,6 +40,11 @@
 .zeros{text-align:center;font-size:.95rem;color:#1f4f8f;margin:1rem 0 0}
 .zeros small{display:block;color:#5d6672;font-size:.8rem;margin-top:.3rem}
 @media (max-width:620px){.chif{gap:.2rem}.chif .nb{font-size:1.02rem}}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -52,17 +57,34 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>La théorie quantique des champs, en quatre images</h1>
-      <p class="dek">Il n'y a pas de particules au départ. Il y a des champs, un par espèce, étalés partout, et ce qu'on appelle une particule est une ondulation de l'un d'eux. Cette idée produit la théorie la mieux vérifiée de toute la science.</p>
-      <div class="meta"><span>28 septembre 2026</span><span>13 min</span></div>
+      <h1>Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</h1>
+      <p class="dek">La théorie commence par des champs et non par des particules : un champ par espèce, étalé partout, dont les ondulations se comptent en nombres entiers. Quelques équations suffisent alors à relier la masse d'une particule, sa vitesse, la portée des forces et l'énergie qui subsiste dans le vide. Les quatre simulations qui suivent illustrent chacune l'une de ces conséquences.</p>
+      <div class="meta"><span>28 septembre 2026</span><span>16 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Le champ d'abord, la particule ensuite</h2>
-      <p>Imaginez une membrane tendue qui remplit tout l'espace. Au repos, elle est plate : c'est le vide. Donnez-lui un coup, et une ondulation se forme et part. Cette ondulation, c'est une particule.</p>
-      <p>Il existe un champ par espèce : un champ d'électrons, un champ de photons, un champ de quarks, un champ de Higgs. Les électrons du bout de votre doigt et ceux d'une étoile lointaine sont des ondulations de la même membrane, ce qui explique une chose étrange que personne n'explique autrement : <strong>tous les électrons de l'Univers sont rigoureusement identiques</strong>. Deux rides sur une même nappe ne peuvent pas être de deux modèles différents.</p>
-      <p><strong>Lancez une ondulation, puis changez la masse du champ.</strong></p>
+      <h2>Un champ par espèce, et ses ondulations</h2>
+      <p>Un champ est une grandeur qui possède une valeur en chaque point de l'espace et qui évolue dans le temps. L'image la plus proche est celle d'une membrane tendue qui remplirait tout l'espace. Au repos, cette membrane est plate, et cet état plat est ce qu'on appelle le vide. Si on la déforme quelque part, une ondulation se forme et se met à voyager, et cette ondulation est ce que nous appelons une particule.</p>
+      <p>Il existe un champ par espèce : un champ d'électrons, un champ de photons, un champ pour chaque saveur de quark, un champ de Higgs. Les électrons d'un fil de cuivre et ceux d'une étoile lointaine sont des ondulations de la même membrane, ce qui rend compte d'un fait de laboratoire : tous les électrons mesurés ont la même masse, la même charge et le même magnétisme, aux limites de précision des appareils. Deux rides portées par une même nappe ne peuvent différer que par leur forme.</p>
+      <p>L'équation que doit respecter un tel champ se déduit de la relation entre énergie, impulsion et masse, celle que la relativité restreinte impose à tout objet.</p>
+      <p class="fx"><i>E</i>² = (<i>p</i> <i>c</i>)² + (<i>m</i> <i>c</i>²)²</p>
+      <ul class="sym">
+        <li><b>E</b> l'énergie totale de la particule</li>
+        <li><b>p</b> son impulsion, la quantité de mouvement qu'elle emporte</li>
+        <li><b>m</b> sa masse, <b>c</b> la vitesse de la lumière</li>
+      </ul>
+      <p>Posons l'impulsion à zéro, c'est-à-dire regardons une particule immobile. Il reste <i>E</i> = <i>m</i> <i>c</i>² : la masse est l'énergie qui subsiste quand rien ne bouge, et pour un électron cette énergie de repos vaut 0,511 million d'électronvolts. À l'autre extrême, une particule de masse nulle garde <i>E</i> = <i>p</i> <i>c</i>. Son énergie ne tient alors qu'à son mouvement, et elle ne peut pas s'arrêter.</p>
+      <p>Pour passer de la particule au champ, on traduit cette relation en langage d'onde. L'énergie devient une vitesse de variation dans le temps, l'impulsion une vitesse de variation dans l'espace, et la relation prend la forme d'une équation portant sur la valeur du champ. C'est l'équation de Klein-Gordon.</p>
+      <p class="fx">∂²<i>φ</i>/∂<i>t</i>² − <i>c</i>² ∇²<i>φ</i> + (<i>m</i> <i>c</i>² / ħ)² <i>φ</i> = 0</p>
+      <ul class="sym">
+        <li><b>φ</b> la valeur du champ en un point, à un instant donné</li>
+        <li><b>∂²φ/∂t²</b> son accélération, la façon dont sa vitesse de variation change</li>
+        <li><b>∇²φ</b> sa courbure dans l'espace, qui compare la valeur en un point à celle de ses voisins</li>
+        <li><b>ħ</b> la constante de Planck divisée par 2π, soit 1,055 × 10<sup>−34</sup> joule-seconde</li>
+      </ul>
+      <p>Sans le dernier terme, cette équation est celle des ondes ordinaires, la même qui gouverne une corde tendue ou le son dans l'air : chaque point est rappelé vers la moyenne de ses voisins, et toute déformation se propage à la vitesse <i>c</i>. Le terme de masse ajoute un rappel supplémentaire, proportionnel à la valeur du champ elle-même, comme si un ressort reliait chaque point à la valeur zéro. Ce ressort donne au champ une raideur, et cette raideur l'empêche d'onduler aussi lentement qu'il veut : même un champ uniforme, sans aucune courbure dans l'espace, continue d'osciller à la pulsation <i>m</i> <i>c</i>² / ħ.</p>
+      <p><strong>Créez une ondulation, puis augmentez la masse du champ.</strong></p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl">
         <button class="go" id="b1a">Créer une ondulation</button>
@@ -70,15 +92,29 @@
         <span class="grp"><label for="mS">Masse du champ</label><input type="range" id="mS" min="0" max="100" value="0"></span>
       </div>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> Un champ à une dimension d'espace, qui obéit à l'équation de Klein-Gordon. Les petits traits sous la courbe sont la valeur du champ en chaque point.</p>
-      <p>La masse du champ n'est pas un décor : c'est elle qui décide de tout le comportement de l'ondulation. À masse nulle, le paquet file à la vitesse de la lumière sans se déformer, comme un photon. Dès qu'on met de la masse, il ralentit et s'étale. Une particule massive est une ondulation que le champ retient.</p>
+      <p class="figcap"><b>Figure 1.</b> Un champ à une dimension d'espace, intégré pas à pas selon l'équation de Klein-Gordon. Les petits traits verticaux sous la courbe donnent la valeur du champ en chaque point. La masse et les vitesses sont exprimées dans des unités où <i>c</i> vaut 1.</p>
+      <p>Le comportement du paquet se lit dans la relation entre pulsation et longueur d'onde, qu'on obtient en cherchant les solutions sinusoïdales de l'équation précédente. On l'appelle relation de dispersion.</p>
+      <p class="fx"><i>ω</i>² = <i>c</i>² <i>k</i>² + (<i>m</i> <i>c</i>² / ħ)²</p>
+      <ul class="sym">
+        <li><b>ω</b> la pulsation, soit 2π fois la fréquence</li>
+        <li><b>k</b> le nombre d'onde, soit 2π divisé par la longueur d'onde</li>
+      </ul>
+      <p>Pour un champ sans masse, il reste <i>ω</i> = <i>c</i> <i>k</i>. Le rapport <i>ω</i>/<i>k</i> vaut <i>c</i> quelle que soit la longueur d'onde, donc toutes les composantes d'un paquet avancent ensemble et le paquet garde sa forme en chemin : c'est le comportement du photon. Avec une masse, la vitesse du paquet devient <i>c</i>² <i>k</i> / <i>ω</i>, toujours inférieure à <i>c</i>, et elle dépend de la longueur d'onde. Les composantes du paquet se désolidarisent, et il s'étale en avançant. Le panneau de droite de la figure affiche cette vitesse, qui descend d'autant plus bas que la masse est grande.</p>
+      <p>Le cas <i>k</i> = 0 referme la boucle. Pour un champ uniforme dans l'espace, il reste <i>ω</i> = <i>m</i> <i>c</i>² / ħ, soit ħ<i>ω</i> = <i>m</i> <i>c</i>². La fréquence la plus basse à laquelle le champ puisse osciller contient exactement l'énergie de repos de sa particule.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Ce qui est quantique là-dedans : l'escalier</h2>
-      <p>Jusqu'ici, rien d'autre que des ondes classiques. Le mot quantique arrive avec une règle de comptage. Prenez une seule façon de vibrer du champ, une fréquence précise : son énergie ne peut pas prendre n'importe quelle valeur. Elle monte par marches égales, chacune valant <em>h</em> fois la fréquence.</p>
-      <p>Une marche gravie, c'est <strong>une particule de plus</strong>. Le nombre de particules n'est rien d'autre que le numéro de la marche. <strong>Essayez d'ajouter des quanta, et essayez d'en ajouter la moitié.</strong></p>
+      <h2>L'énergie d'un mode du champ monte par marches</h2>
+      <p>Jusqu'ici, tout est classique : une onde, une équation, une vitesse de propagation. Le mot quantique entre avec une règle de comptage. On commence par décomposer le champ en modes, un mode étant une façon de vibrer à une fréquence déterminée, comme les harmoniques d'une corde. Chaque mode se comporte alors comme un oscillateur, et la mécanique quantique n'autorise pour un oscillateur qu'une suite discrète d'énergies.</p>
+      <p class="fx"><i>E</i><sub><i>n</i></sub> = ( <i>n</i> + ½ ) ħ <i>ω</i></p>
+      <ul class="sym">
+        <li><b>n</b> un nombre entier : 0, 1, 2 et ainsi de suite</li>
+        <li><b>ħω</b> la hauteur d'une marche, égale à <i>h</i> <i>f</i> puisque <i>ω</i> = 2π <i>f</i></li>
+        <li><b>E<sub>n</sub></b> l'énergie du mode lorsqu'il occupe la marche numéro <i>n</i></li>
+      </ul>
+      <p>Les marches ont toutes la même hauteur, et <i>n</i> ne prend que des valeurs entières. L'énergie d'un mode du champ ne peut donc monter que par paliers, et une particule est exactement un palier : <i>n</i> particules dans ce mode, c'est l'énergie <i>E</i><sub><i>n</i></sub>. Le nombre de particules est le numéro de la marche, ce qui interdit d'en compter 2,7 ou la moitié d'une. Pour un mode de lumière visible à 500 nanomètres, la fréquence vaut 6,0 × 10<sup>14</sup> hertz et une marche vaut 4,0 × 10<sup>−19</sup> joule, soit 2,5 électronvolts, l'énergie d'un photon vert.</p>
+      <p><strong>Ajoutez des quanta un par un, puis essayez d'en ajouter un demi.</strong></p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
         <button class="go" id="b2p">Ajouter un quantum</button>
@@ -86,73 +122,100 @@
         <button id="b2h">Ajouter un demi-quantum</button>
       </div>
       <div class="live" id="f2L"></div>
-      <p class="figcap"><b>Figure 2.</b> Les niveaux d'énergie d'un mode du champ, et l'amplitude de vibration correspondante. Le barreau du bas n'est pas à zéro.</p>
-      <p>Deux conséquences énormes tiennent dans ce dessin. D'abord, on ne peut ni couper une particule en deux, ni en avoir 2,7 : le nombre de marches est entier. Ensuite, <strong>le barreau le plus bas n'est pas à zéro</strong>. Même sans aucune particule, chaque mode garde une demi-marche d'énergie, et le champ continue de trembler. C'est l'énergie du vide, et elle n'est pas une vue de l'esprit.</p>
+      <p class="figcap"><b>Figure 2.</b> Les niveaux d'énergie d'un mode du champ, étiquetés par la formule de l'oscillateur, et l'amplitude de vibration correspondante. Cette amplitude varie comme la racine de <i>n</i> + ½, et le barreau du bas vibre donc encore.</p>
+      <p>Le terme ½ subsiste quand <i>n</i> vaut zéro. Un mode qui ne contient aucune particule garde ½ ħ<i>ω</i> d'énergie et continue de vibrer, et cette part ne peut être retirée puisqu'il n'existe aucun état en dessous. Additionnée sur tous les modes de tous les champs, elle forme l'énergie du vide, qui fait l'objet de la section suivante.</p>
+      <p>Le caractère entier de <i>n</i> a une autre conséquence. Les particules d'un même mode sont indiscernables, parce qu'un mode ne porte aucune information capable de les distinguer : il n'y a rien à dire d'elles que leur nombre. Les étiquettes individuelles, celles qui permettraient de suivre une particule donnée, n'existent pas dans cette description.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>Le vide pousse sur les miroirs</h2>
-      <p>Entre deux plaques métalliques très proches, le champ électromagnétique ne peut pas trembler n'importe comment : seules les vibrations qui tiennent pile entre les plaques survivent. À l'extérieur, aucune restriction. Il y a donc <strong>moins d'énergie de vide à l'intérieur qu'à l'extérieur</strong>, et la différence pousse les plaques l'une vers l'autre.</p>
-      <p>Hendrik Casimir a prédit cet effet en 1948. Steve Lamoreaux l'a mesuré en 1997, et il est aujourd'hui une nuisance quotidienne pour les ingénieurs des micromachines, où il colle les pièces mobiles. <strong>Rapprochez les plaques.</strong></p>
+      <h2>L'énergie du vide entre deux plaques, et la force de Casimir</h2>
+      <p>Entre deux plaques métalliques parallèles, le champ électromagnétique doit s'annuler sur les surfaces conductrices. Seuls survivent les modes dont un nombre entier de demi-longueurs d'onde tient exactement dans l'intervalle. À l'extérieur, aucune condition de ce genre ne s'applique, et tous les modes sont présents.</p>
+      <p>Chaque mode apporte sa demi-marche d'énergie. Le vide entre les plaques contient donc moins de modes possibles qu'au dehors, donc moins d'énergie, donc il pousse moins fort de l'intérieur que de l'extérieur : les plaques se rapprochent. Hendrik Casimir a calculé cette force en 1948, Steve Lamoreaux l'a mesurée en 1997 entre une sphère et un plan, et elle intervient aujourd'hui dans la conception des micromachines, où elle tend à coller les pièces mobiles.</p>
+      <p class="fx"><i>F</i> / <i>S</i> = π² ħ <i>c</i> / ( 240 <i>d</i><sup>4</sup> )</p>
+      <ul class="sym">
+        <li><b>F/S</b> la force par unité de surface, c'est-à-dire une pression</li>
+        <li><b>d</b> l'écart entre les plaques, supposées parfaitement réfléchissantes et à température nulle</li>
+      </ul>
+      <p>Aucune propriété du métal n'apparaît dans cette expression, qui ne contient que ħ, <i>c</i> et l'écart. La présence de ħ signale l'origine quantique de la force, et la puissance quatrième de <i>d</i> la rend très sensible à la distance. À <i>d</i> = 100 nanomètres, soit 10<sup>−7</sup> mètre, le numérateur π² ħ <i>c</i> vaut 3,12 × 10<sup>−25</sup> et le dénominateur 240 <i>d</i><sup>4</sup> vaut 2,4 × 10<sup>−26</sup>. La pression ressort à 13 pascals : environ un huit-millième de la pression atmosphérique, ou le poids de 0,13 gramme posé sur un centimètre carré. Diviser l'écart par deux multiplie la pression par seize, et à 10 nanomètres elle atteint 1,3 × 10<sup>5</sup> pascals, au-dessus de la pression atmosphérique.</p>
+      <p><strong>Rapprochez les plaques et suivez la pression affichée.</strong></p>
       <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="dS">Écart entre les plaques</label><input type="range" id="dS" min="0" max="100" value="60" style="width:280px"></span>
       </div>
       <div class="live" id="f3L"></div>
-      <p class="figcap"><b>Figure 3.</b> Les vibrations dessinées entre les plaques sont celles qui tiennent exactement dans l'intervalle. La pression suit la formule de Casimir, en divisant par la puissance quatrième de l'écart.</p>
-      <p>Cette même énergie du vide pose aussi le plus gros problème non résolu de la physique. Quand on tente de calculer l'énergie totale du vide et son effet sur l'expansion de l'Univers, on tombe à côté de la mesure d'un facteur qui s'écrit avec 120 zéros. Personne ne sait pourquoi.</p>
+      <p class="figcap"><b>Figure 3.</b> Les ondulations dessinées entre les plaques sont celles dont un nombre entier de demi-longueurs d'onde tient dans l'intervalle, les autres étant absentes. La pression affichée suit la formule ci-dessus, en divisant par la puissance quatrième de l'écart.</p>
+      <p>La même énergie de point zéro, additionnée sur tous les modes de tous les champs, devrait peser sur l'expansion de l'Univers. Le calcul le plus direct donne une densité d'énergie du vide qui dépasse la valeur déduite des observations cosmologiques d'un facteur de l'ordre de 10<sup>120</sup>, et cet écart reste sans explication admise. La force de Casimir échappe à la difficulté, parce qu'elle ne met en jeu que la différence d'énergie entre deux écartements de plaques, et non l'énergie totale du vide.</p>
     </section>
 
     <section class="step">
       <span class="no-num">4</span>
-      <h2>Les particules apparaissent et disparaissent</h2>
-      <p>Dans cette façon de voir, rien n'oblige le nombre de particules à rester constant. Un champ peut rendre son énergie à un autre : une ondulation disparaît ici, deux autres naissent là. C'est pour cela qu'un accélérateur peut fabriquer de la matière avec du mouvement.</p>
-      <p>Le cas le plus simple : un photon assez énergique, qui passe près d'un noyau, se transforme en un électron et son antiparticule. Il faut pour cela au moins de quoi payer les deux masses, soit 1,022 million d'électronvolts. En dessous, rien ne se passe. <strong>Montez l'énergie du photon.</strong></p>
+      <h2>Création de particules, et portée des interactions</h2>
+      <p>Rien dans ce cadre n'oblige le nombre de particules à rester constant. Un champ peut céder son énergie à un autre : une ondulation disparaît d'un côté, deux autres naissent de l'autre, et le résultat n'est contraint que par les quantités conservées, au premier rang desquelles l'énergie et la charge. Un accélérateur fabrique ainsi de la matière à partir de mouvement.</p>
+      <p>Le cas le plus simple est la création de paire. Un photon qui passe près d'un noyau peut disparaître en laissant un électron et son antiparticule, le positron. La relation <i>E</i> = <i>m</i> <i>c</i>² fixe le prix de l'opération : il faut au moins deux fois l'énergie de repos de l'électron, soit 2 × 0,511 = 1,022 million d'électronvolts. En dessous de ce seuil, le photon poursuit son chemin. Le noyau joue un rôle, puisqu'il emporte une part de l'impulsion sans laquelle le bilan ne pourrait pas être équilibré.</p>
+      <p><strong>Montez l'énergie du photon, puis envoyez-le.</strong></p>
       <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="eS">Énergie du photon</label><input type="range" id="eS" min="20" max="500" value="60" style="width:280px"></span>
         <button class="go" id="b4">Envoyer le photon</button>
       </div>
       <div class="live" id="f4L"></div>
-      <p class="figcap"><b>Figure 4.</b> Création de paire, telle qu'on la voit dans une chambre à bulles : les deux particules s'enroulent en sens contraires dans le champ magnétique, ce qui trahit leurs charges opposées. À droite, le diagramme de Feynman correspondant.</p>
-      <p>Un mot sur ces diagrammes, parce qu'ils sont souvent mal compris. <strong>Ce ne sont pas des trajectoires.</strong> Ce sont des aide-mémoire de calcul : chaque trait et chaque nœud correspond à un facteur précis dans une formule, et la somme de tous les dessins possibles donne la probabilité du résultat. Les particules dites virtuelles, celles des traits internes, ne sont pas de petites billes cachées : ce sont des termes dans une somme.</p>
+      <p class="figcap"><b>Figure 4.</b> À gauche, la création de paire telle qu'elle apparaît dans une chambre à bulles : les deux traces s'enroulent en sens contraires dans le champ magnétique, ce qui signe des charges opposées, et leur rayon augmente avec l'énergie qui reste disponible. À droite, le diagramme de Feynman correspondant.</p>
+      <p>Les diagrammes de ce genre sont des instructions de calcul et non des trajectoires. Chaque trait et chaque nœud correspond à un facteur déterminé dans une expression, et la somme de tous les diagrammes compatibles avec le résultat observé donne l'amplitude de probabilité de ce résultat. Les particules dites virtuelles, celles qui portent les traits internes, sont des termes de cette somme : elles ne vérifient pas la relation <i>E</i>² = (<i>p</i> <i>c</i>)² + (<i>m</i> <i>c</i>²)², et aucun détecteur ne les enregistre.</p>
+      <p>C'est pourtant l'échange de ces quanta internes qui produit les forces entre particules, et la masse du quantum échangé fixe la distance sur laquelle la force se fait sentir.</p>
+      <p class="fx"><i>R</i> ≈ ħ / ( <i>m</i> <i>c</i> )</p>
+      <ul class="sym">
+        <li><b>R</b> la portée de l'interaction</li>
+        <li><b>m</b> la masse du quantum échangé</li>
+      </ul>
+      <p>Un quantum de masse <i>m</i> ne peut tenir le rôle d'un trait interne que sur une distance de l'ordre de ħ/(<i>m</i> <i>c</i>), et un médiateur lourd donne donc une portée courte. Le photon a une masse nulle, ce qui envoie <i>R</i> à l'infini : l'interaction électromagnétique se fait sentir à n'importe quelle distance, en décroissant comme 1/<i>r</i>². Les bosons W et Z pèsent 80,4 et 91,2 GeV/<i>c</i>². En utilisant ħ<i>c</i> = 197,3 MeV·fm, la portée du W vaut 197,3 / 80 400 = 2,5 × 10<sup>−3</sup> femtomètre, soit 2,5 × 10<sup>−18</sup> mètre, et celle du Z 2,2 × 10<sup>−18</sup> mètre. L'interaction faible agit ainsi sur une distance de l'ordre de 10<sup>−18</sup> mètre, quelques centaines de fois plus petite qu'un proton, dont le rayon vaut 0,84 femtomètre.</p>
+      <div class="tablewrap">
+      <table class="tb">
+        <tr><th>Quantum échangé</th><th>Masse</th><th>Portée ħ/(<i>mc</i>)</th><th>Interaction</th></tr>
+        <tr><td>Photon</td><td class="n">0</td><td class="n">infinie</td><td>Électromagnétique, en 1/<i>r</i>²</td></tr>
+        <tr><td>Gluon</td><td class="n">0</td><td class="n">≈ 10<sup>−15</sup> m</td><td>Forte. Le gluon est sans masse, mais le confinement borne la portée à la taille d'un nucléon</td></tr>
+        <tr><td>Boson W</td><td class="n">80,4 GeV/<i>c</i>²</td><td class="n">2,5 × 10<sup>−18</sup> m</td><td>Faible, avec changement de charge, responsable de la radioactivité bêta</td></tr>
+        <tr><td>Boson Z</td><td class="n">91,2 GeV/<i>c</i>²</td><td class="n">2,2 × 10<sup>−18</sup> m</td><td>Faible, sans changement de charge</td></tr>
+        <tr><td>Boson de Higgs</td><td class="n">125,2 GeV/<i>c</i>²</td><td class="n">1,6 × 10<sup>−18</sup> m</td><td>Couplage aux particules massives</td></tr>
+      </table>
+      </div>
+      <p>L'histoire a suivi l'ordre inverse de ce tableau. La portée très courte observée dans la radioactivité bêta imposait des médiateurs lourds, dont les masses ont été calculées avant que les bosons W et Z ne soient détectés au CERN en 1983.</p>
     </section>
 
     <section class="step">
       <span class="no-num">5</span>
-      <h2>Pourquoi c'est capital</h2>
-      <p><strong>Parce que ça marche à un point qui défie l'imagination.</strong> Le magnétisme de l'électron se calcule dans cette théorie, en additionnant des milliers de diagrammes, et se mesure en piégeant un électron unique pendant des mois. Voici les deux nombres, l'un calculé, l'autre mesuré :</p>
+      <h2>La précision des prédictions, et ce qui reste dehors</h2>
+      <p>Le magnétisme de l'électron fournit la comparaison la plus serrée entre un calcul de théorie des champs et une mesure. Le calcul additionne les contributions de milliers de diagrammes de Feynman, et la mesure consiste à piéger un électron unique et à suivre ses fréquences de rotation pendant des mois. Voici les deux nombres, en unités où un électron sans correction quantique donnerait exactement 1.</p>
       <div class="result" id="chiffres"></div>
-      <p>Aucune autre théorie, dans aucune discipline, n'est vérifiée à ce niveau. C'est l'équivalent de prévoir la distance Paris-New York à l'épaisseur d'un cheveu près.</p>
+      <p>Les douze premiers chiffres coïncident, soit un accord relatif de l'ordre de 10<sup>−12</sup>. Rapporté à la distance de Paris à New York, environ 5 800 kilomètres, un tel écart relatif représente 6 micromètres, le dixième de l'épaisseur d'un cheveu.</p>
       <ul class="others">
-        <li><strong>Elle décrit tout ce qu'on connaît, sauf la gravitation.</strong> Le modèle standard est une théorie quantique des champs : douze champs de matière, les champs des forces électromagnétique, faible et forte, et le champ de Higgs. Il a prédit l'antimatière avant qu'on la voie, les bosons W et Z avec leurs masses, et le boson de Higgs quarante-huit ans avant sa découverte en 2012.</li>
-        <li><strong>Elle explique d'où vient la masse</strong>, et la réponse surprend : le champ de Higgs donne leur masse aux particules élémentaires, mais il ne compte que pour environ 1 % de votre poids. Tout le reste est l'énergie de l'agitation des quarks et des gluons à l'intérieur de vos protons. Vous êtes essentiellement fait d'énergie de liaison.</li>
-        <li><strong>Elle a changé de métier sans changer de formules.</strong> Les mêmes outils décrivent les vibrations d'un cristal, dont les quanta s'appellent phonons, la supraconductivité, et des excitations collectives qui se comportent exactement comme des particules alors qu'elles n'existent qu'à l'intérieur d'un matériau. La physique de la matière condensée et la physique des particules parlent la même langue.</li>
-        <li><strong>Elle explique pourquoi il y a des galaxies.</strong> Dans les premiers instants, les fluctuations quantiques d'un champ ont été étirées par l'expansion jusqu'à devenir des irrégularités de densité à l'échelle du cosmos. Ces irrégularités se lisent aujourd'hui sur la carte du fond diffus, et c'est autour d'elles que la matière s'est rassemblée. Les amas de galaxies sont d'anciennes fluctuations du vide, agrandies.</li>
+        <li><strong>Le modèle standard est une théorie quantique des champs.</strong> Douze champs de matière, les champs des interactions électromagnétique, faible et forte, et le champ de Higgs suffisent à rendre compte de tout ce qui a été observé en laboratoire. Le positron a été prévu par Dirac en 1928 et observé en 1932, les masses des bosons W et Z ont été calculées avant leur détection en 1983, et le boson de Higgs a été proposé en 1964 et observé en 2012.</li>
+        <li><strong>La masse des objets ordinaires vient surtout de l'énergie de liaison.</strong> Le champ de Higgs donne leur masse aux particules élémentaires, mais les masses des quarks ne comptent que pour environ 1 % de la masse d'un proton. Le reste est l'énergie de l'agitation des quarks et des gluons qu'il contient, comptée comme masse par <i>E</i> = <i>m</i> <i>c</i>².</li>
+        <li><strong>Les mêmes outils servent en matière condensée.</strong> Les vibrations d'un cristal se quantifient de la même façon, et leurs quanta portent le nom de phonons. La supraconductivité et plusieurs excitations collectives qui se comportent comme des particules à l'intérieur d'un matériau se décrivent dans ce langage.</li>
+        <li><strong>Les grandes structures de l'Univers descendent de fluctuations de champ.</strong> Dans les premiers instants, les fluctuations quantiques d'un champ ont été étirées par l'expansion jusqu'à l'échelle cosmologique. Elles apparaissent aujourd'hui comme des écarts de température de l'ordre de 10<sup>−5</sup> sur la carte du fond diffus, et c'est autour de ces surdensités que les galaxies se sont assemblées.</li>
       </ul>
-      <p>Et puis il y a ce qui résiste. La gravitation refuse de se laisser traiter de cette façon : les calculs partent à l'infini de manière incurable, et les deux piliers de la physique moderne, cette théorie des champs et la relativité générale, ne se parlent toujours pas. C'est de là que partent les cordes, la gravitation quantique à boucles, et tout ce qui occupe les théoriciens depuis cinquante ans.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> remplacez « particules qui se déplacent » par « champs qui vibrent, et dont les vibrations se comptent en nombres entiers ». Vous obtenez des particules identiques, un vide qui pousse, de la matière créée à partir d'énergie, et douze chiffres exacts.</p>
+      <p>La gravitation reste en dehors de ce cadre. Traitée comme les autres champs, elle conduit à des corrections qui divergent et qu'on ne sait pas absorber dans la redéfinition d'un nombre fini de paramètres, procédé qui réussit pour les autres interactions. La théorie quantique des champs et la relativité générale demeurent donc deux descriptions séparées, chacune vérifiée dans son domaine, et les tentatives de les réunir, théorie des cordes ou gravitation quantique à boucles, n'ont pas encore de confirmation expérimentale.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> un champ remplit l'espace, ses ondulations obéissent à l'équation de Klein-Gordon, et l'énergie de chacun de ses modes ne monte que par marches de ħ<i>ω</i>. Une particule est une marche, son nombre est donc entier, et la demi-marche qui subsiste en bas de l'escalier est l'énergie du vide, que la force entre deux plaques rend mesurable. La masse du quantum échangé fixe la portée d'une interaction, ce qui sépare l'électromagnétisme, de portée infinie, de l'interaction faible, confinée à 10<sup>−18</sup> mètre.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -165,7 +228,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 
 "use strict";

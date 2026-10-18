@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/nobel-medecine-2026.html">
-<title>Nobel de médecine 2026 : allumer un neurone avec de la lumière · Chamss Bachiri</title>
-<meta name="description" content="Le prix Nobel de médecine 2026 récompense l'optogénétique : commander un neurone avec de la lumière. Expliqué en quatre simulations, du photon au condensateur.">
-<meta property="og:title" content="Nobel de médecine 2026 : allumer un neurone avec de la lumière">
+<title>Comment la lumière commande-t-elle un neurone ? · Chamss Bachiri</title>
+<meta name="description" content="Le prix Nobel de médecine 2026 récompense l'optogénétique. La physique de la méthode en quatre simulations : l'énergie du photon, la charge à apporter au condensateur de membrane, et l'atténuation de la lumière dans le tissu.">
+<meta property="og:title" content="Comment la lumière commande-t-elle un neurone ?">
 <meta property="og:type" content="article">
 <style>
 .scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
@@ -29,6 +29,11 @@
 .tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
 .tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
 .tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 
@@ -42,135 +47,196 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Nobel de médecine 2026 : allumer un neurone avec de la lumière</h1>
-      <p class="dek">Le 5 octobre 2026, le prix est allé à Karl Deisseroth, Peter Hegemann et Georg Nagel pour leurs découvertes sur les canaux ioniques commandés par la lumière et sur l'optogénétique. C'est un prix de médecine, mais tout y est de la physique : un photon, une molécule qui se déplie, un condensateur qui se charge, et de la lumière qu'il faut faire entrer dans un tissu opaque.</p>
-      <div class="meta"><span>8 octobre 2026</span><span>14 min</span></div>
+      <h1>Comment la lumière commande-t-elle un neurone ?</h1>
+      <p class="dek">Le prix Nobel de médecine 2026 a été attribué à Karl Deisseroth, Peter Hegemann et Georg Nagel pour leurs découvertes sur les canaux ioniques commandés par la lumière et sur l'optogénétique. La question posée ici est celle de la méthode : combien de photons faut-il, pour quelle charge électrique, et jusqu'à quelle profondeur dans un tissu qui n'est pas transparent. Quatre simulations suivent le trajet, du photon absorbé jusqu'au potentiel d'action.</p>
+      <div class="meta"><span>8 octobre 2026</span><span>16 min</span></div>
     </div>
 
     <section class="step">
       <span class="no-num">1</span>
-      <h2>Le problème : on savait écouter les neurones, pas leur parler</h2>
-      <p>Depuis les années 1950, on sait enregistrer l'activité électrique d'un neurone avec une électrode. L'inverse, commander un neurone, se faisait aussi avec une électrode, mais très mal. Une électrode qui injecte du courant excite tout ce qui se trouve autour d'elle : les neurones qu'on visait, ceux qu'on ne visait pas, les fibres qui ne font que passer. Elle ne sait pas distinguer un type de cellule d'un autre. Et elle ne sait pas <strong>éteindre</strong>.</p>
-      <p>Or une bonne partie des questions intéressantes en neurosciences est de cette forme : si j'allume exactement ces neurones-là, et eux seuls, que fait l'animal ? Et si je les fais taire ?</p>
-      <p>La réponse est arrivée d'un endroit inattendu, et elle avait la forme d'une algue.</p>
+      <h2>Les limites de la stimulation par électrode</h2>
+      <p>Depuis les années 1950, l'activité électrique d'un neurone s'enregistre avec une électrode posée contre lui ou glissée à l'intérieur. La commande se faisait par le même moyen, en injectant du courant par une électrode. Un courant injecté dans le tissu excite tout ce qui entoure la pointe, les neurones visés comme ceux qui ne le sont pas, et les fibres qui ne font que traverser la zone. L'électrode ne distingue pas un type de cellule d'un autre, et elle ne permet pas de faire taire une population.</p>
+      <p>Beaucoup de questions de neurosciences prennent pourtant cette forme : si l'on active ces neurones précis, et eux seuls, que fait l'animal, et qu'arrive-t-il si on les fait taire ? Il fallait donc une commande capable de choisir ses destinataires. Elle est venue de l'étude d'une algue verte.</p>
     </section>
 
     <section class="step">
       <span class="no-num">2</span>
-      <h2>Une algue qui nage vers la lumière</h2>
-      <p><i>Chlamydomonas reinhardtii</i> est une algue verte unicellulaire, de dix micromètres, qui se déplace avec deux petits fouets et qui nage vers la lumière. Pour cela, il lui faut un détecteur, et surtout un détecteur qui agisse vite.</p>
-      <p>Peter Hegemann a passé des années à comprendre comment cette cellule voit. Avec Georg Nagel et leurs collègues, il a identifié en 2002 une protéine de sa membrane qu'ils ont appelée <strong>channelrhodopsine</strong>, puis en 2003 une seconde, la channelrhodopsine-2. Le nom dit déjà tout : <i>rhodopsine</i>, parce qu'elle contient du rétinal, la même molécule que celle de notre œil, et <i>channel</i>, canal, parce qu'elle n'est pas un simple détecteur mais un trou qui s'ouvre.</p>
-      <p>C'est là que se trouve la nouveauté physique. Dans notre œil, la rhodopsine absorbe un photon puis déclenche une longue cascade chimique avant qu'un courant apparaisse, ce qui prend des dizaines de millisecondes. Dans l'algue, il n'y a pas de cascade : <strong>la protéine qui absorbe le photon est elle-même le canal</strong>. Un photon, et le passage est ouvert. C'est direct, et c'est rapide.</p>
-      <p><strong>Envoyez un photon et regardez ce qui se passe.</strong></p>
+      <h2>Un canal ionique qui s'ouvre à la lumière</h2>
+      <p><i>Chlamydomonas reinhardtii</i> est une algue verte unicellulaire d'environ dix micromètres, pourvue de deux flagelles, qui nage vers la lumière. Pour orienter sa nage, elle a besoin d'un détecteur de lumière dont la réponse soit rapide.</p>
+      <p>Peter Hegemann a étudié pendant des années la façon dont cette cellule détecte la lumière. Avec Georg Nagel et leurs collègues, il a identifié en 2002 une protéine de la membrane qu'ils ont nommée <strong>channelrhodopsine</strong>, puis en 2003 une seconde, la channelrhodopsine-2. Le nom indique la composition et la fonction : <i>rhodopsine</i> parce que la protéine contient du rétinal, la molécule qui sert aussi à notre vision, et <i>channel</i>, canal, parce qu'elle forme un pore qui traverse la membrane.</p>
+      <p>La différence avec l'œil des vertébrés porte sur le nombre d'étapes. Dans la rétine humaine, la rhodopsine absorbe un photon puis déclenche une cascade de réactions chimiques, et le courant n'apparaît qu'au bout de quelques dizaines de millisecondes. Dans l'algue, la protéine qui absorbe le photon est elle-même le canal, et le pore s'ouvre en deux dixièmes de milliseconde sans intermédiaire.</p>
+      <p>L'énergie que transporte le photon absorbé se calcule à partir de sa longueur d'onde.</p>
+      <p class="fx"><i>E</i> = <i>h</i> <i>c</i> / <i>λ</i></p>
+      <ul class="sym">
+        <li><b>E</b> l'énergie du photon</li>
+        <li><b>h</b> la constante de Planck, 6,626 × 10<sup>−34</sup> joule-seconde</li>
+        <li><b>c</b> la vitesse de la lumière, 2,998 × 10<sup>8</sup> mètre par seconde</li>
+        <li><b>λ</b> la longueur d'onde, 470 nanomètres pour le bleu qu'absorbe la channelrhodopsine-2</li>
+      </ul>
+      <p>Le produit <i>h c</i> vaut 1240 électronvolts-nanomètre, ce qui rend l'application numérique immédiate : 1240 divisé par 470 donne <strong>2,64 électronvolts</strong>, soit 4,23 × 10<sup>−19</sup> joule. L'énergie est inversement proportionnelle à la longueur d'onde, donc un photon rouge à 630 nanomètres n'en transporte que 1,97. Dans les deux cas, la quantité est de l'ordre de l'électronvolt, c'est-à-dire l'énergie qui suffit à changer la forme d'une molécule, et très loin de ce qu'il faudrait pour alimenter un courant nerveux.</p>
+      <p>Envoyez un photon et suivez ce qui se passe dans la protéine.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl">
         <button class="go" id="b1">Envoyer un photon</button>
       </div>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> Un canal fermé, puis ouvert. Les ions positifs ne sont pas poussés par la lumière : ils tombent du côté où il y en a moins.</p>
-      <p>Cette distinction mérite d'être appuyée, parce que c'est elle qui rend la méthode possible. Un photon bleu transporte 2,6 électronvolts, soit quatre dix-milliardièmes de milliardième de joule. C'est infime. Il serait hors de question d'alimenter un courant nerveux avec ça.</p>
-      <p>Mais le photon n'alimente rien. Il sert d'<strong>interrupteur</strong>. Toute l'énergie du courant était déjà là, stockée par la cellule sous forme d'un déséquilibre de sodium qu'elle entretient en permanence, à grands frais, avec des pompes. La lumière ne fait que décider du moment où ce déséquilibre a le droit de se relâcher. C'est le principe d'un transistor, ou d'un barrage.</p>
+      <p class="figcap"><b>Figure 1.</b> Un canal fermé, puis ouvert. Les ions positifs ne sont pas poussés par la lumière : ils passent vers le côté où leur concentration est la plus faible.</p>
+      <p>Le photon joue donc le rôle d'un interrupteur. L'énergie du courant est stockée d'avance par la cellule sous la forme d'un excès de sodium à l'extérieur, que des pompes entretiennent en consommant de l'ATP. La lumière fixe seulement l'instant où ce déséquilibre a le droit de se relâcher, comme la vanne d'un barrage fixe l'instant où l'eau descend.</p>
     </section>
 
     <section class="step">
       <span class="no-num">3</span>
-      <h2>2005 : le branchement</h2>
-      <p>L'idée de prendre ce canal d'algue et de l'installer dans un neurone de mammifère paraît absurde, et c'est pourtant ce qu'a fait le laboratoire de Karl Deisseroth, avec une construction fournie par Georg Nagel. En 2005, ils montrent que des neurones de rat en culture, dans lesquels on a fait fabriquer de la channelrhodopsine-2, répondent à un éclair bleu par un potentiel d'action, <strong>à la milliseconde près</strong>. Deux ans plus tard, ça marche dans le cerveau d'une souris vivante.</p>
-      <p>Le mot <i>génétique</i> d'optogénétique est là : on ne pose pas la protéine sur les neurones, on leur fait fabriquer eux-mêmes, en introduisant son gène. Et comme on peut choisir de n'activer ce gène que dans un type de cellule précis, on obtient la chose qu'aucune électrode ne savait faire : <strong>une commande qui ne s'adresse qu'aux cellules désignées à l'avance</strong>, et qui laisse leurs voisines indifférentes, même collées contre elles.</p>
-      <p>À partir de là, la physique reprend la main, parce qu'il reste deux problèmes très concrets : est-ce que la lumière suffit à faire partir un neurone, et comment faire entrer de la lumière dans un cerveau.</p>
+      <h2>Le canal d'algue transféré dans un neurone</h2>
+      <p>Installer ce canal d'algue dans un neurone de mammifère demande d'introduire son gène dans la cellule et de laisser celle-ci fabriquer la protéine. Le laboratoire de Karl Deisseroth l'a fait avec une construction fournie par Georg Nagel. En 2005, l'article qui en rend compte, et dont le premier auteur est Ed Boyden, montre que des neurones de rat en culture exprimant la channelrhodopsine-2 répondent à un éclair bleu par un potentiel d'action, avec une précision temporelle de l'ordre de la milliseconde. Deux ans plus tard, la même commande fonctionne dans le cerveau d'une souris vivante.</p>
+      <p>Le mot <i>génétique</i> d'optogénétique renvoie à cette étape. Comme l'expression du gène peut être restreinte à un type de cellule choisi à l'avance, la commande ne s'adresse qu'aux cellules qui portent la protéine et laisse indifférentes leurs voisines immédiates, même collées contre elles.</p>
+      <p>Restent deux questions de physique. La lumière apporte-t-elle assez de charge pour déclencher un potentiel d'action, et jusqu'où pénètre-t-elle dans un cerveau ?</p>
     </section>
 
     <section class="step">
       <span class="no-num">4</span>
-      <h2>Un neurone est un condensateur qui fuit</h2>
-      <p>Électriquement, un morceau de membrane est un condensateur : deux milieux conducteurs, l'eau salée du dedans et celle du dehors, séparés par une couche isolante de cinq nanomètres de graisse. Sa capacité est remarquablement constante dans tout le vivant, un microfarad par centimètre carré, ce qui fait une centaine de picofarads pour un neurone entier.</p>
-      <p>Ce condensateur fuit, parce que la membrane n'est pas un isolant parfait. Capacité et fuite, ensemble, donnent une constante de temps de l'ordre de <strong>quinze millisecondes</strong> : c'est le temps que met la membrane à se charger, et c'est aussi sa mémoire. En dessous du seuil de −55 millivolts, elle oublie. Au-dessus, le neurone part tout seul.</p>
-      <p><strong>Montez la puissance lumineuse, puis changez le rythme des éclairs.</strong></p>
+      <h2>La membrane, un condensateur qui fuit</h2>
+      <p>Électriquement, un morceau de membrane se comporte comme un condensateur. Deux milieux conducteurs, l'eau salée du dedans et celle du dehors, sont séparés par une couche isolante de lipides de cinq nanomètres d'épaisseur. La capacité par unité de surface est à peu près la même dans tout le vivant, un microfarad par centimètre carré, ce qui donne une centaine de picofarads pour un neurone entier.</p>
+      <p>Franchir le seuil de déclenchement revient alors à apporter à ce condensateur une quantité de charge bien précise.</p>
+      <p class="fx"><i>Q</i> = <i>C</i> Δ<i>V</i></p>
+      <ul class="sym">
+        <li><b>Q</b> la charge à faire entrer dans la cellule</li>
+        <li><b>C</b> la capacité de la membrane, environ 100 picofarads</li>
+        <li><b>ΔV</b> l'écart entre le potentiel de repos, −70 millivolts, et le seuil, −55 millivolts, soit 15 millivolts</li>
+      </ul>
+      <p>Le produit donne 100 × 10<sup>−12</sup> × 15 × 10<sup>−3</sup> = 1,5 × 10<sup>−12</sup> coulomb, soit <strong>1,5 picocoulomb</strong>. Divisée par la charge élémentaire, 1,602 × 10<sup>−19</sup> coulomb, cette quantité représente 9,4 × 10<sup>6</sup> charges, près de dix millions d'ions à faire traverser la membrane. La charge demandée est proportionnelle à la capacité, donc à la surface de la cellule : à seuil égal, un gros neurone réclame plus de lumière qu'un petit.</p>
+      <p>Ce condensateur fuit, parce que la membrane laisse passer un courant de repos. La résistance de fuite et la capacité fixent ensemble une constante de temps.</p>
+      <p class="fx">τ = <i>R</i> <i>C</i></p>
+      <ul class="sym">
+        <li><b>τ</b> la constante de temps de la membrane</li>
+        <li><b>R</b> la résistance de fuite, de l'ordre de 140 mégohms pour un neurone entier</li>
+      </ul>
+      <p>Avec ces valeurs, τ vaut 140 × 10<sup>6</sup> × 100 × 10<sup>−12</sup> = 1,4 × 10<sup>−2</sup> seconde, soit <strong>14 millisecondes</strong>. C'est la durée pendant laquelle la membrane garde la trace d'une charge reçue, et elle impose son rythme aux éclairs. Deux éclairs séparés de beaucoup plus que τ agissent indépendamment, et chacun doit franchir le seuil à lui seul. Deux éclairs séparés de moins que τ s'additionnent en partie, parce que le second arrive avant que le premier soit oublié. Comme 1 / τ vaut 71 hertz, au-delà de soixante à soixante-dix éclairs par seconde l'intervalle devient plus court que τ et que la durée d'ouverture des canaux, et la cellule cesse de recopier le rythme de la lumière.</p>
+      <p>Montez la puissance lumineuse, puis changez le rythme des éclairs.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="pS">Puissance lumineuse</label><input type="range" id="pS" min="0" max="100" value="45" style="width:240px"></span>
         <div class="seg" id="modeS"></div>
       </div>
       <div class="live" id="f2L"></div>
-      <p class="figcap"><b>Figure 2.</b> Modèle à une équation : la membrane se charge par le courant des canaux ouverts, se décharge par sa fuite, et déclenche un potentiel d'action au franchissement du seuil.</p>
-      <p>Le compte est instructif, et il explique pourquoi la méthode a mis du temps à marcher.</p>
+      <p class="figcap"><b>Figure 2.</b> Modèle à une équation. La membrane se charge par le courant des canaux ouverts, se décharge par sa fuite avec la constante de temps τ, et déclenche un potentiel d'action au franchissement du seuil de −55 millivolts.</p>
+      <p>Il reste à compter combien de canaux doivent s'ouvrir ensemble. Un canal ouvert se caractérise par sa conductance, et la charge qu'il laisse passer pendant une ouverture s'en déduit.</p>
+      <p class="fx"><i>q</i><sub>1</sub> = <i>g</i> <i>V</i><sub>m</sub> <i>t</i><sub>o</sub></p>
+      <ul class="sym">
+        <li><b>q<sub>1</sub></b> la charge qui traverse un canal pendant une ouverture</li>
+        <li><b>g</b> la conductance du canal ouvert, environ 50 femtosiemens</li>
+        <li><b>V<sub>m</sub></b> la force motrice qui pousse les ions, environ 70 millivolts</li>
+        <li><b>t<sub>o</sub></b> la durée d'ouverture, environ 10 millisecondes</li>
+      </ul>
+      <p>Le courant vaut <i>g</i> <i>V</i><sub>m</sub> = 50 × 10<sup>−15</sup> × 70 × 10<sup>−3</sup> = 3,5 × 10<sup>−15</sup> ampère, soit 3,5 femtoampère. Pendant dix millisecondes, cela fait 3,5 × 10<sup>−17</sup> coulomb, un peu plus de deux cents charges élémentaires. Cinquante femtosiemens est une conductance mille fois plus faible que celle d'un canal sodium ordinaire, ce qui explique un compte d'ions aussi bas.</p>
+      <p>Le nombre de canaux à ouvrir en même temps est le rapport des deux charges.</p>
+      <p class="fx"><i>N</i> = <i>Q</i> / <i>q</i><sub>1</sub> = <i>C</i> Δ<i>V</i> / ( <i>g</i> <i>V</i><sub>m</sub> <i>t</i><sub>o</sub> )</p>
+      <p>Soit 1,5 × 10<sup>−12</sup> divisé par 3,5 × 10<sup>−17</sup>, c'est-à-dire <strong>environ 43 000 canaux ouverts simultanément</strong>, donc autant de photons absorbés en quelques millisecondes dans une seule cellule. Cette seconde écriture indique aussi où agir : augmenter la conductance <i>g</i> ou allonger la durée d'ouverture <i>t</i><sub>o</sub> réduit d'autant le nombre de photons à fournir. L'éclairement nécessaire se compte en milliwatts par millimètre carré, et vingt ans de travail ont porté sur des variantes plus conductrices et mieux exprimées.</p>
       <div class="tablewrap">
         <table class="tb">
           <tr><th>Grandeur</th><th>Ordre de grandeur</th></tr>
-          <tr><td>Énergie d'un photon bleu (470 nm)</td><td class="n">2,6 eV, soit 4,2 × 10⁻¹⁹ J</td></tr>
+          <tr><td>Énergie d'un photon bleu (470 nm), <i>h c</i> / <i>λ</i></td><td class="n">2,64 eV, soit 4,23 × 10⁻¹⁹ J</td></tr>
+          <tr><td>Énergie d'un photon rouge (630 nm)</td><td class="n">1,97 eV, soit 3,15 × 10⁻¹⁹ J</td></tr>
           <tr><td>Bascule du rétinal après absorption</td><td class="n">quelques centaines de femtosecondes</td></tr>
           <tr><td>Ouverture du pore</td><td class="n">environ 0,2 ms</td></tr>
-          <tr><td>Durée d'ouverture d'un canal</td><td class="n">environ 10 ms</td></tr>
-          <tr><td>Conductance d'un seul canal</td><td class="n">environ 50 fS</td></tr>
-          <tr><td>Ions passés par ouverture</td><td class="n">environ 200</td></tr>
-          <tr><td>Capacité d'un neurone</td><td class="n">environ 100 pF</td></tr>
-          <tr><td>Charge pour monter de 15 mV jusqu'au seuil</td><td class="n">1,5 pC, soit 10<sup>7</sup> charges</td></tr>
-          <tr><td>Canaux à ouvrir ensemble</td><td class="n">quelques dizaines de milliers</td></tr>
+          <tr><td>Durée d'ouverture d'un canal, <i>t</i><sub>o</sub></td><td class="n">environ 10 ms</td></tr>
+          <tr><td>Conductance d'un seul canal, <i>g</i></td><td class="n">environ 50 fS</td></tr>
+          <tr><td>Courant dans un canal ouvert, <i>g</i> <i>V</i><sub>m</sub></td><td class="n">3,5 fA</td></tr>
+          <tr><td>Ions passés par ouverture, <i>g</i> <i>V</i><sub>m</sub> <i>t</i><sub>o</sub> / <i>e</i></td><td class="n">environ 200</td></tr>
+          <tr><td>Capacité d'un neurone, <i>C</i></td><td class="n">environ 100 pF</td></tr>
+          <tr><td>Résistance de fuite, <i>R</i></td><td class="n">environ 140 MΩ</td></tr>
+          <tr><td>Constante de temps, τ = <i>R</i> <i>C</i></td><td class="n">environ 14 ms</td></tr>
+          <tr><td>Charge pour monter de 15 mV jusqu'au seuil, <i>C</i> Δ<i>V</i></td><td class="n">1,5 pC, soit 9,4 × 10<sup>6</sup> charges</td></tr>
+          <tr><td>Canaux à ouvrir ensemble, <i>C</i> Δ<i>V</i> / <i>q</i><sub>1</sub></td><td class="n">environ 43 000</td></tr>
+          <tr><td>Atténuation du tissu à 470 nm, µ</td><td class="n">1,17 mm⁻¹</td></tr>
+          <tr><td>Atténuation du tissu à 630 nm, µ</td><td class="n">0,46 mm⁻¹</td></tr>
+          <tr><td>Profondeur gagnée en doublant la puissance, ln 2 / µ</td><td class="n">0,59 mm dans le bleu, 1,5 mm à 630 nm</td></tr>
         </table>
       </div>
-      <p>Un canal de channelrhodopsine est un très mauvais robinet : cinquante femtosiemens, c'est mille fois moins qu'un canal sodium ordinaire. Pendant ses dix millisecondes d'ouverture, il ne laisse passer que deux cents ions. Et il faut dix millions de charges pour amener la membrane au seuil.</p>
-      <p>Il faut donc ouvrir <strong>plusieurs dizaines de milliers de canaux en même temps</strong>, ce qui veut dire autant de photons absorbés en quelques millisecondes dans une seule cellule. C'est pour cette raison qu'il a fallu attendre des protéines bien exprimées, des lasers et des diodes correctes, et que l'éclairement nécessaire se compte en milliwatts par millimètre carré. Ce qui nous amène au problème suivant.</p>
     </section>
 
     <section class="step">
       <span class="no-num">5</span>
-      <h2>Faire entrer de la lumière dans un cerveau</h2>
-      <p>Un cerveau n'est pas transparent. Il absorbe et il diffuse, et il le fait très inégalement selon la couleur. L'hémoglobine absorbe fortement le bleu et le vert. La diffusion, elle, décroît quand la longueur d'onde augmente : les structures du tissu, membranes et faisceaux, dévient d'autant plus la lumière qu'elle est bleue. Les deux effets vont dans le même sens, et ils laissent une fenêtre, entre 650 et 950 nanomètres, où les tissus vivants sont presque translucides. C'est pour ça qu'une lampe de téléphone posée contre la paume traverse la main en rouge.</p>
-      <p>Mauvaise nouvelle : la channelrhodopsine, elle, veut du bleu.</p>
-      <p><strong>Changez la couleur et la puissance, et regardez la zone utile.</strong></p>
+      <h2>La pénétration de la lumière dans le tissu</h2>
+      <p>Un cerveau n'est pas transparent. Il absorbe et il diffuse, et les deux effets dépendent de la couleur. L'hémoglobine absorbe fortement le bleu et le vert. La diffusion par les membranes et les faisceaux de fibres décroît quand la longueur d'onde augmente. Les deux variations vont dans le même sens et laissent une fenêtre, entre 650 et 950 nanomètres, où les tissus vivants sont presque translucides, ce qui explique qu'une lampe de téléphone posée contre la paume traverse la main en rouge. La channelrhodopsine-2, elle, absorbe au maximum vers 470 nanomètres.</p>
+      <p>Deux effets réduisent l'intensité à mesure qu'on s'éloigne de la sortie de la fibre. Le tissu absorbe et diffuse une part de la lumière, ce qui donne une décroissance exponentielle, et le faisceau s'élargit, ce qui répartit la même puissance sur une surface croissante.</p>
+      <p class="fx"><i>I</i>(<i>z</i>) = <i>I</i><sub>0</sub> exp(− µ <i>z</i>)</p>
+      <ul class="sym">
+        <li><b>I(z)</b> l'intensité à la profondeur <i>z</i></li>
+        <li><b>I<sub>0</sub></b> l'intensité à l'entrée du tissu</li>
+        <li><b>µ</b> le coefficient d'atténuation effectif du tissu, 1,17 mm<sup>−1</sup> à 470 nanomètres et 0,46 mm<sup>−1</sup> à 630</li>
+      </ul>
+      <p>En ajoutant l'étalement du faisceau, qui part du cœur de la fibre et s'ouvre en cône, l'intensité sur l'axe s'écrit avec les deux facteurs réunis.</p>
+      <p class="fx"><i>I</i>(<i>z</i>) = <i>P</i> / ( π <i>ρ</i>(<i>z</i>)² ) × exp(− µ <i>z</i>) &nbsp;&nbsp;avec&nbsp;&nbsp; <i>ρ</i>(<i>z</i>) = <i>ρ</i><sub>0</sub> + <i>z</i> tan θ</p>
+      <ul class="sym">
+        <li><b>P</b> la puissance envoyée dans la fibre</li>
+        <li><b>ρ(z)</b> le rayon du faisceau à la profondeur <i>z</i></li>
+        <li><b>ρ<sub>0</sub></b> le rayon du cœur de la fibre, 0,1 millimètre pour une fibre de 200 micromètres</li>
+        <li><b>θ</b> le demi-angle d'ouverture du faisceau, de tangente voisine de 0,3</li>
+      </ul>
+      <p>La profondeur utile est celle où <i>I</i>(<i>z</i>) retombe au seuil d'activation, environ 1 milliwatt par millimètre carré. En regardant d'abord le seul facteur exponentiel, doubler la puissance déplace ce seuil de la quantité suivante.</p>
+      <p class="fx">Δ<i>z</i> = ln 2 / µ</p>
+      <p>Dans le bleu, ln 2 divisé par 1,17 donne <strong>0,59 millimètre</strong>. À 630 nanomètres, le même doublement de puissance gagne <strong>1,5 millimètre</strong>, parce que µ y est 2,5 fois plus petit. Le gain est borné : chaque doublement rapporte la même tranche, et le facteur en 1 / <i>ρ</i>² en retire encore une partie, puisque le rayon du faisceau continue de croître avec la profondeur. Changer la couleur agit sur µ lui-même, c'est-à-dire sur le facteur qui fixe l'épaisseur de la tranche, et le levier est bien plus fort que celui de la puissance.</p>
+      <p>Changez la couleur et la puissance, et regardez la profondeur utile et le volume commandé.</p>
       <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="lS">Couleur</label><input type="range" id="lS" min="450" max="850" value="470" style="width:240px"></span>
         <span class="grp"><label for="wS">Puissance</label><input type="range" id="wS" min="0" max="100" value="40" style="width:200px"></span>
       </div>
       <div class="live" id="f3L"></div>
-      <p class="figcap"><b>Figure 3.</b> Modèle simplifié, pour les ordres de grandeur : étalement conique en sortie de fibre, absorption exponentielle du tissu, élargissement par diffusion. Le seuil retenu est de 1 mW/mm².</p>
-      <p>Deux choses se lisent sur cette figure. D'abord, le volume commandé est petit : un millimètre cube, à peine, pour une puissance raisonnable. Sur un cortex de souris ça passe, sur un cerveau humain c'est très peu. Ensuite, augmenter la puissance ne résout pas le problème, parce que l'intensité décroît exponentiellement avec la profondeur alors que la puissance, elle, ne monte que linéairement, et que tout ce qu'on ajoute finit en chaleur dans le premier millimètre.</p>
-      <p>La seule vraie sortie est de changer la couleur, ce qui veut dire changer la protéine. C'est l'essentiel du travail d'ingénierie des vingt dernières années : fabriquer des channelrhodopsines décalées vers le rouge, et des variantes plus conductrices qui demandent moins de photons.</p>
+      <p class="figcap"><b>Figure 3.</b> Modèle simplifié, pour les ordres de grandeur : étalement conique en sortie de fibre, atténuation exponentielle du tissu, élargissement par diffusion. Le seuil retenu est de 1 mW/mm².</p>
+      <p>Le volume commandé reste petit, de l'ordre du millimètre cube pour une puissance raisonnable. Sur un cortex de souris, cette échelle couvre une bonne part de la structure visée ; sur un cerveau humain, elle en couvre une fraction. La puissance ajoutée au-delà de quelques milliwatts se dissipe en chaleur dans le premier millimètre sans gagner de profondeur utile.</p>
+      <p>La voie suivie depuis vingt ans consiste donc à déplacer l'absorption de la protéine vers le rouge, où µ est plus petit, et à augmenter sa conductance pour abaisser le nombre de photons demandés.</p>
     </section>
 
     <section class="step">
       <span class="no-num">6</span>
-      <h2>Deux couleurs, deux ordres</h2>
-      <p>Il existe une autre famille de protéines à rétinal, les halorhodopsines, qui ne sont pas des canaux mais des pompes : elles font entrer des ions chlorure, donc des charges négatives, donc elles <strong>éteignent</strong> le neurone au lieu de l'allumer. Et leur sensibilité maximale ne se trouve pas au même endroit du spectre : vers 580 nanomètres, dans l'orange.</p>
-      <p>On peut donc mettre les deux dans le même cerveau, dans deux groupes de cellules différents, et choisir à qui l'on s'adresse simplement en changeant la couleur de la lampe. Il n'y a aucun fil, aucun adressage électronique : <strong>c'est la spectroscopie qui sert de câblage</strong>.</p>
-      <p><strong>Faites glisser la couleur de l'éclairage.</strong></p>
+      <h2>Allumer et éteindre avec deux couleurs</h2>
+      <p>Les halorhodopsines forment une autre famille de protéines à rétinal, et fonctionnent en pompes à ions chlorure. Elles font entrer des charges négatives, ce qui éloigne le potentiel du seuil et fait taire le neurone. Leur absorption maximale se situe vers 580 nanomètres, dans l'orange.</p>
+      <p>Le sens dans lequel une protéine déplace le potentiel se lit sur l'expression du courant qu'elle laisse passer.</p>
+      <p class="fx"><i>I</i> = <i>g</i> ( <i>V</i> − <i>E</i><sub>rev</sub> )</p>
+      <ul class="sym">
+        <li><b>I</b> le courant qui traverse les canaux ouverts</li>
+        <li><b>V</b> le potentiel de la membrane, −70 millivolts au repos</li>
+        <li><b>E<sub>rev</sub></b> le potentiel d'inversion, propre à chaque canal, celui où le courant s'annule</li>
+      </ul>
+      <p>La channelrhodopsine-2 conduit des cations et son potentiel d'inversion est voisin de 0 millivolt. À −70 millivolts, l'écart <i>V</i> − <i>E</i><sub>rev</sub> vaut donc −70 millivolts, le courant entre et rapproche la membrane du seuil. Un canal à chlorure a un potentiel d'inversion voisin du potentiel de repos, et le courant qu'il porte ramène la membrane vers cette valeur dès qu'elle s'en écarte. Une pompe à chlorure va plus loin, puisqu'elle déplace les ions même contre leur gradient, et peut descendre le potentiel sous sa valeur de repos.</p>
+      <p>Les deux protéines peuvent coexister dans le même cerveau, dans deux groupes de cellules distincts, et la couleur de l'éclairage suffit à désigner le destinataire. Aucun fil ni aucun adressage électronique n'intervient : la séparation des spectres d'absorption tient le rôle du câblage.</p>
+      <p>Faites glisser la couleur de l'éclairage.</p>
       <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="cS">Couleur de l'éclairage</label><input type="range" id="cS" min="400" max="700" value="470" style="width:300px"></span>
       </div>
       <div class="live" id="f4L"></div>
       <p class="figcap"><b>Figure 4.</b> Spectres d'action approchés des deux protéines, et effet sur deux populations de neurones qui se côtoient dans le même tissu.</p>
-      <p>Au passage, on voit aussi la limite : les deux cloches se recouvrent. Entre 510 et 540 nanomètres, on donne les deux ordres à la fois, et l'expérience ne veut plus rien dire. Toute la difficulté pratique de l'optogénétique à plusieurs couleurs tient dans ce recouvrement.</p>
+      <p>Les deux cloches se recouvrent. Les maxima sont séparés de 110 nanomètres, 470 d'un côté et 580 de l'autre, pour des cloches larges de 50 à 60 nanomètres : entre 500 et 545 nanomètres, les deux ordres sont donnés en même temps et la mesure devient inexploitable. Toute la difficulté de l'optogénétique à plusieurs couleurs tient dans ce recouvrement, et le travail d'ingénierie cherche des protéines dont les maxima soient plus écartés que les largeurs.</p>
     </section>
 
     <section class="step">
       <span class="no-num">7</span>
-      <h2>Ce que ça a changé, et ce que le prix ne dit pas</h2>
-      <p>Avant, on observait des corrélations : quand l'animal fait ceci, ces neurones s'activent. Avec l'optogénétique, on peut faire l'inverse et <strong>tester une cause</strong> : j'allume ces neurones, l'animal fait ceci. La différence est la même qu'entre regarder un orchestre et pouvoir faire jouer un instrument à la demande. Des circuits de la soif, de la faim, du sommeil, de la mémoire, de la peur ont été démontés comme ça, et des modèles de maladie de Parkinson ont été corrigés chez l'animal en éclairant la bonne population de cellules.</p>
-      <p>Il existe aussi une application clinique, et elle est logiquement arrivée par l'œil, le seul organe où la lumière entre déjà. En 2021, un essai a rapporté une perception visuelle partiellement restaurée chez un patient atteint de rétinopathie pigmentaire, après avoir rendu photosensibles des cellules de sa rétine qui ne l'étaient plus, et lui avoir donné des lunettes qui projettent l'image dans la bonne couleur.</p>
-      <p>Un mot sur ce que le prix laisse de côté. L'article de 2005 qui branche la channelrhodopsine sur un neurone a pour premier auteur Ed Boyden, et pour deuxième Feng Zhang. Aucun des deux ne figure parmi les lauréats, parce que le règlement Nobel plafonne à trois personnes et n'autorise pas à récompenser une équipe. Le même plafond avait déjà posé problème au prix de physique de cette année, décerné à une seule personne pour un instrument construit par plusieurs centaines. C'est une règle de 1895 appliquée à une science qui ne travaille plus du tout comme en 1895.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> une algue avait inventé un interrupteur optique direct, un photon qui ouvre un trou dans une membrane. Reconnaître que cet interrupteur pouvait être transplanté dans un neurone a donné aux neurosciences leur premier outil de commande sélective. Et tout ce qui rend la méthode délicate, le seuil de déclenchement, la profondeur atteinte, le choix des couleurs, se calcule avec un condensateur, une exponentielle d'absorption et deux spectres.</p>
+      <h2>Les usages de la commande optique</h2>
+      <p>L'enregistrement donne des corrélations : pendant tel comportement, telles cellules s'activent. L'optogénétique permet la manipulation inverse, l'activation imposée d'une population choisie suivie de l'observation du comportement, ce qui autorise un test de causalité. Des circuits de la soif, de la faim, du sommeil, de la mémoire et de la peur ont été étudiés de cette façon, et des symptômes de modèles animaux de la maladie de Parkinson ont été corrigés en éclairant une population de cellules déterminée.</p>
+      <p>L'application clinique est passée par l'œil, le seul organe où la lumière entre déjà. En 2021, un essai a rapporté une perception visuelle partiellement restaurée chez un patient atteint de rétinopathie pigmentaire, après avoir rendu photosensibles des cellules de sa rétine qui ne l'étaient plus et lui avoir fourni des lunettes qui projettent l'image à la longueur d'onde utile.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> une algue avait développé un interrupteur optique direct, une protéine qui absorbe un photon de 2,64 électronvolts et ouvre elle-même un pore dans la membrane. Transféré dans un neurone, ce canal donne une commande qui ne s'adresse qu'aux cellules désignées à l'avance par leur génétique. Ce qui limite la méthode se calcule avec trois relations : la charge <i>C</i> Δ<i>V</i> de 1,5 picocoulomb qu'il faut apporter au condensateur de membrane, la charge <i>g</i> <i>V</i><sub>m</sub> <i>t</i><sub>o</sub> que laisse passer un seul canal, qui impose d'en ouvrir 43 000 ensemble, et l'atténuation exp(− µ <i>z</i>) qui limite la profondeur au millimètre dans le bleu.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
       <h2>Les autres articles</h2>
       <ul>
-      <li><a href="conversions-energie.html">Trente-six façons de transformer l'énergie</a><span>Simulation</span></li>
-      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
-      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
       <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
-      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
-      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
-      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
-      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
-      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
-      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
-      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
-      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
       <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
-      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
-      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
       </ul>
       <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
@@ -183,7 +249,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=4a6a1979"></script>
+<script src="site.js?v=a88c0344"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
