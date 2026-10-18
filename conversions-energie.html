@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=a939f82b">
+<link rel="canonical" href="https://bachirichamss.github.io/conversions-energie.html">
+<title>Trente-six façons de transformer l'énergie · Chamss Bachiri</title>
+<meta name="description" content="Une grille interactive des conversions entre les six formes d'énergie, masse comprise, avec le rendement et un exemple à chaque case, un constructeur de chaînes, et la limite de Carnot.">
+<meta property="og:title" content="Trente-six façons de transformer l'énergie">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.7rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.7rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
+.sym b sub{font-style:normal}
+.matwrap{overflow-x:auto;margin:1.4rem 0 1.1rem}
+@media (min-width:980px){ .matwrap{margin-left:-110px;margin-right:-110px} }
+.mat{display:grid;grid-template-columns:104px repeat(6,minmax(118px,1fr));gap:3px;min-width:820px}
+.coin{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.68rem;color:#9a9486;display:flex;flex-direction:column;
+  justify-content:space-between;padding:.3rem .35rem}
+.coin span:last-child{align-self:flex-end}
+.tete{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.78rem;font-weight:600;color:#fff;background:var(--c);
+  padding:.45rem .4rem;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:2px}
+.tete.gauche{justify-content:flex-start;padding-left:.55rem}
+.case{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.74rem;line-height:1.25;text-align:left;cursor:pointer;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid var(--c);border-radius:2px;
+  padding:.45rem .5rem;min-height:64px;display:flex;flex-direction:column;justify-content:space-between;
+  gap:.2rem;color:#2b3139}
+.case:hover{background:#f7f5f0}
+.case.diag{border-top-style:dashed;border-right-style:dashed;border-bottom-style:dashed}
+.case.on{outline:2px solid var(--c);outline-offset:-1px;background:#fbfaf7}
+.case .nom{font-weight:500}
+.case .ren{color:#9a9486;font-size:.7rem;font-variant-numeric:tabular-nums}
+.fiche{background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:1.1rem 1.2rem;margin:0 0 1.1rem}
+.fiche .trajet{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.8rem;margin:0 0 .4rem;letter-spacing:.02em}
+.fiche .trajet span{color:#9a9486;margin:0 .35rem}
+.fiche h3{font-size:1.3rem;margin:0 0 .6rem;line-height:1.25}
+.fiche .exp{margin:0 0 .2rem}
+.fiche .form{font-family:"Newsreader",Georgia,serif;font-size:1.2rem;font-style:italic;text-align:center;margin:.9rem 0;color:#1f4f8f}
+.jauge{margin:.9rem 0 0}
+.j-bar{height:9px;background:#eceae4;border-radius:5px;overflow:hidden}
+.j-bar i{display:block;height:100%}
+.j-lab{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.82rem;color:#5d6672;margin-top:.35rem}
+.fiche .carnot{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.82rem;color:#c8372d;margin:.7rem 0 0}
+.fiche .exemple{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem;color:#2b3139;margin:.9rem 0 0;
+  padding-top:.75rem;border-top:1px solid #eceae4}
+.seg button i{font-style:normal;opacity:.55;margin-left:.3rem}
+
+</style>
+</head>
+
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Trente-six façons de transformer l'énergie</h1>
+      <p class="dek">Les vieux manuels donnaient un tableau à vingt-cinq cases : mécanique, chaleur, électricité, chimie, rayonnement. Il y manque une forme, les six cases de la diagonale, et surtout l'idée que toutes les conversions ne se valent pas. Voici la version complète, à manipuler.</p>
+      <div class="meta"><span>18 octobre 2026</span><span>15 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Ce qui manque au tableau d'origine</h2>
+      <p>Le tableau des anciens manuels croise cinq formes d'énergie et remplit chaque case avec l'appareil qui fait le passage. Machine à vapeur pour aller de la chaleur au mouvement, dynamo pour aller du mouvement à l'électricité, et ainsi de suite. C'est une très bonne idée, et elle a trois trous.</p>
+      <p><strong>Il manque une sixième forme : la masse.</strong> En 1905, Einstein montre que la masse est de l'énergie, avec un taux de change fixé par <i>E</i> = <i>mc</i>². Cela ajoute une ligne et une colonne, soit onze cases, et ce sont les plus spectaculaires du tableau : c'est là que vivent les étoiles, les réacteurs et l'antimatière.</p>
+      <p><strong>Il manque la diagonale.</strong> Les vieux tableaux la hachurent, comme si transformer une forme en elle-même n'avait pas de sens. Pourtant le transformateur, le levier, l'échangeur de chaleur et la fluorescence sont exactement cela, et ce sont des objets très utiles.</p>
+      <p><strong>Il manque le deuxième principe.</strong> Le tableau présente les cases comme équivalentes, ce qu'elles ne sont pas du tout. Aller du mouvement vers la chaleur marche à 100 %, à tous les coups, gratuitement. Le chemin inverse est plafonné par une limite absolue qu'aucune technique ne franchira. C'est l'objet de la troisième figure.</p>
+      <p>Dernière précision de vocabulaire, qui n'est pas un détail. En toute rigueur, la chaleur n'est pas une forme d'énergie <em>stockée</em> mais un <em>mode de transfert</em> : ce qu'un corps contient s'appelle son énergie interne, et la chaleur est ce qui en passe d'un corps à l'autre à cause d'une différence de température. Je garde le mot « thermique » dans la grille par commodité, comme tout le monde.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>La grille, case par case</h2>
+      <p>Six formes en ligne pour le départ, six en colonne pour l'arrivée. <strong>Cliquez n'importe quelle case.</strong></p>
+      <div class="matwrap" id="grille"></div>
+      <p class="scene-hint" style="margin-top:.5rem">Sur petit écran, la grille se fait glisser horizontalement.</p>
+      <div class="fiche" id="fiche"></div>
+      <p class="figcap"><b>Figure 1.</b> Les rendements affichés sont des ordres de grandeur courants, pas des records. Les six cases de la diagonale sont encadrées en pointillés.</p>
+      <p>Deux choses sautent aux yeux quand on parcourt la grille. D'abord, la colonne « thermique » est pleine de 100 % : tout finit facilement en chaleur, et la plupart du temps gratuitement, sans même qu'on le veuille. Ensuite, la ligne « thermique » est la plus pauvre de toutes : repartir de la chaleur coûte cher, et plafonne vite.</p>
+      <p>Cette dissymétrie est la flèche du temps. Elle a sa raison profonde du côté du comptage des états possibles, que j'ai détaillé dans <a href="entropie-echiquier.html">l'article sur l'entropie</a>.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Les rendements se multiplient</h2>
+      <p>Une conversion seule perd peu. Une chaîne de conversions perd énormément, parce que les rendements ne s'additionnent pas, ils se multiplient :</p>
+      <p class="fx">η<sub>total</sub> = η₁ × η₂ × η₃ × …</p>
+      <p>Trois étapes à 70 % chacune ne font pas 70 %, elles font 0,7³ = 34 %. <strong>Construisez votre propre chaîne, ou prenez-en une toute faite.</strong></p>
+      <div class="ctl" style="margin-bottom:.4rem"><span class="grp" style="margin-right:.6rem">Chaînes connues</span><div class="seg" id="chaines"></div></div>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp">Forme de départ</span><div class="seg" id="dep2"></div>
+      </div>
+      <div class="ctl">
+        <span class="grp">Étape suivante</span><div class="seg" id="suiteB"></div>
+      </div>
+      <div class="ctl">
+        <button id="recul2">Annuler la dernière</button>
+        <button id="vide2">Tout effacer</button>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> La largeur du ruban est proportionnelle à l'énergie qui reste. Ce qui s'en détache part toujours sous la même forme : de la chaleur à température ambiante, que personne ne pourra plus utiliser.</p>
+      <p>Essayez « Du Soleil à la pédale ». La photosynthèse ne garde que 1,5 % de la lumière reçue, puis le muscle rend 25 % de ce que lui fournit la nourriture. Au bout du compte, pédaler avec de l'énergie solaire passée par un champ de blé se fait à <strong>0,4 %</strong>. Un panneau photovoltaïque suivi d'un moteur électrique fait cinquante fois mieux, sur la même surface au sol.</p>
+      <p>Essayez aussi les deux ampoules. La même centrale, le même réseau, et au bout un filament ou une LED : 1,9 % contre 19 %. Changer la dernière étape d'une chaîne change tout le résultat, et c'est bien plus facile que de changer la centrale.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>La seule case avec un plafond</h2>
+      <p>Toutes les cases de la grille ont un rendement limité par la technique du moment. Une seule a une limite imposée par la physique elle-même, et aucun progrès ne la fera bouger : celle qui part de la chaleur.</p>
+      <p>Sadi Carnot l'a démontrée en 1824, à vingt-huit ans, dans un petit livre que personne n'a lu de son vivant, et sans connaître ni les atomes ni la conservation de l'énergie. Son raisonnement n'utilise aucune machine particulière : si une machine dépassait cette limite, on pourrait en coupler deux pour faire remonter la chaleur du froid vers le chaud toute seule, ce qu'on n'a jamais vu.</p>
+      <p class="fx">η ≤ 1 − <i>T</i><sub>froid</sub> / <i>T</i><sub>chaud</sub></p>
+      <ul class="sym">
+        <li><b>η</b> la part de la chaleur prise à la source chaude qui ressort en travail</li>
+        <li><b>T<sub>chaud</sub></b> la température de la source chaude, en kelvins</li>
+        <li><b>T<sub>froid</sub></b> celle de la source froide, en kelvins, et c'est presque toujours l'air ou une rivière</li>
+      </ul>
+      <p>Le détail qui compte : ce sont des kelvins, donc des températures comptées depuis le zéro absolu. Passer de 20 à 40 °C ne double rien du tout, cela fait passer de 293 à 313 K.</p>
+      <p><strong>Réglez les deux températures.</strong></p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="tcS">Source chaude</label><input type="range" id="tcS" min="320" max="1800" step="10" value="823" style="width:240px"></span>
+        <span class="grp"><label for="tfS">Source froide</label><input type="range" id="tfS" min="250" max="400" step="5" value="300" style="width:180px"></span>
+      </div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> Les barres claires donnent la limite de Carnot pour chaque machine, les barres pleines ce qu'elle fait vraiment. Un bon moteur atteint les deux tiers de sa limite.</p>
+      <p>Deux conséquences qu'on oublie souvent. D'abord, une centrale ne « gaspille » pas 60 % de son combustible par négligence : elle est à peu près au maximum de ce que la thermodynamique autorise avec ses températures. Pour gagner, il faut chauffer plus, et la seule limite est la tenue des matériaux de la turbine.</p>
+      <p>Ensuite, une pile à combustible ou un panneau solaire ne passent pas par la chaleur, donc Carnot ne s'applique pas à eux. C'est la vraie raison de l'intérêt pour ces machines, et non une question de pollution.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Ce que la sixième colonne a changé</h2>
+      <p>Les onze cases qui font intervenir la masse méritent un mot à part, parce qu'elles disent quelque chose d'étrange : <strong>toute énergie a une masse</strong>, et pas seulement dans les réacteurs.</p>
+      <p>Un ressort comprimé est plus lourd que le même ressort détendu. Une casserole d'eau chaude est plus lourde que la même eau froide. Une allumette, après avoir brûlé, pèse moins lourd que ses ingrédients de départ si on prend soin de peser aussi les fumées. Les écarts sont de l'ordre de 10⁻¹² à 10⁻¹⁵ fois la masse totale, donc invisibles, mais ils sont réels.</p>
+      <div class="tablewrap">
+        <table class="tb">
+          <tr><th>Transformation</th><th>Part de la masse convertie</th></tr>
+          <tr><td>Brûler de l'essence</td><td class="n">0,000 000 05 %</td></tr>
+          <tr><td>Fission d'un noyau d'uranium</td><td class="n">0,09 %</td></tr>
+          <tr><td>Fusion de l'hydrogène dans le Soleil</td><td class="n">0,7 %</td></tr>
+          <tr><td>Chute dans un trou noir en rotation</td><td class="n">jusqu'à 42 %</td></tr>
+          <tr><td>Annihilation matière-antimatière</td><td class="n">100 %</td></tr>
+        </table>
+      </div>
+      <p>La première ligne explique pourquoi Lavoisier a pu énoncer que rien ne se perd et que la masse se conserve : à l'échelle d'une balance de chimiste, un écart de cinq cent-millionièmes de pour cent n'existe pas. La chimie et la physique nucléaire font exactement la même chose, réarranger de la matière pour en tirer la différence d'énergie de liaison. Seul le facteur d'échelle change, et il vaut environ un million.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> six formes, trente-six cases, et une seule règle qui les gouverne toutes : l'énergie ne se crée ni ne se détruit, elle change de forme. Mais à chaque changement, une part tombe du côté de la chaleur, et plus personne ne la récupère. Le tableau de votre vieux manuel disait la conservation. Il lui manquait la dégradation.</p>
+    </section>
+
+    <nav class="suite" aria-label="Autres articles">
+      <h2>Les autres articles</h2>
+      <ul>
+      <li><a href="entropie-echiquier.html">L'entropie sur un échiquier</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Nobel de médecine 2026 : allumer un neurone avec de la lumière</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : un télescope fait d'un kilomètre cube de glace</a><span>Simulation</span></li>
+      <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
+      <li><a href="boltzmann.html">La constante de Boltzmann, ou le taux de change entre les degrés et les joules</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">La théorie quantique des champs, en quatre images</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Votre oreille calcule des transformées de Fourier, et elle le fait avec un ruban</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Alice et Bob n'ont plus le même âge : le vrai sens du temps propre</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Les cigares de Gamow : quand le désaccord devient visible</a><span>Simulation</span></li>
+      <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
+      <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
+      <li><a href="peser-un-atome.html">Manuel pour peser un atome (balance non fournie)</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
+      <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
+      </ul>
+      <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
+    </nav>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=0929cea6"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+
+const SUP="⁰¹²³⁴⁵⁶⁷⁸⁹";
+function expo(n){ return (n<0?"⁻":"")+String(Math.abs(n)).split("").map(c=>SUP[+c]).join(""); }
+
+/* =========================================================
+   Les six formes et les trente-six conversions
+   ========================================================= */
+const FORMES=[
+  {id:"meca",nom:"Mécanique",court:"Mécanique",coul:"#1f4f8f",
+   quoi:"Le mouvement d'ensemble, la hauteur d'un objet, un ressort comprimé. Tout ce qui se range dans ½mv² ou mgh."},
+  {id:"ther",nom:"Thermique",court:"Thermique",coul:"#c8372d",
+   quoi:"L'agitation désordonnée des atomes. Même nature que la mécanique, mais répartie au hasard sur 10²³ particules."},
+  {id:"elec",nom:"Électrique",court:"Électrique",coul:"#d9730d",
+   quoi:"Des charges séparées et le champ qui les relie. Dans une prise, dans un éclair, dans un nerf."},
+  {id:"chim",nom:"Chimique",court:"Chimique",coul:"#2f8a5f",
+   quoi:"Les liaisons entre atomes. Casser et reformer autrement libère ou consomme de l'énergie."},
+  {id:"rayo",nom:"Rayonnante",court:"Rayonnante",coul:"#c68f0a",
+   quoi:"Le champ électromagnétique qui se propage : lumière, infrarouge, ondes radio, rayons X."},
+  {id:"mass",nom:"Masse",court:"Masse",coul:"#7a5fc0",
+   quoi:"L'énergie contenue dans la masse elle-même, E = mc². Absente du tableau de 1935, et c'est le plus gros réservoir de tous."}
+];
+
+const T={};
+function C(de,vers,o){ T[de+">"+vers]=o; }
+
+/* ---------- depuis la mécanique ---------- */
+C("meca","meca",{t:"Levier, engrenage, poulie",r:0.95,
+  f:"F₁ d₁ = F₂ d₂",
+  txt:"On n'ajoute rien, on échange de la force contre du déplacement. Une poulie qui divise la force par deux oblige à tirer deux fois plus de corde, et le produit des deux ne bouge pas.",
+  ex:"Un cric de voiture, le dérailleur d'un vélo, la boîte de vitesses."});
+C("meca","ther",{t:"Frottement",r:1.00,
+  txt:"Le mouvement ordonné de l'objet devient l'agitation désordonnée de ses atomes. C'est la seule conversion qui marche toujours à 100 %, et c'est justement pour ça qu'elle est à sens unique.",
+  ex:"Les freins d'une voiture, les mains qu'on frotte, une météorite qui entre dans l'atmosphère."});
+C("meca","elec",{t:"Alternateur, piézoélectricité",r:0.97,
+  f:"e = − dΦ/dt",
+  txt:"Un aimant qui bouge devant une bobine y fait apparaître une tension : c'est l'induction de Faraday. Sans aimant, écraser un cristal de quartz sépare ses charges et donne la même chose en plus petit.",
+  ex:"Toute l'électricité du réseau sort d'un alternateur. Le clic d'un briquet, c'est du quartz écrasé."});
+C("meca","chim",{t:"Mécanochimie",r:0.1,
+  txt:"En broyant assez fort, on casse des liaisons et on en reforme d'autres, sans solvant ni chauffage. La pression extrême change aussi la forme stable d'un corps.",
+  ex:"Les broyeurs à billes des laboratoires, et le graphite qui devient diamant à 50 000 atmosphères."});
+C("meca","rayo",{t:"Triboluminescence, sonoluminescence",r:1e-7,
+  txt:"Casser un cristal sépare des charges qui se recombinent en émettant un éclair. Une bulle qui s'effondre dans l'eau chauffe tellement son gaz qu'elle émet un flash de lumière.",
+  ex:"Un sucre croqué dans le noir. Et le claquement d'une crevette-pistolet, qui éclaire pendant un milliardième de seconde."});
+C("meca","mass",{t:"Un ressort comprimé pèse plus lourd",r:1.00,rtxt:"total, mais indétectable",
+  f:"Δm = E / c²",
+  txt:"Toute énergie apportée à un objet augmente sa masse. Comprimez un ressort avec 100 joules, il devient plus lourd de 1,1 × 10⁻¹⁵ kg. Aucune balance ne verra ça, et pourtant c'est exact.",
+  ex:"Mesuré pour de vrai sur les noyaux : un noyau lié pèse moins que ses morceaux séparés, et la différence est son énergie de liaison."});
+
+/* ---------- depuis la chaleur ---------- */
+C("ther","meca",{t:"Moteur thermique",r:0.42,carnot:true,
+  f:"η ≤ 1 − T_froid / T_chaud",
+  txt:"On prend de la chaleur à une source chaude, on en rend une partie à une source froide, et la différence sort en travail. C'est la seule case du tableau qui porte une limite absolue, due au deuxième principe.",
+  ex:"Machine à vapeur, moteur de voiture, turbine de centrale. Une centrale à charbon tourne vers 42 %, un cycle combiné au gaz atteint 63 %."});
+C("ther","ther",{t:"Échangeur, pompe à chaleur",r:null,rtxt:"COP de 3 à 5",
+  txt:"La chaleur descend toute seule du chaud vers le froid. Pour la faire remonter, il faut payer en travail, mais on déplace alors bien plus de chaleur qu'on ne dépense d'énergie.",
+  ex:"Un radiateur, un réfrigérateur à l'envers. Une pompe à chaleur rend 3 à 5 kWh de chaleur pour 1 kWh d'électricité, sans violer quoi que ce soit : elle déplace, elle ne fabrique pas."});
+C("ther","elec",{t:"Effet Seebeck",r:0.07,carnot:true,
+  f:"V = S × ΔT",
+  txt:"Souder deux métaux différents et chauffer une des deux jonctions fait apparaître une tension. Aucune pièce mobile, aucun entretien, mais un rendement médiocre.",
+  ex:"Les sondes de four. Et les générateurs des sondes Voyager, qui transforment la chaleur du plutonium depuis 1977."});
+C("ther","chim",{t:"Réactions endothermiques",r:0.6,
+  txt:"Certaines réactions ne partent qu'en absorbant de la chaleur, qu'elles stockent dans les liaisons des produits. On range de l'énergie dans la matière en la chauffant.",
+  ex:"La calcination du calcaire à 900 °C pour faire du ciment, et le craquage du pétrole pour faire du plastique."});
+C("ther","rayo",{t:"Incandescence",r:0.05,
+  f:"P = σ S T⁴",
+  txt:"Tout corps chaud rayonne, et d'autant plus que sa température est haute, à la puissance quatre. La couleur du rayonnement monte avec la température : rouge, orange, blanc, bleu.",
+  ex:"Une ampoule à filament ne met que 5 % de son électricité en lumière visible, le reste part en infrarouge. C'est un radiateur qui éclaire un peu."});
+C("ther","mass",{t:"Un objet chaud pèse plus lourd",r:1.00,rtxt:"total, mais indétectable",
+  f:"Δm = Q / c²",
+  txt:"Chauffer, c'est ajouter de l'énergie, donc de la masse. Un litre d'eau porté de 0 à 100 °C gagne 4,7 × 10⁻¹² kg.",
+  ex:"Trop petit pour une balance, mais indiscutable : la masse d'un système est celle de son contenu énergétique total."});
+
+/* ---------- depuis l'électricité ---------- */
+C("elec","meca",{t:"Moteur électrique",r:0.93,
+  f:"F = B I L",
+  txt:"Un courant placé dans un champ magnétique subit une force. C'est l'alternateur retourné, et les deux machines sont presque le même objet.",
+  ex:"Du moteur de perceuse au train à grande vitesse. Un bon moteur dépasse 95 %, là où un moteur à essence plafonne vers 35 %."});
+C("elec","ther",{t:"Effet Joule, effet Peltier",r:1.00,
+  f:"P = R I²",
+  txt:"Les électrons bousculent les atomes du conducteur en passant, et tout finit en agitation. Avec deux semi-conducteurs bien choisis, on peut au contraire pomper la chaleur d'un côté vers l'autre : c'est l'effet Peltier.",
+  ex:"Grille-pain, radiateur électrique, et la glacière de voiture qui refroidit sans compresseur."});
+C("elec","elec",{t:"Transformateur",r:0.99,
+  f:"U₁ I₁ = U₂ I₂",
+  txt:"Deux bobines sur le même circuit magnétique échangent de la tension contre du courant. C'est le levier de l'électricité, et c'est la raison pour laquelle le réseau transporte en 400 000 volts.",
+  ex:"Le gros transformateur d'un quartier perd moins de 1 % de ce qui le traverse."});
+C("elec","chim",{t:"Électrolyse, charge d'une batterie",r:0.75,
+  f:"1 mole d'électrons = 96 485 C",
+  txt:"Un courant force une réaction à se faire à l'envers de son sens naturel, et l'énergie se range dans les liaisons. C'est la seule façon connue de stocker de grandes quantités d'électricité.",
+  ex:"L'électrolyse de l'eau pour faire de l'hydrogène tourne vers 75 %. Une batterie lithium rend 95 % de ce qu'on lui a mis."});
+C("elec","rayo",{t:"LED, laser, antenne",r:0.5,
+  f:"E = h ν",
+  txt:"On fait tomber des électrons d'un niveau d'énergie vers un autre, et la différence sort en photons. La couleur est fixée par la hauteur de la marche.",
+  ex:"Une LED blanche convertit environ la moitié de son électricité en lumière, contre 5 % pour une ampoule à filament."});
+C("elec","mass",{t:"Création de matière",r:null,rtxt:"c'est le but, pas le rendement",
+  f:"E = 2 m c²",
+  txt:"Dans un accélérateur, on pousse des particules avec des champs électriques, puis on les fait se percuter. L'énergie du choc se matérialise en particules neuves, plus lourdes que celles du départ.",
+  ex:"C'est ainsi qu'on a fabriqué le boson de Higgs en 2012 : de l'électricité, transformée en matière, puis observée."});
+
+/* ---------- depuis la chimie ---------- */
+C("chim","meca",{t:"Moteur à explosion, muscle",r:0.3,carnot:true,
+  txt:"Une combustion libère de la chaleur qui pousse un piston : on repasse donc par la case chaleur, et par la limite de Carnot. Le muscle, lui, convertit directement, molécule par molécule.",
+  ex:"Moteur à essence : 30 %. Diesel : 40 %. Muscle humain : environ 25 %, sans jamais chauffer au-delà de 37 °C."});
+C("chim","ther",{t:"Combustion, réactions exothermiques",r:1.00,
+  txt:"Les atomes se réarrangent vers un assemblage plus solide, et la différence part en agitation. Si l'on ne cherche que de la chaleur, rien n'est perdu.",
+  ex:"Un kilo d'essence libère 44 millions de joules. Une chaudière à condensation récupère plus de 95 % de ce que contient le gaz."});
+C("chim","elec",{t:"Pile, accumulateur, pile à combustible",r:0.7,
+  txt:"On sépare les deux moitiés d'une réaction : les électrons sont obligés de passer par le circuit extérieur pour aller d'un côté à l'autre. Pas de chaleur intermédiaire, donc <b>pas de limite de Carnot</b>.",
+  ex:"Une pile à combustible à hydrogène dépasse 60 %, là où un moteur brûlant le même hydrogène plafonnerait vers 35 %."});
+C("chim","chim",{t:"Métabolisme, synthèse",r:0.4,
+  txt:"L'énergie d'une réaction sert à en pousser une autre qui n'aurait pas eu lieu seule. Le vivant fait ça toute la journée, avec une molécule unique comme monnaie d'échange, l'ATP.",
+  ex:"La digestion : les sucres sont démontés pour fabriquer de l'ATP, qui servira ailleurs. Une cellule en recycle son propre poids chaque jour."});
+C("chim","rayo",{t:"Chimiluminescence",r:0.4,
+  txt:"Une réaction laisse un produit dans un état excité, qui retombe en émettant un photon au lieu de chauffer. Lumière sans chaleur, ce qui est exactement le contraire d'une bougie.",
+  ex:"Le bâton lumineux de fête. Et la luciole, qui tient près de 40 %, record du monde toutes catégories de la lumière froide."});
+C("chim","mass",{t:"Une allumette brûlée est plus légère",r:1.00,rtxt:"total, mais indétectable",
+  f:"Δm = E / c²",
+  txt:"La combustion d'un kilo d'essence libère 44 MJ, donc fait disparaître 5 × 10⁻¹⁰ kg de masse, répartis sur tous les produits de la combustion.",
+  ex:"Un demi-milliardième du total. C'est pourquoi Lavoisier a pu écrire que rien ne se perd : à son échelle de mesure, c'était vrai."});
+
+/* ---------- depuis le rayonnement ---------- */
+C("rayo","meca",{t:"Pression de radiation, voile solaire",r:null,rtxt:"force minuscule, mais gratuite",
+  f:"P = I / c",
+  txt:"La lumière pousse ce qu'elle éclaire. À la distance de la Terre, le Soleil exerce 9 micronewtons par mètre carré sur un miroir, soit, sur un terrain de football entier, le poids d'un morceau de sucre.",
+  ex:"La sonde japonaise IKAROS a navigué avec une voile de 200 m² en 2010. Et les pinces optiques attrapent une bactérie vivante avec un faisceau laser, prix Nobel 2018."});
+C("rayo","ther",{t:"Absorption",r:1.00,
+  txt:"Un photon absorbé met en mouvement les atomes qui l'ont reçu. Un corps parfaitement noir transforme tout ce qui lui arrive en chaleur.",
+  ex:"Le four à micro-ondes fait tourner les molécules d'eau. Un chauffe-eau solaire dépasse 60 %, bien plus qu'un panneau photovoltaïque."});
+C("rayo","elec",{t:"Effet photovoltaïque",r:0.22,
+  f:"h ν > E_gap",
+  txt:"Un photon assez énergique arrache un électron à sa liaison dans le silicium, et la jonction du matériau le force à partir d'un seul côté. Un photon trop rouge ne fait rien, un photon trop bleu gaspille son surplus en chaleur.",
+  ex:"Panneau du commerce : 20 à 24 %. Limite théorique d'une jonction simple : 33 %. Les cellules tandem de laboratoire approchent 35 %."});
+C("rayo","chim",{t:"Photosynthèse, vision, photographie",r:0.02,
+  txt:"Un photon casse une liaison ou déforme une molécule, et la chimie suivante s'en sert. Dans votre œil, un seul photon suffit à déplier le rétinal et à déclencher un signal.",
+  ex:"La photosynthèse ne garde que 1 à 2 % de la lumière reçue, 6 % dans le meilleur des cas théoriques. Toute la nourriture de la planète sort de ce maigre pourcentage."});
+C("rayo","rayo",{t:"Fluorescence, doublage de fréquence",r:0.6,
+  txt:"Un photon est absorbé, une partie de son énergie part en chaleur, et il ressort plus rouge qu'il n'est entré. Dans un cristal bien choisi, deux photons peuvent au contraire fusionner en un seul, deux fois plus énergique.",
+  ex:"Le gilet jaune fluo, qui renvoie en jaune l'ultraviolet invisible. Et le pointeur laser vert, qui est un laser infrarouge dont on a doublé la fréquence."});
+C("rayo","mass",{t:"Création de paires",r:1.00,
+  f:"E ≥ 2 m_e c² = 1,022 MeV",
+  txt:"Un photon gamma assez énergique, passant près d'un noyau, disparaît en donnant un électron et un positron. De la lumière pure qui devient de la matière, tous les jours, dans les hôpitaux et les accélérateurs.",
+  ex:"Le seuil est 1,022 MeV, exactement deux fois l'énergie de masse de l'électron. En dessous, rien. Au-dessus, ça marche."});
+
+/* ---------- depuis la masse ---------- */
+C("mass","meca",{t:"Propulsion nucléaire",r:0.33,carnot:true,
+  txt:"La fission chauffe de l'eau, la vapeur pousse une turbine. On repasse par la chaleur, donc par Carnot, et c'est pour ça qu'une centrale nucléaire ne dépasse pas le tiers.",
+  ex:"Un sous-marin nucléaire tient vingt ans sans faire le plein. Et sous vos pieds, la radioactivité du manteau entretient la tectonique des plaques."});
+C("mass","ther",{t:"Fission, fusion, radioactivité",r:null,rtxt:"0,09 % de la masse en fission",
+  f:"E = Δm c²",
+  txt:"Réarranger des noyaux libère un million de fois plus que réarranger des atomes, parce que la force en jeu est un million de fois plus forte. La fission d'un noyau d'uranium convertit 0,09 % de sa masse, la fusion 0,4 %.",
+  ex:"Un gramme d'uranium vaut deux à trois tonnes de charbon. Le Soleil perd 4 millions de tonnes par seconde, et tient comme ça depuis 4,6 milliards d'années."});
+C("mass","elec",{t:"Centrale nucléaire, générateur à radioisotope",r:0.33,carnot:true,
+  txt:"Même chaîne que pour la vapeur, avec un alternateur au bout. Dans l'espace, où une turbine serait absurde, on branche directement des thermocouples sur une pastille de plutonium.",
+  ex:"Voyager 1 émet encore, à 25 milliards de kilomètres, grâce à un générateur de ce type qui rend environ 6 % de la chaleur du plutonium."});
+C("mass","chim",{t:"Radiolyse de l'eau",r:0.3,
+  txt:"Un rayonnement traversant la matière arrache des électrons et casse des molécules sur son passage. Les morceaux se recombinent ensuite autrement.",
+  ex:"L'eau d'un réacteur se dissocie lentement en hydrogène et oxygène. Le même mécanisme est soupçonné d'avoir fabriqué les premières molécules organiques."});
+C("mass","rayo",{t:"Annihilation, rayons gamma",r:1.00,
+  f:"E = 2 × 511 keV",
+  txt:"Un électron rencontre un positron, et les deux disparaissent en deux photons partant dos à dos. C'est <b>la seule conversion totale du tableau</b> : 100 % de la masse devient du rayonnement.",
+  ex:"Utilisé en médecine tous les jours : la tomographie par émission de positons repère les deux photons de 511 keV et en déduit le point exact où ils sont nés."});
+C("mass","mass",{t:"Désintégration, fusion stellaire",r:null,rtxt:"0,7 % dans le Soleil",
+  f:"4 ¹H → ⁴He + 26,7 MeV",
+  txt:"Un noyau se transforme en un autre, plus solidement lié, et rend la différence. C'est la seule case du tableau qui fabrique les éléments : tout le carbone de votre corps a été assemblé dans une étoile.",
+  ex:"Le Soleil convertit 0,7 % de la masse de l'hydrogène qu'il brûle. Les éléments plus lourds que le fer, eux, sont nés dans des supernovae et des fusions d'étoiles à neutrons."});
+
+/* ---------- chaînes toutes faites ---------- */
+const CHAINES=[
+  {nom:"La centrale à charbon", pas:[["chim","ther",0.95],["ther","meca",0.42],["meca","elec",0.97]]},
+  {nom:"Du Soleil à la pédale", pas:[["rayo","chim",0.015],["chim","meca",0.25]]},
+  {nom:"La voiture électrique solaire", pas:[["rayo","elec",0.22],["elec","chim",0.95],["chim","elec",0.95],["elec","meca",0.93]]},
+  {nom:"L'ampoule à filament", pas:[["chim","ther",0.95],["ther","meca",0.42],["meca","elec",0.97],["elec","rayo",0.05]]},
+  {nom:"La même, en LED", pas:[["chim","ther",0.95],["ther","meca",0.42],["meca","elec",0.97],["elec","rayo",0.5]]},
+  {nom:"Le réacteur nucléaire", pas:[["mass","ther",0.99],["ther","meca",0.33],["meca","elec",0.97]]}
+];
+
+/* =========================================================
+   1. La matrice cliquable
+   ========================================================= */
+const F=id=>FORMES.find(f=>f.id===id);
+function pct(r){ return r>=0.01 ? Math.round(r*100)+" %" : (r>=1e-4 ? fr(r*100,2)+" %" : "moins de 0,01 %"); }
+
+(function grille(){
+  const g=$("grille");
+  let h='<div class="mat">';
+  h+='<div class="coin"><span>départ</span><span>arrivée</span></div>';
+  for(const f of FORMES) h+=`<div class="tete" style="--c:${f.coul}">${f.court}</div>`;
+  for(const de of FORMES){
+    h+=`<div class="tete gauche" style="--c:${de.coul}">${de.court}</div>`;
+    for(const vers of FORMES){
+      const k=de.id+">"+vers.id, o=T[k];
+      h+=`<button class="case${de.id===vers.id?" diag":""}" data-k="${k}" style="--c:${vers.coul}">`
+        +`<span class="nom">${o.t}</span>`
+        +`<span class="ren">${o.rtxt?"":(o.r!==null&&o.r!==undefined?pct(o.r):"")}</span></button>`;
+    }
+  }
+  h+='</div>';
+  g.innerHTML=h;
+  g.querySelectorAll("button.case").forEach(b=>b.onclick=()=>fiche(b.dataset.k));
+})();
+
+function fiche(k){
+  const [a,b]=k.split(">"), de=F(a), vers=F(b), o=T[k];
+  $("grille").querySelectorAll("button.case").forEach(x=>x.classList.toggle("on",x.dataset.k===k));
+  let h=`<p class="trajet"><b style="color:${de.coul}">${de.nom}</b> <span>devient</span> <b style="color:${vers.coul}">${vers.nom}</b></p>`;
+  h+=`<h3>${o.t}</h3>`;
+  h+=`<p class="exp">${o.txt}</p>`;
+  if(o.f) h+=`<p class="form">${o.f}</p>`;
+  const r=o.r;
+  if(r!==null&&r!==undefined){
+    const l=Math.max(0.6,Math.min(100,r*100));
+    h+=`<div class="jauge"><div class="j-bar"><i style="width:${l}%;background:${vers.coul}"></i></div>`
+      +`<div class="j-lab">${o.rtxt?o.rtxt:"rendement courant : <b>"+pct(r)+"</b>"}</div></div>`;
+  } else if(o.rtxt){
+    h+=`<div class="jauge"><div class="j-lab">${o.rtxt}</div></div>`;
+  }
+  if(o.carnot) h+=`<p class="carnot">Cette conversion passe par la chaleur : son rendement est plafonné par la limite de Carnot, troisième figure.</p>`;
+  h+=`<p class="exemple"><b>Dans la vie :</b> ${o.ex}</p>`;
+  $("fiche").innerHTML=h;
+}
+fiche("meca>elec");
+
+/* =========================================================
+   2. La chaîne : les rendements se multiplient
+   ========================================================= */
+const N2={W:960,H:400,x0:66,x1:906,y0:120,Hm:160};
+let n2={depart:"chim",pas:[]};
+function etats(){
+  const e=[1]; for(const p of n2.pas) e.push(e[e.length-1]*p[2]);
+  return e;
+}
+function joules(v){
+  if(v>=1) return fr(v,1)+" J";
+  if(v>=0.01) return fr(v,2)+" J";
+  if(v>=1e-4) return fr(v*1000,2)+" mJ";
+  return affSci2(v)+" J";
+}
+function affSci2(x){
+  if(!(x>0)) return "0";
+  const e=Math.floor(Math.log10(x)), m=x/Math.pow(10,e);
+  return fr(m,1)+" × 10"+expo(e);
+}
+function drawN2(){
+  const {W,H,x0,x1,y0,Hm}=N2;
+  const e=etats(), n=n2.pas.length;
+  const formes=[n2.depart].concat(n2.pas.map(p=>p[1]));
+  const X=i=>n===0?x0+60:x0+60+i/n*(x1-x0-120);
+  const hh=i=>Math.max(2.5,e[i]*Hm);
+  let s=tx(x0,44,"On part de 100 joules",{size:18,w:600});
+  s+=tx(x0,66,"la largeur du ruban est l'énergie qui reste",{size:14,fill:MUT});
+  for(let i=0;i<=n;i++){
+    const x=X(i), col=F(formes[i]).coul, h=hh(i);
+    s+=`<rect x="${(x-26).toFixed(1)}" y="${y0}" width="52" height="${h.toFixed(1)}" fill="${col}" opacity=".9"/>`;
+    s+=tx(x,96,F(formes[i]).court,{size:14,anchor:"middle",w:600,fill:col});
+    s+=tx(x,114,joules(e[i]*100),{size:15,anchor:"middle",w:600});
+    if(i<n){
+      const x2=X(i+1), h2=hh(i+1), xm=(x+x2)/2;
+      s+=`<path d="M${(x+26).toFixed(1)} ${y0}H${(x2-26).toFixed(1)}V${(y0+h2).toFixed(1)}L${(x+26).toFixed(1)} ${(y0+h).toFixed(1)}Z" fill="${col}" opacity=".32"/>`;
+      s+=arrow(xm-26,y0+Hm+30,xm+22,y0+Hm+30,"#b9b4a8",1.6);
+      s+=tx(xm,y0+Hm+66,pct(n2.pas[i][2]),{size:17,anchor:"middle",w:600});
+      s+=tx(xm,y0+Hm+88,"− "+joules((e[i]-e[i+1])*100),{size:13,fill:"#8a8475",anchor:"middle"});
+    }
+  }
+  if(n===0) s+=tx(x0+160,y0+70,"Choisissez une conversion ci-dessous.",{size:16,fill:MUT});
+  // barre du total perdu
+  const reste=e[e.length-1], perdu=1-reste;
+  s+=`<rect x="${x0}" y="348" width="${(x1-x0).toFixed(1)}" height="13" fill="#eceae4"/>`;
+  s+=`<rect x="${x0}" y="348" width="${((x1-x0)*perdu).toFixed(1)}" height="13" fill="#b9b4a8"/>`;
+  s+=tx(x0,382,"perdu en chaleur : "+joules(perdu*100),{size:14,fill:"#8a8475",w:600});
+  s+=tx(x1,382,"reste : "+joules(reste*100),{size:14,w:600,anchor:"end"});
+  put("f2",W,H,s);
+  // boutons de suite
+  const courant=formes[formes.length-1];
+  let b="";
+  for(const f of FORMES){
+    const o=T[courant+">"+f.id], r=(o.r===null||o.r===undefined)?0.3:o.r;
+    b+=`<button data-v="${f.id}" data-r="${r}" ${n>=5?"disabled":""}>vers ${f.court} <i>${pct(r)}</i></button>`;
+  }
+  $("suiteB").innerHTML=b;
+  $("suiteB").querySelectorAll("button").forEach(x=>x.onclick=()=>{
+    n2.pas.push([courant,x.dataset.v,+x.dataset.r]); drawN2();
+  });
+  let mots="";
+  for(let i=0;i<n;i++){
+    const o=T[n2.pas[i][0]+">"+n2.pas[i][1]];
+    mots+=(i?", puis ":"")+"<b>"+o.t+"</b> ("+pct(n2.pas[i][2])+")";
+  }
+  $("f2L").innerHTML = n===0
+    ? "Choisissez une première conversion. Les rendements se multiplient entre eux, et c'est tout le drame."
+    : "Le trajet : "+mots+". Au bout de <b>"+n+" étape"+(n>1?"s":"")+"</b>, il reste <b>"+joules(reste*100)
+      +"</b> sur les 100 du départ, soit "+pct(reste)+". "
+      + (reste<0.05
+        ? "Le produit de plusieurs nombres inférieurs à 1 s'effondre vite : voilà pourquoi on cherche toujours à raccourcir les chaînes."
+        : "Chaque étape prélève sa part, et ce qui est perdu l'est toujours sous la même forme : de la chaleur à température ambiante, que personne ne récupérera.");
+}
+$("chaines").innerHTML=CHAINES.map((c,i)=>`<button data-i="${i}">${c.nom}</button>`).join("");
+$("chaines").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  const c=CHAINES[+b.dataset.i];
+  n2.depart=c.pas[0][0]; n2.pas=c.pas.map(p=>[p[0],p[1],p[2]]);
+  $("chaines").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; drawN2();
+});
+$("vide2").onclick=()=>{ n2.pas=[]; $("chaines").querySelectorAll("button").forEach(x=>x.className=""); drawN2(); };
+$("recul2").onclick=()=>{ n2.pas.pop(); drawN2(); };
+$("dep2").innerHTML=FORMES.map(f=>`<button data-f="${f.id}"${f.id==="chim"?' class="go"':''}>${f.court}</button>`).join("");
+$("dep2").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  n2.depart=b.dataset.f; n2.pas=[];
+  $("dep2").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go";
+  $("chaines").querySelectorAll("button").forEach(x=>x.className="");
+  drawN2();
+});
+
+/* =========================================================
+   3. Carnot : la case qui a une limite
+   ========================================================= */
+const N3={W:960,H:440};
+let n3={tc:823,tf:300};
+const MACHINES=[
+  ["Machine de Watt, 1776",373,300,0.02],
+  ["Centrale à charbon",823,300,0.42],
+  ["Cycle combiné au gaz",1773,300,0.63],
+  ["Moteur de voiture",1073,350,0.30]
+];
+function drawN3(){
+  const {W,H}=N3, tc=n3.tc, tf=n3.tf;
+  const eta=1-tf/tc;
+  let s="";
+  const xb=90, wb=300, yc=92, yf=330;
+  s+=`<rect x="${xb}" y="${yc}" width="${wb}" height="46" fill="#f7dcd8" stroke="${RED}"/>`;
+  s+=tx(xb+12,yc+30,"source chaude   "+Math.round(tc)+" K   ("+Math.round(tc-273)+" °C)",{size:16,fill:RED,w:600});
+  s+=`<rect x="${xb}" y="${yf}" width="${wb}" height="46" fill="#dde8f4" stroke="${ACC}"/>`;
+  s+=tx(xb+12,yf+30,"source froide   "+Math.round(tf)+" K   ("+Math.round(tf-273)+" °C)",{size:16,fill:ACC,w:600});
+  // flux
+  const cx=xb+wb/2, hq=76, hw=Math.max(3,hq*eta), hf=hq-hw;
+  s+=`<path d="M${cx-hq/2} ${yc+46}h${hq}v56h-${hq}Z" fill="${RED}" opacity=".5"/>`;
+  s+=tx(cx-hq/2-10,yc+84,"100 J",{size:15,anchor:"end",w:600,fill:RED});
+  s+=`<circle cx="${cx}" cy="${(yc+46+56+40).toFixed(0)}" r="42" fill="#fff" stroke="${INK}" stroke-width="2"/>`;
+  s+=tx(cx,yc+146,"moteur",{size:16,anchor:"middle",w:600});
+  const ym=yc+46+56+82;
+  s+=`<path d="M${cx-hf/2} ${ym}h${hf}V${yf}h-${hf}Z" fill="${ACC}" opacity=".45"/>`;
+  s+=tx(cx-hf/2-10,ym+42,Math.round((1-eta)*100)+" J perdus",{size:15,anchor:"end",w:600,fill:ACC});
+  s+=`<path d="M${cx+42} ${ym-40}h100v${hw.toFixed(1)}h-100Z" fill="${GR}" opacity=".6"/>`;
+  s+=arrow(cx+142,ym-40+hw/2,cx+186,ym-40+hw/2,GR,2.4);
+  s+=tx(cx+46,ym-52,Math.round(eta*100)+" J de travail",{size:16,fill:GR,w:600});
+  // formule et barre
+  const px=470;
+  s+=tx(px,yc-18,"η  ≤  1 − T_froid / T_chaud",{size:20,w:600});
+  s+=tx(px,yc+16,"= 1 − "+Math.round(tf)+" / "+Math.round(tc),{size:17,fill:MUT});
+  s+=tx(px,yc+52,"= "+fr(eta*100,1)+" %",{size:30,fill:GR,w:600});
+  s+=tx(px,yc+86,"et aucune machine, jamais,",{size:14,fill:MUT});
+  s+=tx(px,yc+106,"ne fera mieux avec ces deux",{size:14,fill:MUT});
+  s+=tx(px,yc+126,"températures.",{size:14,fill:MUT});
+  // machines réelles
+  s+=tx(px,yc+178,"Quelques machines réelles",{size:16,w:600});
+  let y=yc+206;
+  for(const m of MACHINES){
+    const ec=1-m[2]/m[1];
+    s+=tx(px,y,m[0],{size:14});
+    s+=`<rect x="${px+210}" y="${y-11}" width="150" height="12" fill="#eceae4"/>`;
+    s+=`<rect x="${px+210}" y="${y-11}" width="${(150*ec).toFixed(1)}" height="12" fill="${GR}" opacity=".3"/>`;
+    s+=`<rect x="${px+210}" y="${y-11}" width="${(150*m[3]).toFixed(1)}" height="12" fill="${GR}"/>`;
+    s+=tx(px+370,y,Math.round(m[3]*100)+" %",{size:13,fill:MUT});
+    y+=30;
+  }
+  put("f3",W,H,s);
+  $("f3L").innerHTML = "Avec une source chaude à "+Math.round(tc-273)+" °C et une source froide à "+Math.round(tf-273)
+    +" °C, <b>aucun moteur ne peut dépasser "+fr(eta*100,1)+" %</b>. "
+    + (tc-tf<60
+      ? "Deux sources presque à la même température ne donnent presque rien : c'est pourquoi la chaleur tiède des usines est si difficile à valoriser."
+      : "Pour gagner, une seule voie : monter la température d'entrée, jusqu'à ce que les matériaux fondent. C'est toute l'histoire des turbines depuis un siècle.");
+}
+$("tcS").oninput=e=>{ n3.tc=+e.target.value; if(n3.tc<n3.tf+20) n3.tc=n3.tf+20; drawN3(); };
+$("tfS").oninput=e=>{ n3.tf=+e.target.value; if(n3.tf>n3.tc-20) n3.tf=n3.tc-20; drawN3(); };
+
+/* ---------------- démarrage ---------------- */
+drawN2(); drawN3();
+
+</script>
+</body>
+</html>
