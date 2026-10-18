@@ -192,7 +192,7 @@
       <li><a href="laser.html">Le laser, ou comment obliger la lumière à marcher au pas</a><span>Simulation</span></li>
       <li><a href="doppler.html">L'effet Doppler, de la sirène des pompiers aux galaxies</a><span>Simulation</span></li>
       <li><a href="constantes.html">Comment on a mesuré les réglages de l'Univers</a><span>Simulation</span></li>
-      <li><a href="peser-un-atome.html">Manuel pour peser un atome (balance non fournie)</a><span>Simulation</span></li>
+      <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
       <li><a href="etoiles-doubles.html">Les étoiles doubles interdisent d'aller plus vite que la lumière</a><span>Simulation</span></li>
       <li><a href="aimant.html">Couper un aimant en deux pour séparer le pôle nord du pôle sud</a><span>Simulation</span></li>
       <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
@@ -207,7 +207,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=0929cea6"></script>
+<script src="site.js?v=4a6a1979"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
@@ -451,7 +451,7 @@ fiche("meca>elec");
 /* =========================================================
    2. La chaîne : les rendements se multiplient
    ========================================================= */
-const N2={W:960,H:400,x0:66,x1:906,y0:120,Hm:160};
+const N2={W:960,H:430,x0:66,x1:906,y0:120,Hm:160};
 let n2={depart:"chim",pas:[]};
 function etats(){
   const e=[1]; for(const p of n2.pas) e.push(e[e.length-1]*p[2]);
@@ -485,17 +485,17 @@ function drawN2(){
       const x2=X(i+1), h2=hh(i+1), xm=(x+x2)/2;
       s+=`<path d="M${(x+26).toFixed(1)} ${y0}H${(x2-26).toFixed(1)}V${(y0+h2).toFixed(1)}L${(x+26).toFixed(1)} ${(y0+h).toFixed(1)}Z" fill="${col}" opacity=".32"/>`;
       s+=arrow(xm-26,y0+Hm+30,xm+22,y0+Hm+30,"#b9b4a8",1.6);
-      s+=tx(xm,y0+Hm+66,pct(n2.pas[i][2]),{size:17,anchor:"middle",w:600});
-      s+=tx(xm,y0+Hm+88,"− "+joules((e[i]-e[i+1])*100),{size:13,fill:"#8a8475",anchor:"middle"});
+      s+=tx(xm,y0+Hm+60,pct(n2.pas[i][2]),{size:17,anchor:"middle",w:600});
+      s+=tx(xm,y0+Hm+82,"− "+joules((e[i]-e[i+1])*100),{size:13,fill:"#8a8475",anchor:"middle"});
     }
   }
   if(n===0) s+=tx(x0+160,y0+70,"Choisissez une conversion ci-dessous.",{size:16,fill:MUT});
   // barre du total perdu
   const reste=e[e.length-1], perdu=1-reste;
-  s+=`<rect x="${x0}" y="348" width="${(x1-x0).toFixed(1)}" height="13" fill="#eceae4"/>`;
-  s+=`<rect x="${x0}" y="348" width="${((x1-x0)*perdu).toFixed(1)}" height="13" fill="#b9b4a8"/>`;
-  s+=tx(x0,382,"perdu en chaleur : "+joules(perdu*100),{size:14,fill:"#8a8475",w:600});
-  s+=tx(x1,382,"reste : "+joules(reste*100),{size:14,w:600,anchor:"end"});
+  s+=`<rect x="${x0}" y="378" width="${(x1-x0).toFixed(1)}" height="13" fill="#eceae4"/>`;
+  s+=`<rect x="${x0}" y="378" width="${((x1-x0)*perdu).toFixed(1)}" height="13" fill="#b9b4a8"/>`;
+  s+=tx(x0,412,"perdu en chaleur : "+joules(perdu*100),{size:14,fill:"#8a8475",w:600});
+  s+=tx(x1,412,"reste : "+joules(reste*100),{size:14,w:600,anchor:"end"});
   put("f2",W,H,s);
   // boutons de suite
   const courant=formes[formes.length-1];

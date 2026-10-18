@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a939f82b">
 <link rel="canonical" href="https://bachirichamss.github.io/peser-un-atome.html">
-<title>Manuel pour peser un atome (balance non fournie) · Chamss Bachiri</title>
-<meta name="description" content="Aucune balance ne sent un électron. Voici comment on a quand même pesé l'électron, les atomes et le neutron, en quatre expériences qu'on peut refaire ici.">
-<meta property="og:title" content="Manuel pour peser un atome (balance non fournie)">
+<title>Comment connaît-on la masse d'un électron ? · Chamss Bachiri</title>
+<meta name="description" content="Une balance ne pèse pas un électron. On le pousse avec un champ et on mesure sa réaction : le cercle dans un aimant, les gouttes d'huile de Millikan, le spectromètre de masse et les collisions de Chadwick, à manipuler.">
+<meta property="og:title" content="Comment connaît-on la masse d'un électron ?">
 <meta property="og:type" content="article">
 <style>
 /* figures de cette page */
@@ -39,6 +39,11 @@
 .recap td{border-bottom:1px solid #e2e0da;padding:.65rem .6rem .65rem 0;vertical-align:top;color:#2b3139}
 .recap td:first-child{font-weight:600;color:#1b1f24;white-space:nowrap}
 .tablewrap{overflow-x:auto}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
 </style>
 </head>
 <body data-rubrique="simulations">
@@ -51,43 +56,69 @@
 
     <div class="post-head">
       <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
-      <h1>Manuel pour peser un atome (balance non fournie)</h1>
-      <p class="dek">Un électron pèse environ un milliard de milliards de milliards de fois moins qu'un gramme. Aucune balance ne le sent. On le pèse quand même : voici comment, en expériences à refaire soi-même.</p>
-      <div class="meta"><span>21 septembre 2026</span><span>8 min</span></div>
+      <h1>Comment connaît-on la masse d'un électron ?</h1>
+      <p class="dek">Une balance compare un objet à un poids connu. Pour un électron, il n'existe aucun poids assez petit. On s'y prend donc autrement : on pousse la particule, et on regarde comment elle répond. Les quatre expériences qui suivent sont celles qui ont servi, et qu'on refait encore en travaux pratiques.</p>
+      <div class="meta"><span>21 septembre 2026</span><span>10 min</span></div>
     </div>
 
     <!-- 1 -->
     <section class="step">
       <span class="no-num">1</span>
-      <h2>L'astuce : pousser, et regarder</h2>
-      <p>On ne peut pas poser un atome sur un plateau. Mais on peut le pousser de côté pendant qu'il passe, et regarder de combien il dévie. Un objet léger dévie beaucoup, un objet lourd presque pas.</p>
+      <h2>Pousser plutôt que peser</h2>
+      <p>Quand on ne peut pas poser un objet sur un plateau, il reste une autre voie. On le pousse pendant qu'il passe, et on mesure de combien il a dévié. Un objet léger dévie beaucoup, un objet lourd à peine.</p>
+      <p>C'est la deuxième loi de Newton, et elle tient en trois symboles.</p>
+      <p class="fx"><i>a</i> = <i>F</i> / <i>m</i></p>
+      <ul class="sym">
+        <li><b>a</b> l'accélération, c'est-à-dire la façon dont le mouvement change</li>
+        <li><b>F</b> la force appliquée</li>
+        <li><b>m</b> la masse</li>
+      </ul>
+      <p>La masse est au dénominateur. À force égale, elle se lit donc directement dans la déviation : c'est ce qui rend toute la suite possible.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
       <div class="ctl"><button class="go" id="f1B">Lancer les trois balles</button></div>
       <div class="live" id="f1L"></div>
-      <p>Pour une particule, le vent sera remplacé par un champ électrique ou magnétique. Il ne pousse que les objets <strong>chargés</strong>, et plus la charge est grande, plus il pousse fort. Retenez ce détail, il va compter.</p>
+      <p>Pour une particule, le vent est remplacé par un champ électrique ou magnétique. Un tel champ n'agit que sur les objets portant une charge, et il pousse d'autant plus fort que la charge est grande.</p>
+      <p class="fx"><i>F</i> = <i>q</i> <i>E</i> &nbsp;&nbsp; ou &nbsp;&nbsp; <i>F</i> = <i>q</i> <i>v</i> <i>B</i></p>
+      <ul class="sym">
+        <li><b>q</b> la charge de la particule</li>
+        <li><b>E</b> le champ électrique, <b>B</b> le champ magnétique</li>
+        <li><b>v</b> la vitesse, car un champ magnétique ne pousse que ce qui bouge</li>
+      </ul>
+      <p>La force dépend de la charge, l'accélération dépend de la masse. Toutes les expériences qui suivent mesurent donc le rapport des deux, et jamais la masse seule. Il faudra une expérience de plus pour séparer les deux.</p>
     </section>
 
     <!-- 2 -->
     <section class="step">
       <span class="no-num">2</span>
       <h2>L'électron tourne en rond</h2>
-      <p>Dans ce tube de verre, un canon envoie des électrons. Un aimant les pousse sur le côté en permanence, si bien qu'ils décrivent un cercle. Le gaz du tube brille sur leur passage : on voit le cercle, et on mesure son rayon à la règle.</p>
+      <p>Dans ce tube de verre, un canon envoie des électrons, et un aimant les pousse sur le côté en permanence. Comme la force reste toujours perpendiculaire à la vitesse, la trajectoire se referme sur elle-même : c'est un cercle. Le gaz du tube brille sur leur passage, et on mesure le rayon à la règle.</p>
       <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="bS">Force de l'aimant</label><input type="range" id="bS" min="65" max="200" value="100"></span>
         <button id="hB">Remplacer par des atomes d'hydrogène</button>
       </div>
       <div class="live" id="f2L"></div>
-      <p>Le rayon du cercle ne donne pas la masse seule. Il donne le <strong>rapport entre la charge et la masse</strong> : une particule deux fois plus lourde avec deux fois plus de charge ferait exactement le même cercle. J. J. Thomson a mesuré ce rapport en 1897, avec un montage un peu différent. Celui-ci est la version qu'on utilise aujourd'hui en travaux pratiques.</p>
-      <p>Il manque donc une information : la charge de l'électron, toute seule.</p>
+      <p>Le rayon se calcule en une ligne. La force magnétique <i>qvB</i> doit fournir exactement ce qu'il faut pour maintenir le mouvement circulaire, soit <i>mv</i>²<i>/r</i> :</p>
+      <p class="fx"><i>q</i> <i>v</i> <i>B</i> = <i>m</i> <i>v</i>² / <i>r</i> &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>r</i> = <i>m</i> <i>v</i> / (<i>q</i> <i>B</i>)</p>
+      <p>L'intuition est contenue dans cette seconde écriture. Le rayon grandit avec la masse, parce qu'une particule lourde se laisse moins courber. Il rétrécit quand la charge ou l'aimant augmentent, parce qu'on la pousse plus fort.</p>
+      <p>En retournant la formule, on obtient ce que l'expérience mesure vraiment :</p>
+      <p class="fx"><i>q</i> / <i>m</i> = <i>v</i> / (<i>r</i> <i>B</i>)</p>
+      <p>C'est le rapport de la charge à la masse, et non la masse. Une particule deux fois plus lourde portant deux fois plus de charge décrirait exactement le même cercle. J. J. Thomson a mesuré ce rapport en 1897 avec un montage un peu différent, et il en a tiré l'existence d'une particule plus légère que tout ce qu'on connaissait alors.</p>
+      <p>Il manque donc une seconde mesure : la charge de l'électron, toute seule.</p>
     </section>
 
     <!-- 3 -->
     <section class="step">
       <span class="no-num">3</span>
       <h2>Faire flotter une goutte d'huile</h2>
-      <p>En 1909, Robert Millikan pulvérise de minuscules gouttes d'huile entre deux plaques métalliques. Certaines gouttes ont capturé quelques électrons en trop. Si on met une tension entre les plaques, la force électrique tire la goutte vers le haut, pendant que son poids la tire vers le bas.</p>
-      <p>À la bonne tension, les deux forces s'équilibrent et la goutte flotte. On connaît son poids, on connaît la tension : on en déduit sa charge. <strong>À vous : réglez la tension jusqu'à ce que la goutte s'immobilise, puis mesurez.</strong></p>
+      <p>En 1909, Robert Millikan pulvérise de minuscules gouttes d'huile entre deux plaques métalliques. Certaines ont capturé quelques électrons au passage, et portent donc une charge. En mettant une tension entre les plaques, la force électrique tire la goutte vers le haut pendant que son poids la tire vers le bas.</p>
+      <p>À la bonne tension, les deux forces se compensent et la goutte reste immobile. L'équilibre s'écrit :</p>
+      <p class="fx"><i>q</i> <i>U</i> / <i>d</i> = <i>m</i> <i>g</i> &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>q</i> = <i>m</i> <i>g</i> <i>d</i> / <i>U</i></p>
+      <ul class="sym">
+        <li><b>U</b> la tension appliquée, <b>d</b> l'écart entre les plaques</li>
+        <li><b>m g</b> le poids de la goutte, que l'on obtient en mesurant sa vitesse de chute quand le champ est coupé</li>
+      </ul>
+      <p>Tout est connu sauf <i>q</i>, qu'il suffit de lire. Réglez la tension jusqu'à ce que la goutte s'immobilise, puis mesurez.</p>
       <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="uS">Tension</label><input type="range" id="uS" min="0" max="1000" value="0" style="width:240px"></span>
@@ -96,13 +127,15 @@
         <button id="tB">Mesurer 10 gouttes d'un coup</button>
       </div>
       <div class="live" id="f3L"></div>
+      <p>En répétant sur de nombreuses gouttes, Millikan constate que toutes les charges mesurées sont des multiples entiers d'une même valeur. Aucune goutte ne porte une charge et demie. La charge vient donc par paquets, et le plus petit paquet vaut 1,602 × 10<sup>−19</sup> coulomb. C'est la charge d'un électron.</p>
     </section>
 
     <!-- 4 -->
     <section class="step">
       <span class="no-num">4</span>
-      <h2>On divise, et l'électron est pesé</h2>
-      <p>Le cercle a donné le rapport charge sur masse. Les gouttes ont donné la charge. Une division suffit.</p>
+      <h2>Une division, et la masse apparaît</h2>
+      <p>Le cercle a donné le rapport de la charge à la masse. Les gouttes ont donné la charge. La masse s'obtient en divisant l'une par l'autre.</p>
+      <p class="fx"><i>m</i> = <i>q</i> ÷ (<i>q</i> / <i>m</i>)</p>
       <div class="result">
         <div class="eqrow">
           <span class="pill">charge de l'électron<b>1,602 × 10<sup>−19</sup> C</b></span>
@@ -113,52 +146,63 @@
         </div>
         <p class="zeros">0,000 000 000 000 000 000 000 000 000 000 911 kg<small>trente zéros après la virgule</small></p>
       </div>
+      <p>Aucune des deux expériences ne donnait la masse. Leur rapport, lui, la donne entièrement. C'est une démarche courante en physique : mesurer deux combinaisons différentes des mêmes grandeurs, puis les séparer par le calcul.</p>
     </section>
 
     <!-- 5 -->
     <section class="step">
       <span class="no-num">5</span>
-      <h2>Trier les atomes par poids</h2>
-      <p>Pour un atome, on commence par lui arracher un électron : il devient chargé, donc un champ peut le pousser. On l'envoie dans un aimant, où il décrit un demi-cercle avant de frapper une plaque. Plus l'atome est lourd, plus son demi-cercle est large. La position de la tache sur la plaque donne directement sa masse.</p>
-      <p>C'est un <strong>spectromètre de masse</strong>. Choisissez un gaz et envoyez-le.</p>
+      <h2>Trier les atomes par masse</h2>
+      <p>Pour un atome, on commence par lui arracher un électron. Il devient chargé, donc un champ peut le pousser. On l'accélère sous une tension connue, puis on l'envoie dans un aimant où il décrit un demi-cercle avant de frapper une plaque.</p>
+      <p>L'accélération fixe sa vitesse, puisque le travail reçu devient de l'énergie de mouvement :</p>
+      <p class="fx"><i>q</i> <i>U</i> = ½ <i>m</i> <i>v</i>² &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>v</i> = √(2 <i>q</i> <i>U</i> / <i>m</i>)</p>
+      <p>En reportant cette vitesse dans le rayon du cercle de l'étape 2, on obtient la formule du spectromètre :</p>
+      <p class="fx"><i>r</i> = (1 / <i>B</i>) √( 2 <i>m</i> <i>U</i> / <i>q</i> )</p>
+      <p>Le rayon varie comme la racine de la masse. Un atome quatre fois plus lourd tombe deux fois plus loin sur la plaque, et la position de la tache suffit à l'identifier. Choisissez un gaz et envoyez-le.</p>
       <div class="ctl"><div class="seg" id="elSeg"></div></div>
       <div class="scene wide"><svg id="f5" aria-hidden="true"></svg></div>
       <div class="ctl"><button id="clrB">Effacer la plaque</button></div>
       <div class="live" id="f5L"></div>
-      <p>L'unité de masse atomique, notée u, vaut un douzième de la masse d'un atome de carbone 12, soit 1,66 × 10<sup>−27</sup> kg. Le carbone sert d'étalon, comme le mètre étalon servait pour les longueurs.</p>
+      <p>Les masses atomiques se comptent en unités de masse atomique, notées u. Une unité vaut un douzième de la masse d'un atome de carbone 12, soit 1,66 × 10<sup>−27</sup> kg. Le carbone sert d'étalon, comme le mètre étalon servait autrefois pour les longueurs.</p>
     </section>
 
     <!-- 6 -->
     <section class="step">
       <span class="no-num">6</span>
-      <h2>Et le neutron, qu'aucun champ ne pousse ?</h2>
-      <p>Le neutron n'a pas de charge. Les champs électriques et magnétiques le laissent passer tout droit : toutes les méthodes précédentes échouent. En 1932, James Chadwick utilise alors la méthode du billard.</p>
-      <p>On envoie des neutrons sur deux cibles de masse connue : de l'hydrogène (1 u) et de l'azote (14 u), et on mesure à quelle vitesse chaque cible est projetée. Chadwick trouve que l'hydrogène part environ <strong>7 fois plus vite</strong> que l'azote. <strong>À vous : cherchez la masse du neutron qui donne ce rapport.</strong></p>
+      <h2>Le neutron, qu'aucun champ ne pousse</h2>
+      <p>Le neutron ne porte pas de charge. Les champs le laissent passer tout droit, et les trois méthodes précédentes ne s'appliquent plus. En 1932, James Chadwick s'en tire par le billard.</p>
+      <p>On envoie des neutrons sur deux cibles de masse connue, l'hydrogène à 1 u et l'azote à 14 u, et on mesure la vitesse à laquelle chaque cible est projetée. Dans un choc de plein fouet entre deux billes, la vitesse communiquée vaut :</p>
+      <p class="fx"><i>v</i><sub>cible</sub> = 2 <i>m</i><sub>n</sub> <i>v</i><sub>n</sub> / ( <i>m</i><sub>n</sub> + <i>M</i> )</p>
+      <p>Le rapport des deux vitesses mesurées ne dépend alors plus que de la masse cherchée :</p>
+      <p class="fx"><i>v</i><sub>H</sub> / <i>v</i><sub>N</sub> = ( <i>m</i><sub>n</sub> + 14 ) / ( <i>m</i><sub>n</sub> + 1 )</p>
+      <p>Chadwick mesure un rapport voisin de 7. Une seule masse de neutron donne ce chiffre. Cherchez-la.</p>
       <div class="scene wide"><svg id="f6" aria-hidden="true"></svg></div>
       <div class="ctl">
         <span class="grp"><label for="nS">Masse du neutron essayée</label><input type="range" id="nS" min="20" max="500" value="300" style="width:240px"></span>
         <button class="go" id="nB">Lancer les neutrons</button>
       </div>
       <div class="live" id="f6L"></div>
-      <p>Chadwick obtient 1,15 u. Les mesures modernes donnent 1,0087 u : le neutron pèse un tout petit peu plus lourd que le proton.</p>
+      <p>Chadwick annonce 1,15 u. Les mesures modernes donnent 1,0087 u : le neutron est très légèrement plus lourd que le proton, et cette petite différence suffit à le rendre instable quand il est seul.</p>
     </section>
 
     <!-- 7 -->
     <section class="step">
       <span class="no-num">7</span>
-      <h2>Le récapitulatif</h2>
+      <h2>Les résultats, et ce qui se fait aujourd'hui</h2>
       <div class="tablewrap">
       <table class="recap">
         <tr><th>Particule</th><th>Masse</th><th>Comment on la connaît</th></tr>
-        <tr><td>Électron</td><td>9,109 × 10<sup>−31</sup> kg</td><td>Rayon du cercle dans un aimant, puis charge mesurée avec les gouttes d'huile</td></tr>
+        <tr><td>Électron</td><td>9,109 × 10<sup>−31</sup> kg</td><td>Rayon du cercle dans un aimant, puis charge mesurée sur les gouttes d'huile</td></tr>
         <tr><td>Proton</td><td>1,673 × 10<sup>−27</sup> kg<br>soit 1836 électrons</td><td>Spectromètre de masse : l'hydrogène privé de son électron est un proton seul</td></tr>
-        <tr><td>Neutron</td><td>1,675 × 10<sup>−27</sup> kg</td><td>Collisions, comme au billard, puis mesures de précision</td></tr>
+        <tr><td>Neutron</td><td>1,675 × 10<sup>−27</sup> kg</td><td>Collisions sur des cibles connues, puis mesures de précision</td></tr>
         <tr><td>Atome de carbone 12</td><td>1,993 × 10<sup>−26</sup> kg</td><td>Spectromètre de masse. Il sert d'étalon pour tous les autres atomes</td></tr>
       </table>
       </div>
-      <p>Les <strong>quarks</strong>, qui composent les protons et les neutrons, ne sortent jamais seuls. On ne peut ni les dévier ni les faire rebondir un par un. Leur masse se déduit de la façon dont les particules qu'ils forment se comportent dans les collisions, avec beaucoup moins de précision.</p>
-      <p>Aujourd'hui, les mesures les plus précises piègent un seul ion dans un champ magnétique et comptent le nombre de tours qu'il fait par seconde. Plus il est lourd, plus il tourne lentement. C'est l'astuce de l'étape 1, poussée jusqu'à une dizaine de chiffres exacts.</p>
-      <p style="margin-top:1.6rem"><strong>À retenir :</strong> on ne pèse pas une particule, on la pousse et on regarde comment elle réagit. Si elle est chargée, un champ suffit. Sinon, on la fait rebondir sur des cibles connues.</p>
+      <p>Les quarks, qui composent les protons et les neutrons, ne sortent jamais seuls. On ne peut ni les dévier ni les faire rebondir un par un. Leur masse se déduit du comportement des particules qu'ils forment, avec une précision bien moindre.</p>
+      <p>Les mesures les plus fines d'aujourd'hui reprennent exactement l'idée du cercle. On piège un seul ion dans un champ magnétique et on compte ses tours par seconde. Cette fréquence ne dépend que du rapport charge sur masse :</p>
+      <p class="fx"><i>f</i> = <i>q</i> <i>B</i> / ( 2π <i>m</i> )</p>
+      <p>Une fréquence se mesure mieux que n'importe quelle autre grandeur physique, et ces pièges atteignent aujourd'hui onze chiffres exacts sur la masse d'un seul atome.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> on ne pèse pas une particule, on la pousse et on regarde comment elle répond. Comme la force dépend de la charge et la réponse de la masse, une seule expérience ne donne jamais que le rapport des deux. Il en faut une seconde pour les séparer.</p>
     </section>
 
     <nav class="suite" aria-label="Autres articles">
@@ -191,7 +235,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=0929cea6"></script>
+<script src="site.js?v=4a6a1979"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
