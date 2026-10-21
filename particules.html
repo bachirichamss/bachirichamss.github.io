@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=a939f82b">
+<link rel="canonical" href="https://bachirichamss.github.io/particules.html">
+<title>Toutes les particules connues, et comment les classer · Chamss Bachiri</title>
+<meta name="description" content="Le tableau complet des dix-sept particules élémentaires, cliquable, avec leurs masses, leurs charges et leurs spins. Puis l'échelle des masses sur quatorze puissances de dix, les quatre forces, et un assembleur de hadrons.">
+<meta property="og:title" content="Toutes les particules connues, et comment les classer">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
+.mnemo{font-family:"Newsreader",Georgia,serif;font-size:1.02rem;line-height:1.7;color:#1b1f24;background:#f6f3ea;
+  border-left:3px solid #c68f0a;border-radius:3px;padding:.9rem 1.1rem;margin:1.5rem 0}
+.matwrap{overflow-x:auto;margin:1.4rem 0 1rem}
+@media (min-width:980px){ .matwrap{margin-left:-110px;margin-right:-110px} }
+.tbl{display:grid;grid-template-columns:repeat(5,minmax(132px,1fr));gap:5px;min-width:720px}
+.col-t{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.76rem;font-weight:600;color:#8a8475;text-align:center;
+  text-transform:uppercase;letter-spacing:.06em;padding:.2rem 0 .3rem}
+.pt{display:flex;flex-direction:column;align-items:flex-start;gap:.08rem;cursor:pointer;text-align:left;
+  background:#fff;border:1px solid #e2e0da;border-top:4px solid var(--c);border-radius:3px;
+  padding:.5rem .6rem .55rem;min-height:104px;font-family:"IBM Plex Sans",Arial,sans-serif;color:#2b3139}
+.pt:hover{background:#faf8f4}
+.pt.on{outline:2px solid var(--c);outline-offset:-1px;background:#fbfaf7}
+.pt.pale{opacity:.22}
+.pt.g1{background:#eef3f9}.pt.g2{background:#f3f0fa}.pt.g3{background:#fbf3ef}
+.pt .sy{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.9rem;line-height:1.05;color:var(--c)}
+.pt .nm{font-size:.82rem;font-weight:600;color:#1b1f24}
+.pt .dt{font-size:.72rem;color:#8a8475;font-variant-numeric:tabular-nums}
+.pt.hg{grid-row:span 4;justify-content:flex-start}
+.fiche{background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:1.1rem 1.2rem;margin:0 0 1.1rem}
+.fiche .trajet{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.78rem;margin:0 0 .35rem;letter-spacing:.04em;text-transform:uppercase}
+.fiche h3{font-size:1.45rem;margin:0 0 .7rem}
+.fiche .exp{margin:.2rem 0 0}
+.props{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.9rem;
+  margin:0 0 .9rem;padding-bottom:.8rem;border-bottom:1px solid #eceae4}
+.props span{display:flex;flex-direction:column}
+.props b{font-size:.7rem;font-weight:600;color:#8a8475;text-transform:uppercase;letter-spacing:.05em}
+.seg button{font-variant-numeric:tabular-nums}
+
+</style>
+</head>
+
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Toutes les particules connues, et comment les classer</h1>
+      <p class="dek">Dix-sept particules élémentaires ont été observées, et toute la matière du monde en utilise quatre. Les autres se rangent par génération, par charge et par force ressentie. Cette page présente le tableau complet, puis l'échelle des masses, les quatre forces et la façon dont les quarks s'assemblent en particules composées.</p>
+      <div class="meta"><span>21 octobre 2026</span><span>18 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Deux familles, séparées par un demi</h2>
+      <p>La première coupure du classement ne porte ni sur la masse ni sur la charge, mais sur le spin, une grandeur de rotation propre qui ne prend que des valeurs multiples de un demi.</p>
+      <p class="fx">spin = 0, ½, 1, 3/2, 2 …&nbsp;&nbsp; en unités de ℏ</p>
+      <p>Les particules de spin demi-entier s'appellent des fermions. Deux d'entre elles ne peuvent jamais occuper le même état : c'est le principe d'exclusion de Pauli. Les fermions prennent donc de la place, et c'est pour cette raison qu'une table est solide et qu'un atome a un volume.</p>
+      <p>Les particules de spin entier s'appellent des bosons. Rien ne leur interdit de s'empiler en nombre illimité dans le même état, ce qui permet à un champ d'être intense : un faisceau laser est un empilement de photons dans un seul et même état.</p>
+      <p class="mnemo">Les fermions occupent l'espace. Les bosons le traversent.</p>
+      <p>Les douze fermions élémentaires forment la matière. Les cinq bosons connus portent les forces, sauf un, le boson de Higgs, dont le rôle est différent et sera expliqué plus loin.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Le tableau complet</h2>
+      <p>Les douze fermions se rangent en trois colonnes appelées générations. Chaque génération reproduit la précédente : mêmes charges, mêmes spins, mêmes comportements, et des masses plus grandes.</p>
+      <p>Cliquez une particule pour voir ses propriétés, et utilisez les boutons pour faire ressortir une famille.</p>
+      <div class="matwrap" id="tableau"></div>
+      <div class="ctl"><div class="seg" id="vues"></div></div>
+      <div class="live" id="vueL"></div>
+      <div class="fiche" id="fiche"></div>
+      <p class="figcap"><b>Figure 1.</b> En violet les quarks, en vert les leptons chargés, en bleu les neutrinos, en orange les bosons de jauge, en jaune le boson de Higgs.</p>
+      <p>Trois régularités se lisent directement sur ce tableau.</p>
+      <p>La ligne du haut des quarks porte une charge de +2/3, celle du bas −1/3. Les leptons chargés portent −1, les neutrinos 0. Ces valeurs ne changent pas d'une génération à l'autre.</p>
+      <p>Seule la première colonne compose la matière ordinaire. Les quarks up et down font les noyaux, l'électron fait la chimie, et le neutrino électronique accompagne la radioactivité. Les huit autres fermions existent, se fabriquent dans les accélérateurs et dans les rayons cosmiques, et se désintègrent en une fraction de seconde.</p>
+      <p>Enfin, chaque fermion possède une antiparticule, de même masse et de charge opposée. L'antiélectron, ou positron, a été prévu par l'équation de Dirac en 1928 et observé en 1932. L'antimatière n'est donc pas une hypothèse : on en fabrique quotidiennement, et la tomographie par émission de positons l'utilise en milieu hospitalier.</p>
+      <p>Une question se pose devant ces trois colonnes : pourquoi trois ? La réponse expérimentale est venue du boson Z. Sa durée de vie dépend du nombre d'espèces de neutrinos légers dans lesquelles il peut se désintégrer, et la mesure donne :</p>
+      <p class="fx"><i>N</i><sub>ν</sub> = 2,984 ± 0,008</p>
+      <p>Il n'existe donc pas de quatrième génération comportant un neutrino léger. Pourquoi il y en a exactement trois reste sans explication.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Les masses, sur quatorze puissances de dix</h2>
+      <p>Le tableau range les particules par famille, pas par masse. Les voici sur une échelle logarithmique, du neutrino au quark top.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl"><button class="go" id="rej2">Rejouer</button></div>
+      <p class="figcap"><b>Figure 2.</b> Les deux particules sans masse, le photon et le gluon, sont mises à part : le logarithme de zéro n'existe pas. La masse du neutrino n'est connue que par une borne supérieure.</p>
+      <p>Trois lectures de cette figure méritent d'être retenues. Le quark top pèse autant qu'un atome de tungstène entier, soit cent soixante-quatorze fois un proton, pour une particule sans structure interne. Les trois neutrinos sont au moins cinq cent mille fois plus légers que l'électron, et on ne connaît toujours pas leur masse, seulement une borne : l'expérience KATRIN a établi en 2025 qu'elle est inférieure à 0,45 électronvolt.</p>
+      <p>Ces masses ne sont pas des propriétés intrinsèques. Elles viennent toutes du champ de Higgs, qui remplit l'espace avec une valeur constante et non nulle. Plus une particule se couple fortement à ce champ, plus elle est lourde.</p>
+      <p class="fx"><i>m</i> = <i>y</i> <i>v</i> / √2</p>
+      <ul class="sym">
+        <li><b>m</b> la masse de la particule</li>
+        <li><b>y</b> sa constante de couplage au champ de Higgs</li>
+        <li><b>v</b> la valeur du champ de Higgs dans le vide, 246 GeV</li>
+      </ul>
+      <p>La formule se lit à l'envers : connaissant la masse, on en déduit le couplage. Pour le quark top, <i>y</i> vaut 0,99, autrement dit un couplage maximal. Pour l'électron, <i>y</i> vaut 0,000 003. Le rapport entre les deux est de trois cent mille, et rien dans la théorie ne dit pourquoi.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Qui ressent quelle force</h2>
+      <p>Quatre interactions sont connues. Chacune n'agit que sur les particules qui portent la propriété à laquelle elle est sensible, exactement comme un aimant n'agit que sur ce qui est magnétique.</p>
+      <p class="mnemo">La force forte voit la couleur.<br>L'électromagnétique voit la charge électrique.<br>La faible voit toutes les particules de matière.<br>La gravitation voit l'énergie, donc tout.</p>
+      <p>Cliquez une colonne pour isoler une force.</p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> La couleur est la charge de l'interaction forte. Elle n'a rien à voir avec la couleur visible, et seuls les quarks et les gluons en portent.</p>
+      <p>La portée de chaque force se déduit de la masse de son médiateur. Une particule de masse <i>m</i> ne peut apparaître et disparaître que sur une distance limitée :</p>
+      <p class="fx"><i>R</i> ≈ ℏ / (<i>m</i> <i>c</i>)</p>
+      <p>Le photon et le gluon sont sans masse, ce qui donnerait une portée infinie. C'est vrai pour le photon, et faux pour le gluon, parce que les gluons portent eux-mêmes de la couleur et s'attirent entre eux : la force forte reste confinée à la taille d'un noyau. Pour les bosons W et Z, qui pèsent 80 et 91 GeV, la formule donne 2,5 × 10⁻¹⁸ mètre, soit mille fois moins que la taille d'un proton. Une interaction de si courte portée n'a presque aucune chance de se produire, et c'est exactement ce que signifie le mot faible. Ce raisonnement est détaillé dans <a href="champs-quantiques.html">l'article sur la théorie quantique des champs</a>.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Assembler des particules composées</h2>
+      <p>Aucun quark ne se rencontre seul. Ils s'assemblent par trois, ou par paires d'un quark et d'un antiquark, et ces assemblages portent le nom de hadrons.</p>
+      <p>La règle de charge est une addition simple, et elle tombe toujours juste :</p>
+      <p class="fx"><i>Q</i> = <i>q</i><sub>1</sub> + <i>q</i><sub>2</sub> + <i>q</i><sub>3</sub></p>
+      <p>Pour le proton, deux quarks up et un down : 2/3 + 2/3 − 1/3 = 1. Pour le neutron, un up et deux down : 2/3 − 1/3 − 1/3 = 0. Les charges fractionnaires des quarks se combinent toujours en nombres entiers, et c'est la raison pour laquelle on n'avait jamais observé de charge fractionnaire avant de soupçonner l'existence des quarks.</p>
+      <p class="mnemo">Le proton a deux up et un down. Le neutron a deux down et un up.</p>
+      <p>Composez un assemblage, ou choisissez une particule connue.</p>
+      <div class="ctl"><span class="grp">Particules connues</span><div class="seg" id="connus"></div></div>
+      <div class="scene wide"><svg id="f4" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp">Ajouter un quark</span><div class="seg" id="palette"></div>
+      </div>
+      <div class="ctl">
+        <button id="recul4">Retirer le dernier</button>
+        <button id="vide4">Revenir au proton</button>
+      </div>
+      <div class="live" id="f4L"></div>
+      <p class="figcap"><b>Figure 4.</b> Les ressorts orange représentent les gluons échangés entre les quarks. Une barre au-dessus du symbole désigne un antiquark.</p>
+      <p>Un résultat de cette figure mérite d'être souligné. Les trois quarks du proton, additionnés, pèsent environ 9 MeV, alors que le proton en pèse 938. Les quarks ne comptent donc que pour un pour cent de la masse du proton. Tout le reste est l'énergie du champ de gluons qui les enferme, convertie en masse par la relation d'Einstein.</p>
+      <p class="fx"><i>m</i><sub>proton</sub> <i>c</i>² ≈ <i>E</i><sub>gluons</sub></p>
+      <p>Votre masse n'est donc pas la somme des masses de vos constituants. Elle est, à 99 %, de l'énergie d'interaction.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">6</span>
+      <h2>Ce que le tableau ne contient pas</h2>
+      <p>Le Modèle standard décrit correctement toutes les expériences de physique des particules menées à ce jour, avec dans certains cas un accord à dix chiffres. Il laisse néanmoins plusieurs choses de côté.</p>
+      <div class="tablewrap">
+        <table class="tb">
+          <tr><th>Ce qui manque</th><th>État des connaissances</th></tr>
+          <tr><td>La gravitation</td><td>Décrite par la relativité générale, qui n'est pas une théorie quantique. Le graviton, boson de spin 2 que l'on attend, n'a jamais été observé.</td></tr>
+          <tr><td>La matière noire</td><td>Ses effets gravitationnels sont mesurés depuis les années 1930. Aucune particule du tableau ne peut en rendre compte.</td></tr>
+          <tr><td>La masse des neutrinos</td><td>Les oscillations prouvent qu'elle n'est pas nulle. Le Modèle standard d'origine la prévoyait nulle.</td></tr>
+          <tr><td>Le déséquilibre matière-antimatière</td><td>L'Univers contient de la matière et presque pas d'antimatière. Les écarts mesurés dans les désintégrations de kaons et de mésons B sont très insuffisants pour l'expliquer.</td></tr>
+          <tr><td>Les dix-neuf constantes libres</td><td>Les masses, les couplages et les angles de mélange ne sont pas calculés par la théorie. Ils sont mesurés, puis insérés à la main.</td></tr>
+        </table>
+      </div>
+      <p>Aucune particule nouvelle n'a été observée depuis le boson de Higgs en 2012. Les recherches de supersymétrie, de monopôles magnétiques et de particules de matière noire ont jusqu'ici repoussé les limites sans rien trouver.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> dix-sept particules élémentaires sont connues, douze de matière et cinq de champ, et la matière ordinaire n'en utilise que quatre. Le spin sépare celles qui occupent l'espace de celles qui le traversent, la charge ressentie détermine quelle force agit sur quoi, et le champ de Higgs fixe les masses sans que l'on sache pourquoi il les fixe à ces valeurs-là.</p>
+    </section>
+
+    <nav class="suite" aria-label="Autres articles">
+      <h2>Les autres articles</h2>
+      <ul>
+      <li><a href="diamant-coeur.html">Comment un diamant mesure-t-il le champ magnétique du cœur ?</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
+      <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
+      <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
+      <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
+      </ul>
+      <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
+    </nav>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=5363050a"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+
+/* =========================================================
+   Les particules élémentaires
+   masses en électronvolts, charges en unités de charge élémentaire
+   ========================================================= */
+const COUL={quark:"#7a5fc0", lepton:"#2f8a5f", neutrino:"#1f8f9f", jauge:"#d9730d", higgs:"#c68f0a"};
+const P=[
+ {s:"u",n:"up",      f:"quark",   g:1, m:2.16e6,    q:"+2/3", spin:"1/2", an:1968,
+  t:"Avec le quark down, il forme les protons et les neutrons, donc tout ce qui pèse autour de vous. Sa masse propre ne compte que pour un pour cent de celle du proton : le reste est l'énergie du champ de gluons qui le retient."},
+ {s:"c",n:"charm",   f:"quark",   g:2, m:1.273e9,   q:"+2/3", spin:"1/2", an:1974,
+  t:"Découvert deux fois le même mois de novembre 1974, à Brookhaven et à Stanford, sous la forme d'une particule faite d'un charm et d'un anticharm. L'une des équipes l'appela J, l'autre psi, et le nom J/psi est resté."},
+ {s:"t",n:"top",     f:"quark",   g:3, m:172.57e9,  q:"+2/3", spin:"1/2", an:1995,
+  t:"La particule élémentaire la plus lourde connue, aussi lourde qu'un atome de tungstène entier. Il se désintègre en 5 × 10⁻²⁵ seconde, trop vite pour s'associer à d'autres quarks : c'est le seul quark qu'on observe seul."},
+ {s:"d",n:"down",    f:"quark",   g:1, m:4.70e6,    q:"−1/3", spin:"1/2", an:1968,
+  t:"Le compagnon du quark up dans les nucléons. Un proton contient deux up et un down, un neutron deux down et un up, et toute la différence entre les deux tient là."},
+ {s:"s",n:"strange", f:"quark",   g:2, m:93.5e6,    q:"−1/3", spin:"1/2", an:1968,
+  t:"Son nom vient des particules qu'il forme, repérées dans les rayons cosmiques des années 1950 et jugées étranges parce qu'elles vivaient bien plus longtemps que prévu."},
+ {s:"b",n:"bottom",  f:"quark",   g:3, m:4.183e9,   q:"−1/3", spin:"1/2", an:1977,
+  t:"Découvert à Fermilab dans une particule faite d'un bottom et de son antiquark. Les mésons qui le contiennent servent aujourd'hui à traquer les écarts au Modèle standard, parce que leurs désintégrations sont très bien calculées."},
+ {s:"e",n:"électron",f:"lepton",  g:1, m:0.5109989e6, q:"−1", spin:"1/2", an:1897,
+  t:"La première particule élémentaire découverte, par J. J. Thomson. Elle porte toute la chimie, tout le courant électrique et toute la lumière que renvoient les objets. Sa masse se mesure aujourd'hui à onze chiffres."},
+ {s:"μ",n:"muon",    f:"lepton",  g:2, m:105.6584e6, q:"−1", spin:"1/2", an:1936,
+  t:"Un électron deux cents fois plus lourd, qui vit 2,2 microsecondes. Personne ne l'attendait, d'où le mot d'un physicien de l'époque : qui a commandé cela ? Il en traverse votre main environ une fois par seconde."},
+ {s:"τ",n:"tau",     f:"lepton",  g:3, m:1776.86e6,  q:"−1", spin:"1/2", an:1975,
+  t:"Assez lourd pour se désintégrer en hadrons, ce qu'aucun autre lepton ne peut faire. Sa découverte a complété la troisième génération côté leptons avant même qu'on connaisse le quark top."},
+ {s:"νₑ",n:"neutrino électronique", f:"neutrino", g:1, m:0.1, q:"0", spin:"1/2", an:1956,
+  t:"Proposé par Pauli en 1930 pour sauver la conservation de l'énergie, détecté vingt-six ans plus tard. Soixante milliards traversent chaque centimètre carré de votre peau à chaque seconde, en provenance du Soleil."},
+ {s:"ν_μ",n:"neutrino muonique",   f:"neutrino", g:2, m:0.1, q:"0", spin:"1/2", an:1962,
+  t:"Sa découverte a montré qu'il existe plusieurs sortes de neutrinos. Les trois sortes se transforment l'une en l'autre en vol, ce qui prouve qu'elles ont une masse, contrairement à ce que supposait le Modèle standard d'origine."},
+ {s:"ν_τ",n:"neutrino tauique",    f:"neutrino", g:3, m:0.1, q:"0", spin:"1/2", an:2000,
+  t:"La dernière particule du tableau à avoir été observée directement, en 2000 à Fermilab, vingt-cinq ans après la découverte du tau auquel il est associé."},
+ {s:"g",n:"gluon",   f:"jauge", g:0, m:0, q:"0", spin:"1", an:1979,
+  t:"Le porteur de l'interaction forte. Il existe en huit variétés et porte lui-même de la couleur, donc les gluons s'attirent entre eux. C'est la raison pour laquelle la force forte ne faiblit pas avec la distance et qu'aucun quark ne sort jamais seul."},
+ {s:"γ",n:"photon",  f:"jauge", g:0, m:0, q:"0", spin:"1", an:1905,
+  t:"Le porteur de l'interaction électromagnétique. Sans masse, donc de portée infinie, et toujours à la vitesse c. Il ne porte pas de charge, donc deux rayons lumineux se croisent sans se voir."},
+ {s:"Z",n:"boson Z", f:"jauge", g:0, m:91.1876e9, q:"0", spin:"1", an:1983,
+  t:"Avec le W, il porte l'interaction faible. Sa masse énorme explique la faiblesse de cette force : un médiateur lourd ne se propage que sur 10⁻¹⁸ mètre, mille fois moins que la taille d'un proton."},
+ {s:"W",n:"bosons W",f:"jauge", g:0, m:80.3692e9, q:"±1", spin:"1", an:1983,
+  t:"Le seul médiateur qui porte une charge électrique, et le seul capable de changer une particule en une autre : c'est lui qui transforme un quark down en quark up dans la radioactivité bêta."},
+ {s:"H",n:"boson de Higgs", f:"higgs", g:0, m:125.20e9, q:"0", spin:"0", an:2012,
+  t:"Le seul boson de spin nul connu. Il n'est pas un porteur de force : il est l'ondulation du champ qui donne leur masse aux quarks, aux leptons et aux bosons W et Z. Prédit en 1964, observé quarante-huit ans plus tard au CERN."}
+];
+const parSym=s=>P.find(p=>p.s===s);
+
+/* ---- forces ressenties ---- */
+const FORCES=[
+ {id:"forte", n:"Interaction forte", c:"#c8372d",
+  d:"Elle agit sur ce qui porte une couleur, donc sur les quarks et sur les gluons. Portée limitée à la taille d'un noyau.",
+  qui:["quarks","gluon"]},
+ {id:"em", n:"Interaction électromagnétique", c:"#d9730d",
+  d:"Elle agit sur ce qui porte une charge électrique. Portée infinie, intensité décroissant comme le carré de la distance.",
+  qui:["quarks","leptons","W"]},
+ {id:"faible", n:"Interaction faible", c:"#2f8a5f",
+  d:"Elle agit sur toutes les particules de matière sans exception, neutrinos compris. C'est la seule force que ressentent les neutrinos, et la seule qui change une espèce en une autre.",
+  qui:["quarks","leptons","neutrinos","W","Z"]},
+ {id:"grav", n:"Gravitation", c:"#1f4f8f",
+  d:"Elle agit sur tout ce qui porte de l'énergie, donc sur tout. Elle ne fait pas partie du Modèle standard, et aucune théorie quantique de la gravitation n'est aujourd'hui vérifiée.",
+  qui:["quarks","leptons","neutrinos","gluon","photon","W","Z","higgs"]}
+];
+const GROUPES=[
+ {id:"quarks",    n:"Quarks",            c:COUL.quark},
+ {id:"leptons",   n:"Électron, muon, tau",c:COUL.lepton},
+ {id:"neutrinos", n:"Neutrinos",         c:COUL.neutrino},
+ {id:"gluon",     n:"Gluon",             c:COUL.jauge},
+ {id:"photon",    n:"Photon",            c:COUL.jauge},
+ {id:"W",         n:"Bosons W",          c:COUL.jauge},
+ {id:"Z",         n:"Boson Z",           c:COUL.jauge},
+ {id:"higgs",     n:"Boson de Higgs",    c:COUL.higgs}
+];
+
+/* ---- hadrons connus, pour l'assembleur ---- */
+const Q6=["u","d","s","c","b","t"];
+const CHARGE={u:2/3,d:-1/3,s:-1/3,c:2/3,b:-1/3,t:2/3};
+const NOMQ={u:"up",d:"down",s:"strange",c:"charm",b:"bottom",t:"top"};
+const HADRONS=[
+ {c:["u","u","d"], n:"proton",      m:938.272,  v:"stable",
+  t:"Le noyau de l'hydrogène. Aucune désintégration n'a jamais été observée, et sa durée de vie dépasse 10³⁴ ans."},
+ {c:["u","d","d"], n:"neutron",     m:939.565,  v:"879 s",
+  t:"Libre, il se désintègre en un proton, un électron et un antineutrino, en un quart d'heure environ. Lié dans un noyau, il peut être stable."},
+ {c:["u","d","s"], n:"lambda",      m:1115.68,  v:"2,6 × 10⁻¹⁰ s",
+  t:"Le plus léger des baryons contenant un quark strange. Sa durée de vie, très longue à cette échelle, a valu à ces particules le nom d'étranges."},
+ {c:["s","s","s"], n:"oméga moins", m:1672.45,  v:"8,2 × 10⁻¹¹ s",
+  t:"Prédit par Gell-Mann en 1962 à partir de la seule symétrie de son classement, avec sa masse et sa charge annoncées à l'avance, puis trouvé en 1964."},
+ {c:["u","u","u"], n:"delta plus plus", m:1232, v:"5,6 × 10⁻²⁴ s",
+  t:"Trois quarks up, donc une charge de +2. Il vit si peu qu'il ne traverse même pas un noyau avant de se défaire."},
+ {c:["u","d-"],    n:"pion plus",   m:139.570,  v:"2,6 × 10⁻⁸ s",
+  t:"Le plus léger des hadrons. Yukawa l'avait prédit en 1935 comme porteur de la force qui tient les noyaux, et il a été trouvé dans les rayons cosmiques en 1947."},
+ {c:["u","u-"],    n:"pion neutre", m:134.977,  v:"8,4 × 10⁻¹⁷ s",
+  t:"Un mélange de up-antiup et de down-antidown. Il se désintègre en deux photons, ce qui en fait une source de lumière gamma dans l'atmosphère."},
+ {c:["s","u-"],    n:"kaon moins",  m:493.677,  v:"1,24 × 10⁻⁸ s",
+  t:"C'est en étudiant les désintégrations des kaons qu'on a découvert en 1964 que la nature ne traite pas exactement de la même façon la matière et l'antimatière."},
+ {c:["c","c-"],    n:"J/psi",       m:3096.9,   v:"7 × 10⁻²¹ s",
+  t:"Un quark charm et son antiquark liés ensemble. Sa découverte simultanée en 1974 dans deux laboratoires a convaincu la communauté de la réalité des quarks."},
+ {c:["b","b-"],    n:"upsilon",     m:9460.3,   v:"1,2 × 10⁻²⁰ s",
+  t:"Le pendant du J/psi pour le quark bottom, découvert à Fermilab en 1977."}
+];
+
+/* ---------- affichage des masses ---------- */
+function masseTxt(m){
+  if(m===0) return "nulle";
+  if(m<1) return "moins de 0,45 eV";
+  if(m<1e6) return fr(m/1e3,1)+" keV";
+  if(m<1e9) return (m/1e6>=100?Math.round(m/1e6):fr(m/1e6,2))+" MeV";
+  return fr(m/1e9,m/1e9>=100?2:3)+" GeV";
+}
+
+/* =========================================================
+   Figure 1 : le tableau, cliquable
+   ========================================================= */
+const GRILLE=[["u","c","t","g"],["d","s","b","γ"],["νₑ","ν_μ","ν_τ","Z"],["e","μ","τ","W"]];
+const SURLIGNES=[
+ {id:"rien", n:"Tout afficher", set:null,
+  d:"Douze particules de matière à gauche, en trois colonnes identiques à la masse près, et cinq particules de champ à droite."},
+ {id:"ordinaire", n:"La matière ordinaire", set:["u","d","e","νₑ"],
+  d:"Tout ce qui vous entoure est fait de quatre particules seulement : deux quarks pour les noyaux, l'électron pour la chimie, et le neutrino électronique qui accompagne la radioactivité. Les deux autres colonnes existent, mais se désintègrent en quelques millionièmes de seconde."},
+ {id:"forte", n:"Qui ressent la force forte", set:["u","c","t","d","s","b","g"],
+  d:"La force forte ne voit que la couleur, une propriété que seuls les quarks et les gluons possèdent. Les leptons la traversent sans rien sentir."},
+ {id:"charge", n:"Qui porte une charge électrique", set:["u","c","t","d","s","b","e","μ","τ","W"],
+  d:"Les quarks portent des charges fractionnaires, les leptons chargés une charge entière, et le boson W est le seul médiateur chargé. Les neutrinos, le photon, le gluon, le Z et le Higgs sont neutres."},
+ {id:"gen", n:"Les trois générations", set:null, gen:true,
+  d:"Chaque colonne reproduit la précédente avec les mêmes charges et des masses plus grandes. On ignore pourquoi il y en a trois, et la mesure de la durée de vie du boson Z interdit qu'il en existe une quatrième avec un neutrino léger."}
+];
+let n1={sel:"e", vue:"rien"};
+(function tableau(){
+  let h='<div class="tbl">';
+  h+='<div class="col-t">I</div><div class="col-t">II</div><div class="col-t">III</div>'
+   + '<div class="col-t">bosons de jauge</div><div class="col-t">Higgs</div>';
+  for(let r=0;r<4;r++){
+    for(let c=0;c<4;c++){
+      const p=parSym(GRILLE[r][c]);
+      h+=`<button class="pt" data-s="${p.s}" style="--c:${COUL[p.f]}">`
+       + `<span class="sy">${p.s}</span><span class="nm">${p.n}</span>`
+       + `<span class="dt">${masseTxt(p.m)}</span><span class="dt">charge ${p.q}</span></button>`;
+    }
+    if(r===0){
+      const p=parSym("H");
+      h+=`<button class="pt hg" data-s="H" style="--c:${COUL.higgs}">`
+       + `<span class="sy">${p.s}</span><span class="nm">${p.n}</span>`
+       + `<span class="dt">${masseTxt(p.m)}</span><span class="dt">charge ${p.q}</span></button>`;
+    }
+  }
+  h+='</div>';
+  $("tableau").innerHTML=h;
+  $("tableau").querySelectorAll("button.pt").forEach(b=>b.onclick=()=>{ n1.sel=b.dataset.s; fiche(); });
+})();
+$("vues").innerHTML=SURLIGNES.map((v,i)=>`<button data-v="${v.id}"${i===0?' class="go"':''}>${v.n}</button>`).join("");
+$("vues").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  n1.vue=b.dataset.v;
+  $("vues").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; fiche();
+});
+function fiche(){
+  const p=parSym(n1.sel), v=SURLIGNES.find(x=>x.id===n1.vue);
+  $("tableau").querySelectorAll("button.pt").forEach(b=>{
+    const s=b.dataset.s;
+    b.classList.toggle("on", s===n1.sel);
+    b.classList.toggle("pale", !!(v.set && v.set.indexOf(s)<0));
+    const g=parSym(s).g;
+    b.classList.toggle("g1", !!v.gen && g===1);
+    b.classList.toggle("g2", !!v.gen && g===2);
+    b.classList.toggle("g3", !!v.gen && g===3);
+  });
+  $("vueL").innerHTML=v.d;
+  let h=`<p class="trajet" style="color:${COUL[p.f]}">${p.f==="quark"?"Quark":p.f==="lepton"?"Lepton chargé":p.f==="neutrino"?"Neutrino":p.f==="higgs"?"Boson scalaire":"Boson de jauge"}`
+   + (p.g?`, génération ${["","I","II","III"][p.g]}`:"")+`</p>`;
+  h+=`<h3>${p.s} &nbsp; ${p.n}</h3>`;
+  h+='<div class="props">'
+   + `<span><b>masse</b>${masseTxt(p.m)}</span>`
+   + `<span><b>charge</b>${p.q}</span>`
+   + `<span><b>spin</b>${p.spin}</span>`
+   + `<span><b>observé en</b>${p.an}</span></div>`;
+  h+=`<p class="exp">${p.t}</p>`;
+  $("fiche").innerHTML=h;
+}
+fiche();
+
+/* =========================================================
+   Figure 2 : l'échelle des masses
+   ========================================================= */
+const N2={W:960,H:440,x0:88,x1:906,ya:286,lo:-2,hi:12};
+const REFS=[
+ {m:938.272e6, n:"un proton"},
+ {m:11.17e9,   n:"un noyau de carbone"},
+ {m:171.4e9,   n:"un atome de tungstène"}
+];
+let n2={a:0, run:true};
+function planN2(){
+  const {x0,x1,lo,hi}=N2;
+  const X=m=>x0+(Math.log10(m)-lo)/(hi-lo)*(x1-x0);
+  // les trois neutrinos sont regroupés : seule une borne supérieure est connue
+  const items=[{s:"νₑ ν_μ ν_τ", m:0.45, f:"neutrino", lab:"moins de 0,45 eV"}]
+    .concat(P.filter(p=>p.m>0 && p.f!=="neutrino").map(p=>({s:p.s,m:p.m,f:p.f,lab:masseTxt(p.m)})))
+    .sort((a,b)=>a.m-b.m);
+  const niv=[262,238,214,190,166,142], fin=niv.map(()=>-1e9), plan=[];
+  for(const it of items){
+    const x=X(it.m), anc = x>690?"end":"start";
+    const ls=it.s.length*18*0.52, lm=it.lab.length*12*0.52, larg=ls+10+lm;
+    const g = anc==="end" ? x-9-larg : x+9;
+    const d = g+larg;
+    let k=-1;
+    for(let q=0;q<niv.length;q++) if(g >= fin[q]+16){ k=q; break; }
+    if(k<0){ k=0; for(let q=1;q<niv.length;q++) if(fin[q]<fin[k]) k=q; }
+    fin[k]=d;
+    plan.push({...it, x, y:niv[k], anc, ls});
+  }
+  return plan;
+}
+function drawN2(){
+  const {W,H,x0,x1,ya,lo,hi}=N2, a=n2.a;
+  const X=m=>x0+(Math.log10(m)-lo)/(hi-lo)*(x1-x0);
+  const dou=t=>t<0?0:(t>1?1:1-Math.pow(1-t,3));
+  if(!n2.plan) n2.plan=planN2();
+  let s=`<path d="M${x0} ${ya}H${x1}" stroke="${INK}" stroke-width="1.6"/>`;
+  for(let k=lo;k<=hi;k++){
+    const x=x0+(k-lo)/(hi-lo)*(x1-x0), gros=(k+2)%3===0;
+    s+=`<path d="M${x.toFixed(1)} ${ya}v${gros?9:5}" stroke="${gros?INK:LINE}"/>`;
+  }
+  for(const [m,lab] of [[1,"1 eV"],[1e3,"1 keV"],[1e6,"1 MeV"],[1e9,"1 GeV"],[1e12,"1 TeV"]])
+    s+=tx(X(m),ya+28,lab,{size:13,fill:MUT,anchor:"middle"});
+  REFS.forEach((r,i)=>{
+    const x=X(r.m), y=ya+54+i*22, anc=x>640?"end":"start";
+    s+=`<path d="M${x.toFixed(1)} ${ya+6}V${y-10}" stroke="#c3c9d1" stroke-width="1"/>`;
+    s+=tx(x+(anc==="end"?-8:8),y,r.n,{size:13,fill:MUT,anchor:anc});
+  });
+  s+=`<rect x="${x0-14}" y="${ya-96}" width="66" height="56" fill="#fdf6e8" stroke="${COUL.jauge}"/>`;
+  s+=tx(x0+19,ya-70,"γ   g",{size:20,anchor:"middle",w:600,fill:COUL.jauge});
+  s+=tx(x0+19,ya-50,"masse nulle",{size:11,anchor:"middle",fill:MUT});
+  n2.plan.forEach((it,i)=>{
+    const raw=(a-i*0.05)/0.5, t=dou(raw);
+    if(t<=0) return;
+    const xd=x0+20+(it.x-x0-20)*t, col=COUL[it.f], o=t.toFixed(2);
+    s+=`<path d="M${xd.toFixed(1)} ${ya-4}V${it.y+8}" stroke="${col}" stroke-width="1" opacity="${(0.5*t).toFixed(2)}"/>`;
+    s+=`<circle cx="${xd.toFixed(1)}" cy="${ya}" r="6" fill="${col}" opacity="${o}"/>`;
+    const ol=Math.max(0,Math.min(1,(raw-0.95)/0.05)).toFixed(2);
+    if(+ol>0){
+      const dx=it.anc==="end"?-9:9;
+      s+=tx(xd+dx,it.y,it.s,{size:18,fill:col,anchor:it.anc,w:700,op:ol});
+      s+=tx(xd+dx+(it.anc==="end"?-(it.ls+10):(it.ls+10)),it.y,it.lab,{size:12,fill:MUT,anchor:it.anc,op:ol});
+    }
+  });
+  s+=tx(x0-14,44,"Les masses, de la plus petite à la plus grande",{size:17,w:600});
+  s+=tx(x0-14,66,"quatorze puissances de dix séparent le neutrino du quark top",{size:13,fill:MUT});
+  put("f2",W,H,s);
+}
+$("rej2").onclick=()=>{ n2.a=0; n2.run=true; };
+
+/* =========================================================
+   Figure 3 : qui ressent quelle force
+   ========================================================= */
+const N3={W:960,H:440,xl:56,xc:[430,560,690,820],y0:118,dy:38};
+let n3={sel:0};
+function drawN3(){
+  const {W,H,xl,xc,y0,dy}=N3;
+  let s=tx(xl,44,"Quelle particule ressent quelle force",{size:17,w:600});
+  s+=tx(xl,66,"un disque plein signifie que la force agit sur cette particule",{size:13,fill:MUT});
+  FORCES.forEach((f,i)=>{
+    const x=xc[i], on=i===n3.sel;
+    s+=`<rect data-f="${i}" x="${x-56}" y="${y0-44}" width="112" height="${dy*GROUPES.length+56}" fill="${on?f.c:"#fff"}" opacity="${on?0.08:0}" style="cursor:pointer"/>`;
+    s+=tx(x,y0-26,f.n.replace("Interaction ",""),{size:15,anchor:"middle",w:on?700:600,fill:f.c});
+    s+=tx(x,y0-10,f.id==="grav"?"":"interaction",{size:11,anchor:"middle",fill:MUT});
+  });
+  GROUPES.forEach((g,r)=>{
+    const y=y0+r*dy+22;
+    s+=`<path d="M${xl} ${y+8}H${xc[3]+58}" stroke="#eceae4"/>`;
+    s+=`<circle cx="${xl+8}" cy="${y-5}" r="6" fill="${g.c}"/>`;
+    s+=tx(xl+24,y,g.n,{size:15});
+    FORCES.forEach((f,i)=>{
+      const oui=f.qui.indexOf(g.id)>=0, on=i===n3.sel;
+      s+=oui
+        ? `<circle cx="${xc[i]}" cy="${y-5}" r="${on?10:8}" fill="${f.c}" opacity="${on?1:0.55}"/>`
+        : `<circle cx="${xc[i]}" cy="${y-5}" r="7" fill="none" stroke="#d8d4cb" stroke-width="1.5"/>`;
+    });
+  });
+  put("f3",W,H,s);
+  const f=FORCES[n3.sel];
+  const n=GROUPES.filter(g=>f.qui.indexOf(g.id)>=0).length;
+  $("f3L").innerHTML="<b>"+f.n+".</b> "+f.d+" Elle agit sur "+n+" des huit familles du tableau.";
+}
+$("f3").addEventListener("click",e=>{
+  const d=e.target&&e.target.dataset?e.target.dataset.f:null;
+  if(d===undefined||d===null||d==="") return;
+  n3.sel=+d; drawN3();
+});
+
+/* =========================================================
+   Figure 4 : assembler un hadron
+   ========================================================= */
+const N4={W:960,H:430};
+let n4={c:["u","u","d"]};
+function chargeTot(c){ return c.reduce((t,x)=>t+(x.endsWith("-")?-CHARGE[x[0]]:CHARGE[x[0]]),0); }
+function fracTxt(v){
+  const r=Math.round(v*3);
+  if(r===0) return "0";
+  if(r%3===0) return (r>0?"+":"−")+Math.abs(r/3);
+  return (r>0?"+":"−")+Math.abs(r)+"/3";
+}
+function cle(c){ return c.slice().sort().join(" "); }
+function trouve(c){ return HADRONS.find(h=>cle(h.c)===cle(c)); }
+function drawN4(){
+  const {W,H}=N4, c=n4.c, n=c.length;
+  const cx=300, cy=186, R=n===3?66:58;
+  let s=tx(40,44,n===3?"Trois quarks : un baryon":"Un quark et un antiquark : un méson",{size:17,w:600});
+  s+=tx(40,66,"la charge totale est la somme des charges, et elle tombe toujours sur un nombre entier",{size:13,fill:MUT});
+  // liens de gluons
+  for(let i=0;i<n;i++) for(let j=i+1;j<n;j++){
+    const a1=-Math.PI/2+i*2*Math.PI/n, a2=-Math.PI/2+j*2*Math.PI/n;
+    const x1=cx+R*Math.cos(a1), y1=cy+R*Math.sin(a1), x2=cx+R*Math.cos(a2), y2=cy+R*Math.sin(a2);
+    let d=`M${x1.toFixed(1)} ${y1.toFixed(1)}`;
+    for(let k=1;k<=14;k++){
+      const u=k/14, px=x1+(x2-x1)*u, py=y1+(y2-y1)*u;
+      const nx=-(y2-y1), ny=(x2-x1), L=Math.hypot(nx,ny)||1;
+      const amp=7*Math.sin(u*Math.PI*5)*Math.sin(u*Math.PI);
+      d+=`L${(px+nx/L*amp).toFixed(1)} ${(py+ny/L*amp).toFixed(1)}`;
+    }
+    s+=`<path d="${d}" fill="none" stroke="${COUL.jauge}" stroke-width="2" opacity=".75"/>`;
+  }
+  // quarks
+  for(let i=0;i<n;i++){
+    const a=-Math.PI/2+i*2*Math.PI/n, x=cx+R*Math.cos(a), y=cy+R*Math.sin(a);
+    const anti=c[i].endsWith("-"), q=c[i][0];
+    s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="27" fill="${anti?"#fff":COUL.quark}" stroke="${COUL.quark}" stroke-width="${anti?3:1}"/>`;
+    s+=tx(x,y+8,q+(anti?"̄":""),{size:24,anchor:"middle",w:700,fill:anti?COUL.quark:"#fff"});
+    s+=tx(x,y+44,fracTxt(anti?-CHARGE[q]:CHARGE[q]),{size:14,anchor:"middle",fill:MUT});
+  }
+  // résultat
+  const px=540, h=trouve(c), Q=chargeTot(c);
+  s+=`<path d="M${px-30} 70V${H-40}" stroke="#e2e0da"/>`;
+  s+=tx(px,96,"Charge totale",{size:14,fill:MUT});
+  s+=tx(px,134,c.map(x=>fracTxt(x.endsWith("-")?-CHARGE[x[0]]:CHARGE[x[0]])).join("   ")+"   =   "+fracTxt(Q),
+     {size:22,w:600});
+  if(h){
+    s+=tx(px,188,"Cette combinaison existe",{size:14,fill:MUT});
+    s+=tx(px,224,h.n,{size:28,w:600,fill:COUL.quark});
+    s+=tx(px,262,"masse "+(h.m>=1000?fr(h.m/1000,3)+" GeV":fr(h.m,2)+" MeV"),{size:16});
+    s+=tx(px,288,"durée de vie "+h.v,{size:16});
+    const somme=c.reduce((t,x)=>t+parSym(x[0]).m/1e6,0);
+    s+=tx(px,330,"somme des masses des quarks : "+fr(somme,1)+" MeV",{size:13,fill:MUT});
+    s+=tx(px,352,"soit "+Math.round(somme/h.m*100)+" % de la masse de la particule",{size:13,fill:MUT});
+  } else {
+    s+=tx(px,188,"Pas de particule connue",{size:14,fill:MUT});
+    s+=tx(px,224,"sous cette forme",{size:14,fill:MUT});
+  }
+  put("f4",W,H,s);
+  $("f4L").innerHTML = h
+    ? "<b>"+h.n+".</b> "+h.t+(h.n==="proton"||h.n==="neutron"
+      ? " Les trois quarks ne pèsent qu'un pour cent du total : le reste est l'énergie du champ de gluons qui les enferme, convertie en masse par E = mc²." : "")
+    : "Aucune particule connue ne correspond à cet assemblage. Les combinaisons permises sont de trois quarks, de trois antiquarks, ou d'un quark avec un antiquark, et la charge totale doit être entière.";
+}
+$("palette").innerHTML = Q6.map(q=>`<button data-q="${q}">${q}</button>`).join("")
+  + Q6.map(q=>`<button data-q="${q}-">${q}̄</button>`).join("");
+$("palette").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  if(n4.c.length>=3) n4.c=[];
+  n4.c.push(b.dataset.q);
+  if(n4.c.length===2 && !trouve(n4.c)){ /* on laisse l'utilisateur ajouter un troisième */ }
+  drawN4();
+});
+$("vide4").onclick=()=>{ n4.c=["u","u","d"]; drawN4(); };
+$("recul4").onclick=()=>{ if(n4.c.length>1) n4.c.pop(); drawN4(); };
+$("connus").innerHTML = HADRONS.map((h,i)=>`<button data-i="${i}">${h.n}</button>`).join("");
+$("connus").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  n4.c=HADRONS[+b.dataset.i].c.slice();
+  $("connus").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; drawN4();
+});
+
+/* ---------------- boucle ---------------- */
+drawN2(); drawN3(); drawN4();
+let der=performance.now();
+function boucle(now){
+  const dt=Math.min(0.05,(now-der)/1000); der=now;
+  if(n2.run){ n2.a+=dt*0.55; if(n2.a>1.6){ n2.a=1.6; n2.run=false; } drawN2(); }
+  requestAnimationFrame(boucle);
+}
+if(RM){ n2.a=1.6; n2.run=false; drawN2(); } else requestAnimationFrame(boucle);
+
+</script>
+</body>
+</html>

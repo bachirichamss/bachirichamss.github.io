@@ -205,7 +205,30 @@ const V_DIAM = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" 
 <circle cx="92" cy="92" r="6" fill="#1f4f8f"/>
 <circle cx="110" cy="92" r="6" fill="none" stroke="#c8372d" stroke-width="2" stroke-dasharray="3 3"/></svg>`;
 
+const V_PART = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<g font-family="Newsreader,Georgia,serif" font-style="italic" font-size="19" text-anchor="middle">
+<rect x="14" y="16" width="40" height="26" fill="#f3f0fa" stroke="#7a5fc0"/><text x="34" y="35" fill="#7a5fc0">u</text>
+<rect x="58" y="16" width="40" height="26" fill="#f3f0fa" stroke="#7a5fc0"/><text x="78" y="35" fill="#7a5fc0">c</text>
+<rect x="102" y="16" width="40" height="26" fill="#f3f0fa" stroke="#7a5fc0"/><text x="122" y="35" fill="#7a5fc0">t</text>
+<rect x="14" y="46" width="40" height="26" fill="#f3f0fa" stroke="#7a5fc0"/><text x="34" y="65" fill="#7a5fc0">d</text>
+<rect x="58" y="46" width="40" height="26" fill="#f3f0fa" stroke="#7a5fc0"/><text x="78" y="65" fill="#7a5fc0">s</text>
+<rect x="102" y="46" width="40" height="26" fill="#f3f0fa" stroke="#7a5fc0"/><text x="122" y="65" fill="#7a5fc0">b</text>
+<rect x="14" y="76" width="40" height="26" fill="#eaf4ef" stroke="#1f8f9f"/><text x="34" y="95" fill="#1f8f9f" font-size="15">ν</text>
+<rect x="58" y="76" width="40" height="26" fill="#eaf4ef" stroke="#1f8f9f"/><text x="78" y="95" fill="#1f8f9f" font-size="15">ν</text>
+<rect x="102" y="76" width="40" height="26" fill="#eaf4ef" stroke="#1f8f9f"/><text x="122" y="95" fill="#1f8f9f" font-size="15">ν</text>
+<rect x="14" y="106" width="40" height="26" fill="#eaf3ec" stroke="#2f8a5f"/><text x="34" y="125" fill="#2f8a5f">e</text>
+<rect x="58" y="106" width="40" height="26" fill="#eaf3ec" stroke="#2f8a5f"/><text x="78" y="125" fill="#2f8a5f">μ</text>
+<rect x="102" y="106" width="40" height="26" fill="#eaf3ec" stroke="#2f8a5f"/><text x="122" y="125" fill="#2f8a5f">τ</text>
+<rect x="148" y="16" width="38" height="56" fill="#fdf6e8" stroke="#d9730d"/><text x="167" y="40" fill="#d9730d">g</text><text x="167" y="62" fill="#d9730d">γ</text>
+<rect x="148" y="76" width="38" height="56" fill="#fdf6e8" stroke="#d9730d"/><text x="167" y="100" fill="#d9730d">Z</text><text x="167" y="122" fill="#d9730d">W</text>
+</g></svg>`;
+
 const ARTICLES = [
+  { titre: "Toutes les particules connues, et comment les classer",
+    url: "particules.html", rubrique: "simulations",
+    date: "2026-10-21", duree: "18 min",
+    resume: "Dix-sept particules élémentaires ont été observées, et toute la matière du monde en utilise quatre. Le tableau complet à cliquer, l'échelle des masses sur quatorze puissances de dix, les quatre forces et un assembleur de hadrons.",
+    vignette: V_PART },
   { titre: "Comment un diamant mesure-t-il le champ magnétique du cœur ?",
     url: "diamant-coeur.html", rubrique: "simulations",
     date: "2026-10-21", duree: "14 min",
