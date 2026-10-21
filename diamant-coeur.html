@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=a939f82b">
+<link rel="canonical" href="https://bachirichamss.github.io/diamant-coeur.html">
+<title>Comment un diamant mesure-t-il le champ magnétique du cœur ? · Chamss Bachiri</title>
+<meta name="description" content="Un éclat de diamant de moins d'un demi-millimètre cube enregistre le champ magnétique du cœur, cinquante picoteslas, à température ambiante. Le centre NV, la résonance détectée optiquement et la moyenne, en trois simulations.">
+<meta property="og:title" content="Comment un diamant mesure-t-il le champ magnétique du cœur ?">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
+.sym b sub{font-style:normal}
+
+</style>
+</head>
+
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Comment un diamant mesure-t-il le champ magnétique du cœur ?</h1>
+      <p class="dek">Le cœur produit un champ magnétique un million de fois plus faible que celui de la Terre. En septembre 2026, trois équipes allemandes ont montré qu'un éclat de diamant de moins d'un demi-millimètre cube, posé sur la poitrine et à température ambiante, suffisait à l'enregistrer. Le principe tient dans un défaut du cristal, une fréquence et une moyenne.</p>
+      <div class="meta"><span>21 octobre 2026</span><span>14 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Le cœur produit un champ magnétique</h2>
+      <p>Un électrocardiogramme mesure des tensions, de l'ordre du millivolt, entre des électrodes collées sur la peau. Ces tensions viennent de courants électriques qui parcourent le muscle cardiaque à chaque battement. Or tout courant produit un champ magnétique autour de lui.</p>
+      <p class="fx"><i>B</i> = μ<sub>0</sub> <i>I</i> / (2π <i>r</i>)</p>
+      <ul class="sym">
+        <li><b>B</b> le champ magnétique créé par le courant</li>
+        <li><b>I</b> l'intensité du courant</li>
+        <li><b>r</b> la distance au courant</li>
+        <li><b>μ<sub>0</sub></b> la perméabilité du vide, 1,257 × 10<sup>−6</sup> H/m</li>
+      </ul>
+      <p>Les courants du cœur se comptent en microampères, et la poitrine est à quelques centimètres. En reportant ces valeurs, on trouve quelques dizaines de picoteslas, et c'est bien ce que l'on mesure. Un picotesla vaut 10<sup>−12</sup> tesla.</p>
+      <p>Le problème se voit sur une échelle logarithmique. Le signal recherché est plus petit que presque tout ce qui existe autour de lui.</p>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <p class="scene-hint" style="margin-top:.4rem">Cliquez un point de l'échelle pour savoir ce qu'il représente.</p>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> En rouge les signaux du corps, en bleu la sensibilité des capteurs, en gris les champs de l'environnement. Chaque graduation large correspond à un facteur mille.</p>
+      <p>Mesurer le cœur revient donc à lire cinquante picoteslas dans un environnement qui en contient cent mille fois plus. Deux familles de capteurs y parviennent déjà : les SQUID, qui exigent de l'hélium liquide, et les magnétomètres à vapeur alcaline, qui exigent d'annuler le champ terrestre autour d'eux. Les deux occupent une pièce entière et coûtent le prix d'un appareil d'imagerie.</p>
+      <p>Une question se pose alors. Existe-t-il un capteur de champ magnétique qui tienne dans un dé à coudre, fonctionne à température ambiante, et n'exige aucun blindage ?</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>Un défaut du diamant qui sert de boussole</h2>
+      <p>Le diamant est un empilement régulier d'atomes de carbone. Il arrive qu'un atome d'azote remplace un carbone, et qu'une case voisine reste vide. Cette paire, un azote et une lacune, porte le nom de centre NV, et elle se comporte comme un petit aimant isolé au milieu du cristal.</p>
+      <p>Ce centre possède un spin électronique dont les trois états ne sont pas à la même énergie, même sans champ appliqué. L'écart entre eux correspond à une fréquence fixe, appelée fréquence de résonance à champ nul.</p>
+      <p class="fx"><i>D</i> = 2,870 GHz</p>
+      <p>Quand on applique un champ magnétique, les deux états qui étaient confondus se séparent, proportionnellement au champ. Ce dédoublement porte le nom d'effet Zeeman.</p>
+      <p class="fx"><i>f</i><sub>±</sub> = <i>D</i> ± γ <i>B</i></p>
+      <ul class="sym">
+        <li><b>f<sub>±</sub></b> les deux fréquences de résonance</li>
+        <li><b>D</b> la fréquence à champ nul, 2,870 GHz</li>
+        <li><b>γ</b> le rapport gyromagnétique de l'électron, 28,024 GHz par tesla</li>
+        <li><b>B</b> le champ magnétique que l'on veut mesurer</li>
+      </ul>
+      <p>Cette formule est tout l'instrument. Elle convertit un champ magnétique en un écart de fréquence, et la fréquence est la grandeur que la physique mesure le mieux. Le facteur de conversion vaut 28 hertz par nanotesla, une constante de la nature que rien ne dérègle : ni la température, ni le vieillissement, ni la fabrication du capteur. Un magnétomètre à centres NV n'a donc pas besoin d'étalonnage.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Lire un spin avec une lampe</h2>
+      <p>Reste à mesurer cet écart de fréquence. Le centre NV offre pour cela une propriété rare : son état de spin se lit en lumière.</p>
+      <p>Éclairé en vert, à 532 nanomètres, le centre réémet du rouge. La quantité de rouge dépend de l'état du spin : dans l'état central, il brille normalement ; dans les deux autres, une voie de désexcitation sans lumière s'ouvre, et le rouge diminue d'environ trente pour cent.</p>
+      <p>Il suffit alors d'envoyer des micro-ondes sur le diamant et de balayer leur fréquence. Quand elle coïncide avec <i>f</i><sub>−</sub> ou <i>f</i><sub>+</sub>, les spins basculent, et la lumière rouge faiblit. On voit donc deux creux, et leur écart donne le champ.</p>
+      <p class="fx"><i>B</i> = (<i>f</i><sub>+</sub> − <i>f</i><sub>−</sub>) / (2 γ)</p>
+      <p>Faites varier le champ et regardez les deux creux s'écarter.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="bS">Champ appliqué</label><input type="range" id="bS" min="0" max="200" value="60" style="width:260px"></span>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> Le spectre est appelé résonance magnétique détectée optiquement. La largeur des creux vient de la durée pendant laquelle le spin garde sa phase.</p>
+      <p>Le curseur monte jusqu'à deux milliteslas, où les creux sont largement séparés. Le champ du cœur, lui, vaut cinquante picoteslas, soit quarante millions de fois moins, et ne décale chaque creux que de trois millièmes de hertz sur 2,87 milliards. La difficulté de la mesure tient entièrement dans ce rapport.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Le signal est plus petit que le bruit</h2>
+      <p>La sensibilité d'un tel capteur dépend du nombre de centres NV que l'on éclaire et du temps pendant lequel leur spin garde sa phase.</p>
+      <p class="fx">η ≈ 1 / ( γ √( <i>N</i> <i>T</i><sub>2</sub>* ) )</p>
+      <ul class="sym">
+        <li><b>η</b> la sensibilité, en teslas par racine de hertz</li>
+        <li><b>N</b> le nombre de centres NV dans le volume éclairé</li>
+        <li><b>T<sub>2</sub>*</b> le temps de cohérence, de l'ordre de la microseconde</li>
+      </ul>
+      <p>La sensibilité s'améliore comme la racine du nombre de centres, donc comme la racine du volume de diamant. Un capteur plus gros voit mieux, un capteur plus petit se place mieux, et toute la conception consiste à arbitrer entre les deux. Les trois systèmes de l'étude de 2026 atteignent entre 6 et 26 picoteslas par racine de hertz, pour un volume actif inférieur à un demi-millimètre cube.</p>
+      <p>Comparé au signal du cœur, ce chiffre semble suffisant. Il ne l'est pas, parce qu'une sensibilité s'exprime par racine de hertz. Sur une bande passante de cent hertz, nécessaire pour voir la forme d'un battement, le bruit atteint :</p>
+      <p class="fx">σ = η √(Δ<i>f</i>) = 20 × √100 = 200 pT</p>
+      <p>Le bruit vaut donc quatre fois le pic que l'on cherche. Il reste une ressource : le cœur recommence. En superposant un grand nombre de battements alignés sur leur pic, le signal s'ajoute à l'identique tandis que le bruit, aléatoire, s'ajoute en racine carrée.</p>
+      <p class="fx">rapport signal sur bruit ∝ √<i>n</i></p>
+      <p>Multiplier par cent le nombre de battements améliore donc la lecture d'un facteur dix seulement. Faites varier ce nombre.</p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="nS">Battements moyennés</label><input type="range" id="nS" min="0" max="100" value="0" style="width:300px"></span>
+      </div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> Le tracé gris est le signal réel, le tracé bleu ce que le capteur enregistre. Le bruit décroît comme la racine du nombre de battements moyennés.</p>
+      <p>C'est exactement la démarche de l'article : les auteurs indiquent avoir moyenné de quelques centaines à plusieurs milliers de battements pour faire apparaître le tracé. À soixante battements par minute, mille battements représentent un quart d'heure d'enregistrement immobile.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>Ce que vaut ce capteur face aux autres</h2>
+      <p>L'intérêt du diamant n'est pas sa sensibilité, qui reste mille fois moins bonne que celle d'un SQUID. Il tient aux conditions de fonctionnement.</p>
+      <div class="tablewrap">
+        <table class="tb">
+          <tr><th>Capteur</th><th>Sensibilité</th><th>Température</th><th>Contraintes</th></tr>
+          <tr><td>SQUID</td><td class="n">quelques fT/√Hz</td><td class="n">4 K</td><td>hélium liquide, chambre blindée, appareil fixe</td></tr>
+          <tr><td>Vapeur alcaline</td><td class="n">10 à 20 fT/√Hz</td><td class="n">150 °C</td><td>cellule chauffée, champ ambiant à annuler</td></tr>
+          <tr><td>Diamant, centres NV</td><td class="n">6 à 26 pT/√Hz</td><td class="n">ambiante</td><td>aucune, et le capteur fait moins de 0,5 mm³</td></tr>
+        </table>
+      </div>
+      <p>Un capteur qui tient à la pointe d'une fibre optique, fonctionne sans refroidissement et supporte le champ terrestre peut aller là où les deux autres ne vont pas : contre la peau, à l'intérieur d'un endoscope, sur une plaie où l'on ne peut pas coller d'électrode, ou sur le ventre d'une femme enceinte pour suivre le cœur du fœtus.</p>
+      <p>Il reste une raison de préférer le magnétique à l'électrique, et elle est physique. Le corps conduit le courant de façon très inégale : le poumon, la graisse et l'os ont des conductivités qui varient d'un facteur dix, ce qui déforme le signal électrique recueilli en surface. Pour le magnétisme, rien de tel : la perméabilité des tissus est celle du vide à dix millionièmes près.</p>
+      <p class="fx">μ<sub>tissu</sub> / μ<sub>0</sub> = 1 ± 10<sup>−5</sup></p>
+      <p>Le champ magnétique traverse donc le thorax sans être déformé, et ce qu'on mesure à l'extérieur renseigne directement sur les courants à l'intérieur. C'est la raison pour laquelle on espère voir, en magnétocardiographie, des choses que l'électrocardiogramme ne montre pas.</p>
+      <p>L'étude de septembre 2026 est une démonstration de principe, et ses auteurs le disent : trois systèmes différents, des signaux obtenus en chambre blindée comme en environnement ordinaire, et un écart de performance encore grand avec les capteurs établis. La piste annoncée pour le combler est le concentrateur de flux, une pièce de matériau magnétique qui canalise les lignes de champ vers le diamant et pourrait multiplier le signal par plus de cent.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> un centre NV convertit un champ magnétique en un écart de fréquence, à raison de 28 hertz par nanotesla, et cet écart se lit en regardant varier la lumière rouge que le diamant renvoie. Le procédé fonctionne à température ambiante dans un demi-millimètre cube, au prix d'une sensibilité mille fois moindre que celle d'un SQUID, que l'on compense en moyennant des milliers de battements.</p>
+    </section>
+
+    <nav class="suite" aria-label="Autres articles">
+      <h2>Les autres articles</h2>
+      <ul>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
+      <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
+      <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
+      <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
+      </ul>
+      <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
+    </nav>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=691eda19"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+
+/* =========================================================
+   Figure 1 : l'échelle des champs magnétiques
+   ========================================================= */
+const N1={W:960,H:430,x0:76,x1:898,ya:252,lo:-15,hi:1};
+const REP=[
+  {B:5e-15,  n:"SQUID",            c:"capteur", t:"Le capteur le plus sensible dont on dispose. Il repose sur un anneau supraconducteur, donc sur de l'hélium liquide à 4 kelvins et sur une chambre blindée. Sensibilité de l'ordre de quelques femtoteslas par racine de hertz."},
+  {B:1.5e-14,n:"magnétomètre à vapeur", c:"capteur", t:"Un gaz d'atomes alcalins chauffé dans une cellule de verre, dont on lit l'orientation des spins avec un laser. Presque aussi sensible qu'un SQUID, sans hélium liquide, mais il faut annuler le champ terrestre autour de la cellule."},
+  {B:1e-13,  n:"cerveau",          c:"signal", t:"Le champ produit par l'activité électrique du cerveau, mesuré en magnétoencéphalographie. Environ cent femtoteslas, soit cinq cents millions de fois moins que le champ terrestre."},
+  {B:3e-12,  n:"cœur du fœtus",    c:"signal", t:"Le cœur d'un fœtus produit un champ de quelques picoteslas. Il est difficile à enregistrer par électrodes, car le ventre de la mère déforme le signal électrique, alors que le champ magnétique le traverse sans changer."},
+  {B:1.5e-11,n:"capteur en diamant", c:"capteur", t:"La sensibilité atteinte en 2026 par les magnétomètres à centres NV, entre 6 et 26 picoteslas par racine de hertz. Mille fois moins bonne qu'un SQUID, mais à température ambiante et dans un volume de moins d'un demi-millimètre cube."},
+  {B:5e-11,  n:"cœur adulte",      c:"signal", t:"Le pic du champ magnétique du cœur, mesuré à quelques centimètres de la poitrine, vaut quelques dizaines de picoteslas. C'est le signal que l'on cherche à enregistrer."},
+  {B:1e-7,   n:"bruit d'une ville",c:"ambiant", t:"Le champ parasite dans un bâtiment ordinaire : ascenseurs, tramways, transformateurs, courant alternatif du réseau. Un million de fois plus fort que le signal du cœur."},
+  {B:5e-5,   n:"champ terrestre",  c:"ambiant", t:"Le champ magnétique de la Terre, celui qui oriente les boussoles. Il vaut environ cinquante microteslas, soit un million de fois le signal que l'on cherche."},
+  {B:5e-3,   n:"aimant de porte",  c:"ambiant", t:"Le champ au contact d'un petit aimant de bureau. Cent millions de fois le signal du cœur."},
+  {B:3,      n:"IRM",              c:"ambiant", t:"Le champ d'un appareil d'imagerie par résonance magnétique, soixante mille fois le champ terrestre."}
+];
+let n1={sel:5};
+function uniteB(B){
+  const u=[[1e-15,"fT"],[1e-12,"pT"],[1e-9,"nT"],[1e-6,"µT"],[1e-3,"mT"],[1,"T"]];
+  for(let i=u.length-1;i>=0;i--) if(B>=u[i][0]*0.999){
+    const v=B/u[i][0];
+    return (v>=100?Math.round(v):(v>=10?fr(v,0):fr(v,1)))+" "+u[i][1];
+  }
+  return B+" T";
+}
+function drawN1(){
+  const {W,H,x0,x1,ya,lo,hi}=N1;
+  const X=B=>x0+(Math.log10(B)-lo)/(hi-lo)*(x1-x0);
+  let s=`<path d="M${x0} ${ya}H${x1}" stroke="${INK}" stroke-width="1.6"/>`;
+  for(let k=lo;k<=hi;k++){
+    const x=x0+(k-lo)/(hi-lo)*(x1-x0), gros=(k+15)%3===0;
+    s+=`<path d="M${x.toFixed(1)} ${ya}v${gros?9:5}" stroke="${gros?INK:LINE}"/>`;
+    if(gros){
+      const noms={"-15":"1 fT","-12":"1 pT","-9":"1 nT","-6":"1 µT","-3":"1 mT","0":"1 T"};
+      if(noms[k]) s+=tx(x,ya+26,noms[k],{size:13,fill:MUT,anchor:"middle"});
+    }
+  }
+  s+=tx(x0,ya+52,"chaque graduation large multiplie le champ par mille",{size:13,fill:MUT});
+  let ih=0, ib=0;
+  REP.forEach((r,i)=>{
+    const x=X(r.B), haut=r.c!=="ambiant";
+    const col=r.c==="signal"?RED:(r.c==="capteur"?ACC:"#8a8475");
+    const y = haut ? [232,200,168,136][ih++%4] : [300,332,364][ib++%3];
+    s+=`<path d="M${x.toFixed(1)} ${haut?ya-4:ya+4}V${y+(haut?6:-10)}" stroke="${col}" stroke-width="1.2" opacity=".6"/>`;
+    s+=`<circle cx="${x.toFixed(1)}" cy="${ya}" r="${i===n1.sel?7:5}" fill="${col}"/>`;
+    const anc = x>640?"end":"start";
+    const dx = anc==="end"?-10:10;
+    s+=tx(x+dx,y,r.n,{size:15,fill:col,anchor:anc,w:i===n1.sel?700:500});
+    s+=tx(x+dx,y+(haut?-16:16),uniteB(r.B),{size:13,fill:MUT,anchor:anc});
+  });
+  // rapport
+  const xa=X(5e-11), xb=X(5e-5);
+  s+=`<path d="M${xa.toFixed(1)} 72H${xb.toFixed(1)}M${xa.toFixed(1)} 66v12M${xb.toFixed(1)} 66v12" stroke="${VIO}" stroke-width="1.6"/>`;
+  s+=tx((xa+xb)/2,60,"un facteur un million",{size:14,fill:VIO,anchor:"middle",w:600});
+  s+=tx(x0,34,"Du plus faible au plus fort, en échelle logarithmique",{size:17,w:600});
+  // zones cliquables
+  REP.forEach((r,i)=>{
+    const x=X(r.B);
+    s+=`<rect data-i="${i}" x="${(x-16).toFixed(1)}" y="${r.c!=="ambiant"?120:264}" width="32" height="${r.c!=="ambiant"?136:74}" fill="transparent" style="cursor:pointer"/>`;
+  });
+  put("f1",W,H,s);
+  const r=REP[n1.sel];
+  $("f1L").innerHTML="<b>"+r.n+", "+uniteB(r.B)+".</b> "+r.t;
+}
+$("f1").addEventListener("click",e=>{
+  const d=e.target&&e.target.dataset?e.target.dataset.i:null;
+  if(d===undefined||d===null||d==="") return;
+  n1.sel=+d; drawN1();
+});
+
+/* =========================================================
+   Figure 2 : la résonance du centre NV
+   ========================================================= */
+const N2={W:960,H:450,x0:396,x1:916,y0:96,y1:330,f0:2.60,f1:3.14,D:2.870,G:28.024};
+let n2={B:0.6};
+function drawN2(){
+  const {W,H,x0,x1,y0,y1,f0,f1,D,G}=N2, B=n2.B;
+  const X=f=>x0+(f-f0)/(f1-f0)*(x1-x0), Y=p=>y1-(p-93)/9*(y1-y0);
+  const fm=D-G*B/1000, fp=D+G*B/1000, larg=0.012;
+  const fluo=f=>100-5*(1/(1+Math.pow((f-fm)/larg,2))+1/(1+Math.pow((f-fp)/larg,2)));
+  let s="";
+  // réseau du diamant
+  const gx=76, gy=120, pas=44;
+  s+=tx(gx,54,"Un azote et une case vide, côte à côte",{size:16,w:600});
+  for(let r=0;r<5;r++) for(let c=0;c<5;c++){
+    const x=gx+c*pas+(r%2)*14, y=gy+r*pas;
+    if(r===2&&c===2) continue;
+    if(r===2&&c===1) continue;
+    s+=`<circle cx="${x}" cy="${y}" r="9" fill="#dfe3e8" stroke="#b9c1cb"/>`;
+  }
+  const nx=gx+1*pas+14, ny=gy+2*pas, vx=gx+2*pas+14;
+  s+=`<circle cx="${nx}" cy="${ny}" r="11" fill="${ACC}"/>`;
+  s+=tx(nx-16,ny+40,"azote",{size:13,fill:ACC,anchor:"middle"});
+  s+=`<circle cx="${vx}" cy="${ny}" r="11" fill="none" stroke="${RED}" stroke-width="2" stroke-dasharray="3 3"/>`;
+  s+=tx(vx+20,ny+40,"case vide",{size:13,fill:RED,anchor:"middle"});
+  s+=tx(gx,gy+5*pas+8,"les autres boules sont des atomes de carbone",{size:13,fill:MUT});
+  // laser et fluorescence
+  s+=arrow(gx-6,gy-26,nx-14,ny-18,GR,2.4);
+  s+=tx(gx-6,gy-36,"laser vert",{size:13,fill:GR,w:600});
+  s+=arrow(vx+16,ny-16,vx+70,ny-54,RED,2.4);
+  s+=tx(vx+76,ny-58,"lumière rouge",{size:13,fill:RED,w:600});
+  // spectre
+  s+=`<path d="M${x0} ${y0}V${y1}H${x1}" fill="none" stroke="${INK}"/>`;
+  s+=tx(x0,y0-44,"Ce que renvoie le diamant quand on balaie la fréquence",{size:17,w:600});
+  s+=tx(x0,y0-22,"la lumière rouge faiblit quand les micro-ondes tombent juste",{size:13,fill:MUT});
+  let d="";
+  for(let i=0;i<=400;i++){ const f=f0+(f1-f0)*i/400; d+=(i?"L":"M")+X(f).toFixed(1)+" "+Y(fluo(f)).toFixed(1); }
+  s+=`<path d="${d}" fill="none" stroke="${ACC}" stroke-width="2.4"/>`;
+  for(const f of [2.6,2.7,2.8,2.9,3.0,3.1]){
+    s+=`<path d="M${X(f).toFixed(1)} ${y1}v6" stroke="${INK}"/>`;
+    s+=tx(X(f),y1+24,fr(f,1),{size:12,fill:MUT,anchor:"middle"});
+  }
+  s+=tx(x1,y1+48,"fréquence des micro-ondes, en gigahertz",{size:14,fill:MUT,anchor:"end"});
+  s+=tx(x0-8,Y(100)+5,"100 %",{size:12,fill:MUT,anchor:"end"});
+  s+=tx(x0-8,Y(95)+5,"95 %",{size:12,fill:MUT,anchor:"end"});
+  // repères des creux
+  const paires = B>0.02 ? [[fm,"D − γB",-8,"end"],[fp,"D + γB",8,"start"]] : [[D,"D",0,"middle"]];
+  for(const [f,lab,dx,anc] of paires){
+    s+=`<path d="M${X(f).toFixed(1)} ${Y(95)}V${y0+4}" stroke="${RED}" stroke-width="1.2" stroke-dasharray="4 4"/>`;
+    s+=tx(X(f)+dx,y0-4,lab,{size:13,fill:RED,anchor:anc,w:600});
+  }
+  if(B>0.02){
+    s+=dbl(X(fm),X(fp),y1-18,VIO,"2γB = "+fr((fp-fm)*1000,1)+" MHz");
+  }
+  s+=tx(x0,y1+76,"D = 2,870 GHz    γ = 28,024 GHz par tesla",{size:15,w:600});
+  put("f2",W,H,s);
+  $("f2L").innerHTML = B<0.02
+    ? "Sans champ, les deux creux se confondent en un seul, à <b>2,870 GHz</b>. Cette fréquence est fixée par la forme du défaut dans le cristal, et elle est la même pour tous les diamants."
+    : "Le champ écarte les deux creux de <b>2γB = "+fr((fp-fm)*1000,1)+" MHz</b>, pour un champ de "+fr(B,2)+" mT. Mesurer un champ revient donc à mesurer un écart de fréquence, et une fréquence se mesure mieux que n'importe quelle autre grandeur. Le champ du cœur, lui, vaut cinquante picoteslas et déplace chaque creux de trois millihertz.";
+}
+$("bS").oninput=e=>{ n2.B=+e.target.value/100; drawN2(); };
+
+/* =========================================================
+   Figure 3 : la moyenne fait sortir le signal
+   ========================================================= */
+const N3={W:960,H:440,x0:84,x1:916,y0:80,y1:340,SIG:20,BP:100};
+let n3={k:0};
+function nbat(){ return Math.round(Math.pow(10,n3.k/25)); }
+function coeur(t){                      // t de 0 à 1 seconde, résultat en picoteslas
+  const g=(c,l,a)=>a*Math.exp(-Math.pow((t-c)/l,2));
+  return g(0.17,0.035,6) + g(0.38,0.012,-9) + g(0.40,0.010,50) + g(0.425,0.013,-13) + g(0.63,0.055,14);
+}
+function drawN3(){
+  const {W,H,x0,x1,y0,y1,SIG,BP}=N3;
+  const n=nbat(), sig=SIG*Math.sqrt(BP)/Math.sqrt(n);
+  const ech=Math.max(60,3*sig,60);
+  const X=t=>x0+t*(x1-x0), Y=b=>(y0+y1)/2-b/ech*(y1-y0)/2;
+  let g=98765+n;
+  const rnd=()=>{g=(g*1103515245+12345)%2147483648;return g/2147483648;};
+  let s=`<path d="M${x0} ${y0}V${y1}" fill="none" stroke="${INK}"/>`;
+  s+=`<path d="M${x0} ${Y(0).toFixed(1)}H${x1}" stroke="#d8d4cb"/>`;
+  for(const b of [-ech/2,0,ech/2]) s+=tx(x0-8,Y(b)+5,Math.round(b)+" pT",{size:12,fill:MUT,anchor:"end"});
+  for(const t of [0,0.25,0.5,0.75,1]) s+=tx(X(t),y1+26,fr(t,2)+" s",{size:12,fill:MUT,anchor:"middle"});
+  // signal vrai, en gris
+  let dv="";
+  for(let i=0;i<=400;i++){ const t=i/400; dv+=(i?"L":"M")+X(t).toFixed(1)+" "+Y(coeur(t)).toFixed(1); }
+  s+=`<path d="${dv}" fill="none" stroke="#c3c9d1" stroke-width="3"/>`;
+  // mesure bruitée
+  let dm="", prev=0;
+  for(let i=0;i<=400;i++){
+    const t=i/400;
+    const u=Math.sqrt(-2*Math.log(rnd()+1e-9))*Math.cos(2*Math.PI*rnd());
+    prev=0.55*prev+0.45*u;                       // bruit un peu coloré
+    const b=coeur(t)+prev*sig*1.4;
+    dm+=(i?"L":"M")+X(t).toFixed(1)+" "+Y(b).toFixed(1);
+  }
+  s+=`<path d="${dm}" fill="none" stroke="${ACC}" stroke-width="1.6"/>`;
+  s+=tx(x0,46,"Un battement de cœur vu par le capteur",{size:17,w:600});
+  s+=tx(x0,68,"en gris le signal réel, en bleu ce que le capteur enregistre",{size:13,fill:MUT});
+  const px=x1;
+  s+=tx(px,y1+66,"battements moyennés : "+milliers(n),{size:17,anchor:"end",w:600});
+  s+=tx(px,y1+90,"bruit restant : "+fr(sig,1)+" pT     rapport signal sur bruit : "+fr(50/sig,2),
+       {size:14,fill:MUT,anchor:"end"});
+  put("f3",W,H,s);
+  const snr=50/sig;
+  $("f3L").innerHTML = "Avec <b>"+milliers(n)+" battement"+(n>1?"s":"")+"</b> moyenné"+(n>1?"s":"")
+    + ", le bruit tombe à "+fr(sig,1)+" picoteslas, et le pic vaut "+fr(snr,2)+" fois le bruit. "
+    + (snr<1 ? "Le signal est encore entièrement noyé."
+      : snr<3 ? "Le pic commence à se deviner, sans qu'on puisse encore mesurer sa forme."
+      : snr<8 ? "Le pic est net. Les ondes plus petites qui l'entourent restent incertaines."
+      : "Toutes les ondes du battement sont lisibles, y compris les plus petites. C'est le régime atteint dans l'article de 2026, au prix de plusieurs milliers de battements, soit près d'une heure d'enregistrement.");
+}
+$("nS").oninput=e=>{ n3.k=+e.target.value; drawN3(); };
+
+/* ---------------- démarrage ---------------- */
+drawN1(); drawN2(); drawN3();
+
+</script>
+</body>
+</html>

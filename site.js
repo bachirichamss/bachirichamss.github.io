@@ -198,7 +198,19 @@ const V_CONV = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" 
 <path d="M166 60h18M181 57l5 3l-5 3" fill="none" stroke="#1b1f24" stroke-width="1.4"/>
 <path d="M166 96h18M181 93l5 3l-5 3" fill="none" stroke="#1b1f24" stroke-width="1.4"/></svg>`;
 
+const V_DIAM = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<path d="M24 30h38l6 -12l8 26l7 -18l6 10l9 -22l7 28l6 -12h55" fill="none" stroke="#c8372d" stroke-width="1.8"/>
+<path d="M70 52h60l20 22l-50 56l-50 -56Z" fill="#eef3f9" stroke="#1f4f8f" stroke-width="1.8"/>
+<path d="M50 74h100M70 52l-20 22M130 52l20 22M70 52l10 22M130 52l-10 22" fill="none" stroke="#9fb6d0" stroke-width="1"/>
+<circle cx="92" cy="92" r="6" fill="#1f4f8f"/>
+<circle cx="110" cy="92" r="6" fill="none" stroke="#c8372d" stroke-width="2" stroke-dasharray="3 3"/></svg>`;
+
 const ARTICLES = [
+  { titre: "Comment un diamant mesure-t-il le champ magnétique du cœur ?",
+    url: "diamant-coeur.html", rubrique: "simulations",
+    date: "2026-10-21", duree: "14 min",
+    resume: "Le cœur produit un champ magnétique un million de fois plus faible que celui de la Terre. En septembre 2026, trois équipes allemandes ont montré qu'un éclat de diamant de moins d'un demi-millimètre cube, posé sur la poitrine et à température ambiante, suffisait à l'enregistrer.",
+    vignette: V_DIAM },
   { titre: "Les conversions d'énergie, forme par forme",
     url: "conversions-energie.html", rubrique: "simulations",
     date: "2026-10-18", duree: "15 min",
