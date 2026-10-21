@@ -223,16 +223,57 @@ const V_PART = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" 
 <rect x="148" y="76" width="38" height="56" fill="#fdf6e8" stroke="#d9730d"/><text x="167" y="100" fill="#d9730d">Z</text><text x="167" y="122" fill="#d9730d">W</text>
 </g></svg>`;
 
+const V_INTERETS = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<g fill="none" stroke="#c3c9d1" stroke-width="1">
+<path d="M10 40q45 0 90 26t90 26"/><path d="M10 60q45 0 90 26t90 26"/><path d="M10 20q45 0 90 26t90 26"/>
+<path d="M40 14v20q0 44 0 88"/><path d="M80 16v22q0 42 0 86"/><path d="M120 24v24q0 40 0 78"/><path d="M160 34v26q0 38 0 70"/></g>
+<circle cx="76" cy="54" r="15" fill="none" stroke="#7a5fc0" stroke-width="2" stroke-dasharray="4 3"/>
+<circle cx="110" cy="66" r="15" fill="none" stroke="#7a5fc0" stroke-width="2" stroke-dasharray="4 3"/>
+<circle cx="76" cy="54" r="4" fill="#7a5fc0"/><circle cx="110" cy="66" r="4" fill="#7a5fc0"/>
+<path d="M80 56q15 2 26 8" stroke="#1f4f8f" stroke-width="1.6" fill="none" stroke-dasharray="3 3"/></svg>`;
+
+const V_CARNET = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<rect x="34" y="14" width="132" height="112" fill="#fbfbf9" stroke="#1b1f24" stroke-width="1.4"/>
+<path d="M50 14v112" stroke="#c8372d" stroke-width="1"/>
+<g stroke="#dcd8cf" stroke-width="1"><path d="M34 34h132M34 50h132M34 66h132M34 82h132M34 98h132M34 114h132"/></g>
+<g stroke="#1f4f8f" stroke-width="2" stroke-linecap="round">
+<path d="M58 28h54"/><path d="M58 44h78"/><path d="M58 60h40"/><path d="M58 92h66"/><path d="M58 108h34"/></g>
+<path d="M58 72h36" stroke="#2f8a5f" stroke-width="2" stroke-linecap="round"/>
+<path d="M100 72h28" stroke="#c8372d" stroke-width="2" stroke-linecap="round"/></svg>`;
+
+const V_PROJET = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<circle cx="52" cy="48" r="13" fill="#1f4f8f" opacity=".3"/><circle cx="52" cy="92" r="13" fill="#1f4f8f" opacity=".3"/>
+<circle cx="148" cy="48" r="13" fill="#c8372d" opacity=".3"/><circle cx="148" cy="92" r="13" fill="#c8372d" opacity=".3"/>
+<path d="M52 48v44M148 48v44" stroke="#9aa4b0" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M65 48h70M65 92h70M62 56l74 28M62 84l74-28" stroke="#7a5fc0" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="100" y="26" font-size="14" font-family="Newsreader,Georgia,serif" font-style="italic" text-anchor="middle" fill="#7a5fc0">G m² t / ħd</text>
+<text x="100" y="128" font-size="14" font-family="Newsreader,Georgia,serif" font-style="italic" text-anchor="middle" fill="#1b1f24">τ = ħ / E</text></svg>`;
+
 const ARTICLES = [
+  { titre: "Les questions qui m'occupent",
+    url: "interets.html", rubrique: "recherche",
+    date: "2026-10-22", duree: "8 min",
+    resume: "La mécanique quantique et la relativité générale fonctionnent parfaitement chacune de son côté, et aucune expérience ne les a jamais prises en défaut. Elles ne disent pourtant pas la même chose de l'espace, du temps et de la mesure. Les questions qui suivent se tiennent toutes sur cette couture, et aucune n'est tranchée.",
+    vignette: V_INTERETS },
+  { titre: "Carnet de reproduction",
+    url: "carnet.html", rubrique: "recherche",
+    date: "2026-10-22", duree: "3 min",
+    resume: "Un article refait par mois, à la main. Je reprends le calcul depuis l'énoncé, je vérifie les cas limites, et je note ce qui a coincé. Les entrées de ce carnet sont écrites sans assistance d'intelligence artificielle, du premier calcul à la dernière phrase.",
+    vignette: V_CARNET },
+  { titre: "La gravité fait-elle s'effondrer les superpositions, ou les intrique-t-elle ?",
+    url: "projet-gravite.html", rubrique: "projets",
+    date: "2026-10-22", duree: "5 min",
+    resume: "Deux hypothèses opposées portent sur le même objet : une masse placée en superposition de deux positions. Pour Diósi et Penrose, sa propre gravitation détruit la superposition. Pour Bose, Marletto et Vedral, la gravitation peut au contraire intriquer deux masses, ce qui prouverait qu'elle est quantique. Ce projet consiste à refaire les deux calculs et à tracer où chacun l'emporte.",
+    vignette: V_PROJET },
   { titre: "Toutes les particules connues, et comment les classer",
     url: "particules.html", rubrique: "simulations",
     date: "2026-10-21", duree: "18 min",
-    resume: "Dix-sept particules élémentaires ont été observées, et toute la matière du monde en utilise quatre. Le tableau complet à cliquer, l'échelle des masses sur quatorze puissances de dix, les quatre forces et un assembleur de hadrons.",
+    resume: "Dix-sept particules élémentaires ont été observées, et toute la matière du monde en utilise quatre. Les autres se rangent par génération, par charge et par force ressentie. Cette page présente le tableau complet, puis l'échelle des masses, les quatre forces et la façon dont les quarks s'assemblent en particules composées.",
     vignette: V_PART },
   { titre: "Comment un diamant mesure-t-il le champ magnétique du cœur ?",
     url: "diamant-coeur.html", rubrique: "simulations",
     date: "2026-10-21", duree: "14 min",
-    resume: "Le cœur produit un champ magnétique un million de fois plus faible que celui de la Terre. En septembre 2026, trois équipes allemandes ont montré qu'un éclat de diamant de moins d'un demi-millimètre cube, posé sur la poitrine et à température ambiante, suffisait à l'enregistrer.",
+    resume: "Le cœur produit un champ magnétique un million de fois plus faible que celui de la Terre. En septembre 2026, trois équipes allemandes ont montré qu'un éclat de diamant de moins d'un demi-millimètre cube, posé sur la poitrine et à température ambiante, suffisait à l'enregistrer. Le principe tient dans un défaut du cristal, une fréquence et une moyenne.",
     vignette: V_DIAM },
   { titre: "Les conversions d'énergie, forme par forme",
     url: "conversions-energie.html", rubrique: "simulations",

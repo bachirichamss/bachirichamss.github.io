@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=a939f82b">
+<link rel="canonical" href="https://bachirichamss.github.io/carnet.html">
+<title>Carnet de reproduction · Chamss Bachiri</title>
+<meta name="description" content="Un article de physique refait par mois, à la main : l'objectif, le calcul repris depuis l'énoncé, et ce qui a coincé. Sans assistance d'intelligence artificielle.">
+<meta property="og:title" content="Carnet de reproduction">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
+.sym b sub{font-style:normal}
+.tb.ref{font-size:.86rem}
+.tb.ref th,.tb.ref td{padding:.5rem .9rem .5rem 0;vertical-align:top}
+.refs{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.86rem;color:#2b3139;list-style:none;padding:0;margin:.6rem 0 0}
+.refs li{padding:.45rem 0;border-bottom:1px solid #eceae4;line-height:1.5}
+.refs b{font-weight:600}
+.vide{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.95rem;color:#8a8475;background:#f7f5f0;border:1px dashed #d8d4cb;
+  border-radius:3px;padding:1.1rem 1.2rem;margin:.8rem 0 0;text-align:center}
+
+</style>
+</head>
+
+<body data-rubrique="recherche">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=recherche">Recherche et réflexions</a></p>
+      <h1>Carnet de reproduction</h1>
+      <p class="dek">Un article refait par mois, à la main. Je reprends le calcul depuis l'énoncé, je vérifie les cas limites, et je note ce qui a coincé. Les entrées de ce carnet sont écrites sans assistance d'intelligence artificielle, du premier calcul à la dernière phrase.</p>
+      <div class="meta"><span>22 octobre 2026</span><span>3 min</span></div>
+    </div>
+
+    <section class="step">
+      <h2>Pourquoi refaire</h2>
+      <p>Lire un article de physique donne l'impression de le comprendre. Refaire son calcul montre en général le contraire. Entre les deux se trouvent les étapes que l'auteur a passées sous silence parce qu'elles lui semblaient évidentes, les conventions de signe qu'il n'a pas écrites, et les approximations qu'il a faites sans le dire.</p>
+      <p>Ce carnet sert à traverser cet intervalle, un article à la fois.</p>
+    </section>
+
+    <section class="step">
+      <h2>La règle</h2>
+      <div class="tablewrap">
+        <table class="tb ref">
+          <tr><th>Point</th><th>Engagement</th></tr>
+          <tr><td>Rythme</td><td>Un article par mois, pas davantage</td></tr>
+          <tr><td>Méthode</td><td>Le calcul est refait depuis l'énoncé, sur papier d'abord, puis vérifié numériquement</td></tr>
+          <tr><td>Outils</td><td>Papier, Python, et les articles cités. Aucune assistance d'intelligence artificielle</td></tr>
+          <tr><td>Vérifications</td><td>Cas limites, analyse dimensionnelle, et comparaison aux valeurs publiées</td></tr>
+          <tr><td>Honnêteté</td><td>Ce qui n'a pas marché est écrit, y compris les erreurs et les impasses</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="step">
+      <h2>Le format de chaque entrée</h2>
+      <p>Trois parties, dans cet ordre.</p>
+      <p><strong>L'objectif.</strong> Quel résultat précis de l'article je cherche à retrouver, et sous quelle forme : une formule, une courbe, un ordre de grandeur.</p>
+      <p><strong>Le calcul.</strong> Les étapes refaites, avec les conventions explicitées et les approximations signalées au moment où elles sont faites. Les vérifications de cohérence sont données au même titre que le résultat.</p>
+      <p><strong>Ce qui a coincé.</strong> Les passages où je me suis trompé, ceux que je n'ai pas réussi à retrouver, et les points qui restent obscurs après coup.</p>
+    </section>
+
+    <section class="step">
+      <h2>Le programme</h2>
+      <div class="tablewrap">
+        <table class="tb ref">
+          <tr><th>Ordre</th><th>Article</th><th>Ce que je veux retrouver</th><th>État</th></tr>
+          <tr><td class="n">1</td><td>D. N. Page et W. K. Wootters, <i>Evolution without evolution</i>, Physical Review D <b>27</b>, 2885 (1983)</td><td>Comment un état global stationnaire donne une évolution ordinaire pour un sous-système, conditionnée à la lecture d'une horloge</td><td class="n">à venir</td></tr>
+          <tr><td class="n">2</td><td>S. Bose et coll., <i>Spin entanglement witness for quantum gravity</i>, Physical Review Letters <b>119</b>, 240401 (2017)</td><td>La phase accumulée par chaque branche, le temps d'intrication, et les paramètres de masse et de distance qui rendent l'expérience possible</td><td class="n">à venir</td></tr>
+        </table>
+      </div>
+      <p>La suite du programme sera fixée au fur et à mesure, en fonction de ce que les deux premières entrées auront appris.</p>
+    </section>
+
+    <section class="step">
+      <h2>Les entrées</h2>
+      <p class="vide">La première entrée paraîtra ici.</p>
+    </section>
+
+    <nav class="suite" aria-label="Autres articles">
+      <h2>Les autres articles</h2>
+      <ul>
+      <li><a href="interets.html">Les questions qui m'occupent</a><span>Recherche</span></li>
+      <li><a href="projet-gravite.html">La gravité fait-elle s'effondrer les superpositions, ou les intrique-t-elle ?</a><span>Projet</span></li>
+      <li><a href="particules.html">Toutes les particules connues, et comment les classer</a><span>Simulation</span></li>
+      <li><a href="diamant-coeur.html">Comment un diamant mesure-t-il le champ magnétique du cœur ?</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
+      <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
+      <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
+      <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
+      </ul>
+      <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
+    </nav>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=recherche">Retour à la recherche</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=77a7f452"></script>
+</body>
+</html>

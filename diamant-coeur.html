@@ -68,9 +68,9 @@
       <p>Les courants du cœur se comptent en microampères, et la poitrine est à quelques centimètres. En reportant ces valeurs, on trouve quelques dizaines de picoteslas, et c'est bien ce que l'on mesure. Un picotesla vaut 10<sup>−12</sup> tesla.</p>
       <p>Le problème se voit sur une échelle logarithmique. Le signal recherché est plus petit que presque tout ce qui existe autour de lui.</p>
       <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
-      <p class="scene-hint" style="margin-top:.4rem">Cliquez un point de l'échelle pour savoir ce qu'il représente.</p>
+      <p class="scene-hint" style="margin-top:.4rem">Cliquez une ligne pour savoir ce qu'elle représente.</p>
       <div class="live" id="f1L"></div>
-      <p class="figcap"><b>Figure 1.</b> En rouge les signaux du corps, en bleu la sensibilité des capteurs, en gris les champs de l'environnement. Chaque graduation large correspond à un facteur mille.</p>
+      <p class="figcap"><b>Figure 1.</b> En rouge les signaux du corps, en bleu la sensibilité des capteurs, en gris les champs de l'environnement. L'échelle est logarithmique : chaque graduation large correspond à un facteur mille.</p>
       <p>Mesurer le cœur revient donc à lire cinquante picoteslas dans un environnement qui en contient cent mille fois plus. Deux familles de capteurs y parviennent déjà : les SQUID, qui exigent de l'hélium liquide, et les magnétomètres à vapeur alcaline, qui exigent d'annuler le champ terrestre autour d'eux. Les deux occupent une pièce entière et coûtent le prix d'un appareil d'imagerie.</p>
       <p>Une question se pose alors. Existe-t-il un capteur de champ magnétique qui tienne dans un dé à coudre, fonctionne à température ambiante, et n'exige aucun blindage ?</p>
     </section>
@@ -186,7 +186,7 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="site.js?v=5363050a"></script>
+<script src="site.js?v=4a4ed75f"></script>
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
@@ -210,7 +210,7 @@ function dbl(x1,x2,y,col,lab){
 /* =========================================================
    Figure 1 : l'échelle des champs magnétiques
    ========================================================= */
-const N1={W:960,H:430,x0:76,x1:898,ya:252,lo:-15,hi:1};
+const N1={W:960,H:470,xg:44,xb:300,xe:784,y0:112,dy:30,lo:-15,hi:1};
 const REP=[
   {B:5e-15,  n:"SQUID",            c:"capteur", t:"Le capteur le plus sensible dont on dispose. Il repose sur un anneau supraconducteur, donc sur de l'hélium liquide à 4 kelvins et sur une chambre blindée. Sensibilité de l'ordre de quelques femtoteslas par racine de hertz."},
   {B:1.5e-14,n:"magnétomètre à vapeur", c:"capteur", t:"Un gaz d'atomes alcalins chauffé dans une cellule de verre, dont on lit l'orientation des spins avec un laser. Presque aussi sensible qu'un SQUID, sans hélium liquide, mais il faut annuler le champ terrestre autour de la cellule."},
@@ -223,6 +223,7 @@ const REP=[
   {B:5e-3,   n:"aimant de porte",  c:"ambiant", t:"Le champ au contact d'un petit aimant de bureau. Cent millions de fois le signal du cœur."},
   {B:3,      n:"IRM",              c:"ambiant", t:"Le champ d'un appareil d'imagerie par résonance magnétique, soixante mille fois le champ terrestre."}
 ];
+
 let n1={sel:5};
 function uniteB(B){
   const u=[[1e-15,"fT"],[1e-12,"pT"],[1e-9,"nT"],[1e-6,"µT"],[1e-3,"mT"],[1,"T"]];
@@ -233,39 +234,29 @@ function uniteB(B){
   return B+" T";
 }
 function drawN1(){
-  const {W,H,x0,x1,ya,lo,hi}=N1;
-  const X=B=>x0+(Math.log10(B)-lo)/(hi-lo)*(x1-x0);
-  let s=`<path d="M${x0} ${ya}H${x1}" stroke="${INK}" stroke-width="1.6"/>`;
+  const {W,H,xg,xb,xe,y0,dy,lo,hi}=N1;
+  const X=B=>xb+(Math.log10(B)-lo)/(hi-lo)*(xe-xb);
+  const ordre=REP.map((r,i)=>i).sort((a,b)=>REP[a].B-REP[b].B);
+  const yb=y0+ordre.length*dy+8;
+  let s=tx(xg,44,"Du plus faible au plus fort",{size:18,w:600});
+  s+=tx(xg,66,"chaque graduation large multiplie le champ par mille",{size:14,fill:MUT});
   for(let k=lo;k<=hi;k++){
-    const x=x0+(k-lo)/(hi-lo)*(x1-x0), gros=(k+15)%3===0;
-    s+=`<path d="M${x.toFixed(1)} ${ya}v${gros?9:5}" stroke="${gros?INK:LINE}"/>`;
-    if(gros){
-      const noms={"-15":"1 fT","-12":"1 pT","-9":"1 nT","-6":"1 µT","-3":"1 mT","0":"1 T"};
-      if(noms[k]) s+=tx(x,ya+26,noms[k],{size:13,fill:MUT,anchor:"middle"});
-    }
+    const x=xb+(k-lo)/(hi-lo)*(xe-xb), gros=(k+15)%3===0;
+    s+=`<path d="M${x.toFixed(1)} ${y0-6}V${yb}" stroke="${gros?"#dcd8cf":"#efece5"}"/>`;
   }
-  s+=tx(x0,ya+52,"chaque graduation large multiplie le champ par mille",{size:13,fill:MUT});
-  let ih=0, ib=0;
-  REP.forEach((r,i)=>{
-    const x=X(r.B), haut=r.c!=="ambiant";
-    const col=r.c==="signal"?RED:(r.c==="capteur"?ACC:"#8a8475");
-    const y = haut ? [232,200,168,136][ih++%4] : [300,332,364][ib++%3];
-    s+=`<path d="M${x.toFixed(1)} ${haut?ya-4:ya+4}V${y+(haut?6:-10)}" stroke="${col}" stroke-width="1.2" opacity=".6"/>`;
-    s+=`<circle cx="${x.toFixed(1)}" cy="${ya}" r="${i===n1.sel?7:5}" fill="${col}"/>`;
-    const anc = x>640?"end":"start";
-    const dx = anc==="end"?-10:10;
-    s+=tx(x+dx,y,r.n,{size:15,fill:col,anchor:anc,w:i===n1.sel?700:500});
-    s+=tx(x+dx,y+(haut?-16:16),uniteB(r.B),{size:13,fill:MUT,anchor:anc});
-  });
-  // rapport
-  const xa=X(5e-11), xb=X(5e-5);
-  s+=`<path d="M${xa.toFixed(1)} 72H${xb.toFixed(1)}M${xa.toFixed(1)} 66v12M${xb.toFixed(1)} 66v12" stroke="${VIO}" stroke-width="1.6"/>`;
-  s+=tx((xa+xb)/2,60,"un facteur un million",{size:14,fill:VIO,anchor:"middle",w:600});
-  s+=tx(x0,34,"Du plus faible au plus fort, en échelle logarithmique",{size:17,w:600});
-  // zones cliquables
-  REP.forEach((r,i)=>{
-    const x=X(r.B);
-    s+=`<rect data-i="${i}" x="${(x-16).toFixed(1)}" y="${r.c!=="ambiant"?120:264}" width="32" height="${r.c!=="ambiant"?136:74}" fill="transparent" style="cursor:pointer"/>`;
+  for(const [B,lab] of [[1e-15,"1 fT"],[1e-12,"1 pT"],[1e-9,"1 nT"],[1e-6,"1 µT"],[1e-3,"1 mT"],[1,"1 T"]])
+    s+=tx(X(B),yb+24,lab,{size:13,fill:MUT,anchor:"middle"});
+  s+=`<path d="M${xb} ${yb}H${xe}" stroke="${INK}"/>`;
+  ordre.forEach((idx,r)=>{
+    const o=REP[idx], y=y0+r*dy, on=idx===n1.sel;
+    const col=o.c==="signal"?RED:(o.c==="capteur"?ACC:"#8a8475");
+    if(on) s+=`<rect x="${xg-8}" y="${y-4}" width="${W-xg-12}" height="${dy-4}" fill="${col}" opacity=".07"/>`;
+    s+=`<path d="M${xg} ${(y+dy-6).toFixed(1)}H${xe}" stroke="#f2efe8"/>`;
+    s+=`<circle cx="${xg+7}" cy="${y+10}" r="5" fill="${col}"/>`;
+    s+=tx(xg+22,y+15,o.n,{size:15,w:on?700:400});
+    s+=`<rect x="${xb}" y="${y+4}" width="${Math.max(2,X(o.B)-xb).toFixed(1)}" height="13" rx="3" fill="${col}" opacity="${on?0.95:0.6}"/>`;
+    s+=tx(xe+16,y+15,uniteB(o.B),{size:13});
+    s+=`<rect data-i="${idx}" x="${xg-8}" y="${y-4}" width="${W-xg-12}" height="${dy-2}" fill="transparent" style="cursor:pointer"/>`;
   });
   put("f1",W,H,s);
   const r=REP[n1.sel];
