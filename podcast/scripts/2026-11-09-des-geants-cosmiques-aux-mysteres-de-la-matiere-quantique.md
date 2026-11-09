@@ -1,0 +1,37 @@
+---
+titre: Des géants cosmiques aux mystères de la matière quantique
+date: 2026-11-09
+resume: Cette chronique explore la traque des trous noirs supermassifs, la découverte d'un état solide-liquide à température ambiante et les limites de la gravité à l'échelle du milligramme.
+mode: actus
+modele: gemini-3-flash-preview
+---
+
+Bonjour, et bienvenue dans la chronique de physique.
+
+Pour comprendre l'histoire de notre univers, il faut parfois observer les objets les plus massifs que l'on puisse imaginer : les trous noirs supermassifs. Ces géants, qui pèsent des millions ou des milliards de fois la masse de notre Soleil, se trouvent au centre des galaxies. Dans la revue Physical Review Letters, l'équipe de Yiqin Chen et la collaboration internationale PPTA ont publié des travaux sur la recherche de paires de ces trous noirs. Lorsqu'une galaxie entre en collision avec une autre, leurs trous noirs centraux finissent par se tourner autour, créant une danse cosmique qui émet des ondes gravitationnelles. Ces ondes sont des ondulations de l'espace et du temps lui-même, un peu comme les rides à la surface d'un étang.
+
+Pour détecter ces vibrations extrêmement lentes, les chercheurs n'utilisent pas des instruments classiques, mais des pulsars. Un pulsar est une étoile à neutrons, un reste d'étoile morte très dense, qui tourne sur elle-même à une vitesse vertigineuse en émettant un faisceau de lumière régulier, comme un phare dans l'espace. En mesurant précisément le temps d'arrivée de ces signaux sur Terre, les physiciens peuvent voir si l'espace entre nous et le pulsar a été étiré ou compressé par le passage d'une onde gravitationnelle. Cette étude a permis de poser des limites sur la présence de ces couples de trous noirs géants à l'aube de la formation des galaxies, nous aidant à mieux comprendre comment les grandes structures de l'univers se sont assemblées.
+
+Si ces trous noirs géants marquent l'évolution des galaxies, d'autres trous noirs, beaucoup plus anciens et mystérieux, pourraient expliquer une autre énigme : la matière noire. Cette substance invisible compose la majeure partie de la masse de l'univers, mais nous ne savons toujours pas de quoi elle est faite. Une hypothèse suggère qu'elle pourrait être constituée de trous noirs primordiaux, formés juste après le Big Bang. Cependant, une étude menée par Christopher Gerlach et son équipe, également publiée dans Physical Review Letters, vient de restreindre cette possibilité. En analysant le fond diffus cosmologique, qui est la toute première lumière émise par l'univers environ trois cent quatre-vingt mille ans après sa naissance, ils ont montré que ces trous noirs ne peuvent pas être trop massifs. S'ils pesaient plus de cent milliards de fois la masse du Soleil, ils auraient laissé des traces visibles dans cette lumière primordiale. Ces résultats éliminent donc une grande partie des candidats pour expliquer la matière noire par ces objets massifs.
+
+En quittant les échelles astronomiques pour revenir sur Terre, la physique nous réserve des surprises tout aussi étranges dans le comportement de la matière. Des chercheurs de l'Université de Varsovie, en collaboration avec le CNRS et IBM, ont observé un état de la matière appelé supersolide. C'est un paradoxe physique : un supersolide est un matériau qui possède la structure ordonnée d'un cristal, comme le sel ou le diamant, mais qui peut couler sans aucun frottement, comme un liquide parfait. Jusqu'à présent, cet état était extrêmement difficile à obtenir et nécessitait des températures proches du zéro absolu, soit environ moins deux cent soixante-treize degrés Celsius.
+
+La nouveauté, rapportée par le site Phys.org et publiée dans la revue Science Advances, est que cet état a été observé à température ambiante. Pour réussir cet exploit, les scientifiques ont utilisé des excitons-polaritons. Ce sont des objets hybrides, nés du mariage entre la lumière et la matière à l'intérieur de semi-conducteurs. En confinant la lumière entre deux miroirs et en la faisant interagir avec des électrons, ils ont créé ce mélange capable de se comporter comme un supersolide sans avoir besoin de froid extrême. Cette découverte ouvre la voie à l'étude de phénomènes quantiques complexes dans des conditions beaucoup plus simples que prévu.
+
+Pour comprendre pourquoi la matière se comporte ainsi, il faut plonger encore plus profondément dans le monde des particules élémentaires. Au CERN, l'organisation européenne pour la recherche nucléaire, les physiciens de l'expérience LHCb ont annoncé avoir trouvé des indices d'une désintégration de particule extrêmement rare. Il s'agit du méson B-zéro, une particule composée de briques encore plus petites appelées quarks. Ce méson peut se transformer en deux autres particules nommées muons. Ce phénomène est si rare qu'il ne se produit qu'une fois toutes les dix milliards de fois environ.
+
+Cette observation est capitale car elle permet de tester le Modèle Standard de la physique des particules, qui est en quelque sorte le manuel d'instruction de l'univers. Les chercheurs traquaient ce signal depuis plus de quarante ans. En confirmant que cette désintégration se produit exactement comme la théorie le prévoit, les scientifiques consolident notre compréhension des forces fondamentales. Cela permet aussi d'explorer ce qu'ils appellent le Zeptoverse, un monde à l'échelle du milliardième de trillionième de mètre, où pourraient se cacher de nouvelles particules encore inconnues.
+
+Enfin, l'un des plus grands défis de la physique moderne reste de réconcilier ce monde des particules, régi par la mécanique quantique, avec la force de gravité décrite par Einstein. La gravité est la plus faible des forces de la nature. Pour vous donner une idée, un simple petit aimant peut soulever une trombone malgré toute la masse de la Terre qui la tire vers le bas. Mesurer la gravité entre de petits objets est donc un défi technique immense. Dans un article déposé sur le site de prépublication arXiv, qui n'a pas encore été révisé par d'autres chercheurs, une équipe décrit une méthode pour mesurer les forces gravitationnelles sur des masses de seulement quelques milligrammes.
+
+À cette échelle minuscule, la gravité commence à rencontrer les effets quantiques. En utilisant des capteurs ultra-sensibles, les physiciens espèrent observer si la gravité se comporte de la même manière que les autres forces à petite échelle ou si elle cache des propriétés inattendues. C'est une étape cruciale pour tenter de bâtir une théorie unifiée de la physique, capable d'expliquer aussi bien la chute d'une pomme que le comportement des atomes ou la naissance de l'univers.
+
+C'était la chronique de physique. Les sources de cet épisode sont sur le site de Chamss Bachiri. À bientôt.
+
+## Sources
+
+- Nanohertz Gravitational-Wave Constraints on Supermassive Binary Black Holes at Cosmic Dawn | http://link.aps.org/doi/10.1103/5z5g-shly
+- Closing the Mass Window for Stupendously Large Black Holes | http://link.aps.org/doi/10.1103/qlf9-thf4
+- Light-matter hybrids form supersolid quantum state at room temperature | https://phys.org/news/2026-11-hybrids-supersolid-quantum-state-room.html
+- Physicists step closer to the 'Zeptoverse' after 42-year particle search | https://phys.org/news/2026-11-physicists-step-closer-zeptoverse-year-particle.html
+- Quantum-enabled measurement of gravitational forces at the milligram scale | http://arxiv.org/abs/2611.08619v1
