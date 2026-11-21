@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231f4f8f'/><ellipse cx='16' cy='16' rx='10' ry='5.5' fill='none' stroke='white' stroke-width='1.8'/><circle cx='16' cy='16' r='2.6' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=a939f82b">
+<link rel="canonical" href="https://bachirichamss.github.io/longueur-onde-thermique.html">
+<title>Qu'est-ce que la longueur d'onde thermique ? · Chamss Bachiri</title>
+<meta name="description" content="La longueur d'onde thermique est la taille de la tache quantique d'une particule. Comparée à l'écart entre voisines, elle dit si la matière est classique ou quantique. Trois simulations, de l'air d'une pièce à l'étoile à neutrons.">
+<meta property="og:title" content="Qu'est-ce que la longueur d'onde thermique ?">
+<meta property="og:type" content="article">
+<style>
+.scene svg text{font-family:"IBM Plex Sans",Arial,sans-serif}
+@media (min-width:980px){ .scene.wide{margin-left:-110px;margin-right:-110px} }
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cdd2d9;border-radius:3px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.seg button + button{border-left:1px solid #cdd2d9}
+.live{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;line-height:1.55;color:#1b1f24;
+  background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:.8rem 1rem;margin:0 0 1.2rem;min-height:4.2em}
+.live sup,.tb sup{font-size:.7em}
+.tablewrap{overflow-x:auto;margin:1.4rem 0 1.2rem}
+.tb{width:100%;border-collapse:collapse;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.88rem}
+.tb th{text-align:left;font-weight:600;color:#1b1f24;border-bottom:2px solid #1b1f24;padding:.5rem .7rem .5rem 0}
+.tb td{border-bottom:1px solid #e2e0da;padding:.6rem .7rem .6rem 0;vertical-align:top;color:#2b3139}
+.tb td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
+.sym b sub{font-style:normal}
+
+
+.fx{font-family:"Newsreader",Georgia,serif;font-size:1.42rem;line-height:1.5;text-align:center;color:#1b1f24;margin:1.6rem 0 .5rem}
+.fx i{font-style:italic}.fx sub{font-size:.62em;vertical-align:-.3em}.fx sup{font-size:.62em}
+.sym{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.94rem;color:#2b3139;list-style:none;padding:0;margin:.4rem auto 1.6rem;max-width:620px}
+.sym li{padding:.4rem 0;border-bottom:1px solid #eceae4}
+.sym b{font-family:"Newsreader",Georgia,serif;font-style:italic;font-weight:500;font-size:1.14rem;color:#1f4f8f;margin-right:.55rem}
+.mnemo{font-family:"Newsreader",Georgia,serif;font-size:1.02rem;line-height:1.7;color:#1b1f24;background:#f6f3ea;
+  border-left:3px solid #c68f0a;border-radius:3px;padding:.9rem 1.1rem;margin:1.5rem 0}
+h3.sect{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:1rem;font-weight:600;color:#1b1f24;margin:2.2rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid #e2e0da;letter-spacing:.01em}
+.tb.ref{font-size:.82rem}
+.tb.ref th,.tb.ref td{padding:.45rem .9rem .45rem 0;vertical-align:middle}
+.tb.ref td.sy{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.05rem;color:#1f4f8f;white-space:nowrap}
+.tb.ref td.sy sub,.tb.ref td.sy sup{font-style:normal}
+.matwrap{overflow-x:auto;margin:1.4rem 0 1rem}
+@media (min-width:980px){ .matwrap{margin-left:-110px;margin-right:-110px} }
+.tbl{display:grid;grid-template-columns:repeat(5,minmax(132px,1fr));gap:5px;min-width:720px}
+.col-t{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.76rem;font-weight:600;color:#8a8475;text-align:center;
+  text-transform:uppercase;letter-spacing:.06em;padding:.2rem 0 .3rem}
+.pt{display:flex;flex-direction:column;align-items:flex-start;gap:.08rem;cursor:pointer;text-align:left;
+  background:#fff;border:1px solid #e2e0da;border-top:4px solid var(--c);border-radius:3px;
+  padding:.5rem .6rem .55rem;min-height:104px;font-family:"IBM Plex Sans",Arial,sans-serif;color:#2b3139}
+.pt:hover{background:#faf8f4}
+.pt.on{outline:2px solid var(--c);outline-offset:-1px;background:#fbfaf7}
+.pt.pale{opacity:.22}
+.pt.g1{background:#eef3f9}.pt.g2{background:#f3f0fa}.pt.g3{background:#fbf3ef}
+.pt .sy{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.9rem;line-height:1.05;color:var(--c)}
+.pt .sy sub{font-style:normal;font-size:.5em}
+.pt .nm{font-size:.82rem;font-weight:600;color:#1b1f24}
+.pt .dt{font-size:.72rem;color:#8a8475;font-variant-numeric:tabular-nums}
+.pt.hg{grid-row:span 4;justify-content:flex-start}
+.fiche{background:#fff;border:1px solid #e2e0da;border-left:3px solid #1f4f8f;border-radius:3px;
+  padding:1.1rem 1.2rem;margin:0 0 1.1rem}
+.fiche .trajet{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.78rem;margin:0 0 .35rem;letter-spacing:.04em;text-transform:uppercase}
+.fiche h3{font-size:1.45rem;margin:0 0 .7rem}
+.fiche h3 sub{font-size:.52em;font-style:normal}
+.fiche .exp{margin:.2rem 0 0}
+.props{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:.9rem;
+  margin:0 0 .9rem;padding-bottom:.8rem;border-bottom:1px solid #eceae4}
+.props span{display:flex;flex-direction:column}
+.props b{font-size:.7rem;font-weight:600;color:#8a8475;text-transform:uppercase;letter-spacing:.05em}
+
+</style>
+</head>
+
+<body data-rubrique="simulations">
+
+<div class="progress" id="prog"></div>
+<header class="site-header" id="site-header"><div class="shell"><a class="brand" href="index.html"><span class="brand-name">Chamss Bachiri</span></a></div></header>
+
+<main class="post">
+  <div class="shell">
+
+    <div class="post-head">
+      <p class="kicker"><a href="rubrique.html?c=simulations">Simulations et démonstrations</a></p>
+      <h1>Qu'est-ce que la longueur d'onde thermique ?</h1>
+      <p class="dek">C'est la taille de la tache qu'occupe une particule à une température donnée. Tant que cette tache est plus petite que la distance qui sépare la particule de ses voisines, la matière se comporte comme un jeu de billes. Dès qu'elle devient plus grande, les billes se confondent et il faut compter autrement.</p>
+      <div class="meta"><span>20 novembre 2026</span><span>14 min</span></div>
+    </div>
+
+    <section class="step">
+      <span class="no-num">1</span>
+      <h2>Une particule n'est pas un point</h2>
+      <p>Louis de Broglie a associé en 1924 une longueur d'onde à toute particule en mouvement, d'autant plus courte que la particule va vite.</p>
+      <p class="fx">λ = <i>h</i> / <i>p</i></p>
+      <ul class="sym">
+        <li><b>λ</b> la longueur d'onde associée à la particule</li>
+        <li><b>h</b> la constante de Planck, 6,626 × 10<sup>−34</sup> J·s</li>
+        <li><b>p</b> la quantité de mouvement, c'est-à-dire la masse multipliée par la vitesse</li>
+      </ul>
+      <p>Dans un gaz à l'équilibre, une particule n'a pas une vitesse précise. Elle en a une distribution, dont la largeur est fixée par la température. La quantité de mouvement typique vaut alors la racine du produit de la masse par l'énergie d'agitation.</p>
+      <p class="fx"><i>p</i> ≈ √( <i>m</i> <i>k</i><sub>B</sub> <i>T</i> )</p>
+      <p>En reportant cette valeur dans la relation de de Broglie, on obtient la longueur d'onde thermique. Le facteur 2π qui apparaît sous la racine vient du calcul exact, détaillé dans la dernière section.</p>
+      <p class="fx">λ<sub>th</sub> = <i>h</i> / √( 2π <i>m</i> <i>k</i><sub>B</sub> <i>T</i> )</p>
+      <ul class="sym">
+        <li><b>λ<sub>th</sub></b> la longueur d'onde thermique</li>
+        <li><b>m</b> la masse de la particule</li>
+        <li><b>k<sub>B</sub></b> la constante de Boltzmann, 1,381 × 10<sup>−23</sup> J/K</li>
+        <li><b>T</b> la température absolue, en kelvins</li>
+      </ul>
+      <p>Cette formule se lit en deux temps, et ces deux lectures sont tout ce qu'il faut retenir.</p>
+      <p><strong>Plus c'est froid, plus la tache est grande.</strong> La température est au dénominateur. Diviser la température par cent multiplie la tache par dix.</p>
+      <p><strong>Plus c'est léger, plus la tache est grande.</strong> La masse est au même endroit. Un électron, deux mille fois plus léger qu'un atome d'hélium, a une tache quarante-cinq fois plus grande à la même température.</p>
+      <p>Pour une molécule d'azote dans l'air d'une pièce, le calcul donne 19 picomètres. C'est quinze fois plus petit que la molécule elle-même, qui mesure environ trois dixièmes de nanomètre. Son étendue quantique est donc perdue à l'intérieur de son propre encombrement, et elle se comporte comme un objet ordinaire.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">2</span>
+      <h2>La seule question qui compte</h2>
+      <p>Une longueur ne veut rien dire toute seule. Ce qui décide du comportement de la matière est la comparaison entre la taille de la tache et la distance moyenne entre particules voisines, qui se déduit de la densité.</p>
+      <p class="fx"><i>d</i> = <i>n</i><sup>−1/3</sup></p>
+      <p>Si l'on place <i>n</i> particules par mètre cube, chacune dispose d'un petit cube de côté <i>d</i>. Deux cas se présentent.</p>
+      <p>Quand la tache est plus petite que ce cube, chaque particule reste dans son coin. On peut la suivre, la numéroter, la traiter comme une bille. La physique classique s'applique, et la statistique de Maxwell et Boltzmann suffit.</p>
+      <p>Quand la tache déborde du cube, les taches des voisines se recouvrent. Il devient impossible de dire laquelle est laquelle, et la question de savoir si deux particules peuvent occuper le même état se pose pour de bon. Il faut alors la statistique de Bose et Einstein pour les bosons, ou celle de Fermi et Dirac pour les fermions.</p>
+      <p>Le rapport qui décide porte un nom, la densité dans l'espace des phases, et il se forme en comparant les volumes.</p>
+      <p class="fx"><i>n</i> λ<sub>th</sub>³ = ( λ<sub>th</sub> / <i>d</i> )³</p>
+      <p>Choisissez un système, puis faites varier la température et regardez les taches grossir.</p>
+      <div class="ctl"><div class="seg" id="sysSeg"></div></div>
+      <div class="scene wide"><svg id="f1" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="tS">Température</label><input type="range" id="tS" min="0" max="100" value="79" style="width:300px"></span>
+      </div>
+      <div class="live" id="f1L"></div>
+      <p class="figcap"><b>Figure 1.</b> La boîte fait toujours six écarts de côté, quel que soit le système : seule la taille des taches change. Au-delà de trois écarts et demi, la tache est tronquée pour rester visible.</p>
+      <p>Le bouton des électrons du cuivre donne le résultat le plus surprenant. À température ambiante, dans un fil de cuivre posé sur une table, les taches des électrons se recouvrent dix-neuf fois. Un métal contient donc un gaz quantique en permanence, sans qu'on ait rien refroidi.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">3</span>
+      <h2>Comment la tache varie</h2>
+      <p>La dépendance en température et en masse se lit d'un seul coup sur une échelle logarithmique. La racine carrée au dénominateur donne une droite de pente −1/2, et la masse ne fait que décaler cette droite vers le haut ou vers le bas.</p>
+      <p class="fx">λ<sub>th</sub> ∝ 1 / √( <i>m</i> <i>T</i> )</p>
+      <p>Déplacez le curseur de température.</p>
+      <div class="scene wide"><svg id="f2" aria-hidden="true"></svg></div>
+      <div class="ctl">
+        <span class="grp"><label for="t2S">Température</label><input type="range" id="t2S" min="0" max="100" value="65" style="width:300px"></span>
+      </div>
+      <div class="live" id="f2L"></div>
+      <p class="figcap"><b>Figure 2.</b> Les quatre droites sont parallèles. L'écart vertical entre deux d'entre elles ne dépend que du rapport des masses, et vaut la racine carrée de ce rapport.</p>
+      <p>On peut retourner la question et demander à quelle température l'air deviendrait quantique, sans changer sa densité. Il suffit d'écrire <i>n</i> λ³ = 1 et de résoudre en température.</p>
+      <p class="fx"><i>T</i> = <i>h</i>² <i>n</i><sup>2/3</sup> / ( 2π <i>m</i> <i>k</i><sub>B</sub> )</p>
+      <p>Pour de l'azote à la densité de l'air, cela donne 9 millikelvins. L'azote est solide bien avant, et le seul corps qui reste liquide assez bas pour atteindre ce régime est l'hélium.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">4</span>
+      <h2>Onze systèmes, un seul critère</h2>
+      <p>Le même nombre, calculé pour des objets qui n'ont rien à voir entre eux, range le monde en deux.</p>
+      <p>Cliquez une ligne.</p>
+      <div class="scene wide"><svg id="f3" aria-hidden="true"></svg></div>
+      <div class="live" id="f3L"></div>
+      <p class="figcap"><b>Figure 3.</b> Le seuil de 2,612 est celui que donne le calcul exact pour un gaz parfait de bosons. Les systèmes réels basculent au voisinage de cette valeur, sans coïncider exactement avec elle.</p>
+      <p>Trois lignes méritent un commentaire.</p>
+      <p><strong>Le cœur du Soleil est classique.</strong> Quinze millions de degrés et une densité cent cinquante fois celle de l'eau donnent pourtant <i>n</i> λ³ égal à 5 × 10<sup>−6</sup>. La température élevée rétrécit les taches plus vite que la densité ne rapproche les protons. Le plasma solaire se calcule donc avec la physique classique.</p>
+      <p><strong>Les électrons d'un métal ne chauffent presque pas.</strong> Avec <i>n</i> λ³ égal à sept mille, le gaz d'électrons est complètement dégénéré. Tous les états de basse énergie sont occupés, et seuls les électrons situés tout en haut de la pile peuvent absorber de la chaleur. C'est la raison pour laquelle la chaleur spécifique d'un métal est presque entièrement due aux vibrations du réseau, et non à ses électrons, alors que ceux-ci sont aussi nombreux que les atomes.</p>
+      <p><strong>L'hélium bascule au bon endroit.</strong> Pour un gaz parfait de bosons à la densité de l'hélium liquide, le seuil est atteint à 3,13 kelvins. La superfluidité apparaît à 2,17 kelvins. L'écart entre les deux valeurs est l'effet des interactions entre atomes, que le modèle du gaz parfait ignore. Obtenir le bon ordre de grandeur avec une formule qui ne contient que la masse et la densité reste une bonne surprise.</p>
+    </section>
+
+    <section class="step">
+      <span class="no-num">5</span>
+      <h2>D'où vient exactement cette longueur</h2>
+      <p>La formule n'a pas été posée par analogie. Elle sort du calcul de la fonction de partition d'une particule libre dans une boîte, qui consiste à sommer le facteur de Boltzmann sur toutes les quantités de mouvement possibles. L'intégrale est gaussienne et se fait sans difficulté, et le résultat prend une forme remarquablement simple.</p>
+      <p class="fx"><i>Z</i><sub>1</sub> = <i>V</i> / λ<sub>th</sub>³</p>
+      <ul class="sym">
+        <li><b>Z<sub>1</sub></b> la fonction de partition d'une seule particule</li>
+        <li><b>V</b> le volume de la boîte</li>
+      </ul>
+      <p>C'est de cette égalité que vient le facteur 2π : la longueur d'onde thermique est définie pour que la fonction de partition s'écrive exactement ainsi, sans coefficient supplémentaire.</p>
+      <p>La fonction de partition compte les états accessibles à la particule. Le rapport ci-dessus dit donc que <strong>λ<sub>th</sub>³ est le volume occupé par un état quantique</strong> à la température considérée. La boîte contient autant d'états que de fois ce petit volume.</p>
+      <p>Cette lecture donne au critère de la section 2 un sens plus net. Le produit <i>n</i> λ³ est le nombre de particules par état disponible.</p>
+      <p class="fx"><i>n</i> λ<sub>th</sub>³ = nombre de particules par état</p>
+      <p>Tant que ce nombre est très petit, les états sont presque tous vides, deux particules n'ont aucune chance de se disputer le même, et la question de savoir si elles ont le droit de le partager ne se pose jamais. C'est le domaine de la physique classique, et c'est pourquoi elle fonctionne si bien dans la vie ordinaire. Quand ce nombre approche de l'unité, la question se pose à chaque instant, et la réponse diffère selon la nature de la particule : les bosons s'entassent, les fermions s'excluent.</p>
+      <p>La même longueur apparaît enfin dans l'entropie d'un gaz parfait, établie par Sackur et Tetrode en 1912.</p>
+      <p class="fx"><i>S</i> = <i>N</i> <i>k</i><sub>B</sub> [ ln( <i>V</i> / ( <i>N</i> λ<sub>th</sub>³ ) ) + 5/2 ]</p>
+      <p>Le terme sous le logarithme est l'inverse du nombre de particules par état. L'entropie d'un gaz est donc, à une constante près, le logarithme du nombre d'états disponibles par particule, ce qui rejoint exactement le dénombrement présenté dans <a href="entropie-echiquier.html">l'article sur l'entropie</a>. Cette formule a d'ailleurs un intérêt historique : elle contient la constante de Planck, et elle donne la bonne entropie d'un gaz mesurée au calorimètre. C'est l'un des premiers endroits où une constante quantique s'est imposée dans un résultat de thermodynamique ordinaire.</p>
+      <p style="margin-top:1.6rem"><strong>À retenir :</strong> la longueur d'onde thermique est la taille de la tache quantique d'une particule, et elle vaut <i>h</i> divisé par la racine de 2π<i>mk</i><sub>B</sub><i>T</i>. Son cube est le volume d'un état quantique à cette température. Comparer ce volume à la place disponible par particule, c'est-à-dire calculer <i>n</i> λ³, suffit à dire si la matière se traite comme un jeu de billes ou comme un objet quantique, et le même critère s'applique à l'air d'une pièce, aux électrons d'un fil de cuivre et à une étoile à neutrons.</p>
+    </section>
+
+    <nav class="suite" aria-label="Autres articles">
+      <h2>Les autres articles</h2>
+      <ul>
+      <li><a href="interets.html">Les questions qui m'occupent</a><span>Recherche</span></li>
+      <li><a href="carnet.html">Carnet de reproduction</a><span>Recherche</span></li>
+      <li><a href="projet-gravite.html">La gravité fait-elle s'effondrer les superpositions, ou les intrique-t-elle ?</a><span>Projet</span></li>
+      <li><a href="particules.html">Toutes les particules connues, et comment les classer</a><span>Simulation</span></li>
+      <li><a href="diamant-coeur.html">Comment un diamant mesure-t-il le champ magnétique du cœur ?</a><span>Simulation</span></li>
+      <li><a href="conversions-energie.html">Les conversions d'énergie, forme par forme</a><span>Simulation</span></li>
+      <li><a href="entropie-echiquier.html">Que compte l'entropie ?</a><span>Simulation</span></li>
+      <li><a href="nobel-medecine-2026.html">Comment la lumière commande-t-elle un neurone ?</a><span>Simulation</span></li>
+      <li><a href="nobel-2026.html">Nobel de physique 2026 : l'observatoire IceCube et les neutrinos de haute énergie</a><span>Simulation</span></li>
+      <li><a href="evasion.html">L'homme qui s'évada par principe</a><span>Récréation</span></li>
+      <li><a href="boltzmann.html">Qu'est-ce que la constante de Boltzmann ?</a><span>Simulation</span></li>
+      <li><a href="champs-quantiques.html">Qu'est-ce qu'une particule, pour la théorie quantique des champs ?</a><span>Simulation</span></li>
+      <li><a href="cochlee.html">Comment l'oreille sépare-t-elle les fréquences d'un son ?</a><span>Simulation</span></li>
+      <li><a href="jumeaux.html">Pourquoi le jumeau qui voyage vieillit-il moins vite ?</a><span>Simulation</span></li>
+      <li><a href="simultaneite.html">Pourquoi deux événements simultanés dans un train ne le sont pas pour le quai</a><span>Simulation</span></li>
+      <li><a href="laser.html">Comment un laser produit-il des photons tous identiques ?</a><span>Simulation</span></li>
+      <li><a href="doppler.html">Pourquoi une sirène change-t-elle de note quand elle passe ?</a><span>Simulation</span></li>
+      <li><a href="constantes.html">Comment mesure-t-on les constantes fondamentales ?</a><span>Simulation</span></li>
+      <li><a href="peser-un-atome.html">Comment connaît-on la masse d'un électron ?</a><span>Simulation</span></li>
+      <li><a href="etoiles-doubles.html">La lumière va-t-elle plus vite si sa source avance ?</a><span>Simulation</span></li>
+      <li><a href="aimant.html">Que se passe-t-il quand on coupe un aimant en deux ?</a><span>Simulation</span></li>
+      <li><a href="ricochets.html">L'homme qui ricochait</a><span>Récréation</span></li>
+      </ul>
+      <p class="tout"><a href="index.html">Tout le site</a> · <a href="podcast.html">Le podcast</a> · <a href="a-propos.html">À propos</a></p>
+    </nav>
+
+    <hr class="end-rule">
+    <nav class="post-nav"><a href="rubrique.html?c=simulations">Retour aux simulations</a></nav>
+  </div>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="site.js?v=571e42cb"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const INK="#1b1f24", MUT="#5d6672", LINE="#b9c1cb", BL="#2c72c7", ACC="#1f4f8f", RED="#c8372d", OR="#d9730d", AMB="#e3a21a", GR="#2f8a5f", VIO="#7a5fc0";
+function put(id,W,H,s){const e=$(id);e.setAttribute("viewBox",`0 0 ${W} ${H}`);e.innerHTML=s;}
+function tx(x,y,s,o){o=o||{};
+  return `<text x="${x}" y="${y}" font-size="${o.size||18}" fill="${o.fill||INK}" text-anchor="${o.anchor||"start"}" font-weight="${o.w||400}"${o.op?` opacity="${o.op}"`:""}>${s}</text>`;}
+function fr(x,d){return x.toFixed(d).replace(".",",");}
+function milliers(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");}
+function arrow(x1,y1,x2,y2,col,w){
+  const a=Math.atan2(y2-y1,x2-x1)*180/Math.PI;
+  return `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${col}" stroke-width="${w||3}"/>`+
+         `<path d="M-10 -6L3 0L-10 6Z" fill="${col}" transform="translate(${x2} ${y2}) rotate(${a})"/>`;}
+function dbl(x1,x2,y,col,lab){
+  return `<path d="M${x1} ${y}H${x2}M${x1} ${y-6}v12M${x2} ${y-6}v12" stroke="${col}" stroke-width="2"/>`+
+    tx((x1+x2)/2,y-12,lab,{size:15,fill:col,anchor:"middle",w:500});}
+
+
+
+/* =========================================================
+   Les particules élémentaires
+   masses en électronvolts, charges en unités de charge élémentaire
+   ========================================================= */
+const COUL={quark:"#7a5fc0", lepton:"#2f8a5f", neutrino:"#1f8f9f", jauge:"#d9730d", higgs:"#c68f0a"};
+const P=[
+ {s:"u",n:"up",      f:"quark",   g:1, m:2.16e6,    q:"+2/3", spin:"1/2", an:1968,
+  t:"Avec le quark down, il forme les protons et les neutrons, donc tout ce qui pèse autour de vous. Sa masse propre ne compte que pour un pour cent de celle du proton : le reste est l'énergie du champ de gluons qui le retient."},
+ {s:"c",n:"charm",   f:"quark",   g:2, m:1.273e9,   q:"+2/3", spin:"1/2", an:1974,
+  t:"Découvert deux fois le même mois de novembre 1974, à Brookhaven et à Stanford, sous la forme d'une particule faite d'un charm et d'un anticharm. L'une des équipes l'appela J, l'autre psi, et le nom J/psi est resté."},
+ {s:"t",n:"top",     f:"quark",   g:3, m:172.57e9,  q:"+2/3", spin:"1/2", an:1995,
+  t:"La particule élémentaire la plus lourde connue, aussi lourde qu'un atome de tungstène entier. Il se désintègre en 5 × 10⁻²⁵ seconde, trop vite pour s'associer à d'autres quarks : c'est le seul quark qu'on observe seul."},
+ {s:"d",n:"down",    f:"quark",   g:1, m:4.70e6,    q:"−1/3", spin:"1/2", an:1968,
+  t:"Le compagnon du quark up dans les nucléons. Un proton contient deux up et un down, un neutron deux down et un up, et toute la différence entre les deux tient là."},
+ {s:"s",n:"strange", f:"quark",   g:2, m:93.5e6,    q:"−1/3", spin:"1/2", an:1968,
+  t:"Son nom vient des particules qu'il forme, repérées dans les rayons cosmiques des années 1950 et jugées étranges parce qu'elles vivaient bien plus longtemps que prévu."},
+ {s:"b",n:"bottom",  f:"quark",   g:3, m:4.183e9,   q:"−1/3", spin:"1/2", an:1977,
+  t:"Découvert à Fermilab dans une particule faite d'un bottom et de son antiquark. Les mésons qui le contiennent servent aujourd'hui à traquer les écarts au Modèle standard, parce que leurs désintégrations sont très bien calculées."},
+ {s:"e",n:"électron",f:"lepton",  g:1, m:0.5109989e6, q:"−1", spin:"1/2", an:1897,
+  t:"La première particule élémentaire découverte, par J. J. Thomson. Elle porte toute la chimie, tout le courant électrique et toute la lumière que renvoient les objets. Sa masse se mesure aujourd'hui à onze chiffres."},
+ {s:"μ",n:"muon",    f:"lepton",  g:2, m:105.6584e6, q:"−1", spin:"1/2", an:1936,
+  t:"Un électron deux cents fois plus lourd, qui vit 2,2 microsecondes. Personne ne l'attendait, d'où le mot d'un physicien de l'époque : qui a commandé cela ? Il en traverse votre main environ une fois par seconde."},
+ {s:"τ",n:"tau",     f:"lepton",  g:3, m:1776.86e6,  q:"−1", spin:"1/2", an:1975,
+  t:"Assez lourd pour se désintégrer en hadrons, ce qu'aucun autre lepton ne peut faire. Sa découverte a complété la troisième génération côté leptons avant même qu'on connaisse le quark top."},
+ {s:"nue", sv:"ν<tspan dy=\"5\" font-size=\"0.62em\">e</tspan>", sh:"ν<sub>e</sub>", n:"neutrino électronique", f:"neutrino", g:1, m:0.1, q:"0", spin:"1/2", an:1956,
+  t:"Proposé par Pauli en 1930 pour sauver la conservation de l'énergie, détecté vingt-six ans plus tard. Soixante milliards traversent chaque centimètre carré de votre peau à chaque seconde, en provenance du Soleil."},
+ {s:"numu", sv:"ν<tspan dy=\"5\" font-size=\"0.62em\">μ</tspan>", sh:"ν<sub>μ</sub>", n:"neutrino muonique", f:"neutrino", g:2, m:0.1, q:"0", spin:"1/2", an:1962,
+  t:"Sa découverte a montré qu'il existe plusieurs sortes de neutrinos. Les trois sortes se transforment l'une en l'autre en vol, ce qui prouve qu'elles ont une masse, contrairement à ce que supposait le Modèle standard d'origine."},
+ {s:"nutau", sv:"ν<tspan dy=\"5\" font-size=\"0.62em\">τ</tspan>", sh:"ν<sub>τ</sub>", n:"neutrino tauique", f:"neutrino", g:3, m:0.1, q:"0", spin:"1/2", an:2000,
+  t:"La dernière particule du tableau à avoir été observée directement, en 2000 à Fermilab, vingt-cinq ans après la découverte du tau auquel il est associé."},
+ {s:"g",n:"gluon",   f:"jauge", g:0, m:0, q:"0", spin:"1", an:1979,
+  t:"Le porteur de l'interaction forte. Il existe en huit variétés et porte lui-même de la couleur, donc les gluons s'attirent entre eux. C'est la raison pour laquelle la force forte ne faiblit pas avec la distance et qu'aucun quark ne sort jamais seul."},
+ {s:"γ",n:"photon",  f:"jauge", g:0, m:0, q:"0", spin:"1", an:1905,
+  t:"Le porteur de l'interaction électromagnétique. Sans masse, donc de portée infinie, et toujours à la vitesse c. Il ne porte pas de charge, donc deux rayons lumineux se croisent sans se voir."},
+ {s:"Z",n:"boson Z", f:"jauge", g:0, m:91.1876e9, q:"0", spin:"1", an:1983,
+  t:"Avec le W, il porte l'interaction faible. Sa masse énorme explique la faiblesse de cette force : un médiateur lourd ne se propage que sur 10⁻¹⁸ mètre, mille fois moins que la taille d'un proton."},
+ {s:"W",n:"bosons W",f:"jauge", g:0, m:80.3692e9, q:"±1", spin:"1", an:1983,
+  t:"Le seul médiateur qui porte une charge électrique, et le seul capable de changer une particule en une autre : c'est lui qui transforme un quark down en quark up dans la radioactivité bêta."},
+ {s:"H",n:"boson de Higgs", f:"higgs", g:0, m:125.20e9, q:"0", spin:"0", an:2012,
+  t:"Le seul boson de spin nul connu. Il n'est pas un porteur de force : il est l'ondulation du champ qui donne leur masse aux quarks, aux leptons et aux bosons W et Z. Prédit en 1964, observé quarante-huit ans plus tard au CERN."}
+];
+P.forEach(p=>{ if(!p.sv) p.sv=p.s; if(!p.sh) p.sh=p.s; });
+const parSym=s=>P.find(p=>p.s===s);
+
+/* ---- forces ressenties ---- */
+const FORCES=[
+ {id:"forte", n:"Interaction forte", c:"#c8372d",
+  d:"Elle agit sur ce qui porte une couleur, donc sur les quarks et sur les gluons. Portée limitée à la taille d'un noyau.",
+  qui:["quarks","gluon"]},
+ {id:"em", n:"Interaction électromagnétique", c:"#d9730d",
+  d:"Elle agit sur ce qui porte une charge électrique. Portée infinie, intensité décroissant comme le carré de la distance.",
+  qui:["quarks","leptons","W"]},
+ {id:"faible", n:"Interaction faible", c:"#2f8a5f",
+  d:"Elle agit sur toutes les particules de matière sans exception, neutrinos compris. C'est la seule force que ressentent les neutrinos, et la seule qui change une espèce en une autre.",
+  qui:["quarks","leptons","neutrinos","W","Z"]},
+ {id:"grav", n:"Gravitation", c:"#1f4f8f",
+  d:"Elle agit sur tout ce qui porte de l'énergie, donc sur tout. Elle ne fait pas partie du Modèle standard, et aucune théorie quantique de la gravitation n'est aujourd'hui vérifiée.",
+  qui:["quarks","leptons","neutrinos","gluon","photon","W","Z","higgs"]}
+];
+const GROUPES=[
+ {id:"quarks",    n:"Quarks",            c:COUL.quark},
+ {id:"leptons",   n:"Électron, muon, tau",c:COUL.lepton},
+ {id:"neutrinos", n:"Neutrinos",         c:COUL.neutrino},
+ {id:"gluon",     n:"Gluon",             c:COUL.jauge},
+ {id:"photon",    n:"Photon",            c:COUL.jauge},
+ {id:"W",         n:"Bosons W",          c:COUL.jauge},
+ {id:"Z",         n:"Boson Z",           c:COUL.jauge},
+ {id:"higgs",     n:"Boson de Higgs",    c:COUL.higgs}
+];
+
+/* ---- hadrons connus, pour l'assembleur ---- */
+const Q6=["u","d","s","c","b","t"];
+const CHARGE={u:2/3,d:-1/3,s:-1/3,c:2/3,b:-1/3,t:2/3};
+const NOMQ={u:"up",d:"down",s:"strange",c:"charm",b:"bottom",t:"top"};
+const HADRONS=[
+ {c:["u","u","d"], n:"proton",      m:938.272,  v:"stable",
+  t:"Le noyau de l'hydrogène. Aucune désintégration n'a jamais été observée, et sa durée de vie dépasse 10³⁴ ans."},
+ {c:["u","d","d"], n:"neutron",     m:939.565,  v:"879 s",
+  t:"Libre, il se désintègre en un proton, un électron et un antineutrino, en un quart d'heure environ. Lié dans un noyau, il peut être stable."},
+ {c:["u","d","s"], n:"lambda",      m:1115.68,  v:"2,6 × 10⁻¹⁰ s",
+  t:"Le plus léger des baryons contenant un quark strange. Sa durée de vie, très longue à cette échelle, a valu à ces particules le nom d'étranges."},
+ {c:["s","s","s"], n:"oméga moins", m:1672.45,  v:"8,2 × 10⁻¹¹ s",
+  t:"Prédit par Gell-Mann en 1962 à partir de la seule symétrie de son classement, avec sa masse et sa charge annoncées à l'avance, puis trouvé en 1964."},
+ {c:["u","u","u"], n:"delta plus plus", m:1232, v:"5,6 × 10⁻²⁴ s",
+  t:"Trois quarks up, donc une charge de +2. Il vit si peu qu'il ne traverse même pas un noyau avant de se défaire."},
+ {c:["u","d-"],    n:"pion plus",   m:139.570,  v:"2,6 × 10⁻⁸ s",
+  t:"Le plus léger des hadrons. Yukawa l'avait prédit en 1935 comme porteur de la force qui tient les noyaux, et il a été trouvé dans les rayons cosmiques en 1947."},
+ {c:["u","u-"],    n:"pion neutre", m:134.977,  v:"8,4 × 10⁻¹⁷ s",
+  t:"Un mélange de up-antiup et de down-antidown. Il se désintègre en deux photons, ce qui en fait une source de lumière gamma dans l'atmosphère."},
+ {c:["s","u-"],    n:"kaon moins",  m:493.677,  v:"1,24 × 10⁻⁸ s",
+  t:"C'est en étudiant les désintégrations des kaons qu'on a découvert en 1964 que la nature ne traite pas exactement de la même façon la matière et l'antimatière."},
+ {c:["c","c-"],    n:"J/psi",       m:3096.9,   v:"7 × 10⁻²¹ s",
+  t:"Un quark charm et son antiquark liés ensemble. Sa découverte simultanée en 1974 dans deux laboratoires a convaincu la communauté de la réalité des quarks."},
+ {c:["b","b-"],    n:"upsilon",     m:9460.3,   v:"1,2 × 10⁻²⁰ s",
+  t:"Le pendant du J/psi pour le quark bottom, découvert à Fermilab en 1977."}
+];
+
+
+const SUP="⁰¹²³⁴⁵⁶⁷⁸⁹";
+function expo(n){ return (n<0?"⁻":"")+String(Math.abs(n)).split("").map(c=>SUP[+c]).join(""); }
+
+/* ---------- constantes et formules ---------- */
+const H=6.62607015e-34, KB=1.380649e-23, UMA=1.66053907e-27, ME=9.1093837015e-31;
+function lamTh(m,T){ return H/Math.sqrt(2*Math.PI*m*KB*T); }
+function ecart(n){ return Math.pow(n,-1/3); }
+function longueur(L){
+  if(L>=1e-3) return fr(L*1e3,2)+" mm";
+  if(L>=1e-6) return fr(L*1e6,2)+" µm";
+  if(L>=1e-9) return fr(L*1e9,L*1e9<10?3:(L*1e9<100?2:1))+" nm";
+  if(L>=1e-12) return fr(L*1e12,1)+" pm";
+  return sci(L)+" m";
+}
+function sci(x,d){
+  if(!(x>0)) return "0";
+  const e=Math.floor(Math.log10(x)), m=x/Math.pow(10,e);
+  return fr(m,d===undefined?2:d)+" × 10"+expo(e);
+}
+function nombre(x){
+  if(x>=1e4||x<1e-3) return sci(x,1);
+  if(x>=100) return fr(x,0);
+  if(x>=1) return fr(x,2);
+  return fr(x,x<0.01?4:3);
+}
+function tempTxt(T){
+  if(T>=1e6) return sci(T,1)+" K";
+  if(T>=1) return (T>=100?Math.round(T):fr(T,2))+" K";
+  if(T>=1e-3) return fr(T*1e3,T*1e3<10?2:0)+" mK";
+  if(T>=1e-6) return fr(T*1e6,T*1e6<10?2:0)+" µK";
+  return fr(T*1e9,0)+" nK";
+}
+
+const SYS=[
+ {id:"air",  n:"Azote de l'air",        m:28*UMA,     d:2.5e25,  T:293.15, c:"#1f4f8f",
+  t:"À vingt degrés et à la pression atmosphérique, la tache d'une molécule d'azote mesure dix-neuf picomètres, pour un écart entre voisines de trois virgule quatre nanomètres. La tache est cent quatre-vingts fois plus petite que l'espace disponible, donc l'air se comporte comme un jeu de billes."},
+ {id:"azl",  n:"Azote liquide",         m:28*UMA,     d:1.74e28, T:77,     c:"#2c72c7",
+  t:"Refroidi à soixante-dix-sept kelvins et condensé, l'azote voit sa tache grandir et l'écart entre molécules se réduire beaucoup. Le rapport passe de six millièmes à un dixième, ce qui reste classique."},
+ {id:"he",   n:"Hélium liquide",        m:4.0026*UMA, d:2.18e28, T:2.17,   c:"#2f8a5f",
+  t:"L'hélium est léger et reste liquide jusqu'au zéro absolu, ce qui en fait le seul corps ordinaire où les taches finissent par se recouvrir. À deux virgule un sept kelvins, la tache dépasse l'écart entre atomes, et le liquide devient superfluide."},
+ {id:"cu",   n:"Électrons d'un fil de cuivre", m:ME,  d:8.49e28, T:293.15, c:"#c8372d",
+  t:"Un électron est deux mille fois plus léger qu'un atome d'hélium, donc sa tache est bien plus grande. Dans le cuivre, à température ambiante, elle mesure quatre virgule quatre nanomètres pour un écart de deux dixièmes de nanomètre entre électrons. Ils se recouvrent dix-neuf fois, et le gaz d'électrons d'un métal est quantique en permanence, même dans une casserole posée au soleil."},
+ {id:"rb",   n:"Rubidium piégé",        m:87*UMA,     d:1e20,    T:1e-7,   c:"#7a5fc0",
+  t:"Un nuage d'atomes refroidis par laser et par évaporation, cent mille fois moins dense que l'air. À cent nanokelvins, la tache atteint six dixièmes de micromètre, soit la longueur d'onde de la lumière orange, et dépasse largement l'écart entre atomes. C'est ainsi qu'on fabrique un condensat de Bose-Einstein."}
+];
+const parId=i=>SYS.find(s=>s.id===i);
+
+/* =========================================================
+   Figure 1 : la tache et l'écart
+   ========================================================= */
+const N1={W:960,H:480,bx:48,by:96,bw:338,px:430};
+let n1={sys:"air", T:293.15};
+function drawN1(){
+  const {W,H,bx,by,bw,px}=N1;
+  const S=parId(n1.sys), T=n1.T, L=lamTh(S.m,T), d=ecart(S.d), nl3=S.d*L*L*L;
+  const pasPx=bw/6, rayon=Math.min(3.4*pasPx,(L/2)/d*pasPx);
+  let s='<defs><radialGradient id="halo"><stop offset="0%" stop-color="'+S.c+'" stop-opacity=".55"/>'
+       +'<stop offset="55%" stop-color="'+S.c+'" stop-opacity=".22"/>'
+       +'<stop offset="100%" stop-color="'+S.c+'" stop-opacity="0"/></radialGradient></defs>';
+  s+=`<rect x="${bx}" y="${by}" width="${bw}" height="${bw}" fill="#fbfbf9" stroke="#d8d4cb"/>`;
+  s+=`<clipPath id="boite"><rect x="${bx}" y="${by}" width="${bw}" height="${bw}"/></clipPath>`;
+  let g=424242;
+  const rnd=()=>{g=(g*1103515245+12345)%2147483648;return g/2147483648;};
+  const pts=[];
+  for(let i=0;i<6;i++) for(let j=0;j<6;j++)
+    pts.push([bx+(i+0.5)*pasPx+(rnd()-0.5)*pasPx*0.42, by+(j+0.5)*pasPx+(rnd()-0.5)*pasPx*0.42]);
+  s+='<g clip-path="url(#boite)">';
+  for(const p of pts) s+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${rayon.toFixed(1)}" fill="url(#halo)"/>`;
+  for(const p of pts) s+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="2.6" fill="${S.c}"/>`;
+  s+='</g>';
+  // échelle
+  const y0=by+bw+26;
+  s+=`<path d="M${bx} ${y0}h${pasPx.toFixed(1)}M${bx} ${y0-5}v10M${(bx+pasPx).toFixed(1)} ${y0-5}v10" stroke="${INK}" stroke-width="1.6"/>`;
+  s+=tx(bx+pasPx+12,y0+5,"écart entre voisins : "+longueur(d),{size:14});
+  s+=tx(bx,by-14,"36 particules, vues de dessus",{size:14,fill:MUT});
+  s+=tx(bx,62,"La tache est l'étendue quantique de la particule",{size:17,w:600});
+  // panneau
+  s+=`<path d="M${px-22} 70V${H-30}" stroke="#e2e0da"/>`;
+  s+=tx(px,98,"Température",{size:13,fill:MUT});
+  s+=tx(px,126,tempTxt(T),{size:24,w:600});
+  s+=tx(px,166,"Longueur d'onde thermique",{size:13,fill:MUT});
+  s+=tx(px,194,longueur(L),{size:24,w:600,fill:S.c});
+  s+=tx(px,234,"Écart entre voisins",{size:13,fill:MUT});
+  s+=tx(px,262,longueur(d),{size:24,w:600});
+  s+=tx(px,302,"Rapport des deux",{size:13,fill:MUT});
+  s+=tx(px,330,"λ / d = "+nombre(L/d),{size:24,w:600,fill:L/d>1?RED:INK});
+  s+=tx(px,370,"Densité dans l'espace des phases",{size:13,fill:MUT});
+  s+=tx(px,398,"n λ³ = "+nombre(nl3),{size:24,w:600,fill:nl3>1?RED:INK});
+  const verdict = nl3>2.612 ? "Régime quantique" : (nl3>0.05 ? "À la limite" : "Régime classique");
+  s+=`<rect x="${px}" y="418" width="${(verdict==="Régime quantique"?190:160)}" height="30" rx="4" fill="${nl3>2.612?RED:(nl3>0.05?OR:"#8a8475")}" opacity=".12"/>`;
+  s+=tx(px+14,438,verdict,{size:17,w:600,fill:nl3>2.612?RED:(nl3>0.05?"#a35a0a":"#6b6658")});
+  put("f1",W,H,s);
+  const vrai=Math.abs(Math.log10(T/S.T))<0.02;
+  $("f1L").innerHTML = (vrai ? "<b>"+S.n+".</b> "+S.t
+    : "<b>"+S.n+" porté à "+tempTxt(T)+"</b>, au lieu de "+tempTxt(S.T)+". ")
+    + (nl3>2.612
+      ? " Les taches se recouvrent : les particules ne sont plus distinguables une à une, et il faut les compter avec la statistique quantique."
+      : nl3>0.05
+        ? " Les taches commencent à se toucher. C'est la zone où les premières corrections quantiques apparaissent."
+        : " Les taches sont bien plus petites que les distances : chaque particule garde une identité propre, et la physique classique suffit.");
+}
+$("sysSeg").innerHTML=SYS.map((x,i)=>`<button data-s="${x.id}"${i===0?' class="go"':''}>${x.n}</button>`).join("");
+$("sysSeg").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  n1.sys=b.dataset.s; n1.T=parId(n1.sys).T;
+  $("tS").value=Math.round((Math.log10(n1.T)+7)/12*100);
+  $("sysSeg").querySelectorAll("button").forEach(x=>x.className="");
+  b.className="go"; drawN1();
+});
+$("tS").oninput=e=>{ n1.T=Math.pow(10,-7+(+e.target.value)/100*12); drawN1(); };
+
+/* =========================================================
+   Figure 2 : la loi en racine de la température
+   ========================================================= */
+const N2={W:960,H:520,x0:104,x1:836,y0:104,y1:400,tlo:-8,thi:8,llo:-13,lhi:-4};
+const ESP=[
+ {n:"électron",   m:ME,          c:"#c8372d"},
+ {n:"hélium 4",   m:4.0026*UMA,  c:"#2f8a5f"},
+ {n:"azote",      m:28*UMA,      c:"#1f4f8f"},
+ {n:"rubidium 87",m:87*UMA,      c:"#7a5fc0"}
+];
+const TNOT=[
+ {T:1e-7,  n:"100 nK"},
+ {T:2.17,  n:"2,17 K"},
+ {T:77,    n:"77 K"},
+ {T:293.15,n:"20 °C"},
+ {T:1.57e7,n:"cœur du Soleil"}
+];
+let n2={T:293.15};
+function drawN2(){
+  const {W,H,x0,x1,y0,y1,tlo,thi,llo,lhi}=N2;
+  const X=T=>x0+(Math.log10(T)-tlo)/(thi-tlo)*(x1-x0);
+  const Y=L=>y1-(Math.log10(L)-llo)/(lhi-llo)*(y1-y0);
+  let s=tx(44,40,"La tache rétrécit comme la racine carrée de la température",{size:18,w:600});
+  s+=tx(44,62,"échelle logarithmique sur les deux axes, d'où des droites parallèles de pente −1/2",{size:14,fill:MUT});
+  for(let k=tlo;k<=thi;k+=2){
+    const x=X(Math.pow(10,k));
+    s+=`<path d="M${x.toFixed(1)} ${y0}V${y1}" stroke="#efece5"/>`;
+    s+=tx(x,y1+24,"10"+expo(k),{size:12,fill:MUT,anchor:"middle"});
+  }
+  for(let k=llo;k<=lhi;k++){
+    const y=Y(Math.pow(10,k));
+    s+=`<path d="M${x0} ${y.toFixed(1)}H${x1}" stroke="#efece5"/>`;
+    if(k%2===0) s+=tx(x0-10,y+5,"10"+expo(k),{size:12,fill:MUT,anchor:"end"});
+  }
+  s+=`<path d="M${x0} ${y0}V${y1}H${x1}" fill="none" stroke="${INK}"/>`;
+  s+=tx(x0+10,y0+20,"λ en mètres",{size:13,fill:MUT});
+  s+=tx(x1,y1+92,"température, en kelvins",{size:14,fill:MUT,anchor:"end"});
+  TNOT.forEach((r,i)=>{
+    const x=X(r.T), y=y1+50+(i%2)*20;
+    s+=`<path d="M${x.toFixed(1)} ${y0}V${y-14}" stroke="${MUT}" stroke-width="1" stroke-dasharray="3 4" opacity=".55"/>`;
+    s+=tx(x,y,r.n,{size:12,fill:MUT,anchor:"middle"});
+  });
+  // droites, avec étiquettes écartées à droite
+  const fins=ESP.map(e=>({e, y:Y(lamTh(e.m,Math.pow(10,thi)))})).sort((a,b)=>a.y-b.y);
+  for(let i=1;i<fins.length;i++) if(fins[i].y-fins[i-1].y<18) fins[i].y=fins[i-1].y+18;
+  for(const e of ESP){
+    let d="";
+    for(let k=tlo;k<=thi;k+=0.5){
+      const T=Math.pow(10,k);
+      d+=(d?"L":"M")+X(T).toFixed(1)+" "+Y(lamTh(e.m,T)).toFixed(1);
+    }
+    s+=`<path d="${d}" fill="none" stroke="${e.c}" stroke-width="2.4"/>`;
+  }
+  for(const f of fins){
+    const yv=Y(lamTh(f.e.m,Math.pow(10,thi)));
+    s+=`<path d="M${x1} ${yv.toFixed(1)}L${x1+8} ${f.y.toFixed(1)}" stroke="${f.e.c}" stroke-width="1"/>`;
+    s+=tx(x1+12,f.y+5,f.e.n,{size:14,fill:f.e.c,w:600});
+  }
+  const xc=X(n2.T);
+  s+=`<path d="M${xc.toFixed(1)} ${y0}V${y1}" stroke="${INK}" stroke-width="2"/>`;
+  s+=tx(xc,y0-10,tempTxt(n2.T),{size:16,anchor:"middle",w:700});
+  for(const e of ESP){
+    const y=Y(lamTh(e.m,n2.T));
+    if(y>=y0-2&&y<=y1+2) s+=`<circle cx="${xc.toFixed(1)}" cy="${y.toFixed(1)}" r="5.5" fill="${e.c}"/>`;
+  }
+  put("f2",W,H,s);
+  $("f2L").innerHTML="À <b>"+tempTxt(n2.T)+"</b> : "
+    + ESP.map(e=>e.n+" "+longueur(lamTh(e.m,n2.T))).join(", ")
+    + ". Diviser la température par cent multiplie toutes les taches par dix, et les quatre droites gardent le même écart, qui ne dépend que du rapport des masses.";
+}
+$("t2S").oninput=e=>{ n2.T=Math.pow(10,-8+(+e.target.value)/100*16); drawN2(); };
+
+/* =========================================================
+   Figure 3 : le même critère, onze systèmes
+   ========================================================= */
+const N3={W:960,H:548,xg:44,xb:330,xe:800,y0:120,dy:32,lo:-8,hi:6};
+const MONDE=[
+ {n:"Azote de l'air, 20 °C",            m:28*UMA,      T:293.15, d:2.5e25,
+  t:"Le cas le plus ordinaire. La tache est cent quatre-vingts fois plus petite que l'écart entre molécules."},
+ {n:"Protons du cœur du Soleil",        m:1.673e-27,   T:1.57e7, d:6e31,
+  t:"Quinze millions de degrés et une densité cent cinquante fois celle de l'eau, et pourtant la matière y reste un gaz classique : la température élevée rétrécit les taches plus vite que la densité ne rapproche les protons."},
+ {n:"Hélium gazeux, 20 °C",             m:4.0026*UMA,  T:293.15, d:2.5e25,
+  t:"Sept fois plus léger que l'azote, donc une tache deux virgule six fois plus grande, ce qui reste très loin du compte."},
+ {n:"Azote liquide, 77 K",              m:28*UMA,      T:77,     d:1.74e28,
+  t:"Froid et dense, mais encore classique. L'azote gèle avant que ses taches ne se recouvrent."},
+ {n:"Hélium liquide, 4,2 K",            m:4.0026*UMA,  T:4.2,    d:2.18e28,
+  t:"Juste au-dessus du seuil. L'hélium liquide ordinaire est déjà un liquide quantique, bien qu'il ne soit pas encore superfluide."},
+ {n:"Hélium superfluide, 2,17 K",       m:4.0026*UMA,  T:2.17,   d:2.18e28,
+  t:"Le point lambda. Le rapport n λ³ y vaut quatre virgule cinq, à comparer au seuil de deux virgule six du gaz parfait. L'écart vient des interactions entre atomes, que le modèle du gaz parfait ignore."},
+ {n:"Rubidium piégé, 1 µK",             m:87*UMA,      T:1e-6,   d:1e20,
+  t:"Juste en dessous du seuil. Un dernier facteur dix sur la température suffit à faire basculer le nuage."},
+ {n:"Rubidium piégé, 100 nK",           m:87*UMA,      T:1e-7,   d:1e20,
+  t:"Le condensat de Bose-Einstein, obtenu pour la première fois en 1995. Tous les atomes tombent dans le même état quantique et le nuage se comporte comme une onde unique."},
+ {n:"Électrons d'un fil de cuivre",     m:ME,          T:293.15, d:8.49e28,
+  t:"Sept mille. Les électrons d'un métal sont un gaz quantique dégénéré à toute température ordinaire, et c'est la raison pour laquelle ils ne contribuent presque pas à la chaleur spécifique d'un métal : la quasi-totalité d'entre eux ne peut pas changer d'état, faute de place libre."},
+ {n:"Électrons d'une naine blanche",    m:ME,          T:1e7,    d:1e36,
+  t:"La pression de ce gaz d'électrons dégénérés est ce qui empêche l'étoile morte de s'effondrer. Elle ne dépend presque pas de la température, d'où la limite de masse de Chandrasekhar."},
+ {n:"Neutrons d'une étoile à neutrons", m:1.675e-27,   T:1e8,    d:1e44,
+  t:"Cent millions de degrés, et pourtant le plus quantique de tous les systèmes de cette liste, parce que la densité y est celle d'un noyau atomique."}
+];
+let n3={sel:8};
+function drawN3(){
+  const {W,H,xg,xb,xe,y0,dy,lo,hi}=N3;
+  const X=v=>xb+(Math.log10(v)-lo)/(hi-lo)*(xe-xb);
+  const vals=MONDE.map(o=>({...o, v:o.d*Math.pow(lamTh(o.m,o.T),3)}));
+  const ordre=vals.map((o,i)=>i).sort((a,b)=>vals[a].v-vals[b].v);
+  const yb=y0+ordre.length*dy+8;
+  let s=tx(xg,44,"Le même critère, appliqué à onze systèmes",{size:18,w:600});
+  s+=tx(xg,66,"à droite du trait, les taches se recouvrent et la statistique quantique s'impose",{size:14,fill:MUT});
+  for(let k=lo;k<=hi;k+=2){
+    const x=X(Math.pow(10,k));
+    s+=`<path d="M${x.toFixed(1)} ${y0-6}V${yb}" stroke="#efece5"/>`;
+    s+=tx(x,yb+24,"10"+expo(k),{size:12,fill:MUT,anchor:"middle"});
+  }
+  s+=`<path d="M${xb} ${yb}H${xe}" stroke="${INK}"/>`;
+  s+=tx(xe,yb+48,"n λ³",{size:15,fill:MUT,anchor:"end",w:600});
+  ordre.forEach((idx,r)=>{
+    const o=vals[idx], y=y0+r*dy, on=idx===n3.sel, q=o.v>2.612;
+    const col=q?RED:(o.v>0.05?OR:"#5d6672");
+    if(on) s+=`<rect x="${xg-8}" y="${y-4}" width="${W-xg-12}" height="${dy-4}" fill="${col}" opacity=".08"/>`;
+    s+=`<path d="M${xg} ${(y+dy-6).toFixed(1)}H${xe}" stroke="#f2efe8"/>`;
+    s+=tx(xg,y+16,o.n,{size:15,w:on?700:400});
+    const x2=X(Math.max(Math.pow(10,lo),o.v));
+    s+=`<rect x="${xb}" y="${y+5}" width="${Math.max(2,x2-xb).toFixed(1)}" height="14" rx="3" fill="${col}" opacity="${on?0.95:0.6}"/>`;
+    s+=tx(x2+8,y+16,nombre(o.v),{size:13});
+    s+=`<rect data-i="${idx}" x="${xg-8}" y="${y-4}" width="${W-xg-12}" height="${dy-2}" fill="transparent" style="cursor:pointer"/>`;
+  });
+  const xs=X(2.612);
+  s+=`<path d="M${xs.toFixed(1)} ${y0-16}V${yb}" stroke="${VIO}" stroke-width="2" stroke-dasharray="5 4"/>`;
+  s+=tx(xs,y0-22,"seuil : n λ³ = 2,612",{size:13,fill:VIO,anchor:"middle",w:600});
+  put("f3",W,H,s);
+  const o=vals[n3.sel];
+  $("f3L").innerHTML="<b>"+o.n+", n λ³ = "+nombre(o.v)+".</b> "+o.t;
+}
+$("f3").addEventListener("click",e=>{
+  const d=e.target&&e.target.dataset?e.target.dataset.i:null;
+  if(d===undefined||d===null||d==="") return;
+  n3.sel=+d; drawN3();
+});
+
+/* ---------------- démarrage ---------------- */
+drawN1(); drawN2(); drawN3();
+
+</script>
+</body>
+</html>

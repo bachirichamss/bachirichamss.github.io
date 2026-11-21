@@ -223,6 +223,15 @@ const V_PART = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" 
 <rect x="148" y="76" width="38" height="56" fill="#fdf6e8" stroke="#d9730d"/><text x="167" y="100" fill="#d9730d">Z</text><text x="167" y="122" fill="#d9730d">W</text>
 </g></svg>`;
 
+const V_THERM = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
+<rect x="10" y="26" width="66" height="80" fill="#fafbfc" stroke="#c3c9d1"/>
+<rect x="108" y="16" width="84" height="100" fill="#fafbfc" stroke="#c3c9d1"/>
+<g fill="#1f4f8f" opacity="0.16"><circle cx="24" cy="40" r="6"/><circle cx="43" cy="40" r="6"/><circle cx="62" cy="40" r="6"/><circle cx="24" cy="66" r="6"/><circle cx="43" cy="66" r="6"/><circle cx="62" cy="66" r="6"/><circle cx="24" cy="92" r="6"/><circle cx="43" cy="92" r="6"/><circle cx="62" cy="92" r="6"/></g>
+<g fill="#1f4f8f"><circle cx="24" cy="40" r="2.6"/><circle cx="43" cy="40" r="2.6"/><circle cx="62" cy="40" r="2.6"/><circle cx="24" cy="66" r="2.6"/><circle cx="43" cy="66" r="2.6"/><circle cx="62" cy="66" r="2.6"/><circle cx="24" cy="92" r="2.6"/><circle cx="43" cy="92" r="2.6"/><circle cx="62" cy="92" r="2.6"/></g>
+<g fill="#1f4f8f" opacity="0.16"><circle cx="128" cy="40" r="17"/><circle cx="150" cy="40" r="17"/><circle cx="172" cy="40" r="17"/><circle cx="128" cy="66" r="17"/><circle cx="150" cy="66" r="17"/><circle cx="172" cy="66" r="17"/><circle cx="128" cy="92" r="17"/><circle cx="150" cy="92" r="17"/><circle cx="172" cy="92" r="17"/></g>
+<g fill="#1f4f8f"><circle cx="128" cy="40" r="2.6"/><circle cx="150" cy="40" r="2.6"/><circle cx="172" cy="40" r="2.6"/><circle cx="128" cy="66" r="2.6"/><circle cx="150" cy="66" r="2.6"/><circle cx="172" cy="66" r="2.6"/><circle cx="128" cy="92" r="2.6"/><circle cx="150" cy="92" r="2.6"/><circle cx="172" cy="92" r="2.6"/></g>
+<path d="M84 66h16" stroke="#c8372d" stroke-width="2"/><path d="M100 61.5l6 4.5l-6 4.5z" fill="#c8372d"/></svg>`;
+
 const V_INTERETS = `<svg viewBox="0 0 200 140" aria-hidden="true"><rect width="200" height="140" fill="#fff"/>
 <g fill="none" stroke="#c3c9d1" stroke-width="1">
 <path d="M10 40q45 0 90 26t90 26"/><path d="M10 60q45 0 90 26t90 26"/><path d="M10 20q45 0 90 26t90 26"/>
@@ -265,6 +274,11 @@ const ARTICLES = [
     date: "2026-10-22", duree: "5 min",
     resume: "Deux hypothèses opposées portent sur le même objet : une masse placée en superposition de deux positions. Pour Diósi et Penrose, sa propre gravitation détruit la superposition. Pour Bose, Marletto et Vedral, la gravitation peut au contraire intriquer deux masses, ce qui prouverait qu'elle est quantique. Ce projet consiste à refaire les deux calculs et à tracer où chacun l'emporte.",
     vignette: V_PROJET },
+  { titre: "Qu'est-ce que la longueur d'onde thermique ?",
+    url: "longueur-onde-thermique.html", rubrique: "simulations",
+    date: "2026-11-20", duree: "14 min",
+    resume: "Une particule libre à la température T possède une longueur d'onde, et cette longueur grandit quand la température baisse. Tant qu'elle reste petite devant la distance entre voisines, le gaz se comporte comme un jeu de billes. Quand les deux longueurs deviennent comparables, les ondes se recouvrent et la statistique quantique prend la main. Trois simulations suivent le rapport entre ces deux distances, de l'air de la pièce aux étoiles à neutrons.",
+    vignette: V_THERM },
   { titre: "Toutes les particules connues, et comment les classer",
     url: "particules.html", rubrique: "simulations",
     date: "2026-10-21", duree: "18 min",
